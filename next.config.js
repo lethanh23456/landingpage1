@@ -81,6 +81,6 @@ module.exports = withPlugins(
       }
       return config;
     },
-    distDir: './dist',
+    distDir: './.next',
   },
 );
