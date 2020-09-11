@@ -37,7 +37,7 @@ const TinTucChung = ({ loaiTinTuc }) => {
     function callback(key) {
         loaiTinTuc.map((e) => {
             if (e.chuDe === key) {
-                router.push(`daotao#${Format(e.chuDe)}`);
+                router.push(`tintucchung#${Format(e.chuDe)}`);
             }
         });
         setKey(key);

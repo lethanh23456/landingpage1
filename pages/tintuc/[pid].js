@@ -95,7 +95,7 @@ const TinTuc = ({ data, relate }) => {
                       <Link href="/">Trang chủ</Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                      <Link href="/daotao">Tin tức</Link>
+                      <Link href="/tintucchung">Tin tức</Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
                       {maLoaiTinTuc}

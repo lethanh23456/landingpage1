@@ -96,9 +96,9 @@ const NganhHoc = ({ dataFetch, params }) => {
       <NextSeo
         title={data[0]?.tenNganh}
         description="Thông tin chi tiết về các ngành học tại Học viện Công nghệ Bưu chính Viễn thông"
-        canonical="https://daotao.aisenote.com/"
+        canonical="https://daotaoftu.aisenote.com/"
         openGraph={{
-          url: `https://daotao.aisenote.com/nganhhoc/${namO?.maNganh}`,
+          url: `https://daotaoftu.aisenote.com/nganhhoc/${namO?.maNganh}`,
           title: data[0]?.tenNganh,
           description:
             'Thông tin chi tiết về các ngành học tại Học viện Công nghệ Bưu chính Viễn thông',

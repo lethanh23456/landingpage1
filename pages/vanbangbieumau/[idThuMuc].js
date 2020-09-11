@@ -28,9 +28,9 @@ const VanBanBieuMau = ({ dataFetch, params }) => {
             <NextSeo
                 title={data[0]?.tenThuMuc}
                 description="Thông tin chi tiết về các Văn bản biểu mẫu của Trường Đại học Ngoại thương"
-                canonical="https://daotao.aisenote.com/"
+                canonical="https://daotaoftu.aisenote.com/"
                 openGraph={{
-                    url: `https://daotao.aisenote.com/`,
+                    url: `https://daotaoftu.aisenote.com/`,
                     title: data[0]?.tenThuMuc,
                     description:
                         'Thông tin chi tiết về các Văn bản biểu mẫu của Trường Đại học Ngoại thương',

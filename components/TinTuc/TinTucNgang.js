@@ -72,14 +72,14 @@ const TinTucNgang = ({ title }) => {
             textAlign: "center",
           }}
         >
-          <Link href="daotao#thongbao">
+          <Link href="tintucchung#thongbao">
             <a
               style={{
                 width: 135,
                 display: "inline-flex",
               }}
               className="button-more"
-              href="daotao#thongbao"
+              href="tintucchung#thongbao"
             >
               <ButtonDetailWrapper
                 type="button"

@@ -74,14 +74,14 @@ const TinTuc = ({ title }) => {
             textAlign: "center",
           }}
         >
-          <Link href="daotao">
+          <Link href="tintucchung">
             <a
               style={{
                 width: "135",
                 display: "inline-flex",
               }}
               className="button-more"
-              href="daotao"
+              href="tintucchung"
             >
               <ButtonDetailWrapper
                 type="button"

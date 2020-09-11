@@ -51,8 +51,8 @@ const Banner = ({ }) => {
                   <br />
                   <Description>{_.get(award, "moTa", "")}</Description>
                   <br />
-                  <Link href="daotao#tuyendung">
-                    <a href="daotao#tuyendung">
+                  <Link href="tintucchung#tuyendung">
+                    <a href="tintucchung#tuyendung">
                       <Button
                         style={{
                           textAlign: "center",
