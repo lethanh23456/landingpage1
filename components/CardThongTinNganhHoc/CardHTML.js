@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
-import Container from '../UI/Container';
+import Container from 'components/UI/Container';
 import {
   GoTo, TitleHTML,
   WrapperCard
@@ -11,21 +11,19 @@ import {
 export function TongQuan({ tongQuan }) {
   console.log(tongQuan, 'card html')
   return (
-    <div style={{ backgroundColor: '#fff' }}>
-      <Container>
-        <GoTo id="tongquan" />
-        <WrapperCard order="first" >
-          <TitleHTML>Tổng quan</TitleHTML>
-          <div dangerouslySetInnerHTML={{ __html: tongQuan }} />
-        </WrapperCard>
-      </Container>
-    </div>
+    <Container>
+      <GoTo id="tongquan" />
+      <WrapperCard order="first">
+        <TitleHTML>Tổng quan</TitleHTML>
+        <div dangerouslySetInnerHTML={{ __html: tongQuan }} />
+      </WrapperCard>
+    </Container>
   );
 }
 
 export function ChuanDauRa({ chuanDauRa }) {
   return (
-    <WrapperCard type="grey" style={{ paddingBottom: '20px' }}>
+    <WrapperCard type="grey" style={{ paddingBottom: '0px' }}>
       <GoTo id="chuandaura" />
       <Container>
         <TitleHTML>Chuẩn đầu ra </TitleHTML>
@@ -39,7 +37,7 @@ export function ChuanDauRa({ chuanDauRa }) {
 
 export function TrienVongNgheNghiep({ ngheNghiep }) {
   return (
-    <WrapperCard style={{ padding: '0px 0px 20px 0px', backgroundColor: '#fff' }}>
+    <WrapperCard style={{ padding: '0px' }}>
       <GoTo id="nghenghiep" />
 
       <Container>
@@ -64,7 +62,7 @@ export function HocPhi({ hocPhi }) {
 
 export function DieuienTuyenSinh({ dieuKienTuyenSinh }) {
   return (
-    <WrapperCard style={{ backgroundColor: '#fff' }}>
+    <WrapperCard >
       <GoTo id="dieukientuyensinh" />
 
       <Container>

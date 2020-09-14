@@ -125,8 +125,7 @@ export const ContentWrapper = styled.div`
       z-index: 999;
       background: #fff;
       box-shadow: 0px 3px 8px 0px rgba(43, 83, 135, 0.08);
-      padding: 0px 0;
-      top: 0px;
+      padding: 15px 0;
     }
   }
 
@@ -137,7 +136,7 @@ export const ContentWrapper = styled.div`
     left: 0;
     width: 100%;
     transition: 0.35s ease-in-out;
-    padding: 0px 0;
+    padding: 30px 0;
     .main_menu {
       margin-right: 40px;
       li {

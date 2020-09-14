@@ -1,6 +1,6 @@
 /* eslint-disable arrow-parens */
+import Container from 'components/UI/Container';
 import styled, { css } from 'styled-components';
-import Container from '../UI/Container';
 
 // eslint-disable-next-line import/prefer-default-export
 export const RowHocKy = styled.div`

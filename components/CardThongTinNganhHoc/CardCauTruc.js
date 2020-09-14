@@ -17,7 +17,7 @@ export default function Card({ data }) {
   console.log(data, 'cauTrucChuongTrinh');
 
   return (
-    <WrapperCardTitle style={{ paddingBottom: 0, backgroundColor: '#fff' }}>
+    <WrapperCardTitle style={{ paddingBottom: 0 }}>
       <GoTo id="cautrucchuongtrinh" />
       <Container>
         <TitleHTML>Cấu trúc chương trình các chuyên ngành</TitleHTML>
@@ -34,11 +34,11 @@ export default function Card({ data }) {
               </ContentHTML>
             </Container>
             <ContainerWrapper>
-              {cauTrucChuongTrinh.map(({ hocKy, soTinChi, monHoc }, index) => (
+              {cauTrucChuongTrinh.map(({ hocKy, soTinChi, monHoc }) => (
                 <RowHocKy>
                   <WrapperCard>
                     <CardHocKy>
-                      <TitleCauTruc>{`Học kỳ ${index + 1}`}</TitleCauTruc>
+                      <TitleCauTruc>{`Học kỳ ${hocKy}`}</TitleCauTruc>
                       <div>{`(${soTinChi} TC)`}</div>
                     </CardHocKy>
                   </WrapperCard>
@@ -57,7 +57,7 @@ export default function Card({ data }) {
               <TienQuyetHocPhan hocPhanTuChon={hocPhanTuChon} />
             </Container>
             <Container>
-              <Divider style={{ marginBottom: 0 }} />
+              <Divider />
             </Container>
           </>
         )

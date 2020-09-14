@@ -4,14 +4,14 @@ import findImg from 'assets/image/find.png';
 import searchImg from 'assets/image/Search.png';
 import submitImg from 'assets/image/Submit.png';
 import React from 'react';
-import Container from '../UI/Container';
+import Container from 'components/UI/Container';
 import { GoTo, TitleHTML, WrapperCard } from './CardHTML.style';
 import { CardQuyTrinh, TitleQuyTrinh } from './QuyTrinhNhapHoc.style';
 
 
 export default function QuyTrinhNhapHoc() {
   const tuyenSinh = () => {
-    window.open('https://tuyensinh.ftu.edu.vn/');
+    window.open('https://tuyensinh2.ptit.edu.vn/');
   };
   return (
     <WrapperCard type="grey" style={{ marginBottom: '32px' }}>

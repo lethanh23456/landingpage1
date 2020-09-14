@@ -1,4 +1,4 @@
-module.exports = function (api) {
+module.exports = function(api) {
   api.cache(true);
 
   const presets = ['next/babel'];
@@ -16,6 +16,5 @@ module.exports = function (api) {
   return {
     presets,
     plugins,
-    babelrcRoots: ['.']
   };
 };

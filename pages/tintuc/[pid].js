@@ -1,31 +1,31 @@
 import {
   Avatar,
-  Breadcrumb, Card,
+  Button,
+  Card,
   Col,
-  Divider, List,
-  Row
+  List,
+  Row,
+  Breadcrumb,
+  Divider,
 } from "antd";
 import axios from "axios";
+import Link from "next/link";
 import Container from "components/UI/Container";
 import { ip } from "data/ip";
 import _ from "lodash";
 import moment from "moment";
-import { NextSeo } from "next-seo";
-import Link from "next/link";
 import React, { useEffect } from "react";
 import Sticky from "react-stickynode";
 import Box from "components/Box";
+import { NextSeo } from "next-seo";
 import { TitleLinkWrapper } from "../../styles/baiviet.style";
 
+// moment().locale('vi');
+
 const TinTuc = ({ data, relate }) => {
-  useEffect(() => {
-    if (window) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  });
+  useEffect(() => { });
+  // console.log(data, 'relate');
+  // console.log(relate, 'relate');
 
   const ngayDang = _.get(data, "ngayDang", "");
   const tieuDe = _.get(data, "tieuDe", "");
@@ -33,7 +33,6 @@ const TinTuc = ({ data, relate }) => {
   const noiDung = _.get(data, "noiDung", "");
   const nguoiDang = _.get(data, "nguoiDang.hoTen", "");
   const anhDaiDien = _.get(data, "anhDaiDien", "");
-  const maLoaiTinTuc = _.get(data, "maLoaiTinTuc", "");
   const slug = _.get(data, "slug", "");
   const renderTitle = (title) => {
     if (title <= 105) {
@@ -49,14 +48,26 @@ const TinTuc = ({ data, relate }) => {
     }
     return s;
   };
+
+  const test = async () => {
+    const response = await axios.get(`${ip}/bai-viet`, {
+      params: {
+        cond: {
+          maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
+        },
+      },
+    });
+    const listPath = _.get(response, "data.data", []);
+    // console.log(listPath, 'path post');
+  };
   return (
     <>
       <NextSeo
         title={tieuDe}
         description={moTa}
-        canonical="https://ftudev.aisenote.com/"
+        canonical="https://daotao.aisenote.com/"
         openGraph={{
-          url: `https://ftudev.aisenote.com/tintuc/${slug}`,
+          url: `https://daotao.aisenote.com/tintuc/${slug}`,
           title: tieuDe,
           description: moTa,
           images: [
@@ -67,7 +78,7 @@ const TinTuc = ({ data, relate }) => {
               alt: "Tin tức",
             },
           ],
-          site_name: "Phòng Quản lý Đào tạo Trường Đại học Ngoại Thương",
+          site_name: "Phòng Đào tạo Học viện Công nghệ Bưu chính viễn thông",
         }}
         twitter={{
           handle: "@handle",
@@ -96,9 +107,6 @@ const TinTuc = ({ data, relate }) => {
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
                       <Link href="/tintucchung">Tin tức</Link>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
-                      {maLoaiTinTuc}
                     </Breadcrumb.Item>
                   </Breadcrumb>
                   <Divider />
@@ -135,7 +143,7 @@ const TinTuc = ({ data, relate }) => {
                 {nguoiDang !== "" ? (
                   <p
                     style={{
-                      color: "##940D0F",
+                      color: "#222",
                       textAlign: "right",
                       fontWeight: "bold",
                     }}
@@ -195,24 +203,44 @@ const TinTuc = ({ data, relate }) => {
   );
 };
 
+// export async function getStaticPaths() {
+//   // Call an external API endpoint to get posts
+//   // Get the paths we want to pre-render based on posts
+//   const response = await axios.get(`${ip}/bai-viet`, {
+//     params: {
+//       cond: {
+//         maLoaiBaiViet: 'TIN_TUC_HOC_VIEN',
+//       },
+//     },
+//   });
+//   const listPath = _.get(response, 'data.data', []);
+//   const paths = [];
+//   listPath.map(item => {
+//     paths.push({
+//       params: { pid: item.slug },
+//     });
+//   });
+
+//   // We'll pre-render only these paths at build time.
+//   // { fallback: false } means other routes should 404.
+//   return { paths, fallback: true };
+// }
+
 export async function getServerSideProps({ params }) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
 
   // chi tiết bài viết
-  // params có trường pid (giống với tên file [pid] được 
-  // get theo id truyền vào)
-  let response = await axios.get(`${ip}/sotay/tintuc/${params.pid}`);
+  let response = await axios.get(`${ip}/bai-viet/${params.pid}`);
   // console.log(response, 'tin tuc bai viet');
   const data = _.get(response, "data.data", {});
-  const maLoaiTinTuc = _.get(data, "maLoaiTinTuc", "");
   // relate
-  response = await axios.get(`${ip}/sotay/tintuc`, {
+  response = await axios.get(`${ip}/bai-viet`, {
     params: {
       page: 1,
       limit: 4,
       cond: {
-        maLoaiTinTuc
+        maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
       },
     },
   });

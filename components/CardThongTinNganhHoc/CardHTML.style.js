@@ -5,7 +5,7 @@ export const WrapperCard = styled.div`
   ${props =>
     props.type === 'grey'
       ? css`
-          background: #e5e5e5 ;
+          background: #e5e5e5;
         `
       : css`
           background: 'white';

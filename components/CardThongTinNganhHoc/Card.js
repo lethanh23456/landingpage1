@@ -1,13 +1,17 @@
-import { Col, Row } from 'antd';
+import React from 'react';
+import moment from 'moment';
 import dauThang from 'assets/image/nganhhoc/#.png';
 import diaDiemImg from 'assets/image/nganhhoc/diadiem.png';
+
 import dongHoImg from 'assets/image/nganhhoc/dongho.png';
+
 import LichImg from 'assets/image/nganhhoc/Lich.png';
+
 import Lich2Img from 'assets/image/nganhhoc/Lich2.png';
+
+import { Row, Col } from 'antd';
+import { MaNganhHoc, BgCard, Title, Content } from './Card.style';
 import Container from 'components/UI/Container';
-import moment from 'moment';
-import React from 'react';
-import { BgCard, Content, MaNganhHoc, Title } from './Card.style';
 
 export default function Card({ namO }) {
   const { maNganh, thoiGianDaoTao, kyNhapHoc, hanNopHoSo, coSo } = namO;

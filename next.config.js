@@ -13,7 +13,7 @@ const path = require('path');
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(fs.readFileSync(path.resolve('./assets/antd-custom.less'), 'utf8'));
 if (typeof require !== 'undefined') {
-  require.extensions['.less'] = file => { };
+  require.extensions['.less'] = (file) => { };
 }
 
 module.exports = withPlugins(

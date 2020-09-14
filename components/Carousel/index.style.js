@@ -8,9 +8,6 @@ const TestimonialSecWrapper = styled.section`
     padding-left: 15px;
     padding-right: 15px;
   }
-  @media (max-width: 360px) {
-    margin-top: -190px;
-  }
 
   .glide {
     &:hover {

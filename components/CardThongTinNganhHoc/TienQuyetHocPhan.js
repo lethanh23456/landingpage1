@@ -1,13 +1,9 @@
 import { Col, Row } from 'antd';
+import Container from 'components/UI/Container';
 import React from 'react';
-import Container from '../UI/Container';
 import {
   CardContentGiaiThich, CardGiaiThich,
-
-
-
   InsideTitle, ShapeNhanBiet,
-
   TextShapeNhanBiet,
   TextTuChon, TitleGiaiThich
 } from './TienQuyetHocPhan.style';

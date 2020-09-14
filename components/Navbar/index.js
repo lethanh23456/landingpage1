@@ -1,15 +1,22 @@
-import { Drawer, Icon, Menu, Row, Spin } from "antd";
-import axios from "axios";
-import { ip } from "data/ip";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import styled from "styled-components";
-import {
-  ContainerLogo,
-  LogoWrapper
-} from "./components/MenuHeaderFirst/index.style";
-import MenuHeaderSecond from "./components/MenuHeaderSecond";
+/* eslint-disable semi */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable indent */
+import { Button, Drawer, Icon, Menu } from 'antd';
+// import { MENU_ITEMS_MOBILE } from 'common/src/data/Hosting/data';
+import LogoImage from 'assets/image/hosting/logo.png';
+import axios from 'axios';
+import Box from 'components/Box';
+import ScrollSpyMenu from 'components/ScrollSpyMenu';
+import { ip } from 'data/ip';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import styled from 'styled-components';
+import Container from './ContainerMenu/index';
+import NavbarWrapper from './Navbar';
+
+
 
 const { Item, SubMenu } = Menu;
 export const AWrapper = styled.a`
@@ -17,7 +24,7 @@ export const AWrapper = styled.a`
   height: 80px !important;
   padding: 10px 20px !important;
   &:hover {
-    color: #940d0f !important;
+    color: #eb4d4b !important;
     background-color: yellow !important;
   }
 `;
@@ -29,85 +36,62 @@ export const ItemAntd = styled(Item)`
   & a {
     color: rgb(52, 61, 72);
   }
-  &:hover a::before {
+  &:hover a::before{
     /* border-bottom: 1.5px solid #FF3D3B; */
-    content: "";
-    color: #ff3d3b !important;
+    content: '';
+    color: #FF3D3B !important;
   }
 `;
 
-const Navbar = ({ }) => {
+const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const isDesktop = useMediaQuery({
-    query: "(max-device-width: 768px)",
+    query: '(max-device-width: 1380px)',
   });
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 768px)",
+    query: '(max-device-width: 768px)',
   });
 
   const [daotao, setDaotao] = useState([]);
-  const [vbbm, setVBBM] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showDrawer, setShowDrawer] = useState(false);
-
   useEffect(() => {
     (async function wrapFunc() {
-      setLoading(false);
+      setLoading(false)
       const response = await axios.get(`${ip}/he-dao-tao`, {
         params: {
           page: 1,
           limit: 1000,
+          // cond: {
+          //   maLoaiBaiViet: 'THONG-DIEP'
+          // }
         },
       });
-      const ctrDaoTao = _.get(response, "data.data", []);
+      const ctrDaoTao = _.get(response, 'data.data', []);
       setDaotao(ctrDaoTao);
-      const responseVB = await axios.get(`${ip}/sotay/vanban/web`, {
-        params: {
-          page: 1,
-          limit: 1000,
-        },
-      });
-      const ctrVBBM = _.get(responseVB, 'data.data', []);
-      setVBBM(ctrVBBM);
     })();
   }, []);
 
   const daotaoDesk = () => {
     let res = [];
-    daotao.map((item) => {
+    daotao.map(item => {
       res.push(
         <SubMenu
           title={
             <span style={{ fontSize: isDesktop ? 14 : 18 }}>
-              {item?.tenHeDaoTao ?? ""}
+              {item?.tenHeDaoTao ?? ''}
             </span>
           }
         >
           {item.nganhDaoTao.map((e, ind) => (
             <ItemAntd>
-              <Link href={`/nganhhoc/${e?.maNganh ?? ""}`}>
+              <Link href={`/nganhhoc/${e?.maNganh ?? ''}`}>
                 <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-                  {e?.tenNganh ?? ""}
+                  {e?.tenNganh ?? ''}
                 </a>
               </Link>
             </ItemAntd>
           ))}
-        </SubMenu>
-      );
-    });
-    return res;
-  };
-
-  const vbbmDesk = () => {
-    let res = [];
-    vbbm.map((item) => {
-      res.push(
-        <ItemAntd>
-          <Link href={`/vanbangbieumau/${item?._id ?? ""}`}>
-            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-              {item?.tenThuMuc ?? ""}
-            </a>
-          </Link>
-        </ItemAntd >,
+        </SubMenu>,
       );
     });
     return res;
@@ -115,30 +99,60 @@ const Navbar = ({ }) => {
 
   let MENU_ITEMS = [
     {
-      label: "TRANG CHỦ",
-      path: "/#",
+      label: 'TRANG CHỦ',
+      path: '#',
+      offset: '70',
     },
     {
       hover: true,
-      label: "TIN TỨC",
-      path: "/daotao",
+      label: 'GIỚI THIỆU CHUNG',
+      path: '#',
+      offset: '70',
+      submenu: [
+        <ItemAntd>
+          <Link href="/doinguchitiet">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
+              Đội ngũ cán bộ
+            </a>
+          </Link>
+        </ItemAntd>,
+        <ItemAntd>
+          <Link href="/chucnangnhiemvu">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
+              Chức năng - Nhiệm vụ
+            </a>
+          </Link>
+        </ItemAntd>,
+      ],
+    },
+    {
+      label: 'TIN TỨC',
+      path: 'tintucchung',
+      offset: '70',
     },
     {
       hover: true,
-      label: "CHƯƠNG TRÌNH ĐÀO TẠO",
-      path: "/#",
+      label: 'CHƯƠNG TRÌNH ĐÀO TẠO',
+      path: '#',
+      offset: '70',
+      // </Menu >
       submenu: daotaoDesk(),
     },
     {
-      label: "VĂN BẢN BIỂU MẪU",
-      path: "/#",
-      submenu: vbbmDesk(),
+      label: 'TRA CỨU VĂN BẰNG',
+      path: 'vanbangchungchi',
+      offset: '70',
     },
     {
-      label: "TRA CỨU VĂN BẰNG",
-      path: "/vanbangchungchi",
+      label: 'CƠ HỘI VIỆC LÀM',
+      path: 'tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam',
+      offset: '70',
     },
   ];
+
+  console.log(isMobile, 'test nav');
+
+  const handleClick = () => { };
 
   const closeDrawer = () => {
     setShowDrawer(false);
@@ -149,61 +163,181 @@ const Navbar = ({ }) => {
   };
 
   return (
-    <>
-      <Row style={{ backgroundColor: 'white' }}>
-        <div id="nav-bar">
-          {/* <NavbarWrapper {...navbarStyle}> */}
-          <div style={{ padding: "0px 10px" }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Link href="/" style={{ cursor: 'pointer' }}>
-                <ContainerLogo>
-                  <LogoWrapper />
-                </ContainerLogo>
-              </Link>
+    <div id="nav-bar">
+      <NavbarWrapper {...navbarStyle}>
+        <Container>
+          <Box {...row}>
+            {/* <Logo href="/" logoSrc={LogoImage} title="PTIT" logoStyle={logoStyle} /> */}
+            <Link href={`/`}>
+              <a ><img src={LogoImage} alt="logo" /></a>
+            </Link>
+            <Box {...menuWrapper}>
+              {!isDesktop && !loading && <ScrollSpyMenu menuItems={MENU_ITEMS} offset={-60} isDesktop={isDesktop} onClose={closeDrawer} />}
+              {/* {!isDesktop &&
+                <Button
+                  // {...button}
+                  onClick={CNDPT}
+                  style={{
+                    backgroundColor: '#E50303',
+                    color: 'white',
+
+                    fontSize: 'calc(0.5em + 0.3vw)',
+                    fontWeight: 'bold',
+                    height: 40,
+                    marginRight: 10,
+                    marginLeft: 10,
+                  }}
+                ><span style={{ fontFamily: "'Roboto', sans- serif" }}>THI TIẾNG ANH</span></Button>
+              } */}
+              {!isDesktop && !loading && (
+                <Button
+                  // {...button}
+                  onClick={() => window.open('https://tuyensinh2.ptit.edu.vn/')}
+                  style={{
+                    backgroundColor: '#E50303',
+                    color: 'white',
+                    fontFamily: "'Roboto', sans- serif",
+                    fontSize: 'calc(0.5em + 0.3vw)',
+                    fontWeight: 'bold',
+                    height: 40,
+                    marginLeft: 10,
+                  }}
+                >
+                  <span style={{ fontFamily: "'Roboto', sans- serif" }}>TUYỂN SINH</span>
+                </Button>
+              )}
               {isDesktop && (
                 <Icon
                   type="menu-fold"
-                  style={{
-                    fontSize: 35,
-                    color: "#FF3D3B",
-                    marginTop: "34px",
-                  }}
+                  style={{ fontSize: 35, color: '#FF3D3B' }}
                   onClick={openDrawer}
                 />
               )}
-            </div>
-          </div>
-          {!isDesktop && !loading && (
-            <Spin spinning={loading}>
-              <MenuHeaderSecond
-                menuItems={MENU_ITEMS}
-                offset={-60}
-                isDesktop={isDesktop}
+              <Drawer
+                visible={showDrawer}
+                width={!isMobile ? '40%' : '90%'}
+                destroyOnClose
+                closable
                 onClose={closeDrawer}
-              />
-            </Spin>
-          )}
-          <Drawer
-            visible={showDrawer}
-            width={!isMobile ? "40%" : "90%"}
-            destroyOnClose
-            closable
-            onClose={closeDrawer}
-            bodyStyle={{ padding: "10px 0px" }}
-          >
-            <MenuHeaderSecond
-              className="main_menu"
-              menuItems={MENU_ITEMS}
-              offset={-60}
-              isDesktop={isDesktop}
-              onClose={closeDrawer}
-            />
-          </Drawer>
-          {/* </NavbarWrapper> */}
-        </div>
-      </Row>
-    </>
+                bodyStyle={{ padding: '10px 0px' }}
+              >
+                {/* <p>aaaaaaaaaaaa</p> */}
+                <ScrollSpyMenu className="main_menu" menuItems={MENU_ITEMS} offset={-60} isDesktop={isDesktop} onClose={closeDrawer} />
+              </Drawer>
+              {/* <Drawer
+                width="420px"
+                placement="right"
+                drawerHandler={<HamburgMenu barColor="#eb4d4b" />}
+                open={state.isOpen}
+                toggleHandler={toggleHandler}
+              >
+                <Menu
+                  onClick={handleClick}
+                  style={{ width: 296 }}
+                  // defaultSelectedKeys={['1']}
+                  mode="inline"
+                >
+                  {MENU_ITEMS_MOBILE.map((menu, index) => {
+                    if (menu.label === 'THI TIẾNG ANH' || menu.label === 'TUYỂN SINH') {
+                      return (
+                        <Menu.Item
+                          key={index}
+                          onClick={
+                            menu.label === 'TUYỂN SINH'
+                              ? () => window.open('https://tuyensinh2.ptit.edu.vn/', '_blank')
+                              : thiTA()
+                          }
+                        >
+                          {menu.label}
+                        </Menu.Item>
+                      );
+                    }
+                    if (menu.children.length === 0) {
+                      return (
+                        <Menu.Item key={index}>
+                          <Link href={menu.path}>
+                            <a>{menu.label}</a>
+                          </Link>
+                        </Menu.Item>
+                      );
+                    }
+                    return (
+                      <SubMenu key={index} title={menu.label}>
+                        {menu.children.map((e, ind) => {
+                          if (e.children.length === 0) {
+                            return (
+                              <Menu.Item key={`sub${ind}-${index}`}>
+                                <Link href={e.path}>
+                                  <a>{e.label}</a>
+                                </Link>
+                              </Menu.Item>
+                            );
+                          }
+                          return (
+                            <SubMenu key={`sub${ind}-${index}`} title={e.label}>
+                              {e.children.map((ex, indd) => (
+                                <Menu.Item key={`subs${indd}-${ind}`}>
+                                  <Link href={ex.path}>
+                                    <a>{ex.label}</a>
+                                  </Link>
+                                </Menu.Item>
+                              ))}
+                            </SubMenu>
+                          );
+                        })}
+                      </SubMenu>
+                    );
+                  })}
+                </Menu>
+              </Drawer> */}
+            </Box>
+          </Box>
+        </Container>
+      </NavbarWrapper>
+    </div>
   );
+};
+
+Navbar.propTypes = {
+  navbarStyle: PropTypes.object,
+  logoStyle: PropTypes.object,
+  button: PropTypes.object,
+  row: PropTypes.object,
+  menuWrapper: PropTypes.object,
+};
+
+Navbar.defaultProps = {
+  navbarStyle: {
+    className: 'hosting_navbar',
+    minHeight: '70px',
+    display: 'block',
+  },
+  row: {
+    flexBox: true,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
+  logoStyle: {
+    maxWidth: ['120px', '130px'],
+  },
+  button: {
+    type: 'button',
+    fontSize: 'calc(0.5em + 0.3vw)',
+    fontWeight: '500',
+    color: 'white',
+    borderRadius: '4px',
+    pl: '15px',
+    pr: '15px',
+    colors: 'primaryWithBg',
+    minHeight: 'auto',
+    // height: `${2}`,
+  },
+  menuWrapper: {
+    flexBox: true,
+    alignItems: 'center',
+    // width: '40%',
+  },
 };
 
 export default Navbar;

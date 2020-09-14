@@ -1,14 +1,15 @@
-import styled from "styled-components";
-import { Row } from "antd";
+import styled from 'styled-components';
+import { Row } from 'antd';
 export const ContainerWrapper = styled.div`
   width: 100%;
   color: white;
 `;
 export const FooterTagA = styled.a`
   color: black;
-  &:hover {
+  &:hover{
     color: #c01718;
   }
+  
 `;
 export const Container1Wrapper = styled.div`
   padding: 5px 5% 0 5%;
@@ -59,7 +60,7 @@ export const ItemLiWrapper = styled.div`
     margin: 3px 0;
   }
   & > li::before {
-    content: "•";
+    content: '•';
     color: #f26328;
     margin-left: -1em;
     width: 1em;
@@ -68,7 +69,7 @@ export const ItemLiWrapper = styled.div`
 `;
 
 export const NameWrapper = styled.div`
-  height: 80px;
+  height: 28px;
   /* font-family: 'Roboto' !important; */
   font-style: normal;
   margin-top: 20px;
@@ -76,18 +77,12 @@ export const NameWrapper = styled.div`
   font-weight: 550 !important;
   font-size: 20px;
   line-height: 28px;
-  background-color: white;
-  margin-bottom: 72px;
-  padding-left: 10px;
-  width: 90%;
   /* identical to box height, or 140% */
 
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
   /* Color/ Primary */
-
-  position: relative;
 
   color: #c01718;
 `;
@@ -184,19 +179,19 @@ export const RowWrapper = styled(Row)`
   margin-top: 40px;
   // max-width: 1200px;
   // margin: auto;
-  @media screen and (min-width: "480px") {
+  @media screen and (min-width: '480px') {
     width: 92%;
     margin-left: 4%;
   }
-  @media screen and (min-width: "576px") {
+  @media screen and (min-width: '576px') {
     width: 88%;
     margin-left: 16%;
   }
-  @media screen and (min-width: "768px") {
+  @media screen and (min-width: '768px') {
     width: 84%;
     margin-left: 8%;
   }
-  @media screen and (min-width: "992px") {
+  @media screen and (min-width: '992px') {
     width: 80%;
     margin-left: 10%;
   }

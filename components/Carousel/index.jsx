@@ -4,6 +4,8 @@ import Carousel from './components/Carousel';
 const Index = ({ res }) => (
   <div>
     <Carousel res={res} />
+    {/* <Space /> */}
+    {/* <ChiTiet /> */}
   </div>
 );
 
