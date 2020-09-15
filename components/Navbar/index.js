@@ -2,6 +2,7 @@ import { Drawer, Icon, Menu, Row, Spin } from "antd";
 import axios from "axios";
 import { ip } from "data/ip";
 import Link from "next/link";
+import _ from 'lodash';
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
@@ -121,7 +122,7 @@ const Navbar = ({ }) => {
     {
       hover: true,
       label: "TIN TỨC",
-      path: "/daotao",
+      path: "/tintucchung",
     },
     {
       hover: true,
