@@ -1,16 +1,19 @@
 import { Col, Row, Spin } from "antd";
 import Container from "components/UI/Container";
+import axios from "axios";
 import _ from "lodash";
+import { ip } from "data/ip";
 import moment from "moment";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import CardTinTuc from "../components/CardTinTuc";
 import {
-  ButtonDetailWrapper, ContainerCardDN,
+  ButtonDetailWrapper,
+  ContainerCardDN,
   TinTucHover,
   TinTucWrapper,
-  TitleUnderWrapper
+  TitleUnderWrapper,
 } from "../TinTuc.style";
 import { AwardSectionWrapper } from "./awards.style";
 
@@ -26,70 +29,69 @@ const AwardsSection = ({
   awardDateStyle,
   data,
 }) => {
+  // const maBlock = {_.get(data,'maBlock','')};
   const [relate, setRelate] = useState([]);
-  const [loading, setLoading ] = useState(true);
+  const [loading, setLoading] = useState(true);
+  debugger;
+
+  // maBlock => maLoaiBaiViet => baiviet
   useEffect(() => {
-    // eslint-disable-next-line wrap-iife
-    // (async function wrapFunc() {
-    // const response = await axios.get(`${ip}/bai-viet`, {
-    //   params: {
-    //     page: 1,
-    //     limit: 8,
-    //     cond: {
-    //       maLoaiBaiViet: 'TIN_TUC_HOC_VIEN',
-    //     },
-    //   },
-    // });
-    //   const data = _.get(response, 'data.data', []);
-    //   setRelate(data);
-    // })();
-    // return () => {
-    //   cleanup
-    // }
-    setRelate(data);
+    (async function wrapFunc() {
+      const response = await axios.get(`${ip}/bai-viet`, {
+        params: {
+          page: 1,
+          limit: 8,
+          cond: {
+            // maLoaiBaiViet: maBlock,
+          },
+        },
+      });
+      const dataTinTuc = _.get(response, "data.data", []);
+      setRelate(dataTinTuc);
+    })();
+    return () => {
+      // cleanup
+    };
+    setRelate(dataTinTuc);
     setLoading(false);
   }, []);
+  debugger;
   return (
     <AwardSectionWrapper id="awards_section">
       <Container noGutter mobileGutter width="1170px">
-        <TinTucWrapper>
-          <p>TIN TỨC TỪ HỌC VIỆN</p>
-          <TitleUnderWrapper />
-        </TinTucWrapper>
-        <Spin spinning={loading}>
-          <Row gutter={24} style={{minHeight: 290}}>
-            {relate
-              //  Lấy 4 tin đầu
-              ?.filter((val, i) => i < 4)
-              ?.map((award, index) => (
-                <Col lg={6} md={12}>
-                  <TinTucHover>
-                    <ContainerCardDN>
-                      {/* <CardImgWrapper> */}
-                      {/* <Image
-                          src={award.awardLogo}
-                          // alt={`award-logo-${index}`}
-                          {...awardLogoStyle}
-                        /> */}
-                      <CardTinTuc
-                        href={_.get(award, "slug", "")}
-                        title={_.get(award, "tieuDe", "")}
-                        img={_.get(award, "anhDaiDien", "")}
-                        src={_.get(award, "nguoiDang.hoTen", "")}
-                        time={
-                          _.get(award, "ngayDang", "") !== ""
-                            ? moment(_.get(award, "ngayDang", "")).format(
-                                "DD/MM/YYYY, h:mm"
-                              )
-                            : ""
-                        }
-                      />
-                    </ContainerCardDN>
-                  </TinTucHover>
-                </Col>
-              ))}
-          </Row>
-        </Spin>
+        {data.map((block) => (
+          <TinTucWrapper>
+            <p>{_.get(block, "ten", "")}</p>
+            <TitleUnderWrapper />
+          </TinTucWrapper>
+          //     <Spin spinning={loading}>
+          //     <Row gutter={24} style={{ minHeight: 290 }}>
+          //       {relate
+          //         ?.filter((val, i) => i < 4)
+          //         ?.map((award, index) => (
+          //           <Col lg={6} md={12}>
+          //             <TinTucHover>
+          //               <ContainerCardDN>
+          //                 <CardTinTuc
+          //                   href={_.get(award, "slug", "")}
+          //                   title={_.get(award, "tieuDe", "")}
+          //                   img={_.get(award, "anhDaiDien", "")}
+          //                   src={_.get(award, "nguoiDang.hoTen", "")}
+          //                   time={
+          //                     _.get(award, "ngayDang", "") !== ""
+          //                       ? moment(_.get(award, "ngayDang", "")).format(
+          //                           "DD/MM/YYYY, h:mm"
+          //                         )
+          //                       : ""
+          //                   }
+          //                 />
+          //               </ContainerCardDN>
+          //             </TinTucHover>
+          //           </Col>
+          //         ))}
+          //     </Row>
+          //  </Spin>
+        ))}
         <div
           style={{
             width: "135",
@@ -127,6 +129,85 @@ const AwardsSection = ({
         </div>
       </Container>
     </AwardSectionWrapper>
+    //   ))
+    // }
+    // <AwardSectionWrapper id="awards_section">
+    //   <Container noGutter mobileGutter width="1170px">
+    //     <TinTucWrapper>
+    //       <p>TIN TỨC TỪ HỌC VIỆN</p>
+    //       <TitleUnderWrapper />
+    //     </TinTucWrapper>
+    //     <Spin spinning={loading}>
+    //       <Row gutter={24} style={{ minHeight: 290 }}>
+    //         {relate
+    //           //  Lấy 4 tin đầu
+    //           ?.filter((val, i) => i < 4)
+    //           ?.map((award, index) => (
+    //             <Col lg={6} md={12}>
+    //               <TinTucHover>
+    //                 <ContainerCardDN>
+    //                   {/* <CardImgWrapper> */}
+    //                   {/* <Image
+    //                       src={award.awardLogo}
+    //                       // alt={`award-logo-${index}`}
+    //                       {...awardLogoStyle}
+    //                     /> */}
+    //                   <CardTinTuc
+    //                     href={_.get(award, "slug", "")}
+    //                     title={_.get(award, "tieuDe", "")}
+    //                     img={_.get(award, "anhDaiDien", "")}
+    //                     src={_.get(award, "nguoiDang.hoTen", "")}
+    //                     time={
+    //                       _.get(award, "ngayDang", "") !== ""
+    //                         ? moment(_.get(award, "ngayDang", "")).format(
+    //                             "DD/MM/YYYY, h:mm"
+    //                           )
+    //                         : ""
+    //                     }
+    //                   />
+    //                 </ContainerCardDN>
+    //               </TinTucHover>
+    //             </Col>
+    //           ))}
+    //       </Row>
+    //     </Spin>
+    //     <div
+    //       style={{
+    //         width: "135",
+    //         marginTop: 25,
+    //         textAlign: "center",
+    //       }}
+    //     >
+    //       <Link href="tintucchung">
+    //         <a
+    //           style={{
+    //             width: "135",
+    //             display: "inline-flex",
+    //           }}
+    //           className="button-more"
+    //           href="tintucchung"
+    //         >
+    //           <ButtonDetailWrapper
+    //             type="button"
+    //             style={{
+    //               margin: "0 auto",
+    //             }}
+    //           >
+    //             <div
+    //               style={{
+    //                 margin: "0 auto",
+    //                 fontWeight: 500,
+    //                 fontSize: "16px",
+    //               }}
+    //             >
+    //               XEM CHI TIẾT
+    //             </div>
+    //           </ButtonDetailWrapper>
+    //         </a>
+    //       </Link>
+    //     </div>
+    //   </Container>
+    // </AwardSectionWrapper>
   );
 };
 
