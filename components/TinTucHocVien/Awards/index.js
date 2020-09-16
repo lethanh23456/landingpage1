@@ -32,7 +32,7 @@ const AwardsSection = ({
   // const maBlock = {_.get(data,'maBlock','')};
   const [relate, setRelate] = useState([]);
   const [loading, setLoading] = useState(true);
-  debugger;
+  ;
 
   // maBlock => maLoaiBaiViet => baiviet
   useEffect(() => {
@@ -55,7 +55,7 @@ const AwardsSection = ({
     setRelate(dataTinTuc);
     setLoading(false);
   }, []);
-  debugger;
+  ;
   return (
     <AwardSectionWrapper id="awards_section">
       <Container noGutter mobileGutter width="1170px">

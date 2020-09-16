@@ -22,7 +22,7 @@ export default ({
   dataBlockTinTuc,
 }) => {
   console.log(dataBlock, "trang chu relate");
-  // debugger;
+  // ;
   const renderModules = (modules) => {
     switch (modules.loaiComponent) {
       case "CAROUSEL":
