@@ -108,7 +108,6 @@ const TinTuc = ({ data, relate }) => {
                 >
                   {ngayDang !== ""
                     ? moment(ngayDang)
-                      .lang("vi")
                       .format("MMMM Do YYYY, h:mm:ss ")
                     : ""}
                 </p>
