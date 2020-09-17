@@ -111,7 +111,7 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
   };
   // console.log('page, total, pageSize', page, total, pageSize);
   // console.log(loaiTinTuc, "loai tin tuc");
-  // debugger;
+  // ;
   return (
     <Box style={{ marginTop: 120 }}>
       <Container>

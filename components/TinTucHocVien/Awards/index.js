@@ -32,10 +32,6 @@ const AwardsSection = ({
   const maBlockTinTuc = _.get(data[0], "_id", []);
   const [relate, setRelate] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [relateBlock, setRelateBlock] = useState([]);
-  const [loadingBlock, setLoadingBlock] = useState(true);
-  // debugger;
-
   // maBlock => maLoaiBaiViet => baiviet
   useEffect(() => {
     (async function wrapFunc() {
@@ -68,12 +64,9 @@ const AwardsSection = ({
     return () => {
       // cleanup
     };
-    setRelateBlock(dataLoaiBaiViet);
-    setLoadingBlock(false);
     setRelate(dataTinTuc);
     setLoading(false);
   }, []);
-  debugger;
   return (
     <AwardSectionWrapper id="awards_section">
       <Container noGutter mobileGutter width="1170px">
