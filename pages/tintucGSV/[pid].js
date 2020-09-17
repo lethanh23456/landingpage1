@@ -9,7 +9,6 @@ import Sticky from "react-stickynode";
 import Box from "components/Box";
 import { NextSeo } from "next-seo";
 import { TitleLinkWrapper } from "../../styles/baiviet.style";
-import "moment/locale/vi";
 
 const TinTuc = ({ data, relate }) => {
   useEffect(() => { });
