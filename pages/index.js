@@ -49,6 +49,13 @@ export default ({
             <DoiNgu data={doingu} />
           </div>
         );
+      case "MENU_BANNER":
+        return (
+          <div style={{ position: "relative" }}>
+            <MenuBanner />
+            {/* <AwardsSection data={dataBlockTinTuc} /> */}
+          </div>
+        );
       case "TIN_TUC":
         return (
           <div style={{ position: "relative" }}>
@@ -63,10 +70,8 @@ export default ({
       {dataBlock.map((modules) => renderModules(modules))}
     </div>
   );
-  console.log(dataBlock, 'data block trang chu');
-  return (
-    modules
-  );
+  console.log(dataBlock, "data block trang chu");
+  return modules;
 };
 
 export async function getServerSideProps() {
