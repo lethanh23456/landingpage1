@@ -52,7 +52,8 @@ export default ({
       case "TIN_TUC":
         return (
           <div style={{ position: "relative" }}>
-            <AwardsSection data={dataBlockTinTuc} />
+            <AwardsSection data={modules} />
+            {/* <AwardsSection data={dataBlockTinTuc} /> */}
           </div>
         );
     }
@@ -62,42 +63,8 @@ export default ({
       {dataBlock.map((modules) => renderModules(modules))}
     </div>
   );
+  console.log(dataBlock, 'data block trang chu');
   return (
-    // <div style={{ marginTop: 110 }}>
-    //   <div style={{ position: "relative" }}>
-    //     <Carousel res={data} />
-    //   </div>
-    //   <div style={{ position: "relative" }}>
-    //     <MenuBanner />
-    //     <div
-    //       id="tintuc"
-    //       style={{ height: 100, position: "absolute", bottom: 0 }}
-    //     />
-    //   </div>
-    //   <div style={{ position: "relative" }}>
-    //     <AwardsSection data={dataTintuc} />
-    //     <div
-    //       id="chuongtrinhdaotao"
-    //       style={{ height: 100, position: "absolute", bottom: 0 }}
-    //     />
-    //   </div>
-    // <div style={{ position: "relative" }}>
-    //   <CacNganhDaoTao data={ctrDaotao} />
-    // </div>
-    // <div style={{ position: "relative" }}>
-    //   <LichThiTiengAnhDauRa />
-    //   <div
-    //     id="doingu"
-    //     style={{ height: 100, position: "absolute", bottom: 0 }}
-    //   />
-    // </div>
-    //   <div style={{ position: "relative" }}>
-    //     <DoiNgu data={doingu} />
-    //   </div>
-    //   <div style={{ position: "relative" }}>
-    //     <GocSinhVien data={gocsinhvien} />
-    //   </div>
-    // </div>
     modules
   );
 };
