@@ -37,6 +37,18 @@ export default ({
             <CacNganhDaoTao data={ctrDaotao} />
           </div>
         );
+      case "LICH_THI_TIENG_ANH":
+        return (
+          <div style={{ position: "relative" }}>
+            <LichThiTiengAnhDauRa />
+          </div>
+        );
+      case "DOI_NGU":
+        return (
+          <div style={{ position: "relative" }}>
+            <DoiNgu data={doingu} />
+          </div>
+        );
       case "TIN_TUC":
         return (
           <div style={{ position: "relative" }}>
@@ -72,13 +84,13 @@ export default ({
     // <div style={{ position: "relative" }}>
     //   <CacNganhDaoTao data={ctrDaotao} />
     // </div>
-    //   <div style={{ position: "relative" }}>
-    //     <LichThiTiengAnhDauRa />
-    //     <div
-    //       id="doingu"
-    //       style={{ height: 100, position: "absolute", bottom: 0 }}
-    //     />
-    //   </div>
+    // <div style={{ position: "relative" }}>
+    //   <LichThiTiengAnhDauRa />
+    //   <div
+    //     id="doingu"
+    //     style={{ height: 100, position: "absolute", bottom: 0 }}
+    //   />
+    // </div>
     //   <div style={{ position: "relative" }}>
     //     <DoiNgu data={doingu} />
     //   </div>

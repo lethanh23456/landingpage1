@@ -29,29 +29,47 @@ const AwardsSection = ({
   awardDateStyle,
   data,
 }) => {
-  // const maBlock = {_.get(data,'maBlock','')};
+  const maBlockTinTuc = _.get(data[0], "_id", []);
   const [relate, setRelate] = useState([]);
   const [loading, setLoading] = useState(true);
-  debugger;
+  const [relateBlock, setRelateBlock] = useState([]);
+  const [loadingBlock, setLoadingBlock] = useState(true);
+  // debugger;
 
   // maBlock => maLoaiBaiViet => baiviet
   useEffect(() => {
     (async function wrapFunc() {
-      const response = await axios.get(`${ip}/bai-viet`, {
+      // get loai bai viet theo maBLock
+      const responseBlock = await axios.get(`${ip}/loai-bai-viet`, {
+        params: {
+          page: 1,
+          limit: 1000,
+          cond: {
+            // maLoaiBaiViet: maBlock,
+            maBlock: maBlockTinTuc,
+          },
+        },
+      });
+      const dataLoaiBaiViet = _.get(responseBlock, "data.data", []);
+      setRelateBlock(dataLoaiBaiViet);
+      // get bai viet theo maLoaiBaiViet
+      const responseTinTuc = await axios.get(`${ip}/bai-viet`, {
         params: {
           page: 1,
           limit: 8,
           cond: {
-            // maLoaiBaiViet: maBlock,
+            // maLoaiBaiViet: dataLoaiBaiViet,
           },
         },
       });
-      const dataTinTuc = _.get(response, "data.data", []);
+      const dataTinTuc = _.get(responseTinTuc, "data.data", []);
       setRelate(dataTinTuc);
     })();
     return () => {
       // cleanup
     };
+    setRelateBlock(dataLoaiBaiViet);
+    setLoadingBlock(false);
     setRelate(dataTinTuc);
     setLoading(false);
   }, []);
@@ -64,33 +82,31 @@ const AwardsSection = ({
             <p>{_.get(block, "ten", "")}</p>
             <TitleUnderWrapper />
           </TinTucWrapper>
-          //     <Spin spinning={loading}>
-          //     <Row gutter={24} style={{ minHeight: 290 }}>
-          //       {relate
-          //         ?.filter((val, i) => i < 4)
-          //         ?.map((award, index) => (
-          //           <Col lg={6} md={12}>
-          //             <TinTucHover>
-          //               <ContainerCardDN>
-          //                 <CardTinTuc
-          //                   href={_.get(award, "slug", "")}
-          //                   title={_.get(award, "tieuDe", "")}
-          //                   img={_.get(award, "anhDaiDien", "")}
-          //                   src={_.get(award, "nguoiDang.hoTen", "")}
-          //                   time={
-          //                     _.get(award, "ngayDang", "") !== ""
-          //                       ? moment(_.get(award, "ngayDang", "")).format(
-          //                           "DD/MM/YYYY, h:mm"
-          //                         )
-          //                       : ""
-          //                   }
-          //                 />
-          //               </ContainerCardDN>
-          //             </TinTucHover>
-          //           </Col>
-          //         ))}
-          //     </Row>
-          //  </Spin>
+          // <Row gutter={24} style={{ minHeight: 290 }}>
+          //   {relate
+          //     ?.filter((val, i) => i < 4)
+          //     ?.map((award, index) => (
+          //       <Col lg={6} md={12}>
+          //         <TinTucHover>
+          //           <ContainerCardDN>
+          //             <CardTinTuc
+          //               href={_.get(award, "slug", "")}
+          //               title={_.get(award, "tieuDe", "")}
+          //               img={_.get(award, "anhDaiDien", "")}
+          //               src={_.get(award, "nguoiDang.hoTen", "")}
+          //               time={
+          //                 _.get(award, "ngayDang", "") !== ""
+          //                   ? moment(_.get(award, "ngayDang", "")).format(
+          //                       "DD/MM/YYYY, h:mm"
+          //                     )
+          //                   : ""
+          //               }
+          //             />
+          //           </ContainerCardDN>
+          //         </TinTucHover>
+          //       </Col>
+          //     ))}
+          // </Row>;
         ))}
         <div
           style={{
@@ -129,85 +145,6 @@ const AwardsSection = ({
         </div>
       </Container>
     </AwardSectionWrapper>
-    //   ))
-    // }
-    // <AwardSectionWrapper id="awards_section">
-    //   <Container noGutter mobileGutter width="1170px">
-    //     <TinTucWrapper>
-    //       <p>TIN TỨC TỪ HỌC VIỆN</p>
-    //       <TitleUnderWrapper />
-    //     </TinTucWrapper>
-    //     <Spin spinning={loading}>
-    //       <Row gutter={24} style={{ minHeight: 290 }}>
-    //         {relate
-    //           //  Lấy 4 tin đầu
-    //           ?.filter((val, i) => i < 4)
-    //           ?.map((award, index) => (
-    //             <Col lg={6} md={12}>
-    //               <TinTucHover>
-    //                 <ContainerCardDN>
-    //                   {/* <CardImgWrapper> */}
-    //                   {/* <Image
-    //                       src={award.awardLogo}
-    //                       // alt={`award-logo-${index}`}
-    //                       {...awardLogoStyle}
-    //                     /> */}
-    //                   <CardTinTuc
-    //                     href={_.get(award, "slug", "")}
-    //                     title={_.get(award, "tieuDe", "")}
-    //                     img={_.get(award, "anhDaiDien", "")}
-    //                     src={_.get(award, "nguoiDang.hoTen", "")}
-    //                     time={
-    //                       _.get(award, "ngayDang", "") !== ""
-    //                         ? moment(_.get(award, "ngayDang", "")).format(
-    //                             "DD/MM/YYYY, h:mm"
-    //                           )
-    //                         : ""
-    //                     }
-    //                   />
-    //                 </ContainerCardDN>
-    //               </TinTucHover>
-    //             </Col>
-    //           ))}
-    //       </Row>
-    //     </Spin>
-    //     <div
-    //       style={{
-    //         width: "135",
-    //         marginTop: 25,
-    //         textAlign: "center",
-    //       }}
-    //     >
-    //       <Link href="tintucchung">
-    //         <a
-    //           style={{
-    //             width: "135",
-    //             display: "inline-flex",
-    //           }}
-    //           className="button-more"
-    //           href="tintucchung"
-    //         >
-    //           <ButtonDetailWrapper
-    //             type="button"
-    //             style={{
-    //               margin: "0 auto",
-    //             }}
-    //           >
-    //             <div
-    //               style={{
-    //                 margin: "0 auto",
-    //                 fontWeight: 500,
-    //                 fontSize: "16px",
-    //               }}
-    //             >
-    //               XEM CHI TIẾT
-    //             </div>
-    //           </ButtonDetailWrapper>
-    //         </a>
-    //       </Link>
-    //     </div>
-    //   </Container>
-    // </AwardSectionWrapper>
   );
 };
 
