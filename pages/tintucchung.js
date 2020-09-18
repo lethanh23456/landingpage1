@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable no-tabs */
 // import { navigate } from "@reach/router";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import { Pagination, Spin, Tabs } from "antd";
 import axios from "axios";
 import TinTuc from "components/CardTinTuc";
@@ -28,21 +28,17 @@ export function Format(str) {
 const TinTucVBCC = ({ loaiBaiViet }) => {
   const router = useRouter();
   const [data, setData] = useState([]);
-  const [key, setKey] = useState("DAO_TAO_TIN_TUC_HOC_VIEN");
+  const [key, setKey] = useState(loaiBaiViet[0]?.maLoai);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
-  // const [loaiTinTuc, setLoaiTinTuc] = useState([]);
   const [cond, setCond] = useState({
-    // TIN_TUC_CAP_PHAT_VBCC
-    // // TIN_TUC_LICH_THI_TA
-    maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
+    maLoaiBaiViet: loaiBaiViet[0]?.maLoai,
   });
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   function callback(key) {
     loaiBaiViet.map((e) => {
       if (e.maLoai === key) {
-        // navigate(`tintucchung#${Format(e.maLoai)}`, true);
         router.push(`tintucchung#${Format(e.maLoai)}`);
       }
     });
@@ -97,21 +93,12 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
     });
     if (flag) return;
     fetchTinTuc(page, pageSize, cond);
-    // if (window) {
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "smooth",
-    // });
-    // }
   }, [page, pageSize, cond, key]);
   const handleChangePaging = (page, pageSize) => {
     console.log("page, pageSize", page, pageSize);
     fetchTinTuc(page, pageSize, cond);
     setPage(page);
   };
-  // console.log('page, total, pageSize', page, total, pageSize);
-  // console.log(loaiTinTuc, "loai tin tuc");
-  // ;
   return (
     <Box style={{ marginTop: 120 }}>
       <Container>
@@ -140,6 +127,7 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
                 total={total}
                 pageSize={pageSize}
                 style={{ float: "right", marginTop: 8 }}
+                showLessItems
               />
             </TabPane>
           ))}
