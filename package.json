@@ -5,12 +5,7 @@
 	"scripts": {
 		"dev": "next",
 		"build": "next build",
-		"start": "next start",
-		"docz:dev": "docz dev",
-		"docz:build": "docz build",
-		"now-build": "next build && next export -o dist",
-		"netlify-build": "next build && next export",
-		"prod": "pm2 start yarn --name 'tuyensinh-ptit-landingpage' --interpreter bash -- start -p 3001"
+		"start": "next start"
 	},
 	"dependencies": {
 		"react-responsive": "^8.0.0",
