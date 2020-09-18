@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { Col } from 'antd';
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Col, Row } from "antd";
 
 // eslint-disable-next-line import/prefer-default-export
 
@@ -8,7 +8,7 @@ export const CardTinTuc = styled.div`
   width: 100%;
   border-radius: 8px;
   padding: 10px 12px;
-  /* height: ${(props) => (props.first ? '100%' : 'auto')}; */
+  height: ${(props) => (props.first ? "100%" : "auto")};
   box-shadow: 0 2px 6px rgba(163, 177, 191, 0.35);
   &:hover {
     box-shadow: 0 6px 12px rgba(163, 177, 191, 0.55);
@@ -47,7 +47,8 @@ export const ContentLargeCard = styled.div`
 export const CardImage = styled.div`
   border-radius: 12px;
   background-image: url("${(props) => props.img}");
-  background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
@@ -55,7 +56,7 @@ export const CardImage = styled.div`
   right: 0;
   margin:auto;
 `;
-export const LargeImg = styled.img`
+export const LargeImg = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -71,7 +72,7 @@ export const LargeImg = styled.img`
   alt: ${(props) => props.alt};
 `;
 
-export const NormalImg = styled.img`
+export const NormalImg = styled.div`
   width: 100%;
   height: 100%;
 
