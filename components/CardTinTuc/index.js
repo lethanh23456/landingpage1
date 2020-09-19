@@ -50,7 +50,7 @@ const TinTuc = (props) => {
                           color: "black",
                         })}
                       </Tooltip>
-                      {renderParagraph(data?.[0]?.moTa, 4, {
+                      {renderParagraph(data?.[0]?.moTa, 2, {
                         fontSize: "calc(0.8em + 0.2vw)",
                         color: "#364954",
                       })}

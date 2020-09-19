@@ -21,7 +21,6 @@ export default ({
   dataBlockTinTuc,
 }) => {
   console.log(dataBlock, "trang chu relate");
-  // ;
   const renderModules = (modules) => {
     switch (modules.loaiComponent) {
       case "CAROUSEL":
@@ -52,14 +51,12 @@ export default ({
         return (
           <div style={{ position: "relative" }}>
             <MenuBanner />
-            {/* <AwardsSection data={dataBlockTinTuc} /> */}
           </div>
         );
       case "TIN_TUC":
         return (
           <div style={{ position: "relative" }}>
             <AwardsSection data={modules} />
-            {/* <AwardsSection data={dataBlockTinTuc} /> */}
           </div>
         );
     }
