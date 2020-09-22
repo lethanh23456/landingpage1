@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
-import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
-import FavIcon from 'assets/image/favicon.png';
+import Document, { Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
+import FavIcon from "assets/image/favicon.png";
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,9 +9,11 @@ export default class CustomDocument extends Document {
     const originalRenderPage = ctx.renderPage;
 
     try {
-      ctx.renderPage = () => originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
-      });
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
 
       const initialProps = await Document.getInitialProps(ctx);
       return {
@@ -63,7 +65,7 @@ export default class CustomDocument extends Document {
           <div dangerouslySetInnerHTML={{ __html: fbCustomerChat }} />
           <div
             style={{
-              position: 'relative',
+              position: "relative",
               zIndex: 1,
             }}
           >
@@ -75,3 +77,10 @@ export default class CustomDocument extends Document {
     );
   }
 }
+
+// <link
+//   href="resource-url"
+//   rel="directive"
+//   as="ressource-type"
+//   crossorigin="value"
+// />;

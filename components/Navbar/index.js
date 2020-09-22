@@ -1,22 +1,20 @@
 /* eslint-disable semi */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-import { Button, Drawer, Icon, Menu } from 'antd';
+import { Button, Drawer, Icon, Menu } from "antd";
 // import { MENU_ITEMS_MOBILE } from 'common/src/data/Hosting/data';
-import LogoImage from 'assets/image/hosting/logo.png';
-import axios from 'axios';
-import Box from 'components/Box';
-import ScrollSpyMenu from 'components/ScrollSpyMenu';
-import { ip } from 'data/ip';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
-import Container from './ContainerMenu/index';
-import NavbarWrapper from './Navbar';
-
-
+import LogoImage from "assets/image/hosting/logo.png";
+import axios from "axios";
+import Box from "components/Box";
+import ScrollSpyMenu from "components/ScrollSpyMenu";
+import { ip } from "data/ip";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import styled from "styled-components";
+import Container from "./ContainerMenu/index";
+import NavbarWrapper from "./Navbar";
 
 const { Item, SubMenu } = Menu;
 export const AWrapper = styled.a`
@@ -36,19 +34,19 @@ export const ItemAntd = styled(Item)`
   & a {
     color: rgb(52, 61, 72);
   }
-  &:hover a::before{
+  &:hover a::before {
     /* border-bottom: 1.5px solid #FF3D3B; */
-    content: '';
-    color: #FF3D3B !important;
+    content: "";
+    color: #ff3d3b !important;
   }
 `;
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const isDesktop = useMediaQuery({
-    query: '(max-device-width: 1380px)',
+    query: "(max-device-width: 1380px)",
   });
   const isMobile = useMediaQuery({
-    query: '(max-device-width: 768px)',
+    query: "(max-device-width: 768px)",
   });
 
   const [daotao, setDaotao] = useState([]);
@@ -56,7 +54,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const [showDrawer, setShowDrawer] = useState(false);
   useEffect(() => {
     (async function wrapFunc() {
-      setLoading(false)
+      setLoading(false);
       const response = await axios.get(`${ip}/he-dao-tao`, {
         params: {
           page: 1,
@@ -66,32 +64,32 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           // }
         },
       });
-      const ctrDaoTao = _.get(response, 'data.data', []);
+      const ctrDaoTao = _.get(response, "data.data", []);
       setDaotao(ctrDaoTao);
     })();
   }, []);
 
   const daotaoDesk = () => {
     let res = [];
-    daotao.map(item => {
+    daotao.map((item) => {
       res.push(
         <SubMenu
           title={
             <span style={{ fontSize: isDesktop ? 14 : 18 }}>
-              {item?.tenHeDaoTao ?? ''}
+              {item?.tenHeDaoTao ?? ""}
             </span>
           }
         >
           {item.nganhDaoTao.map((e, ind) => (
             <ItemAntd>
-              <Link href={`/nganhhoc/${e?.maNganh ?? ''}`}>
+              <Link href={`/nganhhoc/${e?.maNganh ?? ""}`}>
                 <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-                  {e?.tenNganh ?? ''}
+                  {e?.tenNganh ?? ""}
                 </a>
               </Link>
             </ItemAntd>
           ))}
-        </SubMenu>,
+        </SubMenu>
       );
     });
     return res;
@@ -99,21 +97,19 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
   let MENU_ITEMS = [
     {
-      label: 'TRANG CHỦ',
-      path: '#',
-      offset: '70',
+      label: "TRANG CHỦ",
+      path: "#",
+      offset: "70",
     },
     {
       hover: true,
-      label: 'GIỚI THIỆU CHUNG',
-      path: '#',
-      offset: '70',
+      label: "GIỚI THIỆU CHUNG",
+      path: "#",
+      offset: "70",
       submenu: [
         <ItemAntd>
           <Link href="/doinguchitiet">
-            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-              Đội ngũ cán bộ
-            </a>
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>Đội ngũ cán bộ</a>
           </Link>
         </ItemAntd>,
         <ItemAntd>
@@ -126,33 +122,33 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       ],
     },
     {
-      label: 'TIN TỨC',
-      path: 'tintucchung',
-      offset: '70',
+      label: "TIN TỨC",
+      path: "tintucchung",
+      offset: "70",
     },
     {
       hover: true,
-      label: 'CHƯƠNG TRÌNH ĐÀO TẠO',
-      path: '#',
-      offset: '70',
+      label: "CHƯƠNG TRÌNH ĐÀO TẠO",
+      path: "#",
+      offset: "70",
       // </Menu >
       submenu: daotaoDesk(),
     },
     {
-      label: 'TRA CỨU VĂN BẰNG',
-      path: 'vanbangchungchi',
-      offset: '70',
+      label: "TRA CỨU VĂN BẰNG",
+      path: "vanbangchungchi",
+      offset: "70",
     },
     {
-      label: 'CƠ HỘI VIỆC LÀM',
-      path: 'tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam',
-      offset: '70',
+      label: "CƠ HỘI VIỆC LÀM",
+      path: "tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam",
+      offset: "70",
     },
   ];
 
-  console.log(isMobile, 'test nav');
+  console.log(isMobile, "test nav");
 
-  const handleClick = () => { };
+  const handleClick = () => {};
 
   const closeDrawer = () => {
     setShowDrawer(false);
@@ -168,11 +164,20 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         <Container>
           <Box {...row}>
             {/* <Logo href="/" logoSrc={LogoImage} title="PTIT" logoStyle={logoStyle} /> */}
-            <Link href={`/`}>
-              <a ><img src={LogoImage} alt="logo" /></a>
+            <Link rel="prefetch" href={`/`}>
+              <a>
+                <img src={LogoImage} alt="logo" />
+              </a>
             </Link>
             <Box {...menuWrapper}>
-              {!isDesktop && !loading && <ScrollSpyMenu menuItems={MENU_ITEMS} offset={-60} isDesktop={isDesktop} onClose={closeDrawer} />}
+              {!isDesktop && !loading && (
+                <ScrollSpyMenu
+                  menuItems={MENU_ITEMS}
+                  offset={-60}
+                  isDesktop={isDesktop}
+                  onClose={closeDrawer}
+                />
+              )}
               {/* {!isDesktop &&
                 <Button
                   // {...button}
@@ -192,37 +197,45 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               {!isDesktop && !loading && (
                 <Button
                   // {...button}
-                  onClick={() => window.open('https://tuyensinh2.ptit.edu.vn/')}
+                  onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
                   style={{
-                    backgroundColor: '#E50303',
-                    color: 'white',
+                    backgroundColor: "#E50303",
+                    color: "white",
                     fontFamily: "'Roboto', sans- serif",
-                    fontSize: 'calc(0.5em + 0.3vw)',
-                    fontWeight: 'bold',
+                    fontSize: "calc(0.5em + 0.3vw)",
+                    fontWeight: "bold",
                     height: 40,
                     marginLeft: 10,
                   }}
                 >
-                  <span style={{ fontFamily: "'Roboto', sans- serif" }}>TUYỂN SINH</span>
+                  <span style={{ fontFamily: "'Roboto', sans- serif" }}>
+                    TUYỂN SINH
+                  </span>
                 </Button>
               )}
               {isDesktop && (
                 <Icon
                   type="menu-fold"
-                  style={{ fontSize: 35, color: '#FF3D3B' }}
+                  style={{ fontSize: 35, color: "#FF3D3B" }}
                   onClick={openDrawer}
                 />
               )}
               <Drawer
                 visible={showDrawer}
-                width={!isMobile ? '40%' : '90%'}
+                width={!isMobile ? "40%" : "90%"}
                 destroyOnClose
                 closable
                 onClose={closeDrawer}
-                bodyStyle={{ padding: '10px 0px' }}
+                bodyStyle={{ padding: "10px 0px" }}
               >
                 {/* <p>aaaaaaaaaaaa</p> */}
-                <ScrollSpyMenu className="main_menu" menuItems={MENU_ITEMS} offset={-60} isDesktop={isDesktop} onClose={closeDrawer} />
+                <ScrollSpyMenu
+                  className="main_menu"
+                  menuItems={MENU_ITEMS}
+                  offset={-60}
+                  isDesktop={isDesktop}
+                  onClose={closeDrawer}
+                />
               </Drawer>
               {/* <Drawer
                 width="420px"
@@ -308,34 +321,34 @@ Navbar.propTypes = {
 
 Navbar.defaultProps = {
   navbarStyle: {
-    className: 'hosting_navbar',
-    minHeight: '70px',
-    display: 'block',
+    className: "hosting_navbar",
+    minHeight: "70px",
+    display: "block",
   },
   row: {
     flexBox: true,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
   },
   logoStyle: {
-    maxWidth: ['120px', '130px'],
+    maxWidth: ["120px", "130px"],
   },
   button: {
-    type: 'button',
-    fontSize: 'calc(0.5em + 0.3vw)',
-    fontWeight: '500',
-    color: 'white',
-    borderRadius: '4px',
-    pl: '15px',
-    pr: '15px',
-    colors: 'primaryWithBg',
-    minHeight: 'auto',
+    type: "button",
+    fontSize: "calc(0.5em + 0.3vw)",
+    fontWeight: "500",
+    color: "white",
+    borderRadius: "4px",
+    pl: "15px",
+    pr: "15px",
+    colors: "primaryWithBg",
+    minHeight: "auto",
     // height: `${2}`,
   },
   menuWrapper: {
     flexBox: true,
-    alignItems: 'center',
+    alignItems: "center",
     // width: '40%',
   },
 };
