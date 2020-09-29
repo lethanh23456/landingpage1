@@ -12,7 +12,7 @@ import { TitleLinkWrapper } from "../../styles/baiviet.style";
 import "moment/locale/vi";
 
 const TinTuc = ({ data, relate }) => {
-  useEffect(() => { });
+  useEffect(() => {});
   // console.log(data, 'relate');
   // console.log(relate, 'relate');
   const ngayDang = _.get(data, "ngayDang", "");
@@ -22,7 +22,7 @@ const TinTuc = ({ data, relate }) => {
   const nguoiDang = _.get(data, "nguoiDang.hoTen", "");
   const anhDaiDien = _.get(data, "anhDaiDien", "");
   const slug = _.get(data, "slug", "");
-  const renderTitle = (title) => {
+  const renderTitle = title => {
     if (title <= 105) {
       return title;
     }
@@ -41,9 +41,9 @@ const TinTuc = ({ data, relate }) => {
     const response = await axios.get(`${ip}/bai-viet`, {
       params: {
         cond: {
-          maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN",
-        },
-      },
+          maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN"
+        }
+      }
     });
     const listPath = _.get(response, "data.data", []);
     // console.log(listPath, 'path post');
@@ -84,7 +84,7 @@ const TinTuc = ({ data, relate }) => {
               width: "90%",
               margin: "0px auto",
               padding: "30px 0",
-              fontFamily: "Roboto, sans-serif",
+              fontFamily: "Roboto, sans-serif"
             }}
           >
             <Col lg={17} xl={17} md={24} xs={24} sm={24}>
@@ -93,7 +93,7 @@ const TinTuc = ({ data, relate }) => {
                   style={{
                     fontSize: "22px",
                     color: "#D10000",
-                    fontWeight: "bold",
+                    fontWeight: "bold"
                   }}
                 >
                   Tin tức
@@ -104,13 +104,11 @@ const TinTuc = ({ data, relate }) => {
                     fontSize: "14px",
                     marginBottom: "12px",
                     marginTop: "-10px",
-                    textTransform: "capitalize",
+                    textTransform: "capitalize"
                   }}
                 >
                   {ngayDang !== ""
-                    ? moment(ngayDang)
-                      .lang("vi")
-                      .format("MMMM Do YYYY, h:mm:ss ")
+                    ? moment(ngayDang).format("MMMM Do YYYY, h:mm:ss ")
                     : ""}
                 </p>
                 <h4 style={{ fontSize: "18px", color: "#D10000" }}>
@@ -123,7 +121,7 @@ const TinTuc = ({ data, relate }) => {
                   style={{
                     marginTop: 20,
                     textAlign: "justify",
-                    fontSize: "calc(0.6em + 0.4vw)",
+                    fontSize: "calc(0.6em + 0.4vw)"
                   }}
                   dangerouslySetInnerHTML={{ __html: noiDung }}
                 />
@@ -132,7 +130,7 @@ const TinTuc = ({ data, relate }) => {
                     style={{
                       color: "#222",
                       textAlign: "right",
-                      fontWeight: "bold",
+                      fontWeight: "bold"
                     }}
                   >
                     {nguoiDang}
@@ -149,7 +147,7 @@ const TinTuc = ({ data, relate }) => {
                         color: "#D10000",
                         margin: 0,
                         fontSize: 22,
-                        fontWeight: "bold",
+                        fontWeight: "bold"
                       }}
                     >
                       Liên quan
@@ -159,7 +157,7 @@ const TinTuc = ({ data, relate }) => {
                 >
                   <List
                     dataSource={relate}
-                    renderItem={(item) => (
+                    renderItem={item => (
                       <List.Item
                         key={item._id}
                         style={{ height: "100%", textAlign: "justify" }}
@@ -196,15 +194,15 @@ export async function getStaticPaths() {
   const response = await axios.get(`${ip}/bai-viet`, {
     params: {
       cond: {
-        maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN",
-      },
-    },
+        maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN"
+      }
+    }
   });
   const listPath = _.get(response, "data.data", []);
   const paths = [];
-  listPath.map((item) => {
+  listPath.map(item => {
     paths.push({
-      params: { pid: item.slug },
+      params: { pid: item.slug }
     });
   });
 
@@ -227,9 +225,9 @@ export async function getStaticProps({ params }) {
       page: 1,
       limit: 4,
       cond: {
-        maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN",
-      },
-    },
+        maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN"
+      }
+    }
   });
   const relate = _.get(response, "data.data", []);
   // By returning { props: data }, the Blog component
@@ -237,8 +235,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       data,
-      relate,
-    },
+      relate
+    }
   };
 }
 
