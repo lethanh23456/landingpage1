@@ -144,6 +144,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       path: "tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam",
       offset: "70",
     },
+    {
+      label: "BA CÔNG KHAI",
+      path: "bacongkhai",
+      offset: "70",
+    },
   ];
 
   console.log(isMobile, "test nav");
