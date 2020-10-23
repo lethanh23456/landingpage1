@@ -23,6 +23,7 @@ export const ContainerCardDN = styled.div`
 export const TinTucWrapper = styled.div`
   /* background-color: #f6f9fa; */
   /* padding: 64px 0px; */
+  text-transform: uppercase;
   text-align: center;
   border-radius: 20px;
   width: 100%;

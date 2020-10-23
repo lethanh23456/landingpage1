@@ -1,12 +1,12 @@
-import { Row, Tabs, Spin } from "antd";
+import { Row, Spin } from "antd";
 import axios from "axios";
+import Box from "components/Box";
 import Container from "components/UI/Container";
 import { ip3 } from "data/ip";
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
-import Box from "components/Box";
 
-const CoCauToChuc = ({}) => {
+const CoCauToChuc = ({ }) => {
   const [relate, setRelate] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {

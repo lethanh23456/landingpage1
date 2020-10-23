@@ -49,17 +49,6 @@ const TinTuc = ({ data, relate }) => {
     return s;
   };
 
-  const test = async () => {
-    const response = await axios.get(`${ip}/bai-viet`, {
-      params: {
-        cond: {
-          maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN"
-        }
-      }
-    });
-    const listPath = _.get(response, "data.data", []);
-    // console.log(listPath, 'path post');
-  };
   return (
     <>
       <NextSeo
@@ -238,9 +227,9 @@ export async function getServerSideProps({ params }) {
       page: 1,
       limit: 4,
       cond: {
-        maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN"
-      }
-    }
+        maLoaiBaiViet: "DAO_TAO_TIN_TUC_BA_CONG_KHAI",
+      },
+    },
   });
   const relate = _.get(response, "data.data", []);
   // By returning { props: data }, the Blog component

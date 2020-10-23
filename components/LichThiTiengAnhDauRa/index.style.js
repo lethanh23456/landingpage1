@@ -1,14 +1,13 @@
-import BaCongkhaiLogo from 'assets/image/bacongkhai-logo.png';
-import Group94 from 'assets/image/Group 94.png';
-import Group96 from 'assets/image/Group 96.png';
-import VectorLogo from 'assets/image/Vector.png';
-import styled from 'styled-components';
+import BaCongkhaiLogo from "assets/image/bacongkhai-logo.png";
+import Group94 from "assets/image/Group 94.png";
+import Group96 from "assets/image/Group 96.png";
+import VectorLogo from "assets/image/Vector.png";
+import styled from "styled-components";
 
 export const BaCongKhaiWrapper = styled.div`
   padding: 64px 0 32px 0;
-  background-color: #f6f9fa;
+  background-color: #ffffff;
   display: flex;
-  margin: 64px 0;
 `;
 
 export const BoxCard = styled.div`
@@ -106,7 +105,6 @@ export const ContentWrapper = styled.div`
   @media screen and (max-width: 350px) {
     width: 210%;
   }
-  
 `;
 
 export const ButtonDetailWrapper = styled.button`
