@@ -6,7 +6,7 @@ import {
   List,
   Row,
   Breadcrumb,
-  Divider,
+  Divider
 } from "antd";
 import axios from "axios";
 import Link from "next/link";
@@ -23,7 +23,7 @@ import { TitleLinkWrapper } from "../../styles/baiviet.style";
 // moment().locale('vi');
 
 const TinTuc = ({ data, relate }) => {
-  useEffect(() => { });
+  useEffect(() => {});
   // console.log(data, 'relate');
   // console.log(relate, 'relate');
 
@@ -34,7 +34,7 @@ const TinTuc = ({ data, relate }) => {
   const nguoiDang = _.get(data, "nguoiDang.hoTen", "");
   const anhDaiDien = _.get(data, "anhDaiDien", "");
   const slug = _.get(data, "slug", "");
-  const renderTitle = (title) => {
+  const renderTitle = title => {
     if (title <= 105) {
       return title;
     }
@@ -49,17 +49,6 @@ const TinTuc = ({ data, relate }) => {
     return s;
   };
 
-  const test = async () => {
-    const response = await axios.get(`${ip}/bai-viet`, {
-      params: {
-        cond: {
-          maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
-        },
-      },
-    });
-    const listPath = _.get(response, "data.data", []);
-    // console.log(listPath, 'path post');
-  };
   return (
     <>
       <NextSeo
@@ -75,15 +64,15 @@ const TinTuc = ({ data, relate }) => {
               url: anhDaiDien,
               width: 800,
               height: 600,
-              alt: "Tin tức",
-            },
+              alt: "Tin tức"
+            }
           ],
-          site_name: "Phòng Đào tạo Học viện Công nghệ Bưu chính viễn thông",
+          site_name: "Phòng Đào tạo Học viện Công nghệ Bưu chính viễn thông"
         }}
         twitter={{
           handle: "@handle",
           site: "@site",
-          cardType: "summary_large_image",
+          cardType: "summary_large_image"
         }}
       />
       <Box style={{ marginTop: 120 }}>
@@ -95,7 +84,7 @@ const TinTuc = ({ data, relate }) => {
               width: "90%",
               margin: "0px auto",
               padding: "30px 0",
-              fontFamily: "Roboto, sans-serif",
+              fontFamily: "Roboto, sans-serif"
             }}
           >
             <Col lg={17} xl={17} md={24} xs={24} sm={24}>
@@ -120,13 +109,11 @@ const TinTuc = ({ data, relate }) => {
                     fontSize: "14px",
                     marginBottom: "12px",
                     marginTop: "-10px",
-                    textTransform: "capitalize",
+                    textTransform: "capitalize"
                   }}
                 >
                   {ngayDang !== ""
-                    ? moment(ngayDang)
-                      .lang("vi")
-                      .format("DD MMMM YYYY, HH:MM ")
+                    ? moment(ngayDang).format("DD MMMM YYYY, HH:MM ")
                     : ""}
                 </p>
                 {moTa !== "" ? (
@@ -136,7 +123,7 @@ const TinTuc = ({ data, relate }) => {
                   style={{
                     marginTop: 20,
                     textAlign: "justify",
-                    fontSize: "calc(0.8em + 0.4vw)",
+                    fontSize: "calc(0.8em + 0.4vw)"
                   }}
                   dangerouslySetInnerHTML={{ __html: noiDung }}
                 />
@@ -145,7 +132,7 @@ const TinTuc = ({ data, relate }) => {
                     style={{
                       color: "#222",
                       textAlign: "right",
-                      fontWeight: "bold",
+                      fontWeight: "bold"
                     }}
                   >
                     {nguoiDang}
@@ -162,7 +149,7 @@ const TinTuc = ({ data, relate }) => {
                         color: "#D10000",
                         margin: 0,
                         fontSize: 22,
-                        fontWeight: "bold",
+                        fontWeight: "bold"
                       }}
                     >
                       Liên quan
@@ -172,7 +159,7 @@ const TinTuc = ({ data, relate }) => {
                 >
                   <List
                     dataSource={relate}
-                    renderItem={(item) => (
+                    renderItem={item => (
                       <List.Item
                         key={item._id}
                         style={{ height: "100%", textAlign: "justify" }}
@@ -240,7 +227,7 @@ export async function getServerSideProps({ params }) {
       page: 1,
       limit: 4,
       cond: {
-        maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
+        maLoaiBaiViet: "DAO_TAO_TIN_TUC_BA_CONG_KHAI",
       },
     },
   });
@@ -250,8 +237,8 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       data,
-      relate,
-    },
+      relate
+    }
   };
 }
 

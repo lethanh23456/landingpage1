@@ -28,11 +28,13 @@ export function Format(str) {
 const TinTucVBCC = ({ loaiBaiViet }) => {
   const router = useRouter();
   const [data, setData] = useState([]);
-  const [key, setKey] = useState(loaiBaiViet[0]?.maLoai);
+  const [key, setKey] = useState(loaiBaiViet[0].maLoai);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [cond, setCond] = useState({
-    maLoaiBaiViet: loaiBaiViet[0]?.maLoai,
+    // TIN_TUC_CAP_PHAT_VBCC
+    // // TIN_TUC_LICH_THI_TA
+    maLoaiBaiViet: loaiBaiViet[0].maLoai,
   });
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);

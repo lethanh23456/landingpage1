@@ -5,10 +5,9 @@ import VectorLogo from "assets/image/Vector.png";
 import styled from "styled-components";
 
 export const BaCongKhaiWrapper = styled.div`
-  padding: 32px 0 0px 0;
+  padding: 64px 0 32px 0;
   background-color: #ffffff;
   display: flex;
-  margin: 0px 0 0px 0;
 `;
 
 export const BoxCard = styled.div`

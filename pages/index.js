@@ -2,11 +2,10 @@ import "@glidejs/glide/dist/css/glide.core.min.css";
 import axios from "axios";
 import Carousel from "components/Carousel";
 import DoiNgu from "components/DoiNguCanBo/DoiNgu";
-import GocSinhVien from "components/GocSinhVien/GocSinhVien";
 import LichThiTiengAnhDauRa from "components/LichThiTiengAnhDauRa/LichThi.tsx";
 import MenuBanner from "components/MenuBanner/MenuBanner";
-import CacNganhDaoTao from "components/UpdateScreen";
 import AwardsSection from "components/TinTucHocVien/Awards/index";
+import CacNganhDaoTao from "components/UpdateScreen";
 import { ip } from "data/ip";
 import _ from "lodash";
 import React from "react";
@@ -22,7 +21,6 @@ export default ({
   dataBlockTinTuc,
 }) => {
   console.log(dataBlock, "trang chu relate");
-  // ;
   const renderModules = (modules) => {
     switch (modules.loaiComponent) {
       case "CAROUSEL":
@@ -53,14 +51,12 @@ export default ({
         return (
           <div style={{ position: "relative" }}>
             <MenuBanner />
-            {/* <AwardsSection data={dataBlockTinTuc} /> */}
           </div>
         );
       case "TIN_TUC":
         return (
           <div style={{ position: "relative" }}>
             <AwardsSection data={modules} />
-            {/* <AwardsSection data={dataBlockTinTuc} /> */}
           </div>
         );
     }

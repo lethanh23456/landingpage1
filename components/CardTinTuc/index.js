@@ -1,18 +1,8 @@
-import React from "react";
-import { Card, Col, Row, Typography, Tooltip, Empty } from "antd";
-import {
-  CardTinTuc,
-  LargeImg,
-  WrapperCardImage,
-  CardImage,
-  NormalImg,
-  ContentLargeCard,
-  WrapperLargeImage,
-  CenterCol,
-  NormalImgMobile,
-} from "./TinTuc.style";
-import { useMediaQuery } from "react-responsive";
+import { Card, Col, Empty, Row, Tooltip, Typography } from "antd";
 import Link from "next/link";
+import React from "react";
+import { useMediaQuery } from "react-responsive";
+import { CardTinTuc, CenterCol, ContentLargeCard } from "./TinTuc.style";
 
 const renderParagraph = (text, rows, style) => (
   <Typography.Paragraph ellipsis={{ rows, expandable: false }} style={style}>
@@ -48,7 +38,7 @@ const TinTuc = (props) => {
                         background: `url(${data?.[0]?.anhDaiDien}) center center/contain no-repeat`,
                         width: "100%",
                         height: "75%",
-                        minHeight: 345,
+                        minHeight: 180,
                       }}
                     />
                     <ContentLargeCard>
