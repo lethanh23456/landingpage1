@@ -6,7 +6,7 @@ import LichThiTiengAnhDauRa from "components/LichThiTiengAnhDauRa/LichThi.tsx";
 import MenuBanner from "components/MenuBanner/MenuBanner";
 import AwardsSection from "components/TinTucHocVien/Awards/index";
 import CacNganhDaoTao from "components/UpdateScreen";
-import { ip } from "data/ip";
+import { ip, ip3 } from "data/ip";
 import _ from "lodash";
 import React from "react";
 import "react-accessible-accordion/dist/fancy-example.css";
@@ -101,16 +101,17 @@ export async function getServerSideProps() {
   });
   const dataBlockTinTuc = _.get(blockTinTuc, "data.data", {});
 
-  let response = await axios.get(`${ip}/sliders/all`, {
+  let response = await axios.get(`${ip3}/sliders/all`, {
     params: {
       cond: {
         site: "DAO_TAO",
       },
     },
   });
+  debugger
   const data = _.get(response, "data.data", {});
 
-  response = await axios.get(`${ip}/bai-viet`, {
+  response = await axios.get(`${ip3}/bai-viet`, {
     params: {
       page: 1,
       limit: 8,
@@ -121,7 +122,7 @@ export async function getServerSideProps() {
   });
   const dataTintuc = _.get(response, "data.data", {});
 
-  response = await axios.get(`${ip}/he-dao-tao`, {
+  response = await axios.get(`${ip3}/he-dao-tao`, {
     params: {
       page: 1,
       limit: 10,
@@ -130,7 +131,7 @@ export async function getServerSideProps() {
   });
   const ctrDaotao = _.get(response, "data.data", {});
 
-  response = await axios.get(`${ip}/can-bo`, {
+  response = await axios.get(`${ip3}/can-bo`, {
     params: {
       page: 1,
       limit: 3,
@@ -143,7 +144,7 @@ export async function getServerSideProps() {
   });
   const doingu = _.get(response, "data.data", {});
 
-  response = await axios.get(`${ip}/bai-viet`, {
+  response = await axios.get(`${ip3}/bai-viet`, {
     params: {
       page: 1,
       limit: 4,
