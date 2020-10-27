@@ -68,12 +68,12 @@ const TestimonialSection = ({
                           <FontBackground>
                             <Container fullHeight>
                               <ContainerContent>
-                                <TextCarousel
+                                {/* <TextCarousel
                                   title1={item.noiDung[0].tieuDe}
                                   des1={item.noiDung[0].moTa}
                                   title2={item.noiDung[1].tieuDe}
                                   des2={item.noiDung[1].moTa}
-                                />
+                                /> */}
                                 <div
                                   style={{
                                     left: 15,
@@ -140,12 +140,12 @@ const TestimonialSection = ({
                           <FontBackground>
                             <Container fullHeight>
                               <ContainerContent>
-                                <TextCarousel
+                                {/* <TextCarousel
                                   title1={item.noiDung[0].tieuDe}
                                   des1={item.noiDung[0].moTa}
                                   title2={item.noiDung[1].tieuDe}
                                   des2={item.noiDung[1].moTa}
-                                />
+                                /> */}
                                 {/* <div
                                 style={{ left: 15, top: '50%', position: 'absolute' }}
                                 className={styles.buttonCarousel}
