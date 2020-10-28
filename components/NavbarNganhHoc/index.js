@@ -29,6 +29,7 @@ class Navbar extends React.Component {
             <Container>
               <MenuDiv>
                 <Menu
+                  style={{ backgroundColor: 'red', color: 'white' }}
                   onClick={this.handleClick}
                   selectedKeys={[this.state.current]}
                   mode="horizontal"
@@ -37,11 +38,11 @@ class Navbar extends React.Component {
                   {this.props?.data?.map(({ name, url }) => {
                     if (name === 'Cấu trúc chương trình') {
                       return (
-                        <SubMenu title={'Cấu trúc chương trình'} style={{ backgroundColor: 'white' }}>
+                        <SubMenu title={<span  style={{ color: 'white' }}>Cấu trúc chương trình</span>} style={{ backgroundColor: 'red' }}>
                           {this.props?.monTinChi.map(({ tenChuyenNganh, anchor }) => (
                             <Menu.Item key={tenChuyenNganh} style={{ fontSize: 14, padding: 8 }}>
                               <Link href={`/nganhhoc/[idMaNganh]#${anchor}`} as={`/nganhhoc/${maNganh}#${anchor}`}>
-                                <a>
+                              <a  > 
                                   {/* <Icon type="file-protect" /> */}
                                   {tenChuyenNganh}
                                 </a>
@@ -55,7 +56,7 @@ class Navbar extends React.Component {
                       return (
                         <MenuItem key={name}>
                           <Link href={`/nganhhoc/[idMaNganh]${url}`} as={`/nganhhoc/${maNganh}${url}`}>
-                            <a>
+                            <a   style={{ color: 'white' }}> 
                               {/* <Icon type="file-protect" /> */}
                               {name}
                             </a>
