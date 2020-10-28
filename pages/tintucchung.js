@@ -156,11 +156,10 @@ export async function getServerSideProps() {
   // Fetch data from external API
   let response = await axios.get(`${ip}/loai-bai-viet`, {
     params: {
-      cond: {
-        maLoai: { $regex: "DAO_TAO_TIN_TUC_" },
-      },
+      cond : {$and: [{maLoai: {$regex: "DAO_TAO_TIN_TUC_"}}, {maLoai: {$ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI"}}]}
     },
   });
   const loaiBaiViet = _.get(response, "data.data", {});
+  debugger
   return { props: { loaiBaiViet } };
 }
