@@ -63,7 +63,7 @@ import {
                   fontFamily: "Roboto, sans-serif",
                 }}
               >
-                <Col lg={17} xl={17} md={24} xs={24} sm={24}>
+                <Col lg={24} xl={24} md={24} xs={24} sm={24}>
                   <div id="content">
                     <div>
                       <Breadcrumb>
@@ -118,7 +118,7 @@ import {
                     ) : null}
                   </div>
                 </Col>
-                <Col lg={7} xl={7} md={24} xs={24} sm={24}>
+                {/* <Col lg={7} xl={7} md={24} xs={24} sm={24}>
                   <Sticky top={130} bottomBoundary="#content">
                     <Card
                       title={
@@ -160,7 +160,7 @@ import {
                       />
                     </Card>
                   </Sticky>
-                </Col>
+                </Col> */}
               </Row>
             </Container>
           </Box>
