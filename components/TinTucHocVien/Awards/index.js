@@ -42,7 +42,7 @@ const AwardsSection = ({
   console.log(data, 'data block tin tuc')
   console.log(relate, 'data block relate')
   return (
-    <AwardSectionWrapper id="awards_section">
+    <AwardSectionWrapper id="awards_section" style={{ backgroundColor: "#F9F9F9"}}>
       <Container noGutter mobileGutter width="1170px">
         <TinTucWrapper>
           <p>{_.get(data, "ten", "")}</p>

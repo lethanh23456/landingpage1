@@ -164,7 +164,8 @@ const NganhHoc = ({ dataFetch, params }) => {
                     >
                       <Breadcrumb
                         style={{
-                          // color: '#000000',
+                          // backgroundColor: "red",
+                          // color: "white",
                           fontSize: 16,
                         }}
                       >
@@ -186,7 +187,7 @@ const NganhHoc = ({ dataFetch, params }) => {
                       </Breadcrumb>
                     </div>
                   </Container>
-                  <ThongTinCoBan namO={namO} />
+                  <ThongTinCoBan namO={namO}/>
                   <Navbar
                     data={dataNav}
                     maNganh={_.get(data[0], "maNganh", "")}

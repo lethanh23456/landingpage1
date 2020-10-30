@@ -65,9 +65,9 @@ const TestimonialSection = ({
                             backgroundImage: `url("${item.banner}")`,
                           }}
                         >
-                          <FontBackground>
+                          {/* <FontBackground>
                             <Container fullHeight>
-                              <ContainerContent>
+                              <ContainerContent> */}
                                 {/* <TextCarousel
                                   title1={item.noiDung[0].tieuDe}
                                   des1={item.noiDung[0].moTa}
@@ -102,9 +102,9 @@ const TestimonialSection = ({
                                     style={{ fontSize: 40, color: 'white' }}
                                   />
                                 </div>
-                              </ContainerContent>
+                              {/* </ContainerContent>
                             </Container>
-                          </FontBackground>
+                          </FontBackground> */}
                         </CarouselSlide>
                       </Box>
                     </TestimonialItem>
@@ -137,9 +137,9 @@ const TestimonialSection = ({
                             backgroundImage: `url("${item.banner}")`,
                           }}
                         >
-                          <FontBackground>
+                          {/* <FontBackground>
                             <Container fullHeight>
-                              <ContainerContent>
+                              <ContainerContent> */}
                                 {/* <TextCarousel
                                   title1={item.noiDung[0].tieuDe}
                                   des1={item.noiDung[0].moTa}
@@ -160,9 +160,9 @@ const TestimonialSection = ({
                               >
                                 <Icon type="right" style={{ fontSize: 40, color: 'white' }} />
                               </div> */}
-                              </ContainerContent>
+                              {/* </ContainerContent>
                             </Container>
-                          </FontBackground>
+                          </FontBackground> */}
                         </CarouselSlide>
                       </Box>
                     </TestimonialItem>

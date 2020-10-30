@@ -54,7 +54,7 @@ const LichThi = ({ }) => {
   }, []);
   return (
     <Box>
-      <BaCongKhaiWrapper>
+      <BaCongKhaiWrapper style={{ backgroundColor: "#F9F9F9"}}>
         <Container>
           <Row>
             <Col xs={6} sm={4} lg={2} xl={2}>
@@ -105,13 +105,34 @@ const LichThi = ({ }) => {
 															> */}
                             {/* <div style={{ position: 'relative' }}> */}
 
-                            <ButtonDetailWrapper type="button" onClick={CNDPT}>
+                            {/* <ButtonDetailWrapper
+                  type="button"
+                  style={{
+                    margin: "0 auto",
+                  }}
+                  onClick={CNDPT}
+                >
+                  <Group94Wrapper />
+                              <Group96Wrapper />
+                  <div
+                    style={{
+                      margin: "0 auto",
+                      fontWeight: 500,
+                      fontSize: "16px",
+                    }}
+                  >
+                    XEM CHI TIẾT
+                  </div>
+                </ButtonDetailWrapper> */}
+
+                            <ButtonDetailWrapper type="button" onClick={CNDPT}> 
                               <Group94Wrapper />
                               <Group96Wrapper />
                               <div
                                 style={{
                                   margin: "0 auto",
                                   fontWeight: 500,
+                                  fontSize: "16px",
                                 }}
                               >
                                 XEM LỊCH THI

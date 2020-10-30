@@ -139,11 +139,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       path: "vanbangchungchi",
       offset: "70",
     },
-    {
-      label: "CƠ HỘI VIỆC LÀM",
-      path: "tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam",
-      offset: "70",
-    },
+    // {
+    //   label: "CƠ HỘI VIỆC LÀM",
+    //   path: "tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam",
+    //   offset: "70",
+    // },
     {
       label: "BA CÔNG KHAI",
       path: "bacongkhai",

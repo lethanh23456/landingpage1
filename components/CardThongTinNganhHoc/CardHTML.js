@@ -12,7 +12,7 @@ export function TongQuan({ tongQuan }) {
   console.log(tongQuan, 'card html')
   return (
     <Container>
-      <GoTo id="tongquan" />
+      <GoTo id="tongquan" style={{ padding: '10px' }}/>
       <WrapperCard order="first">
         <TitleHTML>Tổng quan</TitleHTML>
         <div dangerouslySetInnerHTML={{ __html: tongQuan }} />

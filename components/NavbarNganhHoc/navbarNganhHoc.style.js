@@ -2,7 +2,7 @@ import { Menu as MenuAntd } from 'antd';
 import styled from 'styled-components';
 
 export const Style = styled.div`
-  background-color: #fff;
+  background-color: red;
 `;
 
 export const MenuDiv = styled.div`
@@ -13,5 +13,5 @@ export const MenuDiv = styled.div`
 
 export const MenuItem = styled(MenuAntd.Item)`
   font-size: 16px;
-  color: black;
+  color: white;
 `;
