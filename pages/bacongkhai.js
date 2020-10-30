@@ -105,7 +105,7 @@ import {
                       }}
                       dangerouslySetInnerHTML={{ __html: noiDung }}
                     />
-                    {nguoiDang !== "" ? (
+                    {/* {nguoiDang !== "" ? (
                       <p
                         style={{
                           color: "#222",
@@ -115,7 +115,7 @@ import {
                       >
                         {nguoiDang}
                       </p>
-                    ) : null}
+                    ) : null} */}
                   </div>
                 </Col>
                 {/* <Col lg={7} xl={7} md={24} xs={24} sm={24}>
