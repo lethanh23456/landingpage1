@@ -39,13 +39,13 @@ module.exports = withPlugins(
             ...(typeof origExternals[0] === 'function' ? [] : origExternals),
           ];
 
-          config.module.rules.unshift({
-            test: antStyles,
-            use: 'null-loader',
-          });
-          config.node = {
-            fs: 'empty',
-          };
+          // config.module.rules.unshift({
+          //   test: antStyles,
+          //   use: 'null-loader',
+          // });
+          // config.node = {
+          //   fs: 'empty',
+          // };
         }
         return config;
       },
