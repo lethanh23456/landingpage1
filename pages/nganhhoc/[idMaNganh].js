@@ -9,8 +9,10 @@ import ThongTinCoBan from "components/CardThongTinNganhHoc/Card";
 import CardCauTruc from "components/CardThongTinNganhHoc/CardCauTruc";
 import {
   ChuanDauRa,
-  DieuienTuyenSinh, HocPhi, TongQuan,
-  TrienVongNgheNghiep
+  DieuienTuyenSinh,
+  HocPhi,
+  TongQuan,
+  TrienVongNgheNghiep,
 } from "components/CardThongTinNganhHoc/CardHTML";
 import QuyTrinhNhapHoc from "components/CardThongTinNganhHoc/QuyTrinhNhapHoc";
 import Container from "components/UI/Container";
@@ -20,13 +22,7 @@ import { NextSeo } from "next-seo";
 // import moment from 'moment';
 import React from "react";
 import Box from "components/Box";
-import {
-  BackGR,
-
-
-
-  Title
-} from "../../styles/nganhhoc.style";
+import { BackGR, Title } from "../../styles/nganhhoc.style";
 
 const dataBreadCrumb = [
   { name: "Trang chủ", url: "/" },
@@ -147,7 +143,15 @@ const NganhHoc = ({ dataFetch, params }) => {
                       backgroundImage: `url("${_.get(item, "banner", "")}")`,
                     }}
                   >
-                    <Title>{_.get(item, "tenNganh", "")}</Title>
+                    <Title
+                      style={{
+                        textAlign: "center",
+                        alignItems: "center",
+                        fontWeight: 650,
+                      }}
+                    >
+                      {_.get(item, "tenNganh", "")}
+                    </Title>
                     <div id="gioiThieu" />
                   </BackGR>
                   <Container>
@@ -187,7 +191,7 @@ const NganhHoc = ({ dataFetch, params }) => {
                       </Breadcrumb>
                     </div>
                   </Container>
-                  <ThongTinCoBan namO={namO}/>
+                  <ThongTinCoBan namO={namO} />
                   <Navbar
                     data={dataNav}
                     maNganh={_.get(data[0], "maNganh", "")}

@@ -1,20 +1,19 @@
-import { Button, Col, Row } from 'antd';
-import checklistImg from 'assets/image/Checklist.png';
-import findImg from 'assets/image/find.png';
-import searchImg from 'assets/image/Search.png';
-import submitImg from 'assets/image/Submit.png';
-import React from 'react';
-import Container from 'components/UI/Container';
-import { GoTo, TitleHTML, WrapperCard } from './CardHTML.style';
-import { CardQuyTrinh, TitleQuyTrinh } from './QuyTrinhNhapHoc.style';
-
+import { Button, Col, Row } from "antd";
+import checklistImg from "assets/image/Checklist.png";
+import findImg from "assets/image/find.png";
+import searchImg from "assets/image/Search.png";
+import submitImg from "assets/image/Submit.png";
+import React from "react";
+import Container from "components/UI/Container";
+import { GoTo, TitleHTML, WrapperCard } from "./CardHTML.style";
+import { CardQuyTrinh, TitleQuyTrinh } from "./QuyTrinhNhapHoc.style";
 
 export default function QuyTrinhNhapHoc() {
   const tuyenSinh = () => {
-    window.open('https://tuyensinh2.ptit.edu.vn/');
+    window.open("https://tuyensinh2.ptit.edu.vn/");
   };
   return (
-    <WrapperCard type="grey" style={{ marginBottom: '32px' }}>
+    <WrapperCard type="grey" style={{ marginBottom: "32px" }}>
       <GoTo id="quytrinhnhaphoc" />
 
       <Container>
@@ -29,7 +28,7 @@ export default function QuyTrinhNhapHoc() {
           <Col xs={24} lg={6}>
             <CardQuyTrinh>
               <img alt="" src={checklistImg} />
-              <TitleQuyTrinh>2. Kiểm tra điều kiện tuyển sinh</TitleQuyTrinh>
+              <TitleQuyTrinh>2. Kiểm tra điều kiện </TitleQuyTrinh>
             </CardQuyTrinh>
           </Col>
           <Col xs={24} lg={6}>
@@ -45,7 +44,7 @@ export default function QuyTrinhNhapHoc() {
             </CardQuyTrinh>
           </Col>
         </Row>
-        <div style={{ textAlign: 'center', marginTop: 24 }}>
+        <div style={{ textAlign: "center", marginTop: 24 }}>
           <Button size="large" type="danger" onClick={tuyenSinh}>
             Xem chi tiết tại đây
           </Button>

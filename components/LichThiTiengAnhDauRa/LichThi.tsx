@@ -15,10 +15,14 @@ import {
   ContentWrapper,
   Group94Wrapper,
   Group96Wrapper,
-  Title
+  Title,
 } from "./index.style.js";
 
-const LichThi = ({ }) => {
+const toeicResult = () => {
+  window.open("https://tracuu.ptit.edu.vn/ToeicResult");
+};
+
+const LichThi = ({}) => {
   const data = {
     name: "bck-logo",
     title: {
@@ -54,7 +58,7 @@ const LichThi = ({ }) => {
   }, []);
   return (
     <Box>
-      <BaCongKhaiWrapper style={{ backgroundColor: "#F9F9F9"}}>
+      <BaCongKhaiWrapper style={{ backgroundColor: "#F9F9F9" }}>
         <Container>
           <Row>
             <Col xs={6} sm={4} lg={2} xl={2}>
@@ -125,7 +129,10 @@ const LichThi = ({ }) => {
                   </div>
                 </ButtonDetailWrapper> */}
 
-                            <ButtonDetailWrapper type="button" onClick={CNDPT}> 
+                            <ButtonDetailWrapper
+                              type="button"
+                              onClick={toeicResult}
+                            >
                               <Group94Wrapper />
                               <Group96Wrapper />
                               <div

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import bgrNganhHoc from './maskGroup.png';
-import logo from './group180.png';
-import smallerLogo from './180smaller.png';
+import styled from "styled-components";
+import bgrNganhHoc from "./maskGroup.png";
+import logo from "./group180.png";
+import smallerLogo from "./180smaller.png";
 
 export const BackGR = styled.div`
   /* background-image: url("${bgrNganhHoc}");    */
@@ -74,14 +74,14 @@ export const Logo = styled.div`
 export const Title = styled.div`
   position: absolute;
   left: 2%;
-  top: 68%;
+  top: 45%;
   color: #fff;
   /* transform: translate(-50%, -50%);    
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%); */
-  font-size: calc(2em + 0.4vw);
-  color: '#D10000' !important;
+  font-size: calc(2em + 0.6vw);
+  color: "#D10000" !important;
   @media screen and (max-width: 1100px) {
     font-size: calc(1.5em + 0.6vw);
     /* margin-left: 30%;
