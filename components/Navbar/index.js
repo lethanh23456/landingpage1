@@ -127,6 +127,12 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       offset: "70",
     },
     {
+      label: "TUYỂN SINH",
+      path: "https://tuyensinh2.ptit.edu.vn/",
+      offset: "70",
+      redirect: true,
+    },
+    {
       hover: true,
       label: "CHƯƠNG TRÌNH ĐÀO TẠO",
       path: "#",
@@ -199,9 +205,8 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                   }}
                 ><span style={{ fontFamily: "'Roboto', sans- serif" }}>THI TIẾNG ANH</span></Button>
               } */}
-              {!isDesktop && !loading && (
+              {/* {!isDesktop && !loading && (
                 <Button
-                  // {...button}
                   onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
                   style={{
                     backgroundColor: "#E50303",
@@ -217,7 +222,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                     TUYỂN SINH
                   </span>
                 </Button>
-              )}
+              )} */}
               {isDesktop && (
                 <Icon
                   type="menu-fold"

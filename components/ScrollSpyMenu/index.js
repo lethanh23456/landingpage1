@@ -82,13 +82,23 @@ const ScrollSpyMenu = ({
               </SubMenu>
             );
           }
-          return (
-            <Item>
-              <Link href={`/${menu.path}`}>
-                <a style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>{menu.label}</a>
-              </Link>
-            </Item>
-          );
+          if (menu.redirect){
+            return (
+              <Item>
+                <Link href={`${menu.path}`} >
+                  <a style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>{menu.label}</a>
+                </Link>
+              </Item>
+            );
+          } else {
+            return (
+              <Item>
+                <Link href={`/${menu.path}`}>
+                  <a style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>{menu.label}</a>
+                </Link>
+              </Item>
+            );
+          }
         })}
         {/* {isDesktop && (
         <Item style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }} onClick={thiTA}>

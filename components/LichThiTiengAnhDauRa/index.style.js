@@ -108,8 +108,8 @@ export const ContentWrapper = styled.div`
 `;
 
 export const ButtonDetailWrapper = styled.button`
-  width: 135px;
-  min-width: 135px;
+  width: 170px;
+  min-width: 170px;
   @media screen and (max-width: 300px) {
     margin-left: -45px;
   }
