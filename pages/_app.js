@@ -8,13 +8,13 @@ export default ({ Component, pageProps }) => (
   <Layout>
     <Modal />
     <DefaultSeo
-      title="Phòng Đào tạo Học viện Công nghệ Bưu chính Viễn Thông 2020"
+      title="HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO"
       description="Trang Web cung cấp thông tin về Học viện Công nghệ Bưu chính Viễn Thông"
       openGraph={{
         type: 'website',
         locale: 'vi_VN',
         url: 'https://tuyensinhptit.aisenote.com/',
-        site_name: 'Phòng Đào tạo Học viện Công nghệ Bưu chính Viễn Thông 2020',
+        site_name: 'HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO',
         images: [
           {
             url: 'https://portal.ptit.edu.vn/wp-content/uploads/2019/01/1-10.jpg',
