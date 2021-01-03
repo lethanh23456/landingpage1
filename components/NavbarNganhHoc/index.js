@@ -24,7 +24,7 @@ class Navbar extends React.Component {
     const { SubMenu } = Menu;
     return (
       <Box>
-        <Sticky top={114} bottomBoundary="#content" innerZ={999}>
+        <Sticky top={95} bottomBoundary="#content" innerZ={999}>
           <Style>
             <Container>
               <MenuDiv>
