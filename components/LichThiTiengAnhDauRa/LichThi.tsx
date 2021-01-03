@@ -140,9 +140,10 @@ const LichThi = ({}) => {
                                   margin: "0 auto",
                                   fontWeight: 500,
                                   fontSize: "16px",
+                                  width: 300,
                                 }}
                               >
-                                XEM LỊCH THI
+                                TRA CỨU KẾT QUẢ
                               </div>
                             </ButtonDetailWrapper>
                             {/* </Popover> */}
