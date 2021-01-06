@@ -1,7 +1,7 @@
 /* eslint-disable semi */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-import { Button, Drawer, Icon, Menu } from "antd";
+import { Button, Col, Drawer, Icon, Menu, Row } from "antd";
 // import { MENU_ITEMS_MOBILE } from 'common/src/data/Hosting/data';
 import LogoImage from "assets/image/hosting/logo.png";
 import axios from "axios";
@@ -167,15 +167,18 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     <div id="nav-bar">
       <NavbarWrapper {...navbarStyle}>
         <Container>
-          <Box {...row}>
+          <Row>
+          {/* <Box {...row}> */}
             {/* <Logo href="/" logoSrc={LogoImage} title="PTIT" logoStyle={logoStyle} /> */}
-            <Link rel="prefetch" href={`/`}>
-              <a>
-                <img src={LogoImage} alt="logo" />
-              </a>
-            </Link>
-            {/* <Box {...menuWrapper}> */}
-              {!isDesktop && !loading && (
+            <Col xl={2} lg={2} md={2} xs={22} sm={22}>
+              <Link rel="prefetch" href={`/`}>
+                <a>
+                  <img src={LogoImage} alt="logo" />
+                </a>
+              </Link>
+            </Col>
+            <Col xl={22} lg={22} md={22} xs={0} sm={0}>
+              {!loading && (
                 <ScrollSpyMenu
                   menuItems={MENU_ITEMS}
                   offset={-60}
@@ -183,47 +186,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                   onClose={closeDrawer}
                 />
               )}
-              {/* {!isDesktop &&
-                <Button
-                  // {...button}
-                  onClick={CNDPT}
-                  style={{
-                    backgroundColor: '#E50303',
-                    color: 'white',
-
-                    fontSize: 'calc(0.5em + 0.3vw)',
-                    fontWeight: 'bold',
-                    height: 40,
-                    marginRight: 10,
-                    marginLeft: 10,
-                  }}
-                ><span style={{ fontFamily: "'Roboto', sans- serif" }}>THI TIẾNG ANH</span></Button>
-              } */}
-              {/* {!isDesktop && !loading && (
-                <Button
-                  onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
-                  style={{
-                    backgroundColor: "#E50303",
-                    color: "white",
-                    fontFamily: "'Roboto', sans- serif",
-                    fontSize: "calc(0.5em + 0.3vw)",
-                    fontWeight: "bold",
-                    height: 40,
-                    marginLeft: 10,
-                  }}
-                >
-                  <span style={{ fontFamily: "'Roboto', sans- serif" }}>
-                    TUYỂN SINH
-                  </span>
-                </Button>
-              )} */}
-              {isDesktop && (
+            </Col>  
+            <Col xl={0} lg={0} md={0} xs={2} sm={2}>
                 <Icon
                   type="menu-fold"
                   style={{ fontSize: 35, color: "#FF3D3B" }}
                   onClick={openDrawer}
                 />
-              )}
+            </Col>
               <Drawer
                 visible={showDrawer}
                 width={!isMobile ? "40%" : "90%"}
@@ -241,74 +211,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                   onClose={closeDrawer}
                 />
               </Drawer>
-              {/* <Drawer
-                width="420px"
-                placement="right"
-                drawerHandler={<HamburgMenu barColor="#eb4d4b" />}
-                open={state.isOpen}
-                toggleHandler={toggleHandler}
-              >
-                <Menu
-                  onClick={handleClick}
-                  style={{ width: 296 }}
-                  // defaultSelectedKeys={['1']}
-                  mode="inline"
-                >
-                  {MENU_ITEMS_MOBILE.map((menu, index) => {
-                    if (menu.label === 'THI TIẾNG ANH' || menu.label === 'TUYỂN SINH') {
-                      return (
-                        <Menu.Item
-                          key={index}
-                          onClick={
-                            menu.label === 'TUYỂN SINH'
-                              ? () => window.open('https://tuyensinh2.ptit.edu.vn/', '_blank')
-                              : thiTA()
-                          }
-                        >
-                          {menu.label}
-                        </Menu.Item>
-                      );
-                    }
-                    if (menu.children.length === 0) {
-                      return (
-                        <Menu.Item key={index}>
-                          <Link href={menu.path}>
-                            <a>{menu.label}</a>
-                          </Link>
-                        </Menu.Item>
-                      );
-                    }
-                    return (
-                      <SubMenu key={index} title={menu.label}>
-                        {menu.children.map((e, ind) => {
-                          if (e.children.length === 0) {
-                            return (
-                              <Menu.Item key={`sub${ind}-${index}`}>
-                                <Link href={e.path}>
-                                  <a>{e.label}</a>
-                                </Link>
-                              </Menu.Item>
-                            );
-                          }
-                          return (
-                            <SubMenu key={`sub${ind}-${index}`} title={e.label}>
-                              {e.children.map((ex, indd) => (
-                                <Menu.Item key={`subs${indd}-${ind}`}>
-                                  <Link href={ex.path}>
-                                    <a>{ex.label}</a>
-                                  </Link>
-                                </Menu.Item>
-                              ))}
-                            </SubMenu>
-                          );
-                        })}
-                      </SubMenu>
-                    );
-                  })}
-                </Menu>
-              </Drawer> */}
-            {/* </Box> */}
-          </Box>
+          </Row>
         </Container>
       </NavbarWrapper>
     </div>
