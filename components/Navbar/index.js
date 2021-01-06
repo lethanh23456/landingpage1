@@ -182,12 +182,36 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             </Link>
             <Box {...menuWrapper}>
               {!isDesktop && !loading && (
-                <ScrollSpyMenu
-                  menuItems={MENU_ITEMS}
-                  offset={-60}
-                  isDesktop={isDesktop}
-                  onClose={closeDrawer}
-                />
+                <>
+                  <Container>
+                    <div
+                      style={{
+                        fontSize: "22px",
+                        color: "rgb(209, 0, 0)",
+                        fontWeight: "500",
+                        textAlign: "center",
+                      }}
+                    >
+                      HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "18px",
+                        color: "rgb(209, 0, 0)",
+                        fontWeight: "500",
+                        textAlign: "center",
+                      }}
+                    >
+                      CỔNG THÔNG TIN PHÒNG ĐÀO TẠO
+                    </div>
+                    <ScrollSpyMenu
+                      menuItems={MENU_ITEMS}
+                      offset={-60}
+                      isDesktop={isDesktop}
+                      onClose={closeDrawer}
+                    />
+                  </Container>
+                </>
               )}
               {/* {!isDesktop &&
                 <Button
