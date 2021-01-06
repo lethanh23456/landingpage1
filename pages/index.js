@@ -62,7 +62,7 @@ export default ({
     }
   };
   const modules = (
-    <div style={{ marginTop: 110 }}>
+    <div style={{ marginTop: 100 }}>
       {dataBlock.map((modules) => renderModules(modules))}
     </div>
   );
@@ -108,7 +108,7 @@ export async function getServerSideProps() {
       },
     },
   });
-  debugger
+  debugger;
   const data = _.get(response, "data.data", {});
 
   response = await axios.get(`${ip3}/bai-viet`, {

@@ -72,7 +72,11 @@ const ScrollSpyMenu = ({
     //   }
     // </Scrollspy >
     <Wrapper>
-      <Menu mode={isDesktop ? 'inline' : 'horizontal'} onClick={onClose}>
+      <Menu 
+        mode={isDesktop ? 'inline' : 'horizontal'} 
+        // mode="horizontal"
+        onClick={onClose}
+      >
         {menuItems.map((menu, index) => {
           console.log(menu, 'menu');
           if (menu.submenu && menu.submenu.length > 0) {
@@ -100,17 +104,52 @@ const ScrollSpyMenu = ({
             );
           }
         })}
-        {/* {isDesktop && (
-        <Item style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }} onClick={thiTA}>
-          THI TIẾNG ANH
-        </Item>
-      )} */}
         {isDesktop && (
           <Item style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }} onClick={tuyenSinh}>
             TUYỂN SINH
           </Item>
         )}
       </Menu>
+      {/* <Menu
+        // onClick={this.handleClick}
+        // selectedKeys={[this.state.current]}
+        mode="horizontal"
+      >
+        <Menu.Item>
+          <Icon type="mail" />
+          Navigation One
+        </Menu.Item>
+        <Menu.Item disabled>
+          <Icon type="appstore" />
+          Navigation Two
+        </Menu.Item>
+        <SubMenu
+          title={
+            <span className="submenu-title-wrapper">
+              <Icon type="setting" />
+              Navigation Three - Submenu
+            </span>
+          }
+        >
+          <Menu.ItemGroup title="Item 1">
+            <Menu.Item>Option 1</Menu.Item>
+            <Menu.Item>Option 2</Menu.Item>
+          </Menu.ItemGroup>
+          <Menu.ItemGroup title="Item 2">
+            <Menu.Item>Option 3</Menu.Item>
+            <Menu.Item>Option 4</Menu.Item>
+          </Menu.ItemGroup>
+        </SubMenu>
+        <Menu.Item>
+          <a
+            href="https://ant.design"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Navigation Four - Link
+          </a>
+        </Menu.Item>
+      </Menu> */}
     </Wrapper>
   );
 };

@@ -116,7 +116,7 @@ const NganhHoc = ({ dataFetch, params }) => {
               alt: "Tin tức",
             },
           ],
-          site_name: "Phòng Đào tạo Học viện Công nghệ Bưu chính Viễn thông",
+          site_name: "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO",
         }}
         twitter={{
           handle: "@handle",
