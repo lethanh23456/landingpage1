@@ -62,7 +62,7 @@ export default ({
     }
   };
   const modules = (
-    <div style={{ marginTop: 150 }}>
+    <div style={{ marginTop: 100 }}>
       {dataBlock.map((modules) => renderModules(modules))}
     </div>
   );

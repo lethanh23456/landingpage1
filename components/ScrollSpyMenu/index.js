@@ -73,8 +73,8 @@ const ScrollSpyMenu = ({
     // </Scrollspy >
     <Wrapper>
       <Menu 
-        // mode={isDesktop ? 'inline' : 'horizontal'} 
-        mode="horizontal"
+        mode={isDesktop ? 'inline' : 'horizontal'} 
+        // mode="horizontal"
         onClick={onClose}
       >
         {menuItems.map((menu, index) => {

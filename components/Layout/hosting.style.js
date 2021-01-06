@@ -136,7 +136,7 @@ export const ContentWrapper = styled.div`
     left: 0;
     width: 100%;
     transition: 0.35s ease-in-out;
-    padding: 30px 0;
+    padding: 15px 0;
     .main_menu {
       margin-right: 40px;
       li {
