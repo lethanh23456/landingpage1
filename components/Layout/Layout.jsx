@@ -53,7 +53,7 @@ export default function Layout({ children, home }) {
         />
         <meta
           name="description"
-          content="Phòng Đào tạo Học viện Công nghệ Bưu chính viễn thông"
+          content="HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO"
         />
         <meta property="og:image" content={logo} />
         <meta name="og:title" content={siteTitle} />
