@@ -43,7 +43,7 @@ export const ItemAntd = styled(Item)`
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const isDesktop = useMediaQuery({
-    query: "(max-device-width: 1380px)",
+    query: "(max-device-width: 768px)",
   });
   const isMobile = useMediaQuery({
     query: "(max-device-width: 768px)",
@@ -81,13 +81,13 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           }
         >
           {item.nganhDaoTao.map((e, ind) => (
-            <ItemAntd>
+            <Item>
               <Link href={`/nganhhoc/${e?.maNganh ?? ""}`}>
                 <a style={{ fontSize: isDesktop ? 14 : 18 }}>
                   {e?.tenNganh ?? ""}
                 </a>
               </Link>
-            </ItemAntd>
+            </Item>
           ))}
         </SubMenu>
       );
@@ -107,18 +107,18 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       path: "#",
       offset: "70",
       submenu: [
-        <ItemAntd>
+        <Item>
           <Link href="/doinguchitiet">
             <a style={{ fontSize: isDesktop ? 14 : 18 }}>Đội ngũ cán bộ</a>
           </Link>
-        </ItemAntd>,
-        <ItemAntd>
+        </Item>,
+        <Item>
           <Link href="/chucnangnhiemvu">
             <a style={{ fontSize: isDesktop ? 14 : 18 }}>
               Chức năng - Nhiệm vụ
             </a>
           </Link>
-        </ItemAntd>,
+        </Item>,
       ],
     },
     {
@@ -137,7 +137,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       label: "CHƯƠNG TRÌNH ĐÀO TẠO",
       path: "#",
       offset: "70",
-      // </Menu >
       submenu: daotaoDesk(),
     },
     {
@@ -145,11 +144,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       path: "vanbangchungchi",
       offset: "70",
     },
-    // {
-    //   label: "CƠ HỘI VIỆC LÀM",
-    //   path: "tintucchung#dao_tao_tin_tuc_co_hoi_viec_lam",
-    //   offset: "70",
-    // },
     {
       label: "BA CÔNG KHAI",
       path: "bacongkhai",
@@ -180,7 +174,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 <img src={LogoImage} alt="logo" />
               </a>
             </Link>
-            <Box {...menuWrapper}>
+            {/* <Box {...menuWrapper}> */}
               {!isDesktop && !loading && (
                 <ScrollSpyMenu
                   menuItems={MENU_ITEMS}
@@ -313,7 +307,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                   })}
                 </Menu>
               </Drawer> */}
-            </Box>
+            {/* </Box> */}
           </Box>
         </Container>
       </NavbarWrapper>
@@ -339,7 +333,7 @@ Navbar.defaultProps = {
     flexBox: true,
     justifyContent: "space-between",
     alignItems: "center",
-    width: "100%",
+    // width: "100%",
   },
   logoStyle: {
     maxWidth: ["120px", "130px"],
@@ -356,11 +350,11 @@ Navbar.defaultProps = {
     minHeight: "auto",
     // height: `${2}`,
   },
-  menuWrapper: {
-    flexBox: true,
-    alignItems: "center",
-    // width: '40%',
-  },
+  // menuWrapper: {
+  //   flexBox: true,
+  //   alignItems: "center",
+  //   // width: '40%',
+  // },
 };
 
 export default Navbar;
