@@ -43,10 +43,10 @@ export const ItemAntd = styled(Item)`
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const isDesktop = useMediaQuery({
-    query: "(max-device-width: 768px)",
+    query: "(max-device-width: 500px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 768px)",
+    query: "(max-device-width: 500px)",
   });
 
   const [daotao, setDaotao] = useState([]);
