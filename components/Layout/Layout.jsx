@@ -38,7 +38,7 @@ export default function Layout({ children, home }) {
         <link rel="prerender" href="https://tuyensinh2.ptit.edu.vn/" />
         <link />
         <title>
-          HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG, CỔNG THÔNG TIN TUYỂN SINH
+          HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG, CỔNG THÔNG TIN PHÒNG ĐÀO TẠO
         </title>
         <meta
           name="Description"
