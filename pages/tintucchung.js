@@ -102,7 +102,7 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
     setPage(page);
   };
   return (
-    <Box style={{ marginTop: 120 }}>
+    <Box style={{ marginTop: 0, padding: 30 }}>
       <Container>
         <Tabs
           defaultActiveKey={key}

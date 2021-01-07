@@ -4,7 +4,7 @@ import React from 'react';
 import Box from 'components/Box';
 
 const DTDH = ({ }) => (
-  <Box style={{ marginTop: 120 }}>
+  <Box style={{ marginTop: 0 }}>
     <Container>
       <DaoTaoDaiHoc />
     </Container>

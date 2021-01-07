@@ -15,8 +15,10 @@ import {
 
 const NavbarStyle = styled.nav`
   /* Navbar default style goes here */
+  background-color: white;
   display: flex;
   align-items: center;
+  /* width: 100%; */
   min-height: 56px;
   padding: 10px 16px;
   

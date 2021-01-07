@@ -124,7 +124,7 @@ const NganhHoc = ({ dataFetch, params }) => {
           cardType: "summary_large_image",
         }}
       />
-      <Box style={{ marginTop: 120 }}>
+      <Box style={{ marginTop: 0 }}>
         <div
           gutter={15}
           style={{

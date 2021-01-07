@@ -22,6 +22,7 @@ const ContainerWrapper = styled.div`
         padding-right: 0;
       `) ||
     css`
+      width: 100%;
       padding-left: 30px;
       padding-right: 30px;
     `};
@@ -41,6 +42,7 @@ const ContainerWrapper = styled.div`
     ${props =>
     props.mobileGutter &&
     css`
+        width: 100%;
         padding-left: 30px;
         padding-right: 30px;
       `};
