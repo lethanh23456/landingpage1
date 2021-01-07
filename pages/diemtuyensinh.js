@@ -323,7 +323,7 @@ const DiemTuyenSinh = () => {
     isMobile = b;
   });
   return (
-    <Box style={{ marginTop: 120 }}>
+    <Box style={{ marginTop: 0 }}>
       <Container>
         <div>
           <TitleTable>ĐIỂM TRÚNG TUYỂN THEO TỪNG NĂM</TitleTable>

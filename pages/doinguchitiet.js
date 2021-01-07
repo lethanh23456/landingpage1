@@ -41,7 +41,7 @@ const DoiNgu = ({ button, buttonWrapper }) => {
 	}, []);
 	console.log(relate, 'path post');
 	return (
-		<Box style={{ marginTop: 120 }}>
+		<Box style={{ marginTop: 0 }}>
 			<TinTucWrapper>
 				<Container>
 					{/* <TitleContainer style={{ color: '#C13726', marginTop: '50' }}>

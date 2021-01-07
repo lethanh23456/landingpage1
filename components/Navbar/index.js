@@ -165,11 +165,9 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
   return (
     <div id="nav-bar">
-      <NavbarWrapper {...navbarStyle}>
+      <NavbarWrapper>
         <Container>
-          <Row>
-          {/* <Box {...row}> */}
-            {/* <Logo href="/" logoSrc={LogoImage} title="PTIT" logoStyle={logoStyle} /> */}
+          <Row style={{ width: isDesktop? 'inherit':'100%'}}>
             <Col xl={2} lg={2} md={2} xs={22} sm={22}>
               <Link rel="prefetch" href={`/`}>
                 <a>
@@ -177,7 +175,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 </a>
               </Link>
             </Col>
-            <Col xl={22} lg={22} md={22} xs={0} sm={0}>
+            <Col xl={22} lg={22} md={22} xs={0} sm={0} style={{ paddingTop: 25 }}>
               {!loading && (
                 <ScrollSpyMenu
                   menuItems={MENU_ITEMS}
@@ -202,7 +200,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 onClose={closeDrawer}
                 bodyStyle={{ padding: "10px 0px" }}
               >
-                {/* <p>aaaaaaaaaaaa</p> */}
                 <ScrollSpyMenu
                   className="main_menu"
                   menuItems={MENU_ITEMS}
@@ -218,46 +215,13 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   );
 };
 
-Navbar.propTypes = {
-  navbarStyle: PropTypes.object,
-  logoStyle: PropTypes.object,
-  button: PropTypes.object,
-  row: PropTypes.object,
-  menuWrapper: PropTypes.object,
-};
-
-Navbar.defaultProps = {
-  navbarStyle: {
-    className: "hosting_navbar",
-    minHeight: "70px",
-    display: "block",
-  },
-  row: {
-    flexBox: true,
-    justifyContent: "space-between",
-    alignItems: "center",
-    // width: "100%",
-  },
-  logoStyle: {
-    maxWidth: ["120px", "130px"],
-  },
-  button: {
-    type: "button",
-    fontSize: "calc(0.5em + 0.3vw)",
-    fontWeight: "500",
-    color: "white",
-    borderRadius: "4px",
-    pl: "15px",
-    pr: "15px",
-    colors: "primaryWithBg",
-    minHeight: "auto",
-    // height: `${2}`,
-  },
-  // menuWrapper: {
-  //   flexBox: true,
-  //   alignItems: "center",
-  //   // width: '40%',
-  // },
-};
+// Navbar.defaultProps = {
+//   navbarStyle: {
+//     backgroundColor: 'white',
+//     // className: "hosting_navbar",
+//     // minHeight: "70px",
+//     display: "block",
+//   },
+// };
 
 export default Navbar;

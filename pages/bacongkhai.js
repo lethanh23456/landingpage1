@@ -51,7 +51,7 @@ const TinTuc = ({ data, relate }) => {
 
   return (
     <>
-      <Box style={{ marginTop: 150 }}>
+      <Box style={{ marginTop: 0 }}>
         <Container>
           {/* <Button onClick={() => test()}>AAAAA</Button> */}
           <Row

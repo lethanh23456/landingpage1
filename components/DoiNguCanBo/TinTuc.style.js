@@ -25,7 +25,7 @@ export const ContainerCardDN = styled.div`
 `;
 export const TinTucWrapper = styled.div`
   background-color: #f6f9fa;
-  /* padding: 64px 0px 0 0; */
+  padding: 64px 0px 0 0;
 `;
 
 export const CardWrapper = styled.div`

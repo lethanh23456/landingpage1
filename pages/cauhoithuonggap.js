@@ -46,7 +46,7 @@ const CauHoi = () => {
     });
     console.log(isMobile, 'faq');
     return (
-        <Box style={{ marginTop: 120 }}>
+        <Box style={{ marginTop: 0 }}>
             <Container>
                 <Row>
                     {isMobile

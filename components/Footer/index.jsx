@@ -108,7 +108,7 @@ const GlobalFooter = () => (
                 </Text1Wrapper>
               </Col>
             </Row>
-            <Row style={{ marginTop: 30 }}>
+            <Row style={{ marginTop: 0 }}>
               <Col xs={24} lg={12}>
                 {/* <Row> */}
                 <Text2Wrapper>Trụ sở chính:</Text2Wrapper>

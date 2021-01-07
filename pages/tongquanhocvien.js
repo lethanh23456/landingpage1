@@ -51,7 +51,7 @@ const TinTuc = ({}) => {
   });
   return (
     <>
-      <Box style={{ marginTop: 120 }}>
+      <Box style={{ marginTop: 0 }}>
         <Container>
           {/* <Button onClick={() => test()}>AAAAA</Button> */}
           <Row

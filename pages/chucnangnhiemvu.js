@@ -44,7 +44,7 @@ const ChucNangNhiemVu = () => {
   console.log(relate, "cnvn");
   return (
     <Spin spinning={loading}>
-      <Box style={{ marginTop: 120 }}>
+      <Box style={{ marginTop: 0 }}>
         <Container>
           <div>
             <Row>
