@@ -186,7 +186,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               textAlign: "center",
             }}
           >
-            CỔNG THÔNG TIN PHÒNG ĐÀO TẠO
+            CỔNG THÔNG TIN ĐÀO TẠO
           </div>
           {/* </Container> */}
           <Row style={{ width: isDesktop ? "inherit" : "100%" }}>
