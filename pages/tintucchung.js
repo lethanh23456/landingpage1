@@ -102,7 +102,7 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
     setPage(page);
   };
   return (
-    <Box style={{ marginTop: 0, padding: 30 }}>
+    <Box style={{ marginTop: 0, padding: 0 }}>
       <Container>
         <Tabs
           defaultActiveKey={key}
@@ -145,10 +145,17 @@ export async function getServerSideProps() {
   // Fetch data from external API
   let response = await axios.get(`${ip}/loai-bai-viet`, {
     params: {
-      cond: { $and: [{ maLoai: { $regex: "DAO_TAO_TIN_TUC_" } }, { maLoai: { $ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI" } }, { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } }, { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } }] }
+      cond: {
+        $and: [
+          { maLoai: { $regex: "DAO_TAO_TIN_TUC_" } },
+          { maLoai: { $ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI" } },
+          { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } },
+          { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } },
+        ],
+      },
     },
   });
   const loaiBaiViet = _.get(response, "data.data", {});
-  debugger
+  debugger;
   return { props: { loaiBaiViet } };
 }
