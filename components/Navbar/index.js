@@ -167,7 +167,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     <div id="nav-bar">
       <NavbarWrapper>
         <Container>
-          {/* <Container> */}
           <div
             style={{
               fontSize: "22px",
@@ -188,7 +187,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           >
             CỔNG THÔNG TIN ĐÀO TẠO
           </div>
-          {/* </Container> */}
+
           <Row style={{ width: isDesktop ? "inherit" : "100%" }}>
             <Col xl={2} lg={2} md={2} xs={22} sm={22}>
               <Link rel="prefetch" href={`/`}>
@@ -223,7 +222,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             </Col>
             <Drawer
               visible={showDrawer}
-              width={!isMobile ? "40%" : "90%"}
+              width={!isMobile ? "50%" : "90%"}
               destroyOnClose
               closable
               onClose={closeDrawer}
