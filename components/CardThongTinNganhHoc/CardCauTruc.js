@@ -1,20 +1,24 @@
-import { Divider } from 'antd';
-import TienQuyetHocPhan from 'components/CardThongTinNganhHoc/TienQuyetHocPhan';
-import React from 'react';
-import Container from '../UI/Container';
+import { Divider } from "antd";
+import TienQuyetHocPhan from "components/CardThongTinNganhHoc/TienQuyetHocPhan";
+import React from "react";
+import Container from "../UI/Container";
 import {
   CardHocKy,
   CardMon,
-  ContainerWrapper, RowHocKy,
+  ContainerWrapper,
+  RowHocKy,
   TitleCauTruc,
-  WrapperCard
-} from './CardCauTruc.style';
-import { ContentHTML, GoTo, TitleHTML, WrapperCard as WrapperCardTitle } from './CardHTML.style';
-
-
+  WrapperCard,
+} from "./CardCauTruc.style";
+import {
+  ContentHTML,
+  GoTo,
+  TitleHTML,
+  WrapperCard as WrapperCardTitle,
+} from "./CardHTML.style";
 
 export default function Card({ data }) {
-  console.log(data, 'cauTrucChuongTrinh');
+  console.log(data, "cauTrucChuongTrinh");
 
   return (
     <WrapperCardTitle style={{ paddingBottom: 0 }}>
@@ -22,36 +26,65 @@ export default function Card({ data }) {
       <Container>
         <TitleHTML>Cấu trúc chương trình các chuyên ngành</TitleHTML>
       </Container>
-      {data.map(item => {
-        const { hocPhanTuChon, cauTrucChuongTrinh, tenChuyenNganh, anchor } = item;
+      {data.map((item) => {
+        const {
+          hocPhanTuChon,
+          cauTrucChuongTrinh,
+          tenChuyenNganh,
+          anchor,
+        } = item;
         return (
           <>
             <GoTo id={`${anchor}`} />
             <Container>
               <ContentHTML>
-                {' '}
-                <b>Tiến trình học tập theo học chế tín chỉ - Chuyên ngành: {tenChuyenNganh}</b>
+                {" "}
+                <b>
+                  Tiến trình học tập theo học chế tín chỉ - Chuyên ngành:{" "}
+                  {tenChuyenNganh}
+                </b>
               </ContentHTML>
             </Container>
             <ContainerWrapper>
-              {cauTrucChuongTrinh.map(({ hocKy, soTinChi, monHoc }) => (
-                <RowHocKy>
-                  <WrapperCard>
-                    <CardHocKy>
-                      <TitleCauTruc>{`Học kỳ ${hocKy}`}</TitleCauTruc>
-                      <div>{`(${soTinChi} TC)`}</div>
-                    </CardHocKy>
-                  </WrapperCard>
-                  {monHoc?.map(({ tenMonHoc, soTinChi: soTin, type }) => (
+              {cauTrucChuongTrinh.map(
+                ({ hocKy, soTinChi, monHoc, duongDan }) => (
+                  <RowHocKy>
                     <WrapperCard>
-                      <CardMon type={type}>
-                        <TitleCauTruc>{tenMonHoc}</TitleCauTruc>
-                        <div>{`(${soTin} TC)`}</div>
-                      </CardMon>
+                      <CardHocKy>
+                        <TitleCauTruc>{`Học kỳ ${hocKy}`}</TitleCauTruc>
+                        <div>{`(${soTinChi} TC)`}</div>
+                      </CardHocKy>
                     </WrapperCard>
-                  ))}
-                </RowHocKy>
-              ))}
+                    {monHoc?.map(
+                      ({ tenMonHoc, soTinChi: soTin, type, duongDan }) => {
+                        if (duongDan)
+                          return (
+                            <WrapperCard>
+                              <CardMon
+                                type={type}
+                                onClick={() => window.open(duongDan)}
+                              >
+                                <TitleCauTruc>{tenMonHoc}</TitleCauTruc>
+                                <div>{`(${soTin} TC)`}</div>
+                              </CardMon>
+                            </WrapperCard>
+                          );
+                        return (
+                          <WrapperCard>
+                            <CardMon
+                              type={type}
+                              // onClick={() => console.log(duongDan)}
+                            >
+                              <TitleCauTruc>{tenMonHoc}</TitleCauTruc>
+                              <div>{`(${soTin} TC)`}</div>
+                            </CardMon>
+                          </WrapperCard>
+                        );
+                      }
+                    )}
+                  </RowHocKy>
+                )
+              )}
             </ContainerWrapper>
             <Container>
               <TienQuyetHocPhan hocPhanTuChon={hocPhanTuChon} />
@@ -60,9 +93,8 @@ export default function Card({ data }) {
               <Divider />
             </Container>
           </>
-        )
+        );
       })}
-
     </WrapperCardTitle>
   );
 }

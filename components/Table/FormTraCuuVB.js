@@ -41,7 +41,7 @@ const TraCuuVB = (props) => {
           <Row gutter={[12, 10]}>
             <Col xs={24} md={24} lg={12}>
               <Card
-                style={{ borderRadius: 8, height: 295 }}
+                style={{ borderRadius: 8 }}
                 title={
                   <span>
                     <img src={capbangdiem} style={{ padding: 8 }} />
@@ -49,31 +49,33 @@ const TraCuuVB = (props) => {
                   </span>
                 }
               >
-                <Col xs={24} md={24} lg={12}>
-                  <Form.Item label="Họ và Tên">
-                    {getFieldDecorator("hoTen", {
-                      // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
-                      rules: [...rules.length(50), ...rules.text],
-                    })(
-                      <Input
-                        style={{ maxWidth: 500 }}
-                        placeholder="Họ và tên"
-                      />
-                    )}
-                  </Form.Item>
-                </Col>
-                <Col xs={24} md={24} lg={12}>
-                  <Form.Item label="Ngày Sinh">
-                    {getFieldDecorator("ngaySinh", {
-                      // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
-                    })(
-                      <DatePicker
-                        placeholder="VD: 12/04/1999"
-                        format="DD/MM/YYYY"
-                      />
-                    )}
-                  </Form.Item>
-                </Col>
+                <Row>
+                  <Col xs={24} md={24} lg={12}>
+                    <Form.Item label="Họ và Tên">
+                      {getFieldDecorator("hoTen", {
+                        // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
+                        rules: [...rules.length(50), ...rules.text],
+                      })(
+                        <Input
+                          style={{ maxWidth: 500 }}
+                          placeholder="Họ và tên"
+                        />
+                      )}
+                    </Form.Item>
+                  </Col>
+                  <Col xs={24} md={24} lg={12} style={{ paddingLeft: 8 }}>
+                    <Form.Item label="Ngày Sinh">
+                      {getFieldDecorator("ngaySinh", {
+                        // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
+                      })(
+                        <DatePicker
+                          placeholder="VD: 12/04/1999"
+                          format="DD/MM/YYYY"
+                        />
+                      )}
+                    </Form.Item>
+                  </Col>
+                </Row>
                 <Row>
                   <p style={{ color: "red" }}>
                     <i>
