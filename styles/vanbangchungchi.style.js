@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 const SectionWrapper = styled.section`
-  padding: 150px 0 0 0;
+  padding: 10px 0 0 0;
   @media (max-width: 990px) {
     padding: 80px 0 40px 0;
   }
