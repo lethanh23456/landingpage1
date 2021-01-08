@@ -73,7 +73,7 @@ const ScrollSpyMenu = ({
     // </Scrollspy >
     <Wrapper>
       <Menu 
-        mode={isDesktop ? 'inline' : 'horizontal'} 
+        mode={isDesktop ? 'vertical' : 'horizontal'} 
         // mode="horizontal"
         onClick={onClose}
       >
