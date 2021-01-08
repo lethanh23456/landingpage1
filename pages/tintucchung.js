@@ -37,7 +37,7 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
     maLoaiBaiViet: loaiBaiViet[0].maLoai,
   });
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(16);
   function callback(key) {
     loaiBaiViet.map((e) => {
       if (e.maLoai === key) {
