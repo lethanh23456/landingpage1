@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const TestimonialSecWrapper = styled.section`
   position: relative;
@@ -19,8 +19,8 @@ const TestimonialSecWrapper = styled.section`
   }
 
   .glide__slides {
-    padding-top: 20px;
-    
+    padding-top: 10px;
+
     /* .glide__slide {
       opacity: 0.5;
       pointer-events: none;
@@ -141,7 +141,7 @@ export const TitleCarousel = styled.div`
   color: white;
   font-weight: bold;
   font-size: calc(0.8em + 1.5vw);
-  line-height: calc(1em + 3vw);
+  /* line-height: calc(1em + 3vw); */
   letter-spacing: 0.06em;
   text-align: left;
 `;
@@ -159,13 +159,13 @@ export const ContainerInformation = styled.div`
   @media screen and (max-width: 744px) {
     display: none;
   }
-  z-index: 100;
+  z-index: 80;
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   @media screen and (max-width: 900px) {
-    bottom: 25%;
+    /* bottom: 25%; */
   }
 `;
 
