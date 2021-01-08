@@ -15,6 +15,11 @@ export const Wrapper = styled.div`
   & ul {
     border-bottom: none !important;
   }
+  & .ant-menu-overflowed-submenu {
+    border-color: #eb4d4b;
+    font-size: 25px;
+    font-weight: bold;
+  }
 `;
 
 export const ItemAntd = styled(Item)`
