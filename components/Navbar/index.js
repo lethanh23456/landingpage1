@@ -43,7 +43,7 @@ export const ItemAntd = styled(Item)`
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const isDesktop = useMediaQuery({
-    query: "(max-device-width: 500px)",
+    query: "(max-device-width: 767px)",
   });
   const isMobile = useMediaQuery({
     query: "(max-device-width: 500px)",
@@ -232,7 +232,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 className="main_menu"
                 menuItems={MENU_ITEMS}
                 offset={-60}
-                isDesktop={isDesktop}
+                isDesktop={true}
                 onClose={closeDrawer}
               />
             </Drawer>
