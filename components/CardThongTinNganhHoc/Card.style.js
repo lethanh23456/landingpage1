@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // eslint-disable-next-line import/prefer-default-export
 export const MaNganhHoc = styled.div`
@@ -29,7 +29,7 @@ export const Title = styled.div`
 export const Content = styled.div`
   letter-spacing: 0.02em;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 26px;
   /* Color/ Primary */
   text-align: center;

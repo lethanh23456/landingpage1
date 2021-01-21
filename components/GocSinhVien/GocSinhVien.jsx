@@ -40,11 +40,11 @@ const GocSinhVien = ({ data }) => {
   return (
     <div>
       <Box>
-        <TinTucWrapper>
-          <Container>
+        <TinTucWrapper style={{backgroundColor: '#FFFFFF'}}>
+          <Container style={{backgroundColor: '#FFFFFF'}}>
             {/* <Button onClick={() => test()}>AAAAA</Button> */}
             <TitleContainer>
-              <p style={{ margin: 0 }}>GÓC SINH VIÊN</p>
+              <p style={{ margin: 0 }}>GÓC SINH VIÊNnn</p>
             </TitleContainer>
             <TitleUnderWrapper />
             <Container>
@@ -98,6 +98,7 @@ const GocSinhVien = ({ data }) => {
                   width: '135',
                   marginTop: 25,
                   textAlign: 'center',
+                  backgroundColor: '#FFFFFF'
                 }}
               >
                 <Link href="tintucchung#dao_tao_tin_tuc_goc_sinh_vien">

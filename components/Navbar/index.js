@@ -119,6 +119,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             </a>
           </Link>
         </Item>,
+        <Item>
+          <Link href="/quychequydinh">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>Quy chế - Quy định</a>
+          </Link>
+        </Item>,
       ],
     },
     {
@@ -169,9 +174,9 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         <Container>
           <div
             style={{
-              fontSize: "22px",
+              fontSize: "24px",
               color: "rgb(209, 0, 0)",
-              fontWeight: "500",
+              fontWeight: "600",
               textAlign: "center",
             }}
           >
@@ -179,9 +184,9 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           </div>
           <div
             style={{
-              fontSize: "18px",
+              fontSize: "20px",
               color: "rgb(209, 0, 0)",
-              fontWeight: "500",
+              fontWeight: "600",
               textAlign: "center",
             }}
           >

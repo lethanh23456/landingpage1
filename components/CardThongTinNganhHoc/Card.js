@@ -1,17 +1,17 @@
-import React from 'react';
-import moment from 'moment';
-import dauThang from 'assets/image/nganhhoc/#.png';
-import diaDiemImg from 'assets/image/nganhhoc/diadiem.png';
+import React from "react";
+import moment from "moment";
+import dauThang from "assets/image/nganhhoc/#.png";
+import diaDiemImg from "assets/image/nganhhoc/diadiem.png";
 
-import dongHoImg from 'assets/image/nganhhoc/dongho.png';
+import dongHoImg from "assets/image/nganhhoc/dongho.png";
 
-import LichImg from 'assets/image/nganhhoc/Lich.png';
+import LichImg from "assets/image/nganhhoc/Lich.png";
 
-import Lich2Img from 'assets/image/nganhhoc/Lich2.png';
+import Lich2Img from "assets/image/nganhhoc/Lich2.png";
 
-import { Row, Col } from 'antd';
-import { MaNganhHoc, BgCard, Title, Content } from './Card.style';
-import Container from 'components/UI/Container';
+import { Row, Col } from "antd";
+import { MaNganhHoc, BgCard, Title, Content } from "./Card.style";
+import Container from "components/UI/Container";
 
 export default function Card({ namO }) {
   const { maNganh, thoiGianDaoTao, kyNhapHoc, hanNopHoSo, coSo } = namO;
@@ -45,7 +45,11 @@ export default function Card({ namO }) {
             <MaNganhHoc>
               <img src={Lich2Img} alt="" />
               <Title>Hạn nộp hồ sơ</Title>
-              <Content>{hanNopHoSo !== '' ? moment(hanNopHoSo).format('DD/MM/YYYY') : ''}</Content>
+              <Content>
+                {hanNopHoSo !== ""
+                  ? moment(hanNopHoSo).format("DD/MM/YYYY")
+                  : ""}
+              </Content>
             </MaNganhHoc>
           </Col>
           <Col xs={24} lg={4}>
