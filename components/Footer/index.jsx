@@ -159,20 +159,20 @@ const GlobalFooter = () => (
 								<Badge color="black" dot="true" /> <span>Chương trình đào tạo</span>
 							</FooterTagA>
 						</div> */}
-            <div style={{ marginBottom: "10px" }}>
+            {/* <div style={{ marginBottom: "10px" }}>
               <FooterTagA href="/vanbangchungchi">
                 <Badge color="black" dot="true" /> <span>Tra cứu văn bằng</span>
               </FooterTagA>
-            </div>
+            </div> */}
 
-            <div style={{ marginBottom: "10px" }}>
+            <div style={{ marginBottom: "10px", marginTop: 20 }}>
               <FooterTagA href="https://tuyensinh2.ptit.edu.vn">
                 <Badge
                   color="black"
                   dot="true"
                   onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
                 />
-                <span>Tuyển sinh</span>
+                <span>Fanpage Tuyển sinh</span>
               </FooterTagA>
             </div>
 
@@ -194,7 +194,7 @@ const GlobalFooter = () => (
 						</div> */}
 
             <div
-              style={{ marginTop: 10 }}
+              style={{ marginTop: 30 }}
               dangerouslySetInnerHTML={{
                 __html:
                   '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.301553948369!2d105.78570991530873!3d20.980545894797586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCBWaeG7hW4gdGjDtG5nIC0gUFRJVA!5e0!3m2!1svi!2s!4v1589686319630!5m2!1svi!2s" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>',

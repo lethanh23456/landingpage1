@@ -46,7 +46,7 @@ const TinTuc = ({ }) => {
       <Box>
         <TinTucWrapper>
           {/* <Button onClick={() => test()}>AAAAA</Button> */}
-          <p>TIN TỨC TỪ HỌC VIỆN</p>
+          <p>TIN TỨC</p>
           <TitleUnderWrapper />
           <Container>
             {/* <Carousel autoplay> */}

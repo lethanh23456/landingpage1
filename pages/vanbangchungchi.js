@@ -127,9 +127,9 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
               </Col>
               {/* </Row> */}
             </Box>
-            {/* <div> */}
-            <FormTraCuu onSubmit={(values) => traCuu(values)} />
-            {/* </div> */}
+            <div>
+              <FormTraCuu onSubmit={(values) => traCuu(values)} />
+            </div>
             <VanBangTable data={ds} id={id} />
           </Container>
         </SectionWrapper>

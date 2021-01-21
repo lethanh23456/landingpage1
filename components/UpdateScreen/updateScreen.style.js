@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Link from 'next/link';
+import Link from "next/link";
 
 const SectionWrapper = styled.section`
-  padding: 64px 0 0 0;
+  padding: 64px 0 64px 0;
   @media (max-width: 990px) {
     padding: 80px 0 40px 0;
   }
@@ -133,7 +133,7 @@ const SectionWrapper = styled.section`
     .rc-tabs-content {
       color: #e7e8eb;
       font-size: 16px;
-      
+
       .rc-tabs-tabpane {
         /* border-radius: 10px; */
         background-color: #c01718;
@@ -145,7 +145,7 @@ const SectionWrapper = styled.section`
         &.rc-tabs-tabpane-active {
           /* animation: 0.7s ScaleInUp; */
         }
-        
+
         > img {
           max-width: 100%;
           height: auto;
@@ -176,7 +176,7 @@ const SectionWrapper = styled.section`
 export const LinkTag = styled(Link)`
   color: white !important;
   &:hover {
-    color: #D10000;
+    color: #d10000;
   }
 `;
 

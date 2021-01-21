@@ -58,7 +58,7 @@ const LichThi = ({}) => {
   }, []);
   return (
     <Box>
-      <BaCongKhaiWrapper style={{ backgroundColor: "#F9F9F9" }}>
+      <BaCongKhaiWrapper>
         <Container>
           <Row>
             <Col xs={6} sm={4} lg={2} xl={2}>

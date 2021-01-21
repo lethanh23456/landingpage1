@@ -29,11 +29,11 @@ const data = [
     title: 'Tổng quan Học viện',
     url: '/tongquanhocvien',
   },
-  {
-    icon: <Icon3 />,
-    title: 'Cơ cấu tổ chức Học viện',
-    url: '/cocautochuc',
-  },
+  // {
+  //   icon: <Icon3 />,
+  //   title: 'Cơ cấu tổ chức Học viện',
+  //   url: '/cocautochuc',
+  // },
   {
     icon: <Icon4 />,
     title: 'Nguồn nhân lực Học viện',
@@ -58,7 +58,7 @@ const MenuBanner = ({ }) => (
     >
       {data?.map(({ title, icon, url }, index) => (
         <>
-          <Col xs={24} lg={4}>
+          <Col xs={24} lg={5}>
             <Row
               gutter={0}
               type="flex"
@@ -80,7 +80,7 @@ const MenuBanner = ({ }) => (
               </Col>
             </Row>
           </Col>
-          {index < 4 && (
+          {index < 3 && (
             <Col xs={0} lg={1}>
               <TitleUnderWrapper />
             </Col>

@@ -1,58 +1,58 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TinTucHover = styled.div`
-	&:hover {
-		/* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.363); */
-		box-shadow: rgba(39, 79, 117, 0.205) 0px 40px 90px -30px;
-	}
+  &:hover {
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.363); */
+    box-shadow: rgba(39, 79, 117, 0.205) 0px 40px 90px -30px;
+  }
 `;
 export const Title = styled.span`
-	font-size: 18px;
-	line-height: 24px;
-	font-weight: bold;
-	color: #c01718;
-	margin: 0px;
-	@media screen and (max-width: 768px) {
-		font-size: 22px;
-	}
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #c01718;
+  margin: 0px;
+  @media screen and (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 export const Mota = styled.span`
-	font-size: 18px;
-	line-height: 24px;
-	color: black;
-	margin: 0px;
-	@media screen and (max-width: 768px) {
-		font-size: 22px;
-	}
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+  margin: 0px;
+  @media screen and (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 export const TinTucWrapper = styled.div`
-	background-color: #f6f9fa;
-	padding: 64px 0px 36px 0;
-	/* margin: 32px 0; */
-	text-align: center;
-	width: 100%;
-	& > p {
-		font-size: 30px;
-		line-height: 40px;
-		font-weight: bold;
-		color: black;
-		margin: 0px;
-		@media screen and (max-width: 768px) {
-			font-size: 22px;
-		}
-	}
+  background-color: #ffffff;
+  padding: 64px 0px 36px 0;
+  /* margin: 32px 0; */
+  text-align: center;
+  width: 100%;
+  & > p {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+    color: black;
+    margin: 0px;
+    @media screen and (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
 `;
 export const ContainerCardDN = styled.div`
-	position: relative;
-	padding: 4px;
-	border-radius: 20px;
-	&:hover {
-		border-color: #c01718;
-		box-shadow: 0px 0px 6px rgb(204, 12, 34);
-		.container-link {
-			display: block;
-		}
-	}
+  position: relative;
+  padding: 4px;
+  border-radius: 20px;
+  &:hover {
+    border-color: #c01718;
+    box-shadow: 0px 0px 6px rgb(204, 12, 34);
+    .container-link {
+      display: block;
+    }
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -77,12 +77,12 @@ export const TitleContainer = styled.div`
 `;
 
 export const TitleUnderWrapper = styled.div`
-	background-color: #d50000;
-	height: 4px;
-	width: 64px;
-	margin: 0px auto;
-	margin-top: 12px;
-	margin-bottom: 48px;
+  background-color: #d50000;
+  height: 4px;
+  width: 64px;
+  margin: 0px auto;
+  margin-top: 12px;
+  margin-bottom: 48px;
 `;
 
 export const ButtonDetailWrapper = styled.button`
@@ -123,4 +123,3 @@ export const ButtonDetailWrapper = styled.button`
     margin-left: -17px;
   }
 `;
-
