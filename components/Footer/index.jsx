@@ -168,11 +168,11 @@ const GlobalFooter = () => (
             <div style={{ marginBottom: "10px", marginTop: 20 }}>
               <FooterTagA href="https://tuyensinh2.ptit.edu.vn">
                 <Badge
-                  color="black"
+                  color="red"
                   dot="true"
                   onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
                 />
-                <span>Fanpage Tuyển sinh</span>
+                <span style={{ color: "#c01718", fontSize: 16 }}>Cổng thông tin tuyển sinh</span>
               </FooterTagA>
             </div>
 

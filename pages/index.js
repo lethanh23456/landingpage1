@@ -21,6 +21,7 @@ export default ({
   dataBlockTinTuc,
 }) => {
   console.log(dataBlock, "trang chu relate");
+  console.log(ctrDaotao, "sunn");
   const renderModules = (modules) => {
     switch (modules.loaiComponent) {
       case "CAROUSEL":
@@ -62,8 +63,8 @@ export default ({
     }
   };
   const modules = (
-    <div 
-      // style={{ marginTop: 100 }}
+    <div
+    // style={{ marginTop: 100 }}
     >
       {dataBlock.map((modules) => renderModules(modules))}
     </div>
@@ -127,7 +128,7 @@ export async function getServerSideProps() {
   response = await axios.get(`${ip3}/he-dao-tao`, {
     params: {
       page: 1,
-      limit: 10,
+      limit: 10000,
       cond: {},
     },
   });
