@@ -19,7 +19,7 @@ import {
 } from "./index.style.js";
 
 const toeicResult = () => {
-  window.open("https://tracuu.ptit.edu.vn/ToeicResult");
+  window.open("/chungchi/");
 };
 
 const LichThi = ({}) => {
