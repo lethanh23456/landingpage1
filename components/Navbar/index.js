@@ -3,7 +3,7 @@
 /* eslint-disable indent */
 import { Button, Col, Drawer, Icon, Menu, Row } from "antd";
 // import { MENU_ITEMS_MOBILE } from 'common/src/data/Hosting/data';
-import LogoImage from "assets/image/hosting/logo.png";
+import LogoImage from "assets/image/hosting/ptit-logo.png";
 import axios from "axios";
 import Box from "components/Box";
 import ScrollSpyMenu from "components/ScrollSpyMenu";
@@ -11,6 +11,7 @@ import { ip } from "data/ip";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
+import _ from "lodash";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import Container from "./ContainerMenu/index";
@@ -35,9 +36,8 @@ export const ItemAntd = styled(Item)`
     color: rgb(52, 61, 72);
   }
   &:hover a::before {
-    /* border-bottom: 1.5px solid #FF3D3B; */
+    color: #ff3d3b !important; /* border-bottom: 1.5px solid #FF3D3B; */
     content: "";
-    color: #ff3d3b !important;
   }
 `;
 
@@ -146,8 +146,22 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     },
     {
       label: "TRA CỨU VĂN BẰNG",
-      path: "vanbangchungchi",
+      path: "#",
       offset: "70",
+      submenu: [
+        <Item>
+          <Link href="/vanbangchungchi">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>Tra cứu văn bằng</a>
+          </Link>
+        </Item>,
+        <Item>
+          <Link href="/chungchi">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
+              Tra cứu chứng chỉ tiếng Anh
+            </a>
+          </Link>
+        </Item>,
+      ],
     },
     {
       label: "BA CÔNG KHAI",
@@ -197,7 +211,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             <Col xl={2} lg={2} md={2} xs={22} sm={22}>
               <Link rel="prefetch" href={`/`}>
                 <a>
-                  <img src={LogoImage} alt="logo" />
+                  <img style={{ width: "70px" }} src={LogoImage} alt="logo" />
                 </a>
               </Link>
             </Col>

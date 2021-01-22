@@ -1,15 +1,35 @@
-import { Button, Col, DatePicker, Form, Input, Row, Card } from "antd";
+import {
+  Button,
+  Col,
+  DatePicker,
+  Form,
+  Input,
+  Row,
+  Card,
+  notification,
+} from "antd";
 import rules from "components/Utils/rules";
 import React, { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import capbangdiem from "assets/image/capbangdiem.png";
 import capbangdiemsohieu from "assets/image/sohieuvb.png";
 
+const openNotification = () => {
+  notification.error({
+    message: "Notification Title",
+    description:
+      "Chức năng này hiện tại đang được chúng tôi phát triển. Xin bạn hãy từ tốn",
+    placement: "bottomRight",
+    // icon: <SmileOutlined style={{ color: "#108ee9" }} />,
+  });
+};
+
 const TraCuuVB = (props) => {
   const [capcha, setcapcha] = useState(false);
   const recaptchaRef = useRef(null);
 
   const { getFieldDecorator } = props.form;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -143,7 +163,10 @@ const TraCuuVB = (props) => {
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
             />
-            <Button disabled={!capcha} type="primary" htmlType="submit">
+            {/* <Button disabled={!capcha} type="primary" htmlType="submit">
+              Tìm kiếm
+            </Button> */}
+            <Button type="primary" htmlType="submit" onClick={openNotification}>
               Tìm kiếm
             </Button>
           </Form.Item>
