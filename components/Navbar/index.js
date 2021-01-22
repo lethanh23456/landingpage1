@@ -145,7 +145,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       submenu: daotaoDesk(),
     },
     {
-      label: "TRA CỨU VĂN BẰNG",
+      label: "TRA CỨU",
       path: "#",
       offset: "70",
       submenu: [
