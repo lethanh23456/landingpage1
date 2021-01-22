@@ -172,7 +172,7 @@ const GlobalFooter = () => (
                   dot="true"
                   onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
                 />
-                <span style={{ color: "#c01718" }}>Fanpage Tuyển sinh</span>
+                <span style={{ color: "#c01718", fontSize: 16 }}>Cổng thông tin tuyển sinh</span>
               </FooterTagA>
             </div>
 
