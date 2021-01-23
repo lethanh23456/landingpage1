@@ -19,7 +19,7 @@ import {
 } from "./index.style.js";
 
 const toeicResult = () => {
-  window.open("/chungchi/");
+  window.open("/chungchi/", "_self");
 };
 
 const LichThi = ({}) => {

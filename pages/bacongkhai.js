@@ -119,7 +119,7 @@ const TinTuc = ({ data, relate }) => {
               </div>
             </Col>
             <Col lg={7} xl={7} md={24} xs={24} sm={24}>
-              <Sticky top={160} bottomBoundary="#content">
+              <Sticky top={250} bottomBoundary="#content">
                 <Card
                   title={
                     <p

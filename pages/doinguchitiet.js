@@ -83,18 +83,21 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                   <ContainerCardDN>
                     <Col
                       className={style.cardd}
-                      xl={8}
-                      lg={8}
+                      xl={7}
+                      lg={7}
                       xs={24}
                       sm={12}
                       md={12}
-                      style={{ width: "100%" }}
+                      style={{
+                        width: "100%",
+                      }}
                     >
                       <Card
                         className={style.card}
                         style={{
                           textAlign: "center",
                           borderRadius: "20px",
+                          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                           // paddingTop: '20px',
                           // height: '340px',
                           // width: '280px',
@@ -102,20 +105,20 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                         // hoverable
                         bodyStyle={{ width: "100%" }}
                       >
-                        <Row style={{ marginBottom: "40px" }}>
+                        <Row style={{ marginBottom: "30px" }}>
                           <Col span={24} style={{ alignItems: "center" }}>
                             <img
                               alt=""
                               src={_.get(item, "anhDaiDien", "")}
-                              height="150px"
-                              width="150px"
+                              height="120px"
+                              width="120px"
                               style={{ borderRadius: "50%" }}
                             />
                           </Col>
                         </Row>
                         <Row>
                           <p
-                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                            style={{ fontSize: "16px", fontWeight: "bold" }}
                             className={style.name}
                           >
                             {_.get(item, "hocHam", "")}{" "}
@@ -123,7 +126,7 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                             {_.get(item, "hoTen", "")}
                           </p>
                           <p
-                            style={{ marginTop: "20", fontSize: "16px" }}
+                            style={{ marginTop: "16", fontSize: "14px" }}
                             className={style.khoa}
                           >
                             {_.get(item, "chucVu", "")}
@@ -147,8 +150,8 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                 return (
                   <Col
                     className={style.cardd}
-                    xl={8}
-                    lg={8}
+                    xl={7}
+                    lg={7}
                     xs={24}
                     sm={12}
                     md={12}
@@ -160,6 +163,7 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                         style={{
                           textAlign: "center",
                           borderRadius: "20px",
+                          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                           // paddingTop: '20px',
                           // height: '340px',
                           // width: '280px',
@@ -167,20 +171,20 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                         // hoverable
                         bodyStyle={{ width: "100%" }}
                       >
-                        <Row style={{ marginBottom: "40px" }}>
+                        <Row style={{ marginBottom: "30px" }}>
                           <Col span={24} style={{ alignItems: "center" }}>
                             <img
                               alt=""
                               src={_.get(item, "anhDaiDien", "")}
-                              height="150px"
-                              width="150px"
+                              height="120px"
+                              width="120px"
                               style={{ borderRadius: "50%" }}
                             />
                           </Col>
                         </Row>
                         <Row>
                           <p
-                            style={{ fontSize: "18px", fontWeight: "bold" }}
+                            style={{ fontSize: "16px", fontWeight: "bold" }}
                             className={style.name}
                           >
                             {_.get(item, "hocHam", "")}{" "}
@@ -188,7 +192,7 @@ const DoiNgu = ({ button, buttonWrapper }) => {
                             {_.get(item, "hoTen", "")}
                           </p>
                           <p
-                            style={{ marginTop: "20", fontSize: "16px" }}
+                            style={{ marginTop: "16", fontSize: "14px" }}
                             className={style.khoa}
                           >
                             {_.get(item, "chucVu", "")}
