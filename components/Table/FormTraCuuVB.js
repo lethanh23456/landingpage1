@@ -166,7 +166,7 @@ const TraCuuVB = (props) => {
             {/* <Button disabled={!capcha} type="primary" htmlType="submit">
               Tìm kiếm
             </Button> */}
-            <Button type="primary" htmlType="submit" onClick={openNotification}>
+            <Button type="primary" htmlType="submit">
               Tìm kiếm
             </Button>
           </Form.Item>
