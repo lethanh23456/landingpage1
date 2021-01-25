@@ -16,7 +16,7 @@ import capbangdiemsohieu from "assets/image/sohieuvb.png";
 
 const openNotification = () => {
   notification.error({
-    message: "Notification Title",
+    message: "Thông báo",
     description:
       "Chức năng này hiện tại đang được chúng tôi phát triển. Xin bạn hãy từ tốn",
     placement: "bottomRight",
