@@ -188,7 +188,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         <Container>
           <div
             style={{
-              fontSize: "24px",
+              fontSize: "26px",
               color: "rgb(209, 0, 0)",
               fontWeight: "600",
               textAlign: "center",
@@ -198,7 +198,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           </div>
           <div
             style={{
-              fontSize: "20px",
+              fontSize: "22px",
               color: "rgb(209, 0, 0)",
               fontWeight: "600",
               textAlign: "center",
