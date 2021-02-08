@@ -13,6 +13,7 @@ import Container from "components/UI/Container";
 import { TitleContainer } from "./TinTuc.style";
 import SectionWrapper from "./updateScreen.style";
 import Rotate from "./updateScreenCopy.style";
+import capbangdiemsohieu from "assets/image/new.png";
 
 const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
   const [relate, setRelate] = useState([]);
@@ -71,8 +72,8 @@ const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
                             as={"/nganhhoc/" + `${_.get(item, "maNganh", "")}`}
                           >
                             {item?.tenNganh ===
-                            "Ngành Công nghệ tài chính - Fintech (NEW)" ? (
-                              <a>
+                            "Ngành Công nghệ tài chính - Fintech" ? (
+                              <a style={{ color: "#fff" }} target="_blank">
                                 <Rotate>
                                   <Col md={6} xs={8}>
                                     <img
@@ -85,7 +86,6 @@ const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
                                       src={item.urlAnhDaiDien}
                                     />
                                   </Col>
-
                                   <Col style={{ paddingTop: "10px" }}>
                                     {_.get(item, "tenNganh", "")}
                                   </Col>
