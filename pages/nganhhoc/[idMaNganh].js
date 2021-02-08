@@ -149,6 +149,10 @@ const NganhHoc = ({ dataFetch, params }) => {
                         textAlign: "center",
                         alignItems: "center",
                         fontWeight: 650,
+                        backgroundColor: "red",
+                        color: "white",
+                        paddingRight: 10,
+                        paddingLeft: 10,
                       }}
                     >
                       {_.get(item, "tenNganh", "")}

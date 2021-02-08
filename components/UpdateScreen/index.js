@@ -12,6 +12,7 @@ import Box from "components/Box";
 import Container from "components/UI/Container";
 import { TitleContainer } from "./TinTuc.style";
 import SectionWrapper from "./updateScreen.style";
+import Rotate from "./updateScreenCopy.style";
 
 const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
   const [relate, setRelate] = useState([]);
@@ -31,7 +32,7 @@ const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
     // })();
     setRelate(data);
   }, []);
-  console.log(relate, "data trang chủ");
+  console.log(relate, "ac");
   return (
     <>
       <SectionWrapper id="daotao">
@@ -69,22 +70,46 @@ const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
                             href="/nganhhoc/[idMaNganh]"
                             as={"/nganhhoc/" + `${_.get(item, "maNganh", "")}`}
                           >
-                            <a style={{ color: "#fff" }} target="_blank">
-                              <Col md={6} xs={8}>
-                                <img
-                                  style={{
-                                    width: "64px",
-                                    heigth: "64px",
-                                    marginRight: "16px",
-                                  }}
-                                  alt=""
-                                  src={item.urlAnhDaiDien}
-                                />
-                              </Col>
-                              <Col style={{ paddingTop: "10px" }}>
-                                {_.get(item, "tenNganh", "")}
-                              </Col>
-                            </a>
+                            {item?.tenNganh ===
+                            "Ngành Công nghệ tài chính - Fintech (NEW)" ? (
+                              <a>
+                                <Rotate>
+                                  <Col md={6} xs={8}>
+                                    <img
+                                      style={{
+                                        width: "64px",
+                                        heigth: "64px",
+                                        marginRight: "16px",
+                                      }}
+                                      alt=""
+                                      src={item.urlAnhDaiDien}
+                                    />
+                                  </Col>
+
+                                  <Col style={{ paddingTop: "10px" }}>
+                                    {_.get(item, "tenNganh", "")}
+                                  </Col>
+                                </Rotate>
+                              </a>
+                            ) : (
+                              <a style={{ color: "#fff" }} target="_blank">
+                                <Col md={6} xs={8}>
+                                  <img
+                                    style={{
+                                      width: "64px",
+                                      heigth: "64px",
+                                      marginRight: "16px",
+                                    }}
+                                    alt=""
+                                    src={item.urlAnhDaiDien}
+                                  />
+                                </Col>
+
+                                <Col style={{ paddingTop: "10px" }}>
+                                  {_.get(item, "tenNganh", "")}
+                                </Col>
+                              </a>
+                            )}
                           </Link>
                         </Row>
                       </Col>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { keyframes } from "styled-components";
 
 const SectionWrapper = styled.section`
   padding: 64px 0 64px 0;
@@ -178,6 +179,38 @@ export const LinkTag = styled(Link)`
   &:hover {
     color: #d10000;
   }
+`;
+
+const rotate = keyframes`
+  from {
+    0% {
+      color: #f8cd0a;
+    }
+    50% {
+      color: #fff;
+    }
+    100% {
+      color: #f8cd0a;
+    }
+  }
+  to {
+    0% {
+      color: #f8cd0a;
+    }
+    50% {
+      color: #fff;
+    }
+    100% {
+      color: #f8cd0a;
+    }
+  }
+`;
+
+export const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
 `;
 
 export default SectionWrapper;
