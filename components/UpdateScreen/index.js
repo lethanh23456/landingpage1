@@ -13,7 +13,7 @@ import Container from "components/UI/Container";
 import { TitleContainer } from "./TinTuc.style";
 import SectionWrapper from "./updateScreen.style";
 import Rotate from "./updateScreenCopy.style";
-import capbangdiemsohieu from "assets/image/new.png";
+import capbangdiemsohieu from "assets/image/GroupNew.png";
 
 const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
   const [relate, setRelate] = useState([]);
@@ -87,7 +87,20 @@ const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
                                     />
                                   </Col>
                                   <Col style={{ paddingTop: "10px" }}>
-                                    {_.get(item, "tenNganh", "")}
+                                    <span>
+                                      Ngành Công nghệ tài chính -
+                                      <img
+                                        style={{
+                                          width: "32px",
+                                          heigth: "32px",
+                                          // marginRight: "16px",
+                                        }}
+                                        alt=""
+                                        src={capbangdiemsohieu}
+                                      />
+                                      Fintech
+                                      {/* {_.get(item, "tenNganh", "")} */}
+                                    </span>
                                   </Col>
                                 </Rotate>
                               </a>
