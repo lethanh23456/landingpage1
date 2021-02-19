@@ -153,54 +153,39 @@ const GlobalFooter = () => (
               </Col>
             </Row>
           </Col>
-          <Col xs={24} lg={7} style={{ marginTop: 20 }}>
-            {/* <div style={{ marginBottom: '10px' }}>
-							<FooterTagA href="#chuongtrinhdaotao">
-								<Badge color="black" dot="true" /> <span>Chương trình đào tạo</span>
-							</FooterTagA>
-						</div> */}
-            {/* <div style={{ marginBottom: "10px" }}>
-              <FooterTagA href="/vanbangchungchi">
-                <Badge color="black" dot="true" /> <span>Tra cứu văn bằng</span>
-              </FooterTagA>
-            </div> */}
+          <Col xs={24} lg={7} style={{ marginTop: 40 }}>
+              <div style={{ marginBottom: "10px" }}>
+                <FooterTagA href="https://tuyensinh2.ptit.edu.vn/">
+                  <Badge color="#C01718" dot="true" />{" "}
+                  <span style={{ color: "#C01718", fontSize: "16px" }}>
+                    Cổng thông tin tuyển sinh Học viện
+                  </span>
+                </FooterTagA>
+              </div>
+              {/* <div style={{ marginBottom: "10px" }}>
+                <FooterTagA href="https://portal.ptit.edu.vn/ba-cong-khai/">
+                  <Badge color="#C01718" dot="true" />{" "}
+                  <span style={{ color: "#C01718" }}>Ba công khai</span>
+                </FooterTagA>
+              </div> */}
 
-            <div style={{ marginBottom: "10px", marginTop: 20 }}>
-              <FooterTagA href="https://tuyensinh2.ptit.edu.vn">
-                <Badge
-                  color="red"
-                  dot="true"
-                  onClick={() => window.open("https://tuyensinh2.ptit.edu.vn/")}
-                />
-                <span style={{ color: "#c01718", fontSize: 16 }}>Cổng thông tin tuyển sinh</span>
-              </FooterTagA>
-            </div>
+              <div style={{ marginBottom: "10px" }}>
+                <FooterTagA href="https://www.facebook.com/ptittuyensinh/">
+                  <Badge color="#C01718" dot="true" />{" "}
+                  <span style={{ color: "#C01718", fontSize: "16px" }}>
+                    Fanpage tuyển sinh Học viện
+                  </span>
+                </FooterTagA>
+              </div>
 
-            {/* <div style={{ marginBottom: '10px' }}>
-							<FooterTagA href="#">
-								<Badge color="black" dot="true" />
-								<span
-									onClick={() => {
-										notification.open({
-											message: 'Chức năng đang trong quá trình phát triển',
-											placement: 'bottomRight',
-											icon: <Icon type="exclamation-circle" style={{ color: '#00A0FF' }} />,
-										})
-									}}
-								>
-									Thi tiếng Anh
-								</span>
-							</FooterTagA>
-						</div> */}
-
-            <div
-              style={{ marginTop: 30 }}
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.301553948369!2d105.78570991530873!3d20.980545894797586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCBWaeG7hW4gdGjDtG5nIC0gUFRJVA!5e0!3m2!1svi!2s!4v1589686319630!5m2!1svi!2s" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>',
-              }}
-            />
-          </Col>
+              <div
+                style={{ marginTop: 10 }}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.301553948369!2d105.78570991530873!3d20.980545894797586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCBWaeG7hW4gdGjDtG5nIC0gUFRJVA!5e0!3m2!1svi!2s!4v1589686319630!5m2!1svi!2s" width="320" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" title="Bản đồ"></iframe>',
+                }}
+              />
+            </Col>
         </RowWrapper>
         <Row>
           <br />
