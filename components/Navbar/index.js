@@ -150,9 +150,15 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       offset: "70",
       submenu: [
         <Item>
-          <Link href="/vanbangchungchi">
-            <a style={{ fontSize: isDesktop ? 14 : 18 }}>Tra cứu văn bằng</a>
-          </Link>
+          {/* <Link href="/vanbangchungchi"> */}
+          <a
+            style={{ fontSize: isDesktop ? 14 : 18 }}
+            onClick={() => window.open("https://tracuuvanbang.ptit.edu.vn/")}
+          >
+            Tra cứu văn bằng
+          </a>
+
+          {/* </Link> */}
         </Item>,
         <Item>
           <Link href="/chungchi">
