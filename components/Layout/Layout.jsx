@@ -35,7 +35,7 @@ export default function Layout({ children, home }) {
         <link rel="prefetch" href="/favicon.ico" />
         <link rel="prefetch" href="/assets/image/hosting/logo.png" />
         <link rel="prerender" href="https://daotao.aisenote.com/" />
-        <link rel="prerender" href="https://tuyensinh2.ptit.edu.vn/" />
+        <link rel="prerender" href="https://tuyensinh.ptit.edu.vn/" />
         <link />
         <title>
           HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG, CỔNG THÔNG TIN PHÒNG ĐÀO TẠO

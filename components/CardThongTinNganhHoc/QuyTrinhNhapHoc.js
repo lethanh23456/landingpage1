@@ -10,7 +10,7 @@ import { CardQuyTrinh, TitleQuyTrinh } from "./QuyTrinhNhapHoc.style";
 
 export default function QuyTrinhNhapHoc() {
   const tuyenSinh = () => {
-    window.open("https://tuyensinh2.ptit.edu.vn/");
+    window.open("https://tuyensinh.ptit.edu.vn/");
   };
   return (
     <WrapperCard type="grey" style={{ marginBottom: "32px" }}>

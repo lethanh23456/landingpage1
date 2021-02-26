@@ -155,7 +155,7 @@ const GlobalFooter = () => (
           </Col>
           <Col xs={24} lg={7} style={{ marginTop: 40 }}>
               <div style={{ marginBottom: "10px" }}>
-                <FooterTagA href="https://tuyensinh2.ptit.edu.vn/">
+                <FooterTagA href="https://tuyensinh.ptit.edu.vn/">
                   <Badge color="#C01718" dot="true" />{" "}
                   <span style={{ color: "#C01718", fontSize: "16px" }}>
                     Cổng thông tin tuyển sinh Học viện

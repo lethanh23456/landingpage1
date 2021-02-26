@@ -192,7 +192,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     },
     {
       label: "TUYỂN SINH",
-      path: "https://tuyensinh2.ptit.edu.vn/",
+      path: "https://tuyensinh.ptit.edu.vn/",
       offset: "70",
       redirect: true,
     },

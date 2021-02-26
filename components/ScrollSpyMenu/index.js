@@ -1,13 +1,18 @@
-import { Icon, Menu, notification } from 'antd';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
-import { Wrapper } from './index.style';
+import { Icon, Menu, notification } from "antd";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import React, { useContext } from "react";
+import { Wrapper } from "./index.style";
 
 const { Item, SubMenu } = Menu;
 
 const ScrollSpyMenu = ({
-  onClose, isDesktop, className, menuItems, drawerClose, ...props
+  onClose,
+  isDesktop,
+  className,
+  menuItems,
+  drawerClose,
+  ...props
 }) => {
   // empty array for scrollspy items
   const scrollItems = [];
@@ -18,7 +23,7 @@ const ScrollSpyMenu = ({
   });
 
   // Add all classs to an array
-  const addAllClasses = ['scrollspy__menu'];
+  const addAllClasses = ["scrollspy__menu"];
 
   // className prop checking
   if (className) {
@@ -29,14 +34,14 @@ const ScrollSpyMenu = ({
 
   const thiTA = () => {
     notification.open({
-      message: 'Chức năng đang trong quá trình phát triển',
-      placement: 'bottomRight',
-      icon: <Icon type="close-circle" style={{ color: 'red' }} />,
+      message: "Chức năng đang trong quá trình phát triển",
+      placement: "bottomRight",
+      icon: <Icon type="close-circle" style={{ color: "red" }} />,
     });
   };
 
   const tuyenSinh = () => {
-    window.open('https://tuyensinh2.ptit.edu.vn/');
+    window.open("https://tuyensinh.ptit.edu.vn/");
   };
 
   return (
@@ -72,25 +77,50 @@ const ScrollSpyMenu = ({
     //   }
     // </Scrollspy >
     <Wrapper>
-      <Menu 
-        mode={isDesktop ? 'vertical' : 'horizontal'} 
+      <Menu
+        mode={isDesktop ? "vertical" : "horizontal"}
         // mode="horizontal"
         onClick={onClose}
       >
         {menuItems.map((menu, index) => {
-          console.log(menu, 'menu');
+          console.log(menu, "menu");
           if (menu.submenu && menu.submenu.length > 0) {
             return (
-              <SubMenu title={<span style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>{menu.label}</span>} style={{ fontSize: 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>
+              <SubMenu
+                title={
+                  <span
+                    style={{
+                      fontSize: isDesktop ? 14 : 18,
+                      fontWeight: "bold",
+                      color: "rgb(52, 61, 72)",
+                    }}
+                  >
+                    {menu.label}
+                  </span>
+                }
+                style={{
+                  fontSize: 18,
+                  fontWeight: "bold",
+                  color: "rgb(52, 61, 72)",
+                }}
+              >
                 {menu.submenu.map((e) => e)}
               </SubMenu>
             );
           }
-          if (menu.redirect){
+          if (menu.redirect) {
             return (
               <Item>
-                <Link href={`${menu.path}`} >
-                  <a style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>{menu.label}</a>
+                <Link href={`${menu.path}`}>
+                  <a
+                    style={{
+                      fontSize: isDesktop ? 14 : 18,
+                      fontWeight: "bold",
+                      color: "rgb(52, 61, 72)",
+                    }}
+                  >
+                    {menu.label}
+                  </a>
                 </Link>
               </Item>
             );
@@ -98,14 +128,29 @@ const ScrollSpyMenu = ({
             return (
               <Item>
                 <Link href={`/${menu.path}`}>
-                  <a style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }}>{menu.label}</a>
+                  <a
+                    style={{
+                      fontSize: isDesktop ? 14 : 18,
+                      fontWeight: "bold",
+                      color: "rgb(52, 61, 72)",
+                    }}
+                  >
+                    {menu.label}
+                  </a>
                 </Link>
               </Item>
             );
           }
         })}
         {isDesktop && (
-          <Item style={{ fontSize: isDesktop ? 14 : 18, fontWeight: 'bold', color: 'rgb(52, 61, 72)' }} onClick={tuyenSinh}>
+          <Item
+            style={{
+              fontSize: isDesktop ? 14 : 18,
+              fontWeight: "bold",
+              color: "rgb(52, 61, 72)",
+            }}
+            onClick={tuyenSinh}
+          >
             TUYỂN SINH
           </Item>
         )}
@@ -188,8 +233,8 @@ ScrollSpyMenu.propTypes = {
 };
 
 ScrollSpyMenu.defaultProps = {
-  componentTag: 'ul',
-  currentClassName: 'is-current',
+  componentTag: "ul",
+  currentClassName: "is-current",
 };
 
 export default ScrollSpyMenu;
