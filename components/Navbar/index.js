@@ -113,7 +113,9 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         <Item
           onClick={() => {
             router.replace(`/tintucchung#${Format(item?.maLoai)}`);
-            // router.reload();
+            if (router.pathname === "/tintucchung") {
+              router.reload();
+            }
           }}
         >
           {/* <Link href={`/tintucchung#${Format(item?.maLoai)}`}> */}
