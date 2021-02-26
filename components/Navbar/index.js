@@ -40,6 +40,18 @@ export const ItemAntd = styled(Item)`
     content: "";
   }
 `;
+export function Format(str) {
+  // xóa hết dấu + đưa về chữ thường
+  if (!str) return "";
+  return str
+    .toString()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/đ/g, "d")
+    .replace(/\s/g, "");
+}
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const isDesktop = useMediaQuery({
@@ -50,6 +62,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   });
 
   const [daotao, setDaotao] = useState([]);
+  const [loaitintuc, setLoaiTinTuc] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showDrawer, setShowDrawer] = useState(false);
   useEffect(() => {
@@ -68,6 +81,42 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       setDaotao(ctrDaoTao);
     })();
   }, []);
+
+  useEffect(() => {
+    (async function wrapFunc() {
+      setLoading(false);
+      const response = await axios.get(`${ip}/loai-bai-viet`, {
+        params: {
+          page: 1,
+          limit: 1000,
+          cond: {
+            $and: [
+              { maLoai: { $regex: "DAO_TAO_TIN_TUC_" } },
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI" } },
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } },
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } },
+            ],
+          },
+        },
+      });
+      const list = _.get(response, "data.data", []);
+      setLoaiTinTuc(list);
+    })();
+  }, []);
+
+  const tintucDesk = () => {
+    let tun = [];
+    loaitintuc?.map((item) => {
+      tun.push(
+        <Item>
+          <Link href={`/tintucchung#${Format(item?.maLoai)}`}>
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>{item?.tenLoai}</a>
+          </Link>
+        </Item>
+      );
+    });
+    return tun;
+  };
 
   const daotaoDesk = () => {
     let res = [];
@@ -130,6 +179,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       label: "TIN TỨC",
       path: "tintucchung",
       offset: "70",
+      submenu: tintucDesk(),
     },
     {
       label: "TUYỂN SINH",
