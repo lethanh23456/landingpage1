@@ -108,15 +108,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
   const tintucDesk = () => {
     let tun = [];
-    console.log(location.href, "href");
-    const tmp = location.href.split("#");
-    console.log(tmp, "tmp");
     loaitintuc?.map((item) => {
       tun.push(
         <Item
           onClick={() => {
-            router.push(`/tintucchung#${Format(item?.maLoai)}`);
-            router.reload();
+            router.replace(`/tintucchung#${Format(item?.maLoai)}`);
+            if (router.pathname === "/tintucchung") {
+              router.reload();
+            }
           }}
         >
           {/* <Link href={`/tintucchung#${Format(item?.maLoai)}`}> */}
