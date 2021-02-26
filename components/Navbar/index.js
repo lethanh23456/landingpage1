@@ -57,10 +57,10 @@ export function Format(str) {
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const router = useRouter();
   const isDesktop = useMediaQuery({
-    query: "(max-device-width: 767px)"
+    query: "(max-device-width: 767px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 500px)"
+    query: "(max-device-width: 500px)",
   });
 
   const [daotao, setDaotao] = useState([]);
@@ -73,11 +73,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       const response = await axios.get(`${ip}/he-dao-tao`, {
         params: {
           page: 1,
-          limit: 1000
+          limit: 1000,
           // cond: {
           //   maLoaiBaiViet: 'THONG-DIEP'
           // }
-        }
+        },
       });
       const ctrDaoTao = _.get(response, "data.data", []);
       setDaotao(ctrDaoTao);
@@ -96,10 +96,10 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               { maLoai: { $regex: "DAO_TAO_TIN_TUC_" } },
               { maLoai: { $ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI" } },
               { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } },
-              { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } }
-            ]
-          }
-        }
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } },
+            ],
+          },
+        },
       });
       const list = _.get(response, "data.data", []);
       setLoaiTinTuc(list);
@@ -108,11 +108,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
   const tintucDesk = () => {
     let tun = [];
-    loaitintuc?.map(item => {
+    console.log(location.href, "href");
+    const tmp = location.href.split("#");
+    console.log(tmp, "tmp");
+    loaitintuc?.map((item) => {
       tun.push(
         <Item
           onClick={() => {
-            router.replace(`/tintucchung#${Format(item?.maLoai)}`);
+            router.push(`/tintucchung#${Format(item?.maLoai)}`);
             router.reload();
           }}
         >
@@ -127,7 +130,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
   const daotaoDesk = () => {
     let res = [];
-    daotao.map(item => {
+    daotao.map((item) => {
       res.push(
         <SubMenu
           title={
@@ -155,7 +158,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     {
       label: "TRANG CHỦ",
       path: "#",
-      offset: "70"
+      offset: "70",
     },
     {
       hover: true,
@@ -179,27 +182,27 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           <Link href="/quychequydinh">
             <a style={{ fontSize: isDesktop ? 14 : 18 }}>Quy chế - Quy định</a>
           </Link>
-        </Item>
-      ]
+        </Item>,
+      ],
     },
     {
       label: "TIN TỨC",
       path: "tintucchung",
       offset: "70",
-      submenu: tintucDesk()
+      submenu: tintucDesk(),
     },
     {
       label: "TUYỂN SINH",
       path: "https://tuyensinh2.ptit.edu.vn/",
       offset: "70",
-      redirect: true
+      redirect: true,
     },
     {
       hover: true,
       label: "CHƯƠNG TRÌNH ĐÀO TẠO",
       path: "#",
       offset: "70",
-      submenu: daotaoDesk()
+      submenu: daotaoDesk(),
     },
     {
       label: "TRA CỨU",
@@ -223,14 +226,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               Tra cứu chứng chỉ tiếng Anh
             </a>
           </Link>
-        </Item>
-      ]
+        </Item>,
+      ],
     },
     {
       label: "BA CÔNG KHAI",
       path: "bacongkhai",
-      offset: "70"
-    }
+      offset: "70",
+    },
   ];
 
   console.log(isMobile, "test nav");
@@ -254,7 +257,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               fontSize: "26px",
               color: "rgb(209, 0, 0)",
               fontWeight: "600",
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
             HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
@@ -264,7 +267,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               fontSize: "22px",
               color: "rgb(209, 0, 0)",
               fontWeight: "600",
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
             CỔNG THÔNG TIN ĐÀO TẠO
