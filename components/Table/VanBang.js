@@ -1,4 +1,4 @@
-import { Button, Descriptions, Modal, Table } from "antd";
+import { Button, Descriptions, Modal, Table, Typography, Tag } from "antd";
 import axios from "axios";
 import { ip } from "data/ip";
 import moment from "moment";
@@ -38,74 +38,89 @@ export default function VanBangTable(props) {
     </>
   );
   const columns = [
+    // {
+    //   title: "STT",
+    //   dataIndex: "index",
+    //   align: "center",
+    //   width: "90px",
+    // },
     {
-      title: "Mã SV",
-      dataIndex: "maSv",
-      key: "maSv",
-      width: 150,
+      title: "Họ và tên",
+      dataIndex: "name",
+      align: "center",
+      width: "200px",
+      search: "search",
     },
     {
-      title: "Họ đệm",
-      dataIndex: "hoDem",
-      key: "hoDem",
-      width: 150,
-    },
-    {
-      title: "Tên",
-      dataIndex: "ten",
-      key: "ten",
-      width: 120,
+      title: "Số thẻ cmt/cccd",
+      dataIndex: "idNumber",
+      align: "center",
+      width: "150px",
     },
     {
       title: "Ngày sinh",
-      dataIndex: "ngaySinh",
-      key: "ngaySinh",
-      render: (val) => moment(new Date(val)).format("DD/MM/YYYY"),
-      width: 150,
-    },
-    {
-      title: "Giới tính",
-      dataIndex: "gioiTinh",
-      key: "gioiTinh",
-      width: 70,
-      render: (val) => (val === 0 ? "Nam" : "Nữ"),
-    },
-    {
-      title: "Lớp",
-      dataIndex: "lop",
-      key: "lop",
-      width: 100,
-    },
-    {
-      title: "Trình độ đào tạo",
-      dataIndex: "trinhDoDT",
-      key: "trinhDoDT",
-      width: 100,
-    },
-    {
-      title: "Hình thức đào tạo",
-      dataIndex: "hinhThucDT",
-      key: "hinhThucDT",
-      width: 200,
-    },
-    {
-      title: "Ngành",
-      dataIndex: "nganh",
-      key: "nganh",
-      width: 200,
-    },
-    {
-      title: "Niên khóa",
-      dataIndex: "nienKhoa",
-      key: "nienKhoa",
-    },
-    {
-      title: "Thao tác",
+      dataIndex: "dateOfBirth",
       align: "center",
-      render: (value, record) => renderLast(value, record),
-      fixed: "right",
-      width: 150,
+      width: "150px",
+      render: (val) => moment(val).format("DD/MM/YYYY"),
     },
+    {
+      title: "Mã sinh viên",
+      dataIndex: "code",
+      align: "center",
+      width: "150px",
+      search: "search",
+    },
+    {
+      title: "Ngày thi",
+      dataIndex: "testDate",
+      align: "center",
+      width: "200px",
+      render: (val) => moment(val).format("DD/MM/YYYY HH:mm"),
+    },
+    {
+      title: "Cơ sở thi",
+      dataIndex: "department",
+      align: "center",
+      width: "250px",
+    },
+    {
+      title: "Điểm nghe",
+      dataIndex: "listening",
+      align: "center",
+      width: "100px",
+      render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
+      search: "sort",
+    },
+    {
+      title: "Điểm đọc",
+      dataIndex: "reading",
+      align: "center",
+      width: "100px",
+      render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
+      search: "sort",
+    },
+    {
+      title: "Tổng điểm",
+      dataIndex: "total",
+      align: "center",
+      width: "100px",
+      render: (val) => (val ? <Tag color="blue">{val}</Tag> : "CMT KHL"),
+      search: "sort",
+    },
+    {
+      title: "Trình độ",
+      dataIndex: "level",
+      align: "center",
+      render: (val) => (val ? <p>{val}</p> : "CMT KHL"),
+    },
+    // {
+    //   title: "Thao tác",
+    //   align: "center",
+    //   render: (value, record) => renderLast(value, record),
+    //   fixed: "right",
+    //   width: 150,
+    // },
   ];
 
   useEffect(() => {
@@ -129,7 +144,7 @@ export default function VanBangTable(props) {
       <Table
         dataSource={props?.data ?? []}
         columns={columns}
-        scroll={{ x: 1500 }}
+        scroll={{ x: 1800 }}
         destroyOnClose
       />
       <Modal

@@ -25,54 +25,59 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
   const [ds, setds] = useState([]);
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
-  const traCuu = async ({ hoTen, ngaySinh, soHieuVB }) => {
-    if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(soHieuVB)) {
-      // notification.info({
-      //   message: 'Chưa nhập thông tin tra cứu',
-      //   placement: 'bottomRight',
-      //   icon: <Icon type="close-circle" style={{ color: 'red' }} />,
-      // });
+  const traCuu = async ({ hoDem, ten, maSvOrCccd, testDate, dateOfBirth }) => {
+    if (
+      !isValue(hoDem) &&
+      !isValue(ten) &&
+      !isValue(maSvOrCccd) &&
+      !isValue(testDate) &&
+      !isValue(dateOfBirth)
+    ) {
       Modal.warning({
         title: "Thông báo",
         content: "Chưa nhập thông tin tra cứu",
       });
       return;
     }
-    if (isValue(soHieuVB) && (isValue(hoTen) || isValue(ngaySinh))) {
-      // notification.info({
-      //   message: 'Chỉ tìm kiếm theo họ tên, ngày sinh hoặc theo số hiệu văn bằng',
-      //   placement: 'bottomRight',
-      //   icon: <Icon type="close-circle" style={{ color: 'red' }} />,
-      // });
+    if (
+      isValue(maSvOrCccd) &&
+      isValue(testDate) &&
+      isValue(hoDem) &&
+      isValue(ten) &&
+      isValue(dateOfBirth) &&
+      isValue(testDate)
+    ) {
       Modal.warning({
         title: "Thông báo",
-        content:
-          "Chỉ tìm kiếm theo họ tên, ngày sinh hoặc theo số hiệu văn bằng",
+        content: "Chỉ tiềm kiếm 1 trong 2 cách",
         onOk() {},
       });
       return;
     } else if (
-      (isValue(hoTen) && !isValue(ngaySinh)) ||
-      (!isValue(hoTen) && isValue(ngaySinh))
+      (!isValue(hoDem) &&
+        !isValue(ten) &&
+        !isValue(dateOfBirth) &&
+        !isValue(testDate)) ||
+      (!isValue(maSvOrCccd) && !isValue(testDate))
     ) {
-      // notification.info({
-      //   message: 'Nhập cả họ tên và ngày sinh',
-      //   placement: 'bottomRight',
-      //   icon: <Icon type="close-circle" style={{ color: 'red' }} />,
-      // });
       Modal.error({
         title: "Thông báo",
-        content: "Phải nhập cả họ tên và ngày sinh",
+        content: "Phải nhập đầy đủ thông tin",
         onOk() {},
       });
       return;
     }
     setloading(true);
-    const data = await axios.get(`${ip}/phu-luc-van-bang/tra-cuu`, {
-      params: { hoTen, ngaySinh, soHieuVB },
+    const data = await axios.post(`${ip}ket-qua-thi-toeic/tra-cuu`, {
+      hoDem,
+      ten,
+      maSvOrCccd,
+      testDate,
+      dateOfBirth,
     });
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
+    debugger;
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
@@ -87,28 +92,28 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
     setloading(false);
   };
 
-  const traCuuTheoId = async (id) => {
-    setloading(true);
-    const data = await axios.get(`${ip}/phu-luc-van-bang/tra-cuu/${id}`, {});
-    // console.log('data', data);
-    let tmp = data?.data?.data ?? [];
+  // const traCuuTheoId = async (id) => {
+  //   setloading(true);
+  //   const data = await axios.get(`${ip}/phu-luc-van-bang/tra-cuu/${id}`, {});
+  //   // console.log('data', data);
+  //   let tmp = data?.data?.data ?? [];
 
-    if (typeof tmp === "object") tmp = [tmp];
-    setds(tmp);
-    setid(id);
-    setloading(false);
-  };
-  const router = useRouter();
+  //   if (typeof tmp === "object") tmp = [tmp];
+  //   setds(tmp);
+  //   setid(id);
+  //   setloading(false);
+  // };
+  // const router = useRouter();
 
-  useEffect(() => {
-    // console.log('router.query', router.query);
-    // traCuu('Syamphay Sataphone', '1992-08-04T17:00:00.000Z');
-    const id = router.query?.id;
-    if (id) traCuuTheoId(id);
-    return () => {
-      setid(false);
-    };
-  }, [router.query]);
+  // useEffect(() => {
+  //   // console.log('router.query', router.query);
+  //   // traCuu('Syamphay Sataphone', '1992-08-04T17:00:00.000Z');
+  //   const id = router.query?.id;
+  //   if (id) traCuuTheoId(id);
+  //   return () => {
+  //     setid(false);
+  //   };
+  // }, [router.query]);
 
   return (
     <Row>

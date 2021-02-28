@@ -13,6 +13,7 @@ import React, { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import capbangdiem from "assets/image/capbangdiem.png";
 import capbangdiemsohieu from "assets/image/sohieuvb.png";
+import moment from "moment";
 
 const openNotification = () => {
   notification.error({
@@ -34,17 +35,20 @@ const TraCuuVB = (props) => {
     e.preventDefault();
 
     props.form.validateFields((err, values) => {
-      const recapchaValue = recaptchaRef.current.getValue();
-      console.log("recapchaValue", recapchaValue);
+      // const recapchaValue = recaptchaRef.current.getValue();
+      // console.log("recapchaValue", recapchaValue);
       // values.ngaySinh = values?.ngaySinh?.toISOString();
       // props.onSubmit(values);
       // props.form.resetFields();
-      if (!err && recapchaValue && recapchaValue?.length) {
-        console.log("Received values of form: ", values);
-
-        values.ngaySinh = values?.ngaySinh?.toISOString();
-        recaptchaRef.current.reset();
-        setcapcha(false);
+      // && recapchaValue && recapchaValue?.length
+      if (!err) {
+        values.dateOfBirth = values?.dateOfBirth;
+        values.testDate = values?.testDate || values?.testDatee;
+        values.hoDem = values?.hoDem;
+        values.ten = values?.ten;
+        values.maSvOrCccd = values?.maSvOrCccd;
+        // recaptchaRef.current.reset();
+        // setcapcha(false);
         props.onSubmit(values);
         this.props.form.resetFileds();
       }
@@ -97,10 +101,31 @@ const TraCuuVB = (props) => {
                   </Col>
                 </Row>
                 <Row>
+                  <Col xs={24} md={24} lg={12}>
+                    <Form.Item label="Ngày sinh">
+                      {getFieldDecorator("dateOfBirth", {
+                        // initialValue: moment(
+                        //   getRecordValue(model, cond, "dateOfBirth", undefined)
+                        // ),
+                        // rules: [...rules.required],
+                      })(<DatePicker format={"DD/MM/YYYY"} />)}
+                    </Form.Item>
+                  </Col>
+                  <Col xs={24} md={24} lg={12}>
+                    <Form.Item label="Ngày thi">
+                      {getFieldDecorator("testDate", {
+                        // initialValue: moment(
+                        //   getRecordValue(model, cond, "testDate", undefined)
+                        // ),
+                        // rules: [...rules.required],
+                      })(<DatePicker format={"DD/MM/YYYY"} />)}
+                    </Form.Item>
+                  </Col>
+                </Row>
+                <Row>
                   <p style={{ color: "red" }}>
                     <i>
-                      Lưu ý: chỉ nhập họ tên hoặc số CMND/thẻ căn cước để tra
-                      cứu
+                      Lưu ý: chỉ nhập họ tên, ngày sinh, ngày thi để tra cứu
                     </i>
                   </p>
                 </Row>
@@ -118,24 +143,34 @@ const TraCuuVB = (props) => {
               >
                 <Row>
                   <Col xs={24} sm={24} md={24} lg={20}>
-                    <Form.Item label="CMND hoặc thẻ căn cước">
-                      {getFieldDecorator("soHieuVB", {
+                    <Form.Item label="CMND/thẻ căn cước hoặc MSV">
+                      {getFieldDecorator("maSvOrCccd", {
                         // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
-                        rules: [...rules.length(20), ...rules.text],
+                        // rules: [...rules.length(50), ...rules.text],
                       })(
                         <Input
                           style={{ maxWidth: 500 }}
-                          // placeholder="Số hiệu văn bằng"
+                          // placeholder="Họ và tên"
                         />
                       )}
                     </Form.Item>
                   </Col>
                 </Row>
                 <Row>
+                  <Form.Item label="Ngày thi">
+                    {getFieldDecorator("testDatee", {
+                      // initialValue: moment(
+                      //   getRecordValue(model, cond, "testDate", undefined)
+                      // ),
+                      // rules: [...rules.required],
+                    })(<DatePicker format={"DD/MM/YYYY"} />)}
+                  </Form.Item>
+                </Row>
+                <Row>
                   <p style={{ color: "red" }}>
                     <i>
-                      Lưu ý: chỉ nhập họ tên hoặc số CMND/thẻ căn cước để tra
-                      cứu
+                      Lưu ý: chỉ nhập ngày thi, số CMND/thẻ căn cước hoặc mã
+                      sinh vien để tra cứu
                     </i>
                   </p>
                 </Row>
@@ -150,7 +185,7 @@ const TraCuuVB = (props) => {
               </i>
             </p>
           </Row> */}
-          <Form.Item
+          {/* <Form.Item
             wrapperCol={{
               xs: { span: 24, offset: 0 },
               sm: { span: 16, offset: 8 },
@@ -163,13 +198,13 @@ const TraCuuVB = (props) => {
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
             />
-            {/* <Button disabled={!capcha} type="primary" htmlType="submit">
-              Tìm kiếm
-            </Button> */}
             <Button type="primary" htmlType="submit" onClick={openNotification}>
               Tìm kiếm
             </Button>
-          </Form.Item>
+          </Form.Item> */}
+          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+            Tìm kiếm
+          </Button>
         </Form>
       </Col>
     </Row>
