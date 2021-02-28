@@ -177,15 +177,7 @@ const TraCuuVB = (props) => {
               </Card>
             </Col>
           </Row>
-          {/* <Row>
-            <p style={{ color: "red" }}>
-              <i>
-                Lưu ý: chỉ nhập họ tên và ngày tháng năm sinh hoặc nhập số hiệu
-                Văn bằng để tra cứu{" "}
-              </i>
-            </p>
-          </Row> */}
-          {/* <Form.Item
+          <Form.Item
             wrapperCol={{
               xs: { span: 24, offset: 0 },
               sm: { span: 16, offset: 8 },
@@ -201,10 +193,7 @@ const TraCuuVB = (props) => {
             <Button type="primary" htmlType="submit" onClick={openNotification}>
               Tìm kiếm
             </Button>
-          </Form.Item> */}
-          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
-            Tìm kiếm
-          </Button>
+          </Form.Item>
         </Form>
       </Col>
     </Row>
