@@ -190,7 +190,7 @@ const TraCuuVB = (props) => {
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
             />
-            <Button type="primary" htmlType="submit" onClick={openNotification}>
+            <Button type="primary" htmlType="submit">
               Tìm kiếm
             </Button>
           </Form.Item>
