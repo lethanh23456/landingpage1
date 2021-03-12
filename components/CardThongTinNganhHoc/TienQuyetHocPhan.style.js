@@ -1,5 +1,5 @@
 /* eslint-disable arrow-parens */
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 // eslint-disable-next-line import/prefer-default-export
 export const WrapperTienQuyet = styled.div`
@@ -58,40 +58,52 @@ export const CardContentGiaiThich = styled.div`
 `;
 
 export const ShapeNhanBiet = styled.div`
-  ${props => {
+  ${(props) => {
     let ret;
     switch (props.type) {
-      case 'Bắt buộc chung':
+      case "Bắt buộc chung":
         ret = css`
           background: #b1e0fc;
           color: black;
         `;
         break;
-      case 'Bắt buộc chung nhóm ngành':
+      case "Bắt buộc chung nhóm ngành":
         ret = css`
           background: #dad2f9;
           color: black;
         `;
         break;
-      case 'Bổ trợ ngành':
+      case "Bổ trợ ngành":
         ret = css`
           background: #ffeee6;
           color: black;
         `;
         break;
-      case 'Cơ sở ngành':
+      case "Giáo dục chuyên nghiệp":
+        ret = css`
+          background: #cc33ff;
+          color: black;
+        `;
+        break;
+      case "Luận văn tốt nghiệp":
+        ret = css`
+          background: #009999;
+          color: black;
+        `;
+        break;
+      case "Cơ sở ngành":
         ret = css`
           background: #facccc;
           color: black;
         `;
         break;
-      case 'Chuyên ngành':
+      case "Chuyên ngành":
         ret = css`
           background: #f2c946;
           color: black;
         `;
         break;
-      case 'Thực tập':
+      case "Thực tập":
         ret = css`
           background: #1f61d2;
           color: white;

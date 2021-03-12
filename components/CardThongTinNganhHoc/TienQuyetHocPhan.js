@@ -1,16 +1,18 @@
-import { Col, Row } from 'antd';
-import Container from 'components/UI/Container';
-import React from 'react';
+import { Col, Row } from "antd";
+import Container from "components/UI/Container";
+import React from "react";
 import {
-  CardContentGiaiThich, CardGiaiThich,
-  InsideTitle, ShapeNhanBiet,
+  CardContentGiaiThich,
+  CardGiaiThich,
+  InsideTitle,
+  ShapeNhanBiet,
   TextShapeNhanBiet,
-  TextTuChon, TitleGiaiThich
-} from './TienQuyetHocPhan.style';
-
+  TextTuChon,
+  TitleGiaiThich,
+} from "./TienQuyetHocPhan.style";
 
 export default function TienQuyetHocPhan({ hocPhanTuChon }) {
-  console.log(hocPhanTuChon, 'hocPhanTuChon')
+  console.log(hocPhanTuChon, "hocPhanTuChon");
   return (
     <Container>
       {/* <div style={{ margin: 12 }}>
@@ -61,7 +63,7 @@ export default function TienQuyetHocPhan({ hocPhanTuChon }) {
         justify="space-around"
         align="middle"
         style={{
-          alignItems: 'stretch',
+          alignItems: "stretch",
         }}
       >
         <Col xs={24} lg={12}>
@@ -69,45 +71,59 @@ export default function TienQuyetHocPhan({ hocPhanTuChon }) {
             <TitleGiaiThich>Chú giải</TitleGiaiThich>
             <CardContentGiaiThich>
               <Row gutter={[8, 12]}>
-                <Col xs={24} lg={12} style={{ textAlign: 'center' }}>
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
                   <ShapeNhanBiet type="Bắt buộc chung" />
                   <TextShapeNhanBiet>
                     <InsideTitle> Bắt buộc chung</InsideTitle>
                   </TextShapeNhanBiet>
                 </Col>
 
-                <Col xs={24} lg={12} style={{ textAlign: 'center' }}>
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
                   <ShapeNhanBiet type="Bắt buộc chung nhóm ngành" />
                   <TextShapeNhanBiet>
                     <InsideTitle>Bắt buộc chung nhóm ngành</InsideTitle>
                   </TextShapeNhanBiet>
                 </Col>
 
-                <Col xs={24} lg={12} style={{ textAlign: 'center' }}>
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
                   <ShapeNhanBiet type="Bổ trợ ngành" />
                   <TextShapeNhanBiet>
                     <InsideTitle>Bổ trợ ngành</InsideTitle>
                   </TextShapeNhanBiet>
                 </Col>
 
-                <Col xs={24} lg={12} style={{ textAlign: 'center' }}>
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
                   <ShapeNhanBiet type="Cơ sở ngành" />
                   <TextShapeNhanBiet>
                     <InsideTitle>Cơ sở ngành</InsideTitle>
                   </TextShapeNhanBiet>
                 </Col>
 
-                <Col xs={24} lg={12} style={{ textAlign: 'center' }}>
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
                   <ShapeNhanBiet type="Chuyên ngành" />
                   <TextShapeNhanBiet>
                     <InsideTitle>Chuyên ngành</InsideTitle>
                   </TextShapeNhanBiet>
                 </Col>
 
-                <Col xs={24} lg={12} style={{ textAlign: 'center' }}>
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
                   <ShapeNhanBiet type="Thực tập" />
                   <TextShapeNhanBiet>
                     <InsideTitle>Thực tập</InsideTitle>
+                  </TextShapeNhanBiet>
+                </Col>
+
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
+                  <ShapeNhanBiet type="Giáo dục chuyên nghiệp" />
+                  <TextShapeNhanBiet>
+                    <InsideTitle>Giáo dục chuyên nghiệp</InsideTitle>
+                  </TextShapeNhanBiet>
+                </Col>
+
+                <Col xs={24} lg={12} style={{ textAlign: "center" }}>
+                  <ShapeNhanBiet type="Luận văn tốt nghiệp" />
+                  <TextShapeNhanBiet>
+                    <InsideTitle>Luận văn tốt nghiệp</InsideTitle>
                   </TextShapeNhanBiet>
                 </Col>
               </Row>
@@ -120,7 +136,9 @@ export default function TienQuyetHocPhan({ hocPhanTuChon }) {
             <TitleGiaiThich>Các học phần tự chọn</TitleGiaiThich>
             <CardContentGiaiThich>
               {hocPhanTuChon.map((item, index) => (
-                <TextTuChon>{index + 1}. {item.tenMonHoc} ({item.soTinChi}TC) </TextTuChon>
+                <TextTuChon>
+                  {index + 1}. {item.tenMonHoc} ({item.soTinChi}TC){" "}
+                </TextTuChon>
               ))}
               {/* 
               <TextTuChon>2. Kỹ thuật theo dõi, giám sát an toàn mạng (2TC) </TextTuChon>
@@ -134,6 +152,6 @@ export default function TienQuyetHocPhan({ hocPhanTuChon }) {
           </CardGiaiThich>
         </Col>
       </Row>
-    </Container >
+    </Container>
   );
 }
