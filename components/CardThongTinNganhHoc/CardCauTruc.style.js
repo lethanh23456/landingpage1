@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 // eslint-disable-next-line import/prefer-default-export
 export const RowHocKy = styled.div`
-  height: 80px;
+  height: 100px;
   margin: 8px 0;
 `;
 
@@ -20,8 +20,8 @@ export const WrapperCard = styled.div`
 export const CardHocKy = styled.div`
   white-space: normal;
 
-  height: 56px;
-  width: 95px;
+  height: 70px;
+  width: 125px;
   margin: 0px 16px;
   background-color: #c01718;
   padding: 8px 17px;
@@ -46,11 +46,11 @@ export const CardMon = styled.div`
 
   display: inline-block;
   border-radius: 4px;
-  margin: 0px 16px;
+  margin: 8px 12px;
 
-  height: 70px;
-  width: 136px;
-  padding: 8px 12px;
+  height: 90px;
+  width: 165px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -97,7 +97,6 @@ export const CardMon = styled.div`
         ret = css`
           background: #1f61d2;
           color: white;
-          width: 100%;
         `;
         break;
       default:
