@@ -6,7 +6,7 @@ import {
   List,
   Row,
   Breadcrumb,
-  Divider
+  Divider,
 } from "antd";
 import axios from "axios";
 import Link from "next/link";
@@ -24,9 +24,9 @@ import { TitleLinkWrapper } from "../../styles/baiviet.style";
 
 const TinTuc = ({ data, relate }) => {
   useEffect(() => {});
-  // console.log(data, 'relate');
-  // console.log(relate, 'relate');
-
+  console.log(data, "relate");
+  console.log(relate, "relate");
+  // bây giờ em cần thêm 1 trường là tài liệu đính kèm là 1 mảng url cần cắt string các thứ anh có nhìn thấy ko
   const ngayDang = _.get(data, "ngayDang", "");
   const tieuDe = _.get(data, "tieuDe", "");
   const moTa = _.get(data, "moTa", "");
@@ -34,7 +34,9 @@ const TinTuc = ({ data, relate }) => {
   const nguoiDang = _.get(data, "nguoiDang.hoTen", "");
   const anhDaiDien = _.get(data, "anhDaiDien", "");
   const slug = _.get(data, "slug", "");
-  const renderTitle = title => {
+  const url = _.get(data, "urlTaiLieuDinhKem", "");
+  console.log(url, "url");
+  const renderTitle = (title) => {
     if (title <= 105) {
       return title;
     }
@@ -47,6 +49,12 @@ const TinTuc = ({ data, relate }) => {
       s += "...";
     }
     return s;
+  };
+
+  const trimURl = (str) => {
+    let tmp = str.split("/");
+    let tmp1 = tmp[tmp.length - 1].split("-");
+    return tmp1[tmp1.length - 1];
   };
 
   return (
@@ -64,15 +72,16 @@ const TinTuc = ({ data, relate }) => {
               url: anhDaiDien,
               width: 800,
               height: 600,
-              alt: "Tin tức"
-            }
+              alt: "Tin tức",
+            },
           ],
-          site_name: "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO"
+          site_name:
+            "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO",
         }}
         twitter={{
           handle: "@handle",
           site: "@site",
-          cardType: "summary_large_image"
+          cardType: "summary_large_image",
         }}
       />
       <Box style={{ marginTop: 0 }}>
@@ -84,7 +93,7 @@ const TinTuc = ({ data, relate }) => {
               width: "90%",
               margin: "0px auto",
               padding: "30px 0",
-              fontFamily: "Roboto, sans-serif"
+              fontFamily: "Roboto, sans-serif",
             }}
           >
             <Col lg={17} xl={17} md={24} xs={24} sm={24}>
@@ -109,7 +118,7 @@ const TinTuc = ({ data, relate }) => {
                     fontSize: "14px",
                     marginBottom: "12px",
                     marginTop: "-10px",
-                    textTransform: "capitalize"
+                    textTransform: "capitalize",
                   }}
                 >
                   {ngayDang !== ""
@@ -123,7 +132,7 @@ const TinTuc = ({ data, relate }) => {
                   style={{
                     marginTop: 20,
                     textAlign: "justify",
-                    fontSize: "calc(0.8em + 0.4vw)"
+                    fontSize: "calc(0.8em + 0.4vw)",
                   }}
                   dangerouslySetInnerHTML={{ __html: noiDung }}
                 />
@@ -132,11 +141,22 @@ const TinTuc = ({ data, relate }) => {
                     style={{
                       color: "#222",
                       textAlign: "right",
-                      fontWeight: "bold"
+                      fontWeight: "bold",
                     }}
                   >
                     {nguoiDang}
                   </p>
+                ) : null}
+                {url.length !== 0 ? (
+                  <>
+                    <p>Tài liệu đính kèm:</p>
+                    {url.map((item, index) => (
+                      <>
+                        {index + 1}. <a href={item}>{trimURl(item)}</a>
+                        <br />
+                      </>
+                    ))}
+                  </>
                 ) : null}
               </div>
             </Col>
@@ -149,7 +169,7 @@ const TinTuc = ({ data, relate }) => {
                         color: "#D10000",
                         margin: 0,
                         fontSize: 22,
-                        fontWeight: "bold"
+                        fontWeight: "bold",
                       }}
                     >
                       Liên quan
@@ -159,7 +179,7 @@ const TinTuc = ({ data, relate }) => {
                 >
                   <List
                     dataSource={relate}
-                    renderItem={item => (
+                    renderItem={(item) => (
                       <List.Item
                         key={item._id}
                         style={{ height: "100%", textAlign: "justify" }}
@@ -237,8 +257,8 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       data,
-      relate
-    }
+      relate,
+    },
   };
 }
 

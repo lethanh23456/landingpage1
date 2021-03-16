@@ -34,19 +34,19 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
   const [cond, setCond] = useState({
     // TIN_TUC_CAP_PHAT_VBCC
     // // TIN_TUC_LICH_THI_TA
-    maLoaiBaiViet: loaiBaiViet[0].maLoai
+    maLoaiBaiViet: loaiBaiViet[0].maLoai,
   });
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(16);
   function callback(key) {
-    loaiBaiViet.map(e => {
+    loaiBaiViet.map((e) => {
       if (e.maLoai === key) {
         router.push(`tintucchung#${Format(e.maLoai)}`);
       }
     });
     setKey(key);
     setCond({
-      maLoaiBaiViet: key
+      maLoaiBaiViet: key,
     });
   }
   const fetchTinTuc = async (page, pageSize, cond) => {
@@ -55,12 +55,12 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
       params: {
         page,
         limit: pageSize,
-        cond
-      }
+        cond,
+      },
     });
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
     console.log("response", response);
     setData(response?.data?.data ?? []);
@@ -83,8 +83,8 @@ const TinTucVBCC = ({ loaiBaiViet }) => {
     const tmp = location.href.split("#");
     console.log(tmp, "tmp");
     let flag = false;
-    tmp.map(item => {
-      loaiBaiViet.map(e => {
+    tmp.map((item) => {
+      loaiBaiViet.map((e) => {
         if (Format(e.maLoai) === item) {
           fetchTinTuc(page, pageSize, { maLoaiBaiViet: e.maLoai });
           setKey(e.maLoai);
@@ -149,11 +149,11 @@ export async function getServerSideProps() {
         $and: [
           { maLoai: { $regex: "DAO_TAO_TIN_TUC_" } },
           { maLoai: { $ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI" } },
-          { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } },
-          { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } }
-        ]
-      }
-    }
+          // { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } },
+          { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } },
+        ],
+      },
+    },
   });
   const loaiBaiViet = _.get(response, "data.data", {});
   debugger;
