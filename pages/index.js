@@ -20,8 +20,7 @@ export default ({
   dataBlock,
   dataBlockTinTuc,
 }) => {
-  console.log(dataBlock, "trang chu relate");
-  console.log(ctrDaotao, "sunn");
+  // console.log("gao", dataTintuc);
   const renderModules = (modules) => {
     switch (modules.loaiComponent) {
       case "CAROUSEL":
@@ -120,7 +119,10 @@ export async function getServerSideProps() {
       limit: 8,
       cond: {
         maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
+        hienThi: true,
       },
+      // sort: "doUuTien",
+      // order: 1,
     },
   });
   const dataTintuc = _.get(response, "data.data", {});
@@ -153,7 +155,10 @@ export async function getServerSideProps() {
       limit: 4,
       cond: {
         maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN",
+        hienThi: true,
       },
+      // sort: "doUuTien",
+      // order: 1,
     },
   });
   const gocsinhvien = _.get(response, "data.data", {});

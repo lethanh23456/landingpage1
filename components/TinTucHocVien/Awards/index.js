@@ -17,32 +17,34 @@ import {
 } from "../TinTuc.style";
 import { AwardSectionWrapper } from "./awards.style";
 
-const AwardsSection = ({
-  data,
-}) => {
+const AwardsSection = ({ data }) => {
   const [relate, setRelate] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async function wrapFunc() {
-      const maBlock = data?.maBlock ?? '';
+      const maBlock = data?.maBlock ?? "";
       const response = await axios.get(`${ip}/bai-viet`, {
         params: {
           page: 1,
           limit: 4,
           cond: {
             maLoaiBaiViet: maBlock,
+            hienThi: true,
           },
         },
       });
       const dataBaiViet = _.get(response, "data.data", []);
-      setRelate(dataBaiViet)
+      setRelate(dataBaiViet);
       setLoading(false);
     })();
   }, [data]);
-  console.log(data, 'data block tin tuc')
-  console.log(relate, 'data block relate')
+  // console.log(data, "sungao");
+  console.log(relate, "TuanBui");
   return (
-    <AwardSectionWrapper id="awards_section" style={{ backgroundColor: "#F9F9F9"}}>
+    <AwardSectionWrapper
+      id="awards_section"
+      style={{ backgroundColor: "#F9F9F9" }}
+    >
       <Container noGutter mobileGutter width="1170px">
         <TinTucWrapper>
           <p>{_.get(data, "ten", "")}</p>
@@ -64,8 +66,8 @@ const AwardsSection = ({
                         time={
                           _.get(award, "ngayDang", "") !== ""
                             ? moment(_.get(award, "ngayDang", "")).format(
-                              "DD/MM/YYYY, h:mm"
-                            )
+                                "DD/MM/YYYY, h:mm"
+                              )
                             : ""
                         }
                       />
@@ -75,7 +77,7 @@ const AwardsSection = ({
               ))}
           </Spin>
         </Row>
-        {relate.length !== 0 &&
+        {relate.length !== 0 && (
           <div
             style={{
               width: "135",
@@ -106,12 +108,12 @@ const AwardsSection = ({
                     }}
                   >
                     XEM CHI TIẾT
-                        </div>
+                  </div>
                 </ButtonDetailWrapper>
               </a>
             </Link>
           </div>
-        }
+        )}
       </Container>
     </AwardSectionWrapper>
   );
