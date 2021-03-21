@@ -1,21 +1,27 @@
-import { Col, Row } from "antd";
-import Rectangle78 from "assets/image/Rectangle78.png";
-import _ from "lodash";
-import Link from "next/link";
-import PropTypes from "prop-types";
-import Tabs, { TabPane } from "rc-tabs";
-import "rc-tabs/assets/index.css";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
-import TabContent from "rc-tabs/lib/TabContent";
-import React, { useEffect, useState } from "react";
-import Box from "components/Box";
-import Container from "components/UI/Container";
-import { TitleContainer } from "./TinTuc.style";
-import SectionWrapper from "./updateScreen.style";
-import Rotate from "./updateScreenCopy.style";
-import capbangdiemsohieu from "assets/image/GroupNew.png";
+import { Col, Row } from 'antd';
+import Rectangle78 from 'assets/image/Rectangle78.png';
+import _ from 'lodash';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import Tabs, { TabPane } from 'rc-tabs';
+import 'rc-tabs/assets/index.css';
+import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import TabContent from 'rc-tabs/lib/TabContent';
+import React, { useEffect, useState } from 'react';
+import Box from 'components/Box';
+import Container from 'components/UI/Container';
+import { TitleContainer } from './TinTuc.style';
+import SectionWrapper from './updateScreen.style';
+import Rotate from './updateScreenCopy.style';
+import capbangdiemsohieu from 'assets/image/GroupNew.png';
 
-const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
+const UpdateScreen = ({
+  secTitleWrapper,
+  secText,
+  secHeading,
+  href,
+  data,
+}) => {
   const [relate, setRelate] = useState([]);
   useEffect(() => {
     // (async function wrapFunc() {
@@ -33,93 +39,110 @@ const UpdateScreen = ({ secTitleWrapper, secText, secHeading, href, data }) => {
     // })();
     setRelate(data);
   }, []);
-  console.log(relate, "ac");
+  console.log(relate, 'ac');
   return (
     <>
-      <SectionWrapper id="daotao">
+      <SectionWrapper id='daotao'>
         <Container>
           <Box {...secTitleWrapper}>
             {/* <Text {...secText} content="PRODUCT SCREENSHOT" /> */}
             {/* <Heading {...secHeading} content="CHƯƠNG TRÌNH ĐÀO TẠO" />  */}
             <TitleContainer>CHƯƠNG TRÌNH ĐÀO TẠO</TitleContainer>
-            <div style={{ textAlign: "center" }}>
+            <div style={{ textAlign: 'center' }}>
               <img
-                alt=""
+                alt=''
                 src={Rectangle78}
-                style={{ width: "64px", height: "4px" }}
+                style={{ width: '64px', height: '4px' }}
               />
             </div>
           </Box>
           <Tabs
             renderTabBar={() => <ScrollableInkTabBar />}
             renderTabContent={() => <TabContent animated />}
-            className="update-screen-tab"
+            className='update-screen-tab'
             // activeKey="ĐÀO TẠO SAU ĐẠI HỌC"
           >
             {relate.map((element, index) => (
               <TabPane
                 style={{}}
-                tab={<>{_.get(element, "tenHeDaoTao", "")}</>}
-                key={_.get(element, "tenHeDaoTao", "")}
+                tab={<>{_.get(element, 'tenHeDaoTao', '')}</>}
+                key={_.get(element, 'tenHeDaoTao', '')}
               >
-                <div style={{ padding: "32px" }}>
+                <div style={{ padding: '32px' }}>
                   <Row gutter={[16, 16]}>
                     {element.nganhDaoTao.map((item, index) => (
                       <Col Col xl={8} md={12} xs={24} key={index + 1}>
                         <Row>
                           <Link
-                            href="/nganhhoc/[idMaNganh]"
-                            as={"/nganhhoc/" + `${_.get(item, "maNganh", "")}`}
+                            href='/nganhhoc/[idMaNganh]'
+                            as={
+                              '/nganhhoc/' +
+                              `${_.get(item, 'maNganh', '')}`
+                            }
                           >
                             {item?.tenNganh ===
-                            "Ngành Công nghệ tài chính - Fintech" ? (
-                              <a style={{ color: "#fff" }} target="_blank">
+                            'Ngành Công nghệ tài chính - Fintech' ? (
+                              <a
+                                style={{ color: '#000' }}
+                                target='_blank'
+                              >
                                 <Rotate>
                                   <Col md={6} xs={8}>
                                     <img
                                       style={{
-                                        width: "64px",
-                                        heigth: "64px",
-                                        marginRight: "16px",
+                                        width: '64px',
+                                        heigth: '64px',
+                                        marginRight: '16px',
                                       }}
-                                      alt=""
+                                      alt=''
                                       src={item.urlAnhDaiDien}
                                     />
                                   </Col>
-                                  <Col style={{ paddingTop: "10px" }}>
+                                  <Col
+                                    style={{
+                                      paddingTop: '10px',
+                                      position: 'relative',
+                                    }}
+                                  >
                                     <span>
-                                      Ngành Công nghệ tài chính -
                                       <img
                                         style={{
-                                          width: "32px",
-                                          heigth: "32px",
+                                          width: '32px',
+                                          heigth: '32px',
+                                          position: 'absolute',
+                                          top: 10,
+                                          right: -10,
                                           // marginRight: "16px",
                                         }}
-                                        alt=""
+                                        alt=''
                                         src={capbangdiemsohieu}
                                       />
-                                      Fintech
+                                      Ngành Công nghệ tài chính
+                                      -Fintech
                                       {/* {_.get(item, "tenNganh", "")} */}
                                     </span>
                                   </Col>
                                 </Rotate>
                               </a>
                             ) : (
-                              <a style={{ color: "#fff" }} target="_blank">
+                              <a
+                                style={{ color: '#fff' }}
+                                target='_blank'
+                              >
                                 <Col md={6} xs={8}>
                                   <img
                                     style={{
-                                      width: "64px",
-                                      heigth: "64px",
-                                      marginRight: "16px",
+                                      width: '64px',
+                                      heigth: '64px',
+                                      marginRight: '16px',
                                     }}
-                                    alt=""
+                                    alt=''
                                     src={item.urlAnhDaiDien}
                                   />
                                 </Col>
 
-                                <Col style={{ paddingTop: "10px" }}>
-                                  {_.get(item, "tenNganh", "")}
+                                <Col style={{ paddingTop: '10px' }}>
+                                  {_.get(item, 'tenNganh', '')}
                                 </Col>
                               </a>
                             )}
@@ -193,31 +216,31 @@ UpdateScreen.propTypes = {
 
 UpdateScreen.defaultProps = {
   secTitleWrapper: {
-    mb: ["60px", "40px"],
+    mb: ['60px', '40px'],
   },
   secText: {
-    as: "span",
-    display: "block",
-    textAlign: "center",
-    fontSize: "16px",
-    letterSpacing: "0.15em",
-    fontWeight: "700",
-    color: "#ff4362",
-    mb: "12px",
+    as: 'span',
+    display: 'block',
+    textAlign: 'center',
+    fontSize: '16px',
+    letterSpacing: '0.15em',
+    fontWeight: '700',
+    color: '#ff4362',
+    mb: '12px',
   },
   secHeading: {
-    fontStyle: "normal",
-    textAlign: "center",
-    fontSize: "30px",
-    fontWeight: "bold",
-    color: "#202124",
-    letterSpacing: "0.04em",
-    mb: "0",
-    ml: "auto",
-    mr: "auto",
-    lineHeight: "40px",
-    width: "400px",
-    maxWidth: "100%",
+    fontStyle: 'normal',
+    textAlign: 'center',
+    fontSize: '30px',
+    fontWeight: 'bold',
+    color: '#202124',
+    letterSpacing: '0.04em',
+    mb: '0',
+    ml: 'auto',
+    mr: 'auto',
+    lineHeight: '40px',
+    width: '400px',
+    maxWidth: '100%',
   },
 };
 
