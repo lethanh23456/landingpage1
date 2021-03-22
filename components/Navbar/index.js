@@ -186,6 +186,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     },
     {
       label: "TIN TỨC",
+<<<<<<< HEAD
       path: "tintucchung",
       offset: "70",
       submenu: tintucDesk(),
@@ -195,6 +196,9 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       path: "https://tuyensinh.ptit.edu.vn/",
       offset: "70",
       redirect: true,
+=======
+      path: "/tintucchung",
+>>>>>>> 9ef13cd27f80e60005eff89addcf92deec93a7b3
     },
     {
       hover: true,
