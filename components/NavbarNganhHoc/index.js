@@ -1,19 +1,19 @@
 //
-import { Menu } from "antd";
-import Box from "components/Box";
-import Container from "components/UI/Container";
-import Link from "next/link";
-import React from "react";
-import Sticky from "react-stickynode";
-import { MenuDiv, MenuItem, Style } from "./navbarNganhHoc.style";
+import { Menu } from 'antd';
+import Box from 'components/Box';
+import Container from 'components/UI/Container';
+import Link from 'next/link';
+import React from 'react';
+import Sticky from 'react-stickynode';
+import { MenuDiv, MenuItem, Style } from './navbarNganhHoc.style';
 
 class Navbar extends React.Component {
   state = {
-    current: "mail",
+    current: 'mail',
   };
 
   handleClick = (e) => {
-    console.log("click ", e);
+    console.log('click ', e);
     this.setState({
       current: e.key,
     });
@@ -24,27 +24,29 @@ class Navbar extends React.Component {
     const { SubMenu } = Menu;
     return (
       <Box>
-        <Sticky top={190} bottomBoundary="#content" innerZ={99999}>
+        <Sticky top={190} bottomBoundary='#content' innerZ={99999}>
           <Style>
             <Container>
               <MenuDiv>
                 <Menu
-                  style={{ backgroundColor: "red", color: "white" }}
+                  style={{ backgroundColor: 'red', color: 'white' }}
                   onClick={this.handleClick}
                   selectedKeys={[this.state.current]}
-                  mode="horizontal"
+                  mode='horizontal'
                   // style={{ fontSize: 'calc(0.6em + 0.4vw)', padding: '15px 0' }}
                 >
                   {this.props?.data?.map(({ name, url }) => {
-                    if (name === "Cấu trúc chương trình") {
+                    if (name === 'Cấu trúc chương trình') {
                       return (
                         <SubMenu
                           title={
-                            <span style={{ color: "white" }}>
+                            <span
+                              style={{ color: 'white', fontSize: 16 }}
+                            >
                               Cấu trúc chương trình
                             </span>
                           }
-                          style={{ backgroundColor: "red" }}
+                          style={{ backgroundColor: 'red' }}
                         >
                           {this.props?.monTinChi.map(
                             ({ tenChuyenNganh, anchor }) => (
@@ -62,7 +64,7 @@ class Navbar extends React.Component {
                                   </a>
                                 </Link>
                               </Menu.Item>
-                            )
+                            ),
                           )}
                         </SubMenu>
                       );
@@ -73,7 +75,7 @@ class Navbar extends React.Component {
                             href={`/nganhhoc/[idMaNganh]${url}`}
                             as={`/nganhhoc/${maNganh}${url}`}
                           >
-                            <a style={{ color: "white" }}>
+                            <a style={{ color: 'white' }}>
                               {/* <Icon type="file-protect" /> */}
                               {name}
                             </a>
