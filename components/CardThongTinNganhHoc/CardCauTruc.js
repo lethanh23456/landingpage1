@@ -1,7 +1,7 @@
-import { Divider } from "antd";
-import TienQuyetHocPhan from "components/CardThongTinNganhHoc/TienQuyetHocPhan";
-import React from "react";
-import Container from "../UI/Container";
+import { Divider } from 'antd';
+import TienQuyetHocPhan from 'components/CardThongTinNganhHoc/TienQuyetHocPhan';
+import React from 'react';
+import Container from '../UI/Container';
 import {
   CardHocKy,
   CardMon,
@@ -9,20 +9,20 @@ import {
   RowHocKy,
   TitleCauTruc,
   WrapperCard,
-} from "./CardCauTruc.style";
+} from './CardCauTruc.style';
 import {
   ContentHTML,
   GoTo,
   TitleHTML,
   WrapperCard as WrapperCardTitle,
-} from "./CardHTML.style";
+} from './CardHTML.style';
 
 export default function Card({ data }) {
-  console.log(data, "cauTrucChuongTrinh");
+  console.log(data, 'cauTrucChuongTrinh');
 
   return (
     <WrapperCardTitle style={{ paddingBottom: 0 }}>
-      <GoTo id="cautrucchuongtrinh" />
+      <GoTo id='cautrucchuongtrinh' />
       <Container>
         <TitleHTML>Cấu trúc chương trình các chuyên ngành</TitleHTML>
       </Container>
@@ -38,9 +38,10 @@ export default function Card({ data }) {
             <GoTo id={`${anchor}`} />
             <Container>
               <ContentHTML>
-                {" "}
+                {' '}
                 <b>
-                  Tiến trình học tập theo học chế tín chỉ - Chuyên ngành:{" "}
+                  Tiến trình học tập theo học chế tín chỉ{' '}
+                  {tenChuyenNganh !== '' ? '- Chuyên ngành: ' : ''}
                   {tenChuyenNganh}
                 </b>
               </ContentHTML>
@@ -56,7 +57,12 @@ export default function Card({ data }) {
                       </CardHocKy>
                     </WrapperCard>
                     {monHoc?.map(
-                      ({ tenMonHoc, soTinChi: soTin, type, duongDan }) => {
+                      ({
+                        tenMonHoc,
+                        soTinChi: soTin,
+                        type,
+                        duongDan,
+                      }) => {
                         if (duongDan)
                           return (
                             <WrapperCard>
@@ -64,7 +70,9 @@ export default function Card({ data }) {
                                 type={type}
                                 onClick={() => window.open(duongDan)}
                               >
-                                <TitleCauTruc>{tenMonHoc}</TitleCauTruc>
+                                <TitleCauTruc>
+                                  {tenMonHoc}
+                                </TitleCauTruc>
                                 <div>{`(${soTin} TC)`}</div>
                               </CardMon>
                             </WrapperCard>
@@ -80,10 +88,10 @@ export default function Card({ data }) {
                             </CardMon>
                           </WrapperCard>
                         );
-                      }
+                      },
                     )}
                   </RowHocKy>
-                )
+                ),
               )}
             </ContainerWrapper>
             <Container>

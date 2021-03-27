@@ -21,7 +21,9 @@ class Navbar extends React.Component {
 
   render() {
     const { maNganh, monTinChi } = this.props;
+    console.log(this.props, 'props id ma nganh');
     const { SubMenu } = Menu;
+    console.log(this.props?.monTinChi?.[0].tenChuyenNganh, 'name');
     return (
       <Box>
         <Sticky top={190} bottomBoundary='#content' innerZ={99999}>
@@ -36,7 +38,10 @@ class Navbar extends React.Component {
                   // style={{ fontSize: 'calc(0.6em + 0.4vw)', padding: '15px 0' }}
                 >
                   {this.props?.data?.map(({ name, url }) => {
-                    if (name === 'Cấu trúc chương trình') {
+                    if (
+                      name === 'Cấu trúc chương trình' &&
+                      this.props?.monTinChi?.[0].tenChuyenNganh !== ''
+                    ) {
                       return (
                         <SubMenu
                           title={
