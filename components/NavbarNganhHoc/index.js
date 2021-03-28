@@ -11,7 +11,6 @@ class Navbar extends React.Component {
   state = {
     current: 'mail',
     stickyTop: 190,
-    colorMenu: 'white',
   };
 
   handleResize = () => {
@@ -77,20 +76,23 @@ class Navbar extends React.Component {
                           title={
                             <span
                               style={{
-                                color: this.state.colorMenu,
+                                color: 'white',
                                 fontSize: 16,
                               }}
                             >
                               Cấu trúc chương trình
                             </span>
                           }
-                          style={{ backgroundColor: 'red' }}
+                          style={{
+                            backgroundColor: 'red',
+                            // margin: '10px 0',
+                          }}
                         >
                           {this.props?.monTinChi.map(
                             ({ tenChuyenNganh, anchor }) => (
                               <Menu.Item
                                 key={tenChuyenNganh}
-                                style={{ fontSize: 14, padding: 8 }}
+                                style={{ fontSize: 16, padding: 8 }}
                               >
                                 <Link
                                   href={`/nganhhoc/[idMaNganh]#${anchor}`}
@@ -116,9 +118,7 @@ class Navbar extends React.Component {
                             href={`/nganhhoc/[idMaNganh]${url}`}
                             as={`/nganhhoc/${maNganh}${url}`}
                           >
-                            <a
-                              style={{ color: this.state.colorMenu }}
-                            >
+                            <a style={{ color: 'white' }}>
                               {/* <Icon type="file-protect" /> */}
                               {name}
                             </a>
