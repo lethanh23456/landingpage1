@@ -10,7 +10,33 @@ import { MenuDiv, MenuItem, Style } from './navbarNganhHoc.style';
 class Navbar extends React.Component {
   state = {
     current: 'mail',
+    stickyTop: 190,
+    colorMenu: 'white',
   };
+
+  handleResize = () => {
+    console.log(window.innerWidth, 'resize');
+    if (window.innerWidth >= 710) {
+      this.setState({ stickyTop: 190 });
+    } else if (window.innerWidth >= 410) {
+      this.setState({ stickyTop: 230 });
+    } else if (window.innerWidth >= 392) {
+      this.setState({ stickyTop: 270 });
+    } else if (window.innerWidth >= 324)
+      this.setState({ stickyTop: 300 });
+    else {
+      this.setState({ stickyTop: 340 });
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
 
   handleClick = (e) => {
     console.log('click ', e);
@@ -26,7 +52,11 @@ class Navbar extends React.Component {
     console.log(this.props?.monTinChi?.[0].tenChuyenNganh, 'name');
     return (
       <Box>
-        <Sticky top={190} bottomBoundary='#content' innerZ={99999}>
+        <Sticky
+          top={this.state.stickyTop}
+          bottomBoundary='#content'
+          innerZ={99999}
+        >
           <Style>
             <Container>
               <MenuDiv>
@@ -46,7 +76,10 @@ class Navbar extends React.Component {
                         <SubMenu
                           title={
                             <span
-                              style={{ color: 'white', fontSize: 16 }}
+                              style={{
+                                color: this.state.colorMenu,
+                                fontSize: 16,
+                              }}
                             >
                               Cấu trúc chương trình
                             </span>
@@ -75,12 +108,17 @@ class Navbar extends React.Component {
                       );
                     } else {
                       return (
-                        <MenuItem key={name}>
+                        <MenuItem
+                          key={name}
+                          style={{ backgroundColor: 'red' }}
+                        >
                           <Link
                             href={`/nganhhoc/[idMaNganh]${url}`}
                             as={`/nganhhoc/${maNganh}${url}`}
                           >
-                            <a style={{ color: 'white' }}>
+                            <a
+                              style={{ color: this.state.colorMenu }}
+                            >
                               {/* <Icon type="file-protect" /> */}
                               {name}
                             </a>

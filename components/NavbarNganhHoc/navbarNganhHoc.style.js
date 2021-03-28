@@ -6,7 +6,7 @@ export const Style = styled.div`
 `;
 
 export const MenuDiv = styled.div`
-  & ul{
+  & ul {
     border-bottom: none;
   }
 `;
