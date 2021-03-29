@@ -198,7 +198,7 @@ const Navbar = ({
     },
     {
       label: 'TIN TỨC',
-      path: '/tintucchung',
+      path: 'tintucchung',
     },
     {
       label: 'TUYỂN SINH',
