@@ -110,7 +110,6 @@ export async function getServerSideProps() {
       },
     },
   });
-  debugger;
   const data = _.get(response, "data.data", {});
 
   response = await axios.get(`${ip3}/bai-viet`, {

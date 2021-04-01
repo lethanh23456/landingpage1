@@ -26,7 +26,7 @@ const AwardsSection = ({ data }) => {
       const response = await axios.get(`${ip}/bai-viet`, {
         params: {
           page: 1,
-          limit: 4,
+          limit: 300,
           cond: {
             maLoaiBaiViet: maBlock,
             hienThi: true,
@@ -34,12 +34,24 @@ const AwardsSection = ({ data }) => {
         },
       });
       const dataBaiViet = _.get(response, "data.data", []);
-      setRelate(dataBaiViet);
+
+      const dataBaiVietFinal = dataBaiViet?.map((item) => {
+        const element = item?.doUuTien;
+        for (let i = 0; i <= element?.length; i += 1) {
+          if (element[i]?.maLoaiBaiViet === maBlock)
+            return { ...item, uuTien: element[i]?.doUuTien };
+        }
+        return { ...item, uuTien: 100000 };
+      });
+
+      dataBaiVietFinal?.sort((a, b) => {
+        return a?.uuTien - b?.uuTien;
+      });
+      setRelate(dataBaiVietFinal);
       setLoading(false);
     })();
   }, [data]);
-  // console.log(data, "sungao");
-  console.log(relate, "TuanBui");
+
   return (
     <AwardSectionWrapper
       id="awards_section"

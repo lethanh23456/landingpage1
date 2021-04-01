@@ -1,22 +1,22 @@
 /* eslint-disable semi */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-import { useRouter } from 'next/router';
-import { Button, Col, Drawer, Icon, Menu, Row } from 'antd';
+import { useRouter } from "next/router";
+import { Button, Col, Drawer, Icon, Menu, Row } from "antd";
 // import { MENU_ITEMS_MOBILE } from 'common/src/data/Hosting/data';
-import LogoImage from 'assets/image/hosting/ptit-logo.png';
-import axios from 'axios';
-import Box from 'components/Box';
-import ScrollSpyMenu from 'components/ScrollSpyMenu';
-import { ip } from 'data/ip';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import _ from 'lodash';
-import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
-import Container from './ContainerMenu/index';
-import NavbarWrapper from './Navbar';
+import LogoImage from "assets/image/hosting/ptit-logo.png";
+import axios from "axios";
+import Box from "components/Box";
+import ScrollSpyMenu from "components/ScrollSpyMenu";
+import { ip } from "data/ip";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import _ from "lodash";
+import { useMediaQuery } from "react-responsive";
+import styled from "styled-components";
+import Container from "./ContainerMenu/index";
+import NavbarWrapper from "./Navbar";
 
 const { Item, SubMenu } = Menu;
 export const AWrapper = styled.a`
@@ -38,35 +38,29 @@ export const ItemAntd = styled(Item)`
   }
   &:hover a::before {
     color: #ff3d3b !important; /* border-bottom: 1.5px solid #FF3D3B; */
-    content: '';
+    content: "";
   }
 `;
 export function Format(str) {
   // xóa hết dấu + đưa về chữ thường
-  if (!str) return '';
+  if (!str) return "";
   return str
     .toString()
     .trim()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/đ/g, 'd')
-    .replace(/\s/g, '');
+    .replace(/đ/g, "d")
+    .replace(/\s/g, "");
 }
 
-const Navbar = ({
-  navbarStyle,
-  logoStyle,
-  button,
-  row,
-  menuWrapper,
-}) => {
+const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const router = useRouter();
   const isDesktop = useMediaQuery({
-    query: '(max-device-width: 767px)',
+    query: "(max-device-width: 767px)",
   });
   const isMobile = useMediaQuery({
-    query: '(max-device-width: 500px)',
+    query: "(max-device-width: 500px)",
   });
 
   const [daotao, setDaotao] = useState([]);
@@ -85,7 +79,7 @@ const Navbar = ({
           // }
         },
       });
-      const ctrDaoTao = _.get(response, 'data.data', []);
+      const ctrDaoTao = _.get(response, "data.data", []);
       setDaotao(ctrDaoTao);
     })();
   }, []);
@@ -99,15 +93,15 @@ const Navbar = ({
           limit: 1000,
           cond: {
             $and: [
-              { maLoai: { $regex: 'DAO_TAO_TIN_TUC_' } },
-              { maLoai: { $ne: 'DAO_TAO_TIN_TUC_BA_CONG_KHAI' } },
-              { maLoai: { $ne: 'DAO_TAO_TIN_TUC_LICH_THI_TA' } },
-              { maLoai: { $ne: 'DAO_TAO_TIN_TUC_DINH_HUONG' } },
+              { maLoai: { $regex: "DAO_TAO_TIN_TUC_" } },
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_BA_CONG_KHAI" } },
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_LICH_THI_TA" } },
+              { maLoai: { $ne: "DAO_TAO_TIN_TUC_DINH_HUONG" } },
             ],
           },
         },
       });
-      const list = _.get(response, 'data.data', []);
+      const list = _.get(response, "data.data", []);
       setLoaiTinTuc(list);
     })();
   }, []);
@@ -119,17 +113,15 @@ const Navbar = ({
         <Item
           onClick={() => {
             router.replace(`/tintucchung#${Format(item?.maLoai)}`);
-            if (router.pathname === '/tintucchung') {
+            if (router.pathname === "/tintucchung") {
               router.reload();
             }
           }}
         >
           {/* <Link href={`/tintucchung#${Format(item?.maLoai)}`}> */}
-          <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-            {item?.tenLoai}
-          </a>
+          <a style={{ fontSize: isDesktop ? 14 : 18 }}>{item?.tenLoai}</a>
           {/* </Link> */}
-        </Item>,
+        </Item>
       );
     });
     return tun;
@@ -142,20 +134,20 @@ const Navbar = ({
         <SubMenu
           title={
             <span style={{ fontSize: isDesktop ? 14 : 18 }}>
-              {item?.tenHeDaoTao ?? ''}
+              {item?.tenHeDaoTao ?? ""}
             </span>
           }
         >
           {item.nganhDaoTao.map((e, ind) => (
             <Item>
-              <Link href={`/nganhhoc/${e?.maNganh ?? ''}`}>
+              <Link href={`/nganhhoc/${e?.maNganh ?? ""}`}>
                 <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-                  {e?.tenNganh ?? ''}
+                  {e?.tenNganh ?? ""}
                 </a>
               </Link>
             </Item>
           ))}
-        </SubMenu>,
+        </SubMenu>
       );
     });
     return res;
@@ -163,68 +155,62 @@ const Navbar = ({
 
   let MENU_ITEMS = [
     {
-      label: 'TRANG CHỦ',
-      path: '#',
-      offset: '70',
+      label: "TRANG CHỦ",
+      path: "#",
+      offset: "70",
     },
     {
       hover: true,
-      label: 'GIỚI THIỆU CHUNG',
-      path: '#',
-      offset: '70',
+      label: "GIỚI THIỆU CHUNG",
+      path: "#",
+      offset: "70",
       submenu: [
         <Item>
-          <Link href='/doinguchitiet'>
-            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-              Đội ngũ cán bộ
-            </a>
+          <Link href="/doinguchitiet">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>Đội ngũ cán bộ</a>
           </Link>
         </Item>,
         <Item>
-          <Link href='/chucnangnhiemvu'>
+          <Link href="/chucnangnhiemvu">
             <a style={{ fontSize: isDesktop ? 14 : 18 }}>
               Chức năng - Nhiệm vụ
             </a>
           </Link>
         </Item>,
         <Item>
-          <Link href='/quychequydinh'>
-            <a style={{ fontSize: isDesktop ? 14 : 18 }}>
-              Quy chế - Quy định
-            </a>
+          <Link href="/quychequydinh">
+            <a style={{ fontSize: isDesktop ? 14 : 18 }}>Quy chế - Quy định</a>
           </Link>
         </Item>,
       ],
     },
     {
-      label: 'TIN TỨC',
-      path: 'tintucchung',
+      label: "TIN TỨC",
+      path: "tintucchung",
     },
     {
-      label: 'TUYỂN SINH',
-      path: 'https://tuyensinh.ptit.edu.vn/',
-      offset: '70',
+      label: "TUYỂN SINH",
+      path: "https://tuyensinh.ptit.edu.vn/",
+      offset: "70",
       redirect: true,
     },
     {
       hover: true,
-      label: 'CHƯƠNG TRÌNH ĐÀO TẠO',
-      path: '#',
-      offset: '70',
+      label: "CHƯƠNG TRÌNH ĐÀO TẠO",
+      path: "#",
+      offset: "70",
       submenu: daotaoDesk(),
     },
     {
-      label: 'TRA CỨU',
-      path: '#',
-      offset: '70',
+      label: "TRA CỨU",
+      path: "#",
+      offset: "70",
       submenu: [
         <Item>
           {/* <Link href="/vanbangchungchi"> */}
           <a
             style={{ fontSize: isDesktop ? 14 : 18 }}
-            onClick={() =>
-              window.open('https://tracuuvanbang.ptit.edu.vn/')
-            }
+            onClick={() => window.open("https://tracuuvanbang.ptit.edu.vn/")}
           >
             Tra cứu văn bằng
           </a>
@@ -232,7 +218,7 @@ const Navbar = ({
           {/* </Link> */}
         </Item>,
         <Item>
-          <Link href='/chungchi'>
+          <Link href="/chungchi">
             <a style={{ fontSize: isDesktop ? 14 : 18 }}>
               Tra cứu chứng chỉ tiếng Anh
             </a>
@@ -241,13 +227,13 @@ const Navbar = ({
       ],
     },
     {
-      label: 'BA CÔNG KHAI',
-      path: 'bacongkhai',
-      offset: '70',
+      label: "BA CÔNG KHAI",
+      path: "bacongkhai",
+      offset: "70",
     },
   ];
 
-  console.log(isMobile, 'test nav');
+  console.log(isMobile, "test nav");
 
   const handleClick = () => {};
 
@@ -260,39 +246,35 @@ const Navbar = ({
   };
 
   return (
-    <div id='nav-bar'>
+    <div id="nav-bar">
       <NavbarWrapper>
         <Container>
           <div
             style={{
-              fontSize: '26px',
-              color: 'rgb(209, 0, 0)',
-              fontWeight: '600',
-              textAlign: 'center',
+              fontSize: "26px",
+              color: "rgb(209, 0, 0)",
+              fontWeight: "600",
+              textAlign: "center",
             }}
           >
             HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
           </div>
           <div
             style={{
-              fontSize: '22px',
-              color: 'rgb(209, 0, 0)',
-              fontWeight: '600',
-              textAlign: 'center',
+              fontSize: "22px",
+              color: "rgb(209, 0, 0)",
+              fontWeight: "600",
+              textAlign: "center",
             }}
           >
             CỔNG THÔNG TIN ĐÀO TẠO
           </div>
 
-          <Row style={{ width: isDesktop ? 'inherit' : '100%' }}>
+          <Row style={{ width: isDesktop ? "inherit" : "100%" }}>
             <Col xl={2} lg={2} md={2} xs={22} sm={22}>
-              <Link rel='prefetch' href={`/`}>
+              <Link rel="prefetch" href={`/`}>
                 <a>
-                  <img
-                    style={{ width: '70px' }}
-                    src={LogoImage}
-                    alt='logo'
-                  />
+                  <img style={{ width: "70px" }} src={LogoImage} alt="logo" />
                 </a>
               </Link>
             </Col>
@@ -315,21 +297,21 @@ const Navbar = ({
             </Col>
             <Col xl={0} lg={0} md={0} xs={2} sm={2}>
               <Icon
-                type='menu-fold'
-                style={{ fontSize: 35, color: '#FF3D3B' }}
+                type="menu-fold"
+                style={{ fontSize: 35, color: "#FF3D3B" }}
                 onClick={openDrawer}
               />
             </Col>
             <Drawer
               visible={showDrawer}
-              width={!isMobile ? '50%' : '90%'}
+              width={!isMobile ? "50%" : "90%"}
               destroyOnClose
               closable
               onClose={closeDrawer}
-              bodyStyle={{ padding: '10px 0px' }}
+              bodyStyle={{ padding: "10px 0px" }}
             >
               <ScrollSpyMenu
-                className='main_menu'
+                className="main_menu"
                 menuItems={MENU_ITEMS}
                 offset={-60}
                 isDesktop={true}
