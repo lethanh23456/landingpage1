@@ -85,8 +85,24 @@ export default class CustomDocument extends Document {
 `;
     return (
       <html lang="vi">
+
         <Head>
           <link rel="shortcut icon" type="image/x-icon" href={FavIcon} />
+
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJ08BVKT4Q"></script>
+
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-YJ08BVKT4Q');
+        `,
+            }}
+          />
         </Head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: fbCustomerChat }} />
