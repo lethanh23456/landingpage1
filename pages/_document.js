@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import FavIcon from "assets/image/favicon.png";
 
@@ -84,7 +84,7 @@ export default class CustomDocument extends Document {
       </div> 
 `;
     return (
-      <html lang="vi">
+      <Html lang="vi">
 
         <Head>
           <script
@@ -118,7 +118,7 @@ export default class CustomDocument extends Document {
           </div>
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
