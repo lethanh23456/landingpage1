@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import './flaticon.css';
+import { createGlobalStyle } from "styled-components";
+import "./flaticon.css";
 
 export const ResetCSS = createGlobalStyle`
   ::selection {
@@ -10,6 +10,7 @@ export const ResetCSS = createGlobalStyle`
   html {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
+    
   }
 
   *,

@@ -1,44 +1,43 @@
 //
-import { Menu } from 'antd';
-import Box from 'components/Box';
-import Container from 'components/UI/Container';
-import Link from 'next/link';
-import React from 'react';
-import Sticky from 'react-stickynode';
-import { MenuDiv, MenuItem, Style } from './navbarNganhHoc.style';
+import { Menu } from "antd";
+import Box from "components/Box";
+import Container from "components/UI/Container";
+import Link from "next/link";
+import React from "react";
+import Sticky from "react-stickynode";
+import { MenuDiv, MenuItem, Style } from "./navbarNganhHoc.style";
 
 class Navbar extends React.Component {
   state = {
-    current: 'mail',
+    current: "mail",
     stickyTop: 190,
   };
 
   handleResize = () => {
-    console.log(window.innerWidth, 'resize');
+    console.log(window.innerWidth, "resize");
     if (window.innerWidth >= 710) {
       this.setState({ stickyTop: 190 });
     } else if (window.innerWidth >= 410) {
       this.setState({ stickyTop: 230 });
     } else if (window.innerWidth >= 392) {
       this.setState({ stickyTop: 270 });
-    } else if (window.innerWidth >= 324)
-      this.setState({ stickyTop: 300 });
+    } else if (window.innerWidth >= 324) this.setState({ stickyTop: 300 });
     else {
       this.setState({ stickyTop: 340 });
     }
   };
 
   componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener("resize", this.handleResize);
     this.handleResize();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener("resize", this.handleResize);
   }
 
   handleClick = (e) => {
-    console.log('click ', e);
+    console.log("click ", e);
     this.setState({
       current: e.key,
     });
@@ -46,37 +45,37 @@ class Navbar extends React.Component {
 
   render() {
     const { maNganh, monTinChi } = this.props;
-    console.log(this.props, 'props id ma nganh');
+    console.log(this.props, "props id ma nganh");
     const { SubMenu } = Menu;
-    console.log(this.props?.monTinChi?.[0].tenChuyenNganh, 'name');
+    // console.log(this.props?.monTinChi?.[0].tenChuyenNganh, 'name');
     return (
       <Box>
         <Sticky
           top={this.state.stickyTop}
-          bottomBoundary='#content'
+          bottomBoundary="#content"
           innerZ={99999}
         >
           <Style>
             <Container>
               <MenuDiv>
                 <Menu
-                  style={{ backgroundColor: 'red', color: 'white' }}
+                  style={{ backgroundColor: "red", color: "white" }}
                   onClick={this.handleClick}
                   selectedKeys={[this.state.current]}
-                  mode='horizontal'
+                  mode="horizontal"
                   // style={{ fontSize: 'calc(0.6em + 0.4vw)', padding: '15px 0' }}
                 >
                   {this.props?.data?.map(({ name, url }) => {
                     if (
-                      name === 'Cấu trúc chương trình' &&
-                      this.props?.monTinChi?.[0].tenChuyenNganh !== ''
+                      name === "Cấu trúc chương trình" &&
+                      this.props?.monTinChi?.[0].tenChuyenNganh !== ""
                     ) {
                       return (
                         <SubMenu
                           title={
                             <span
                               style={{
-                                color: 'white',
+                                color: "white",
                                 fontSize: 16,
                               }}
                             >
@@ -84,7 +83,7 @@ class Navbar extends React.Component {
                             </span>
                           }
                           style={{
-                            backgroundColor: 'red',
+                            backgroundColor: "red",
                             // margin: '10px 0',
                           }}
                         >
@@ -104,21 +103,18 @@ class Navbar extends React.Component {
                                   </a>
                                 </Link>
                               </Menu.Item>
-                            ),
+                            )
                           )}
                         </SubMenu>
                       );
                     } else {
                       return (
-                        <MenuItem
-                          key={name}
-                          style={{ backgroundColor: 'red' }}
-                        >
+                        <MenuItem key={name} style={{ backgroundColor: "red" }}>
                           <Link
                             href={`/nganhhoc/[idMaNganh]${url}`}
                             as={`/nganhhoc/${maNganh}${url}`}
                           >
-                            <a style={{ color: 'white' }}>
+                            <a style={{ color: "white" }}>
                               {/* <Icon type="file-protect" /> */}
                               {name}
                             </a>
