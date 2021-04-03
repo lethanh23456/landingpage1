@@ -23,6 +23,14 @@ const toeicResult = () => {
 };
 
 const LichThi = ({}) => {
+  const ellipse = (text) => {
+    let s = "";
+    for (let i = 0; i < 100; i++) {
+      s += text[i];
+    }
+    s += "...";
+    return s;
+  };
   const data = {
     name: "bck-logo",
     title: {
@@ -99,7 +107,10 @@ const LichThi = ({}) => {
                           <Col xs={18}>
                             <ContentWrapper>
                               <span style={{ fontSize: "calc(0.9em + 0.2vw)" }}>
-                                {_.get(item, "moTa", "")}
+                                {_.get(item, "moTa", "").length < 100
+                                  ? _.get(item, "moTa", "")
+                                  : ellipse(_.get(item, "moTa", ""))}
+                                {/* {_.get(item, "moTa", "")} */}
                               </span>
                               <br />
                             </ContentWrapper>

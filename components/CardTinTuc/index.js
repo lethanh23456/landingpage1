@@ -124,7 +124,7 @@ const TinTuc = (props) => {
                               placement="bottomLeft"
                               title={tintuc?.tieuDe}
                             >
-                              {renderParagraph(tintuc?.tieuDe, 4, {
+                              {renderParagraph(tintuc?.tieuDe, 3, {
                                 fontSize: "calc(1em + 0.2vw)",
                                 fontWeight: 500,
                                 marginBottom: 6,
