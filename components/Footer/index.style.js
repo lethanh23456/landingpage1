@@ -1,15 +1,14 @@
-import styled from 'styled-components';
-import { Row } from 'antd';
+import styled from "styled-components";
+import { Row } from "antd";
 export const ContainerWrapper = styled.div`
   width: 100%;
   color: white;
 `;
 export const FooterTagA = styled.a`
   color: black;
-  &:hover{
+  &:hover {
     color: #c01718;
   }
-  
 `;
 export const Container1Wrapper = styled.div`
   padding: 5px 5% 0 5%;
@@ -60,7 +59,7 @@ export const ItemLiWrapper = styled.div`
     margin: 3px 0;
   }
   & > li::before {
-    content: '•';
+    content: "•";
     color: #f26328;
     margin-left: -1em;
     width: 1em;
@@ -73,10 +72,11 @@ export const NameWrapper = styled.div`
   /* font-family: 'Roboto' !important; */
   font-style: normal;
   margin-top: 20px;
+  // margin-left: 20px;
   font-weight: bold;
   font-weight: 550 !important;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: calc(1em + 0.4vw);
+  // line-height: 28px;
   /* identical to box height, or 140% */
 
   display: flex;
@@ -95,7 +95,7 @@ export const Text1Wrapper = styled.div`
   /* font-family: Roboto; */
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: calc(0.9em + 0.2vw);
   line-height: 24px;
   /* identical to box height, or 150% */
 
@@ -116,7 +116,7 @@ export const Text2Wrapper = styled.div`
   /* font-family: Roboto; */
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: calc(0.9em + 0.2vw);
   line-height: 24px;
   /* identical to box height, or 150% */
 
@@ -138,7 +138,7 @@ export const Text3Wrapper = styled.div`
   /* font-family: Roboto; */
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: calc(0.9em + 0.2vw);
   line-height: 24px;
   /* identical to box height, or 150% */
 
@@ -174,25 +174,40 @@ export const ListWrapper = styled.div`
   color: #3d3d3f;
 `;
 
+export const Image = styled.img`
+  width: 65px;
+  @media screen and (max-width: 1200px) {
+    margin-top: 20px;
+    width: 43px !important;
+    height: 50px;
+  }
+`;
+
 export const RowWrapper = styled(Row)`
   margin-bottom: 40px;
   margin-top: 40px;
   // max-width: 1200px;
   // margin: auto;
-  @media screen and (min-width: '480px') {
+  @media screen and (min-width: "480px") {
     width: 92%;
     margin-left: 4%;
   }
-  @media screen and (min-width: '576px') {
+  @media screen and (min-width: "576px") {
     width: 88%;
     margin-left: 16%;
   }
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: "768px") {
     width: 84%;
     margin-left: 8%;
   }
-  @media screen and (min-width: '992px') {
+  @media screen and (min-width: "992px") {
     width: 80%;
     margin-left: 10%;
+  }
+`;
+
+export const Map = styled.div`
+  @media screen and (max-width: 369px) {
+    width: 250px !important;
   }
 `;

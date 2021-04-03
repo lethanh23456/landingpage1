@@ -60,7 +60,7 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
                   </Breadcrumb>
                   <Divider />
                 </div>
-                <h4 style={{ fontSize: "24px", color: "#D10000" }}>
+                <h4 style={{ fontSize: "calc(1vw + 10px)", color: "#D10000" }}>
                   "Đề án tuyển sinh Học viện Công nghệ bưu chính viễn thông năm
                   2021"
                 </h4>
@@ -85,7 +85,12 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
                       id={item?.tenMucLuc?._id}
                       style={{ scrollMarginBlockStart: "220px" }}
                     >
-                      <p style={{ fontSize: "18px", fontWeight: "bold" }}>
+                      <p
+                        style={{
+                          fontSize: "calc(0.8em + 0.4vw)",
+                          fontWeight: "bold",
+                        }}
+                      >
                         {item?.tenMucLuc?.tenMucLuc}
                       </p>
 
@@ -122,14 +127,16 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
                   bordered={false}
                 >
                   <List
-                    dataSource={tenThuMuc}
+                    dataSource={dataDeAn}
                     renderItem={(item) => (
                       //     <a href={`#${item?._id}`}>
                       <List.Item
                         key={item._id}
                         style={{ height: "100%", textAlign: "justify" }}
                         onClick={() => {
-                          const itemScroll = document.getElementById(item?._id);
+                          const itemScroll = document.getElementById(
+                            item?.tenMucLuc?._id
+                          );
                           itemScroll.scrollIntoView({
                             behavior: "smooth",
                           });
@@ -138,7 +145,7 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
                         <List.Item.Meta
                           title={
                             <TitleLinkWrapper style={{ textAlign: "justify" }}>
-                              {item?.tenMucLuc}
+                              {item?.tenMucLuc?.tenMucLuc}
                             </TitleLinkWrapper>
                           }
                         />

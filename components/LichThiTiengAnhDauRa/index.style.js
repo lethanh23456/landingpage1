@@ -82,8 +82,8 @@ export const ContentWrapper = styled.div`
   margin-right: 43px;
   text-align: justify;
   font-weight: normal;
-  font-size: 17px;
-  line-height: 26px;
+  font-size: calc(0.9em + 0.2vw);
+  // line-height: 26px;
   color: #202124;
   align-items: center;
   @media (max-width: 715px) {
@@ -94,13 +94,13 @@ export const ContentWrapper = styled.div`
     width: 130%;
     margin-bottom: 25px;
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 448px) {
     font-size: 14px;
-    margin-left: -75px;
+    margin-left: -31px;
     width: 190%;
   }
-  @media screen and (max-width: 400px) {
-    margin-left: -60px;
+  @media screen and (max-width: 399px) {
+    margin-left: -22px;
   }
   @media screen and (max-width: 350px) {
     width: 210%;

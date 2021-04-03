@@ -1,7 +1,7 @@
 import { Badge, Col, Row } from "antd";
 import React from "react";
 import Box from "components/Box";
-import logo from "assets/image/hosting/logo.png";
+import LogoImage from "assets/image/hosting/ptit-logo.png";
 import Container from "components/UI/Container";
 import {
   FooterTagA,
@@ -10,6 +10,8 @@ import {
   Text1Wrapper,
   Text2Wrapper,
   Text3Wrapper,
+  Image,
+  Map
 } from "./index.style";
 
 const GlobalFooter = () => (
@@ -20,7 +22,8 @@ const GlobalFooter = () => (
           <Col xs={24} lg={17}>
             <Row>
               <NameWrapper>
-                <img src={logo} alt="PTIT" />
+              <Image style={{ width: "65px", marginRight: '15px' }} src={LogoImage} alt="logo" />
+                {/* <img src={logo} alt="PTIT" /> */}
                 HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
               </NameWrapper>
             </Row>
@@ -157,7 +160,7 @@ const GlobalFooter = () => (
               <div style={{ marginBottom: "10px" }}>
                 <FooterTagA href="https://tuyensinh.ptit.edu.vn/">
                   <Badge color="#C01718" dot="true" />{" "}
-                  <span style={{ color: "#C01718", fontSize: "16px" }}>
+                  <span style={{ color: "#C01718", fontSize: 'calc(0.9em + 0.2vw)'}}>
                     Cổng thông tin tuyển sinh Học viện
                   </span>
                 </FooterTagA>
@@ -172,17 +175,17 @@ const GlobalFooter = () => (
               <div style={{ marginBottom: "10px" }}>
                 <FooterTagA href="https://www.facebook.com/ptittuyensinh/">
                   <Badge color="#C01718" dot="true" />{" "}
-                  <span style={{ color: "#C01718", fontSize: "16px" }}>
+                  <span style={{ color: "#C01718", fontSize: 'calc(0.9em + 0.2vw)' }}>
                     Fanpage tuyển sinh Học viện
                   </span>
                 </FooterTagA>
               </div>
 
               <div
-                style={{ marginTop: 10 }}
+                style={{ marginTop: 10}}
                 dangerouslySetInnerHTML={{
                   __html:
-                    '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.301553948369!2d105.78570991530873!3d20.980545894797586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCBWaeG7hW4gdGjDtG5nIC0gUFRJVA!5e0!3m2!1svi!2s!4v1589686319630!5m2!1svi!2s" width="320" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" title="Bản đồ"></iframe>',
+                    '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.301553948369!2d105.78570991530873!3d20.980545894797586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCBWaeG7hW4gdGjDtG5nIC0gUFRJVA!5e0!3m2!1svi!2s!4v1589686319630!5m2!1svi!2s" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" title="Bản đồ"></iframe>',
                 }}
               />
             </Col>

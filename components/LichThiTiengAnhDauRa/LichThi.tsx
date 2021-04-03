@@ -71,13 +71,18 @@ const LichThi = ({}) => {
                 <Row>
                   <Col xs={22}>
                     <Title>
-                      <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                      <span
+                        style={{
+                          fontSize: "calc(0.8em + 0.4vw)",
+                          fontWeight: "bold",
+                        }}
+                      >
                         {first}
                       </span>
                       <span
                         style={{
                           color: "#C01718",
-                          fontSize: "30px",
+                          fontSize: "calc(0.8em + 0.4vw)",
                           fontWeight: "bold",
                         }}
                       >
@@ -93,7 +98,7 @@ const LichThi = ({}) => {
                         <ContentButtonWrapper>
                           <Col xs={18}>
                             <ContentWrapper>
-                              <span style={{ fontSize: "18px" }}>
+                              <span style={{ fontSize: "calc(0.9em + 0.2vw)" }}>
                                 {_.get(item, "moTa", "")}
                               </span>
                               <br />

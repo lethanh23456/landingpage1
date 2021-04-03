@@ -19,6 +19,7 @@ import { ContentWrapper, GlobalStyle } from "./hosting.style";
 const name = "TomCatJS";
 export const siteTitle = "Tuyển sinh PTIT";
 
+
 export default function Layout({ children, home }) {
   const scrollToTop = () => {
     if (window) {

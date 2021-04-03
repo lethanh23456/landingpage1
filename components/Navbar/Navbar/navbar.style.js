@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   display,
   alignItems,
@@ -10,8 +10,8 @@ import {
   space,
   borderRadius,
   width,
-  height
-} from 'styled-system';
+  height,
+} from "styled-system";
 
 const NavbarStyle = styled.nav`
   /* Navbar default style goes here */
@@ -36,6 +36,15 @@ const NavbarStyle = styled.nav`
   ${borderRadius}
 `;
 
-NavbarStyle.displayName = 'NavbarStyle';
+NavbarStyle.displayName = "NavbarStyle";
+
+export const Image = styled.img`
+  width: 70px;
+  @media screen and (max-width: 1200px) {
+    margin-top: 20px;
+    width: 43px !important;
+    height: 50px;
+  }
+`;
 
 export default NavbarStyle;
