@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import FavIcon from "assets/image/favicon.png";
 
@@ -84,9 +84,27 @@ export default class CustomDocument extends Document {
       </div> 
 `;
     return (
-      <html lang="vi">
+      <Html lang="vi">
+
         <Head>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-YJ08BVKT4Q"
+          />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YJ08BVKT4Q');
+        `,
+            }}
+          />
           <link rel="shortcut icon" type="image/x-icon" href={FavIcon} />
+
+
         </Head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: fbCustomerChat }} />
@@ -100,7 +118,7 @@ export default class CustomDocument extends Document {
           </div>
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

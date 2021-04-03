@@ -156,6 +156,5 @@ export async function getServerSideProps() {
     },
   });
   const loaiBaiViet = _.get(response, "data.data", {});
-  debugger;
   return { props: { loaiBaiViet } };
 }

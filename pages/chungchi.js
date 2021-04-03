@@ -77,7 +77,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
     });
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
-    debugger;
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
