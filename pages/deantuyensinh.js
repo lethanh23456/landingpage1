@@ -1,18 +1,22 @@
-import { Breadcrumb, Card, Col, Divider, List, Row } from "antd";
+import { Breadcrumb, Card, Col, Collapse, Divider, List, Row } from "antd";
 import Box from "components/Box";
 import { fetchAPI } from "components/lib/api";
 import Container from "components/UI/Container";
 import moment from "moment";
+import axios from "axios";
 import Link from "next/link";
 import React from "react";
 import Sticky from "react-stickynode";
 import { TitleLinkWrapper } from "styles/baiviet.style";
+import { ip } from "data/ip";
+import _ from "lodash";
 
 // moment().locale('vi');
 
-const TinTuc = ({ dataDeAn, tenThuMuc }) => {
+const TinTuc = ({ dataDeAn, dataMucLuc }) => {
   console.log("dean", dataDeAn);
-  console.log("mucluc", tenThuMuc);
+  console.log("thumuc", dataMucLuc);
+  const { Panel } = Collapse;
 
   const renderTitle = (title) => {
     if (title <= 105) {
@@ -34,6 +38,7 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
       <Box style={{ marginTop: 0 }}>
         <Container>
           {/* <Button onClick={() => test()}>AAAAA</Button> */}
+
           <Row
             gutter={15}
             style={{
@@ -44,7 +49,7 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
               //   scrollBehavior: "smooth",
             }}
           >
-            <Col lg={17} xl={17} md={24} xs={24} sm={24}>
+            <Col lg={24} xl={24} md={24} xs={24} sm={24}>
               <div id="content">
                 <div>
                   <Breadcrumb>
@@ -64,97 +69,80 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
                   "Đề án tuyển sinh Học viện Công nghệ bưu chính viễn thông năm
                   2021"
                 </h4>
-                <p
-                  style={{
-                    color: "#727b88",
-                    fontSize: "14px",
-                    marginBottom: "12px",
-                    marginTop: "-10px",
-                    textTransform: "capitalize",
-                  }}
-                >
-                  {dataDeAn?.[0]?.updatedAt !== ""
-                    ? moment(dataDeAn?.[0]?.updatedAt)
-                        .lang("vi")
-                        .format("DD MMMM YYYY, HH:MM ")
-                    : ""}
-                </p>
-                {dataDeAn?.map((item) => (
-                  <>
-                    <div
-                      id={item?.tenMucLuc?._id}
-                      style={{ scrollMarginBlockStart: "220px" }}
-                    >
-                      <p
+
+                <Collapse bordered={false} style={{ marginBottom: 10 }}>
+                  <Panel
+                    header={
+                      <span
                         style={{
-                          fontSize: "calc(0.8em + 0.4vw)",
+                          color: "#D10000",
+                          margin: 0,
+                          fontSize: 16,
                           fontWeight: "bold",
                         }}
                       >
-                        {item?.tenMucLuc?.tenMucLuc}
-                      </p>
-
-                      <div
-                        style={{
-                          marginTop: 20,
-                          textAlign: "justify",
-                          fontSize: "calc(0.8em + 0.4vw)",
-                        }}
-                        dangerouslySetInnerHTML={{
-                          __html: item?.noiDung,
-                        }}
-                      />
-                    </div>
-                  </>
-                ))}
-              </div>
-            </Col>
-            <Col lg={7} xl={7} md={24} xs={24} sm={24}>
-              <Sticky top={250} bottomBoundary="#content">
-                <Card
-                  title={
-                    <p
-                      style={{
-                        color: "#D10000",
-                        margin: 0,
-                        fontSize: 22,
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Mục lục
-                    </p>
-                  }
-                  bordered={false}
-                >
-                  <List
-                    dataSource={dataDeAn}
-                    renderItem={(item) => (
-                      //     <a href={`#${item?._id}`}>
-                      <List.Item
-                        key={item._id}
-                        style={{ height: "100%", textAlign: "justify" }}
-                        onClick={() => {
-                          const itemScroll = document.getElementById(
-                            item?.tenMucLuc?._id
-                          );
-                          itemScroll.scrollIntoView({
-                            behavior: "smooth",
-                          });
-                        }}
-                      >
-                        <List.Item.Meta
-                          title={
-                            <TitleLinkWrapper style={{ textAlign: "justify" }}>
-                              {item?.tenMucLuc?.tenMucLuc}
-                            </TitleLinkWrapper>
-                          }
+                        MỤC LỤC
+                      </span>
+                    }
+                    key="1"
+                  >
+                    <Sticky top={250} bottomBoundary="#content">
+                      <Card bordered={false}>
+                        <List
+                          dataSource={dataMucLuc}
+                          renderItem={(item) => (
+                            //     <a href={`#${item?._id}`}>
+                            <List.Item
+                              key={item._id}
+                              style={{ height: "100%", textAlign: "justify" }}
+                              onClick={() => {
+                                const itemScroll = document.getElementById(
+                                  item?.id
+                                );
+                                itemScroll.scrollIntoView({
+                                  behavior: "smooth",
+                                });
+                              }}
+                            >
+                              <List.Item.Meta
+                                title={
+                                  <TitleLinkWrapper
+                                    style={{ textAlign: "justify" }}
+                                  >
+                                    {item?.heading}
+                                  </TitleLinkWrapper>
+                                }
+                              />
+                            </List.Item>
+                            //     </a>
+                          )}
                         />
-                      </List.Item>
-                      //     </a>
-                    )}
-                  />
-                </Card>
-              </Sticky>
+                      </Card>
+                    </Sticky>
+                  </Panel>
+                </Collapse>
+
+                {dataDeAn
+                  .filter((item, index) => index > 0)
+                  .map((item, index) => (
+                    <>
+                      <div id={item?.id} style={{ marginBottom: 6 }}>
+                        <b
+                          style={{
+                            fontSize: "18px",
+                            fontFamily: "Times New Roman",
+                          }}
+                        >
+                          {item?.heading}
+                        </b>
+                        <br />
+                        <div
+                          dangerouslySetInnerHTML={{ __html: item?.content }}
+                        />
+                      </div>
+                    </>
+                  ))}
+              </div>
             </Col>
           </Row>
         </Container>
@@ -163,13 +151,26 @@ const TinTuc = ({ dataDeAn, tenThuMuc }) => {
   );
 };
 
-export async function getServerSideProps({ params }) {
-  const dataDeAn = await fetchAPI("/deans");
-  const tenThuMuc = await fetchAPI("/muclucs");
+export async function getServerSideProps({}) {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+
+  let response = await axios.get(
+    `${ip}/hdsd/content-structure/606aec55e9bd5ae27358f96d/?hasContent=1`
+  );
+  const dataDeAn = _.get(response, "data.data", {});
+
+  let responseMucLuc = await axios.get(
+    `${ip}/hdsd/content-structure/606aec55e9bd5ae27358f96d`
+  );
+  const dataMucLuc = _.get(responseMucLuc, "data.data", {}).filter(
+    (item) => item.depth < 3 && item?.depth > 0
+  );
+
   return {
     props: {
       dataDeAn,
-      tenThuMuc,
+      dataMucLuc,
     },
   };
 }
