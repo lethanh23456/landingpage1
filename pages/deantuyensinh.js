@@ -94,7 +94,6 @@ const TinTuc = ({ dataDeAn, dataMucLuc }) => {
                           const itemScroll = document.getElementById(item?.id);
                           itemScroll.scrollIntoView({
                             behavior: "smooth",
-                            marginTop: 100,
                           });
                         }}
                       >

@@ -185,9 +185,13 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         </Item>,
       ],
     },
+    // {
+    //   label: "TIN TỨC",
+    //   path: "tintucchung",
+    // },
     {
-      label: "TIN TỨC",
-      path: "tintucchung",
+      label: "ĐỀ ÁN TUYỂN SINH",
+      path: "deantuyensinh",
     },
     {
       label: "TUYỂN SINH",

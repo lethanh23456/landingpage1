@@ -10,7 +10,7 @@ export const ResetCSS = createGlobalStyle`
   html {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
-    
+    scroll-margin-top: 50px;
   }
 
   *,
