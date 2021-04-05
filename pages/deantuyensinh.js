@@ -70,57 +70,52 @@ const TinTuc = ({ dataDeAn, dataMucLuc }) => {
                   2021"
                 </h4>
 
-                <Collapse bordered={false} style={{ marginBottom: 10 }}>
-                  <Panel
-                    header={
-                      <span
-                        style={{
-                          color: "#D10000",
-                          margin: 0,
-                          fontSize: 16,
-                          fontWeight: "bold",
+                <Card
+                  bordered={false}
+                  title={
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        fontFamily: "Times New Roman",
+                      }}
+                    >
+                      <b>MỤC LỤC</b>
+                    </span>
+                  }
+                >
+                  <List
+                    dataSource={dataMucLuc}
+                    renderItem={(item) => (
+                      //     <a href={`#${item?._id}`}>
+                      <List.Item
+                        key={item._id}
+                        style={{ height: "100%", textAlign: "justify" }}
+                        onClick={() => {
+                          const itemScroll = document.getElementById(item?.id);
+                          itemScroll.scrollIntoView({
+                            behavior: "smooth",
+                            marginTop: 100,
+                          });
                         }}
                       >
-                        MỤC LỤC
-                      </span>
-                    }
-                    key="1"
-                  >
-                    <Sticky top={250} bottomBoundary="#content">
-                      <Card bordered={false}>
-                        <List
-                          dataSource={dataMucLuc}
-                          renderItem={(item) => (
-                            //     <a href={`#${item?._id}`}>
-                            <List.Item
-                              key={item._id}
-                              style={{ height: "100%", textAlign: "justify" }}
-                              onClick={() => {
-                                const itemScroll = document.getElementById(
-                                  item?.id
-                                );
-                                itemScroll.scrollIntoView({
-                                  behavior: "smooth",
-                                });
+                        <List.Item.Meta
+                          title={
+                            <TitleLinkWrapper
+                              style={{
+                                textAlign: "justify",
+                                fontSize: "18px",
+                                fontFamily: "Times New Roman",
                               }}
                             >
-                              <List.Item.Meta
-                                title={
-                                  <TitleLinkWrapper
-                                    style={{ textAlign: "justify" }}
-                                  >
-                                    {item?.heading}
-                                  </TitleLinkWrapper>
-                                }
-                              />
-                            </List.Item>
-                            //     </a>
-                          )}
+                              {item?.heading}
+                            </TitleLinkWrapper>
+                          }
                         />
-                      </Card>
-                    </Sticky>
-                  </Panel>
-                </Collapse>
+                      </List.Item>
+                      //     </a>
+                    )}
+                  />
+                </Card>
 
                 {dataDeAn
                   .filter((item, index) => index > 0)
