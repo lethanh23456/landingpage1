@@ -214,9 +214,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           <Link href="/chungchi">
             <a
               style={{ fontSize: isDesktop ? 14 : 18 }}
-              onClick={() =>
-                window.open("https://tuyensinh.ptit.edu.vn/deantuyensinh")
-              }
+              onClick={() => window.open("https://tuyensinh.ptit.edu.vn/")}
             >
               Đề án tuyển sinh
             </a>
