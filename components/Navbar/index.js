@@ -185,19 +185,44 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         </Item>,
       ],
     },
-    // {
-    //   label: "TIN TỨC",
-    //   path: "tintucchung",
-    // },
     {
-      label: "ĐỀ ÁN TUYỂN SINH",
-      path: "deantuyensinh",
+      label: "TIN TỨC",
+      path: "tintucchung",
     },
+    // {
+    //   label: "ĐỀ ÁN TUYỂN SINH",
+    //   path: "deantuyensinh",
+    // },
     {
       label: "TUYỂN SINH",
       path: "https://tuyensinh.ptit.edu.vn/",
       offset: "70",
       redirect: true,
+      submenu: [
+        <Item>
+          {/* <Link href="/vanbangchungchi"> */}
+          <a
+            style={{ fontSize: isDesktop ? 14 : 18 }}
+            onClick={() => window.open("https://tuyensinh.ptit.edu.vn/")}
+          >
+            Tin tức
+          </a>
+
+          {/* </Link> */}
+        </Item>,
+        <Item>
+          <Link href="/chungchi">
+            <a
+              style={{ fontSize: isDesktop ? 14 : 18 }}
+              onClick={() =>
+                window.open("https://tuyensinh.ptit.edu.vn/deantuyensinh")
+              }
+            >
+              Đề án tuyển sinh
+            </a>
+          </Link>
+        </Item>,
+      ],
     },
     {
       hover: true,
