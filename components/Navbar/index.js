@@ -189,10 +189,10 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       label: "TIN TỨC",
       path: "tintucchung",
     },
-    // {
-    //   label: "ĐỀ ÁN TUYỂN SINH",
-    //   path: "deantuyensinh",
-    // },
+    {
+      label: "ĐỀ ÁN TUYỂN SINH",
+      path: "deantuyensinh",
+    },
     {
       label: "TUYỂN SINH",
       path: "https://tuyensinh.ptit.edu.vn/",

@@ -10,6 +10,7 @@ import Sticky from "react-stickynode";
 import { TitleLinkWrapper } from "styles/baiviet.style";
 import { ip } from "data/ip";
 import _ from "lodash";
+import { NextSeo } from "next-seo";
 
 // moment().locale('vi');
 
@@ -35,6 +36,33 @@ const TinTuc = ({ dataDeAn, dataMucLuc }) => {
 
   return (
     <>
+      <NextSeo
+        title="Đề án tuyển sinh học viện công nghệ bưu chính viễn ghông năm 2021"
+        description="Thông tin chi tiết về đề án tuyển sinh Học viện Công nghệ Bưu chính Viễn thông"
+        canonical="https://daotao.aisenote.com/"
+        openGraph={{
+          url: `https://daotao.aisenote.com/`,
+          title:
+            "Đề án tuyển sinh học viện công nghệ bưu chính viễn ghông năm 2021",
+          description:
+            "Thông tin chi tiết về các ngành học tại Học viện Công nghệ Bưu chính Viễn thông",
+          images: [
+            {
+              url: bgNganhHOc,
+              width: 800,
+              height: 600,
+              alt: "Đề Án",
+            },
+          ],
+          site_name:
+            "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CỔNG THÔNG TIN ĐÀO TẠO",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
       <Box style={{ marginTop: 0 }}>
         <Container>
           {/* <Button onClick={() => test()}>AAAAA</Button> */}

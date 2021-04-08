@@ -87,6 +87,7 @@ export default class CustomDocument extends Document {
       <Html lang="vi">
 
         <Head>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-YJ08BVKT4Q"
