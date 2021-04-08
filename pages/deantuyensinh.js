@@ -10,6 +10,7 @@ import Sticky from "react-stickynode";
 import { TitleLinkWrapper } from "styles/baiviet.style";
 import { ip } from "data/ip";
 import _ from "lodash";
+import bgNganhHOc from "assets/image/DeAnTSPTIT2021.jpg";
 import { NextSeo } from "next-seo";
 
 // moment().locale('vi');
