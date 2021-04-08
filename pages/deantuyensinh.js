@@ -44,9 +44,9 @@ const TinTuc = ({ dataDeAn, dataMucLuc }) => {
         openGraph={{
           url: `https://daotao.aisenote.com/`,
           title:
-            "Đề án tuyển sinh học viện công nghệ bưu chính viễn ghông năm 2021",
+            "Đề án tuyển sinh Học viện Công nghệ Bưu chính Viễn thông năm 2021",
           description:
-            "Thông tin chi tiết về các ngành học tại Học viện Công nghệ Bưu chính Viễn thông",
+            "Thông tin chi tiết về đề án tuyển sinh Học viện Công nghệ Bưu chính Viễn thông",
           images: [
             {
               url: bgNganhHOc,
