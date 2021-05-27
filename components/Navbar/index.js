@@ -273,25 +273,125 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     setShowDrawer(true);
   };
 
-  return (
-    <div id="nav-bar">
+  return isMobile ? (
+    <div
+      id="nav-bar"
+      style={{
+        backgroundColor: "white",
+        boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
+      }}
+    >
+      {/* <NavbarWrapper> */}
+      <Container>
+        <Row style={{ width: "100%" }}>
+          <Col xl={2} lg={2} md={2} xs={2} sm={2}>
+            <Link rel="prefetch" href={`/`}>
+              <a>
+                <Image style={{ width: "85px" }} src={LogoImage} alt="logo" />
+              </a>
+            </Link>
+          </Col>
+          <Col
+            xl={19}
+            lg={19}
+            md={19}
+            xs={0}
+            sm={0}
+            style={{
+              paddingTop: 25,
+            }}
+          >
+            {!loading && (
+              <>
+                <ScrollSpyMenu
+                  menuItems={MENU_ITEMS}
+                  offset={-60}
+                  isDesktop={isDesktop}
+                  onClose={closeDrawer}
+                />
+              </>
+            )}
+          </Col>
+          <Col xl={0} lg={0} md={0} xs={20} sm={20}>
+            <div
+              style={{
+                fontSize: "calc(1vw + 10px)",
+                color: "red",
+                fontWeight: "650",
+                textAlign: "center",
+                wordSpacing: "5px",
+                textAlign: "center",
+                marginTop: 11,
+              }}
+            >
+              HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+            </div>
+            <div
+              style={{
+                fontSize: "calc(1vw + 6px)",
+                color: "red",
+                fontWeight: "550",
+                textAlign: "center",
+              }}
+            >
+              CỔNG THÔNG TIN ĐÀO TẠO
+            </div>
+          </Col>
+          <Col xl={0} lg={0} md={0} xs={2} sm={2}>
+            <Icon
+              type="menu-fold"
+              style={{ fontSize: 30, color: "red", marginTop: "11px" }}
+              onClick={openDrawer}
+            />
+          </Col>
+          <Drawer
+            visible={showDrawer}
+            width={!isMobile ? "50%" : "90%"}
+            destroyOnClose
+            closable
+            onClose={closeDrawer}
+            bodyStyle={{ padding: "10px 0px" }}
+          >
+            <ScrollSpyMenu
+              className="main_menu"
+              menuItems={MENU_ITEMS}
+              offset={-60}
+              isDesktop={true}
+              onClose={closeDrawer}
+            />
+          </Drawer>
+        </Row>
+      </Container>
+      {/* </NavbarWrapper> */}
+    </div>
+  ) : (
+    <div
+      id="nav-bar"
+      style={{
+        backgroundColor: "white",
+        boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
+      }}
+    >
       <NavbarWrapper>
         <Container>
           <div
             style={{
               fontSize: "calc(1vw + 10px)",
-              color: "rgb(209, 0, 0)",
-              fontWeight: "600",
+              color: "red",
+              fontWeight: "650",
               textAlign: "center",
+              wordSpacing: "5px",
+              textAlign: "center",
+              marginTop: 11,
             }}
           >
             HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
           </div>
           <div
             style={{
-              fontSize: "calc(1vw + 8px)",
-              color: "rgb(209, 0, 0)",
-              fontWeight: "600",
+              fontSize: "calc(1vw + 6px)",
+              color: "red",
+              fontWeight: "550",
               textAlign: "center",
             }}
           >

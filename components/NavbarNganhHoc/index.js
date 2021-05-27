@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import Sticky from "react-stickynode";
 import { MenuDiv, MenuItem, Style } from "./navbarNganhHoc.style";
+import { useMediaQuery } from "react-responsive";
 
 class Navbar extends React.Component {
   state = {
@@ -18,12 +19,12 @@ class Navbar extends React.Component {
     if (window.innerWidth >= 710) {
       this.setState({ stickyTop: 190 });
     } else if (window.innerWidth >= 410) {
-      this.setState({ stickyTop: 230 });
+      this.setState({ stickyTop: 88 });
     } else if (window.innerWidth >= 392) {
-      this.setState({ stickyTop: 270 });
-    } else if (window.innerWidth >= 324) this.setState({ stickyTop: 300 });
+      this.setState({ stickyTop: 88 });
+    } else if (window.innerWidth >= 324) this.setState({ stickyTop: 88 });
     else {
-      this.setState({ stickyTop: 340 });
+      this.setState({ stickyTop: 88 });
     }
   };
 
@@ -47,6 +48,9 @@ class Navbar extends React.Component {
     const { maNganh, monTinChi } = this.props;
     console.log(this.props, "props id ma nganh");
     const { SubMenu } = Menu;
+    // const isMobile = useMediaQuery({
+    //   query: "(max-device-width: 500px)",
+    // });
     // console.log(this.props?.monTinChi?.[0].tenChuyenNganh, 'name');
     return (
       <Box>
@@ -114,7 +118,7 @@ class Navbar extends React.Component {
                             href={`/nganhhoc/[idMaNganh]${url}`}
                             as={`/nganhhoc/${maNganh}${url}`}
                           >
-                            <a style={{ color: "white" }}>
+                            <a style={{ color: "white", fontSize: 16 }}>
                               {/* <Icon type="file-protect" /> */}
                               {name}
                             </a>

@@ -1,5 +1,5 @@
-export const ip = "https://apituyensinhptit.aisenote.com";
-export const ip3 = "https://apituyensinhptit.aisenote.com";
+export const ip3 = "https://apiquanlydaotao.ptit.edu.vn";
+export const ip = "https://apiquanlydaotao.ptit.edu.vn";
 
 // export const ip3 = "https://apiquanlydaotao.ptit.edu.vn/";
 // export const ip = "https://apiquanlydaotao.ptit.edu.vn/";
