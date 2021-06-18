@@ -334,17 +334,17 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 textAlign: "center",
               }}
             >
-              CỔNG THÔNG TIN ĐÀO TẠO
+              HỆ THỐNG TRA CỨU PTIT
             </div>
           </Col>
-          <Col xl={0} lg={0} md={0} xs={2} sm={2}>
+          {/* <Col xl={0} lg={0} md={0} xs={2} sm={2}>
             <Icon
               type="menu-fold"
               style={{ fontSize: 30, color: "red", marginTop: "11px" }}
               onClick={openDrawer}
             />
-          </Col>
-          <Drawer
+          </Col> */}
+          {/* <Drawer
             visible={showDrawer}
             width={!isMobile ? "50%" : "90%"}
             destroyOnClose
@@ -359,7 +359,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               isDesktop={true}
               onClose={closeDrawer}
             />
-          </Drawer>
+          </Drawer> */}
         </Row>
       </Container>
       {/* </NavbarWrapper> */}
@@ -395,16 +395,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               textAlign: "center",
             }}
           >
-            CỔNG THÔNG TIN ĐÀO TẠO
+            HỆ THỐNG TRA CỨU PTIT
           </div>
 
-          <Row style={{ width: isDesktop ? "inherit" : "100%" }}>
+          {/* <Row style={{ width: isDesktop ? "inherit" : "100%" }}>
             <Col xl={2} lg={2} md={2} xs={22} sm={22}>
               <Link rel="prefetch" href={`/`}>
                 <a>
                   <Image style={{ width: "70px" }} src={LogoImage} alt="logo" />
-                  {/* <img style={{ width: "70px" }} src={LogoImage} alt="logo" /> */}
-                  {/* </Image> */}
                 </a>
               </Link>
             </Col>
@@ -448,7 +446,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 onClose={closeDrawer}
               />
             </Drawer>
-          </Row>
+          </Row> */}
         </Container>
       </NavbarWrapper>
     </div>

@@ -68,7 +68,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
       return;
     }
     setloading(true);
-    const data = await axios.post(`${ip}ket-qua-thi-toeic/tra-cuu`, {
+    const data = await axios.post(`${ip}/ket-qua-thi-toeic/tra-cuu`, {
       hoDem,
       ten,
       maSvOrCccd,
@@ -120,7 +120,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
         <SectionWrapper id="daotao">
           <Container>
             <Box style={{ padding: 0 }}>
-              {/* <Row> */}
               <Col lg={24} style={{}}>
                 <Box {...secTitleWrapper}>
                   <HeadingWrapper>
@@ -129,7 +128,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
                   </HeadingWrapper>
                 </Box>
               </Col>
-              {/* </Row> */}
             </Box>
             <div>
               <FormTraCuu onSubmit={(values) => traCuu(values)} />
