@@ -5,24 +5,62 @@ import "rc-tabs/assets/index.css";
 import React from "react";
 import TraCuuToeic from "./chungchi";
 import TraCuuXetTuyen from "./tracuutuyensinh";
+import axios from "axios";
+import _ from "lodash";
 
-const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
+const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
+  console.log(dataBlock);
+  debugger;
   const { TabPane } = Tabs;
+  const [visible, setVisible] = React.useState(false);
+  const data = dataBlock?.[0]?.value;
 
   return (
     <Row>
       <Container>
         <Tabs defaultActiveKey="1" style={{ marginTop: 15 }}>
           <TabPane
-            tab="Tra cứu kết quả xét tuyển theo phương thức kết hợp năm 2021"
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu kết quả tuyển sinh
+              </span>
+            }
             key="1"
           >
             <TraCuuXetTuyen />
           </TabPane>
-          <TabPane tab="Tra cứu Toeic" key="2">
+          <TabPane
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu Toeic
+              </span>
+            }
+            key="2"
+          >
             <TraCuuToeic />
           </TabPane>
         </Tabs>
+        <p
+          onClick={() =>
+            visible === false ? setVisible(true) : setVisible(false)
+          }
+          style={{ cursor: "pointer" }}
+        >
+          <i style={{ color: "red" }}>
+            Hướng dẫn nhập học{">"}
+            {">"}
+            {">"}
+          </i>
+        </p>
+        {visible === true && (
+          <div
+            style={{
+              marginTop: 20,
+              fontSize: "calc(0.8em + 0.3vw)",
+            }}
+            dangerouslySetInnerHTML={{ __html: data }}
+          />
+        )}
       </Container>
     </Row>
   );
@@ -63,5 +101,27 @@ VBChungChi.defaultProps = {
     maxWidth: "100%",
   },
 };
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+
+  let block = await axios.get(`https://apituyensinhptit.aisenote.com/setting`, {
+    params: {
+      page: 1,
+      limit: 1000,
+      cond: {
+        key: "HUONG_DAN_NHAP_HOC_THEO_PTKH",
+      },
+    },
+  });
+  const dataBlock = _.get(block, "data.data", {});
+
+  // Pass data to the page via props
+  return {
+    props: {
+      dataBlock,
+    },
+  };
+}
 
 export default VBChungChi;

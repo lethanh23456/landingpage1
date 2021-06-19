@@ -15,48 +15,55 @@ export default function VanBangTable(props) {
       title: "Họ và tên",
       dataIndex: "hoTen",
       align: "center",
-      width: "200px",
+      width: "150px",
       search: "search",
     },
     {
       title: "Ngày sinh",
       dataIndex: "ngaySinh",
       align: "center",
-      width: "200px",
+      width: "150px",
       search: "search",
       render: (val) => moment(val).format("DD/MM/YYYY"),
     },
+    // {
+    //   title: "Số thẻ cmt/cccd",
+    //   dataIndex: "cmtCccd",
+    //   align: "center",
+    //   width: "150px",
+    // },
     {
-      title: "Số thẻ cmt/cccd",
-      dataIndex: "cmtCccd",
+      title: "ĐTƯT",
+      dataIndex: "doiTuongUuTienTuyenSinh",
       align: "center",
-      width: "150px",
+      width: "80px",
+      search: "search",
+      render: (val) => (val === "Không thuộc diện ưu tiên" ? "" : val),
     },
     {
-      title: "Điểm ưu tiên đối tượng",
-      dataIndex: "diemUTDT",
+      title: "KVƯT",
+      dataIndex: "khuVucUuTien",
       align: "center",
-      width: "100px",
+      width: "80px",
       search: "search",
     },
     {
-      title: "Điểm ưu tiên khu vực",
-      dataIndex: "diemUTKV",
-      align: "center",
-      width: "100px",
-      search: "search",
-    },
-    {
-      title: "Điểm kết quả xét tuyển",
+      title: "Điểm KQXT",
       dataIndex: "diemXetTuyen",
       align: "center",
-      width: "100px",
+      width: "80px",
+    },
+    {
+      title: "Tổ hợp",
+      dataIndex: "toHop",
+      align: "center",
+      width: "80px",
     },
     {
       title: "Kết quả xét tuyển",
       dataIndex: "ketQuaXetTuyen",
       align: "center",
-      width: "250px",
+      width: "200px",
     },
     {
       title: "Cơ sở đào tạo",
@@ -73,23 +80,17 @@ export default function VanBangTable(props) {
       width: "100px",
     },
     {
-      title: "Tổ hợp",
-      dataIndex: "toHop",
+      title: "Mã ngành",
+      dataIndex: "maNganh",
       align: "center",
-      width: "100px",
+      width: "150px",
+      // render: (val) => (val ? <p>{val}</p> : "CMT KHL"),
     },
     {
       title: "Ngành",
       dataIndex: "nganh",
       align: "center",
-      width: "350px",
-    },
-    {
-      title: "Mã ngành",
-      dataIndex: "maNganh",
-      align: "center",
-      width: "250px",
-      // render: (val) => (val ? <p>{val}</p> : "CMT KHL"),
+      width: "200px",
     },
   ];
 
@@ -134,14 +135,14 @@ export default function VanBangTable(props) {
               ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
               : ""}
           </Descriptions.Item>
-          <Descriptions.Item label="CMT/CCCD">
-            {props?.data?.[0]?.cmtCccd}
+          <Descriptions.Item label="Đối tượng ưu tiên">
+            {props?.data?.[0]?.doiTuongUuTienTuyenSinh ===
+            "Không thuộc diện ưu tiên"
+              ? ""
+              : props?.data?.[0]?.doiTuongUuTienTuyenSinh}
           </Descriptions.Item>
-          <Descriptions.Item label="Điểm ưu tiên đối tượng">
-            {props?.data?.[0]?.diemUTDT}
-          </Descriptions.Item>
-          <Descriptions.Item label="Điểm ưu tiên khu vực">
-            {props?.data?.[0]?.diemUTKV}
+          <Descriptions.Item label="Khu vự ưu tiên">
+            {props?.data?.[0]?.khuVucUuTien}
           </Descriptions.Item>
           <Descriptions.Item label="Điểm xét tuyển">
             {props?.data?.[0]?.diemXetTuyen}
@@ -170,7 +171,7 @@ export default function VanBangTable(props) {
         <Table
           dataSource={props?.data ?? []}
           columns={columns}
-          scroll={{ x: 1900 }}
+          scroll={{ x: 1500 }}
           destroyOnClose
         />
       )}
