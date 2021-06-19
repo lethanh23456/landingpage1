@@ -92,21 +92,21 @@ const TraCuuVB = (props) => {
                 </Row>
               </Card>
             </TabPane>
-            <TabPane tab="Tra cứu theo thẻ CCCD/CMT" key="2">
+            <TabPane tab="Tra cứu theo số CMND/CCCD" key="2">
               <Card
                 style={{ borderRadius: 8 }}
                 title={
                   <center>
                     <span>
                       <img src={capbangdiemsohieu} style={{ padding: 8 }} />
-                      <b>Tra cứu kết quả theo CMND hoặc thẻ căn cước</b>
+                      <b>Tra cứu theo số CMND/CCCD</b>
                     </span>
                   </center>
                 }
               >
                 <Row>
                   <Col xs={24} sm={24} md={24} lg={20}>
-                    <Form.Item label="CMND/thẻ căn cước ">
+                    <Form.Item label="Số CMND/CCCD">
                       {getFieldDecorator(
                         "cmtCccd",
                         {}
@@ -116,7 +116,7 @@ const TraCuuVB = (props) => {
                 </Row>
                 <Row>
                   <p style={{ color: "red" }}>
-                    <i>Lưu ý: chỉ nhập số CMND/thẻ căn cước để tra cứu</i>
+                    <i>Lưu ý: chỉ nhập số CMND/CCCD để tra cứu</i>
                   </p>
                 </Row>
               </Card>

@@ -69,7 +69,7 @@ export default function VanBangTable(props) {
       title: "Cơ sở đào tạo",
       dataIndex: "coSoDaoTao",
       align: "center",
-      width: "100px",
+      width: "80px",
       // render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
       // search: "sort",
     },
@@ -77,7 +77,7 @@ export default function VanBangTable(props) {
       title: "Thứ tự nguyện vọng",
       dataIndex: "thuTuNguyenVong",
       align: "center",
-      width: "100px",
+      width: "80px",
     },
     {
       title: "Mã ngành",
