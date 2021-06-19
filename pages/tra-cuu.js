@@ -1,122 +1,13 @@
-import { Col, Modal, Row, Spin } from "antd";
-import axios from "axios";
+import { Row, Tabs } from "antd";
 import Container from "components/UI/Container";
-import SectionWrapper from "../styles/vanbangchungchi.style";
-import { ip } from "data/ip";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
-import React, { useEffect, useState } from "react";
-import Box from "components/Box";
-import Heading from "components/Heading";
-import FormTraCuu from "components/Table/FormTraCuuTuyenSinh";
-import { HeadingWrapper } from "../components/Table/Heading.style";
-// import { VBCC } from '../components/Data';
-import VanBangTable from "components/Table/VanBang";
-import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
-import { Tabs } from "antd";
+import React from "react";
 import TraCuuToeic from "./chungchi";
 import TraCuuXetTuyen from "./tracuutuyensinh";
 
 const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
   const { TabPane } = Tabs;
-  const isValue = (val) => {
-    // check xem nếu bị undefined, null, xâu rỗng -> false
-    if (!val && val !== 0) return false; // undefined, null
-    if (val && val.length === 0) return false; // ""
-    return true;
-  };
-  const [ds, setds] = useState([]);
-  const [loading, setloading] = useState(false);
-  const [id, setid] = useState(false);
-  const traCuu = async ({ hoDem, ten, maSvOrCccd, testDate, dateOfBirth }) => {
-    if (
-      !isValue(hoDem) &&
-      !isValue(ten) &&
-      !isValue(maSvOrCccd) &&
-      !isValue(testDate) &&
-      !isValue(dateOfBirth)
-    ) {
-      Modal.warning({
-        title: "Thông báo",
-        content: "Chưa nhập thông tin tra cứu",
-      });
-      return;
-    }
-    if (
-      isValue(maSvOrCccd) &&
-      isValue(testDate) &&
-      isValue(hoDem) &&
-      isValue(ten) &&
-      isValue(dateOfBirth) &&
-      isValue(testDate)
-    ) {
-      Modal.warning({
-        title: "Thông báo",
-        content: "Chỉ tiềm kiếm 1 trong 2 cách",
-        onOk() {},
-      });
-      return;
-    } else if (
-      (!isValue(hoDem) &&
-        !isValue(ten) &&
-        !isValue(dateOfBirth) &&
-        !isValue(testDate)) ||
-      (!isValue(maSvOrCccd) && !isValue(testDate))
-    ) {
-      Modal.error({
-        title: "Thông báo",
-        content: "Phải nhập đầy đủ thông tin",
-        onOk() {},
-      });
-      return;
-    }
-    setloading(true);
-    const data = await axios.post(`${ip}/ket-qua-thi-toeic/tra-cuu`, {
-      hoDem,
-      ten,
-      maSvOrCccd,
-      testDate,
-      dateOfBirth,
-    });
-    // console.log(data.data.data, 'tra cuu vb')
-    const arr = data?.data?.data ?? [];
-    if (arr.length === 0) {
-      Modal.error({
-        title: "Thông báo",
-        content: "Thông tin nhập sai hoặc không tồn tại văn bằng",
-        onOk() {},
-      });
-      setloading(false);
-      setds([]);
-      return;
-    }
-    setds(data?.data?.data ?? []);
-    setloading(false);
-  };
-
-  // const traCuuTheoId = async (id) => {
-  //   setloading(true);
-  //   const data = await axios.get(`${ip}/phu-luc-van-bang/tra-cuu/${id}`, {});
-  //   // console.log('data', data);
-  //   let tmp = data?.data?.data ?? [];
-
-  //   if (typeof tmp === "object") tmp = [tmp];
-  //   setds(tmp);
-  //   setid(id);
-  //   setloading(false);
-  // };
-  // const router = useRouter();
-
-  // useEffect(() => {
-  //   // console.log('router.query', router.query);
-  //   // traCuu('Syamphay Sataphone', '1992-08-04T17:00:00.000Z');
-  //   const id = router.query?.id;
-  //   if (id) traCuuTheoId(id);
-  //   return () => {
-  //     setid(false);
-  //   };
-  // }, [router.query]);
 
   return (
     <Row>

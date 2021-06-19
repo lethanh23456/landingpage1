@@ -5,7 +5,7 @@ const SectionWrapper = styled.section`
     padding: 80px 0 40px 0;
   }
   @media (max-width: 575px) {
-    padding: 60px 0 20px 0;
+    padding: 0px 0 20px 0;
   }
   @media (max-width: 360px) {
     margin: 36px 0 -65px 0;

@@ -11,9 +11,10 @@ import Box from "components/Box";
 import Heading from "components/Heading";
 import FormTraCuu from "components/Table/FormTraCuuTuyenSinh";
 import { HeadingWrapper } from "../components/Table/Heading.style";
-// import { VBCC } from '../components/Data';
-import VanBangTable from "components/Table/VanBang";
+import { useMediaQuery } from "react-responsive";
+import VanBangTable from "components/Table/TableXetTuyen";
 import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
+import moment from "moment";
 
 const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
   const isValue = (val) => {
@@ -25,62 +26,62 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
   const [ds, setds] = useState([]);
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
-  const traCuu = async ({ hoDem, ten, maSvOrCccd, testDate, dateOfBirth }) => {
-    if (
-      !isValue(hoDem) &&
-      !isValue(ten) &&
-      !isValue(maSvOrCccd) &&
-      !isValue(testDate) &&
-      !isValue(dateOfBirth)
-    ) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const traCuu = async ({ hoTen, ngaySinh, cmtCccd }) => {
+    if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)) {
       Modal.warning({
         title: "Thông báo",
         content: "Chưa nhập thông tin tra cứu",
       });
       return;
     }
+    if (isValue(hoTen) && isValue(ngaySinh) && isValue(cmtCccd)) {
+      Modal.warning({
+        title: "Thông báo",
+        content:
+          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt",
+        onOk() {},
+      });
+      return;
+      s;
+    }
     if (
-      isValue(maSvOrCccd) &&
-      isValue(testDate) &&
-      isValue(hoDem) &&
-      isValue(ten) &&
-      isValue(dateOfBirth) &&
-      isValue(testDate)
+      (isValue(cmtCccd) && isValue(ngaySinh)) ||
+      (isValue(cmtCccd) && isValue(hoTen))
     ) {
       Modal.warning({
         title: "Thông báo",
-        content: "Chỉ tiềm kiếm 1 trong 2 cách",
-        onOk() {},
-      });
-      return;
-    } else if (
-      (!isValue(hoDem) &&
-        !isValue(ten) &&
-        !isValue(dateOfBirth) &&
-        !isValue(testDate)) ||
-      (!isValue(maSvOrCccd) && !isValue(testDate))
-    ) {
-      Modal.error({
-        title: "Thông báo",
-        content: "Phải nhập đầy đủ thông tin",
-        onOk() {},
+        content:
+          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt",
       });
       return;
     }
+    // else if ((!isValue(hoTen) && !isValue(ngaySinh)) || !isValue(cmtCccd)) {
+    //   Modal.error({
+    //     title: "Thông báo",
+    //     content: "Phải nhập đầy đủ thông tin",
+    //     onOk() {},
+    //   });
+    //   return;
+    // }
     setloading(true);
-    const data = await axios.post(`${ip}/ket-qua-thi-toeic/tra-cuu`, {
-      hoDem,
-      ten,
-      maSvOrCccd,
-      testDate,
-      dateOfBirth,
-    });
+    let path = "";
+    if (cmtCccd) {
+      path = `cmtCccd=${cmtCccd}`;
+    }
+    if (ngaySinh && hoTen) {
+      const ngaySinhNew = moment(ngaySinh).toISOString();
+      path = `hoTen=${hoTen}&ngaySinh=${ngaySinhNew}`;
+    }
+    const data = await axios.get(
+      `https://apituyensinhptit.aisenote.com/tra-cuu-ho-so/2021?${path}`
+    );
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
-        content: "Thông tin nhập sai hoặc không tồn tại văn bằng",
+        content: "Thông tin nhập sai hoặc không tồn tại thông tin",
         onOk() {},
       });
       setloading(false);
@@ -91,49 +92,46 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
     setloading(false);
   };
 
-  // const traCuuTheoId = async (id) => {
-  //   setloading(true);
-  //   const data = await axios.get(`${ip}/phu-luc-van-bang/tra-cuu/${id}`, {});
-  //   // console.log('data', data);
-  //   let tmp = data?.data?.data ?? [];
-
-  //   if (typeof tmp === "object") tmp = [tmp];
-  //   setds(tmp);
-  //   setid(id);
-  //   setloading(false);
-  // };
-  // const router = useRouter();
-
-  // useEffect(() => {
-  //   // console.log('router.query', router.query);
-  //   // traCuu('Syamphay Sataphone', '1992-08-04T17:00:00.000Z');
-  //   const id = router.query?.id;
-  //   if (id) traCuuTheoId(id);
-  //   return () => {
-  //     setid(false);
-  //   };
-  // }, [router.query]);
-
   return (
     <Row>
       <Spin spinning={!!loading}>
         <SectionWrapper id="daotao">
-          <Container>
-            <Box style={{ padding: 0 }}>
-              <Col lg={24} style={{}}>
-                <Box {...secTitleWrapper}>
-                  <HeadingWrapper>
-                    <Heading content="Tra cứu kết quả xét tuyển theo phương thức kết hợp năm 2021" />
-                    <TitleUnderWrapper />
-                  </HeadingWrapper>
-                </Box>
-              </Col>
-            </Box>
-            <div>
-              <FormTraCuu onSubmit={(values) => traCuu(values)} />
-            </div>
-            <VanBangTable data={ds} id={id} />
-          </Container>
+          {isMobile && (
+            <>
+              <Box style={{ padding: 0 }}>
+                <Col lg={24} style={{}}>
+                  <Box {...secTitleWrapper}>
+                    <HeadingWrapper>
+                      <Heading content="Tra cứu kết quả xét tuyển theo phương thức kết hợp năm 2021" />
+                      <TitleUnderWrapper />
+                    </HeadingWrapper>
+                  </Box>
+                </Col>
+              </Box>
+              <div>
+                <FormTraCuu onSubmit={(values) => traCuu(values)} />
+              </div>
+              <VanBangTable data={ds} id={id} />
+            </>
+          )}
+          {!isMobile && (
+            <Container>
+              <Box style={{ padding: 0 }}>
+                <Col lg={24} style={{}}>
+                  <Box {...secTitleWrapper}>
+                    <HeadingWrapper>
+                      <Heading content="Tra cứu kết quả xét tuyển theo phương thức kết hợp năm 2021" />
+                      <TitleUnderWrapper />
+                    </HeadingWrapper>
+                  </Box>
+                </Col>
+              </Box>
+              <div>
+                <FormTraCuu onSubmit={(values) => traCuu(values)} />
+              </div>
+              <VanBangTable data={ds} id={id} />
+            </Container>
+          )}
         </SectionWrapper>
       </Spin>
     </Row>

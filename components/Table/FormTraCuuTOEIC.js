@@ -77,7 +77,6 @@ const TraCuuVB = (props) => {
                   <Col xs={24} md={24} lg={12}>
                     <Form.Item label="Họ đệm (tiếng Việt không dấu)">
                       {getFieldDecorator("hoDem", {
-                        // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
                         rules: [...rules.length(50), ...rules.text],
                       })(
                         <Input
@@ -103,22 +102,18 @@ const TraCuuVB = (props) => {
                 <Row>
                   <Col xs={24} md={24} lg={12}>
                     <Form.Item label="Ngày sinh">
-                      {getFieldDecorator("dateOfBirth", {
-                        // initialValue: moment(
-                        //   getRecordValue(model, cond, "dateOfBirth", undefined)
-                        // ),
-                        // rules: [...rules.required],
-                      })(<DatePicker format={"DD/MM/YYYY"} />)}
+                      {getFieldDecorator(
+                        "dateOfBirth",
+                        {}
+                      )(<DatePicker format={"DD/MM/YYYY"} />)}
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={24} lg={12}>
                     <Form.Item label="Ngày thi">
-                      {getFieldDecorator("testDate", {
-                        // initialValue: moment(
-                        //   getRecordValue(model, cond, "testDate", undefined)
-                        // ),
-                        // rules: [...rules.required],
-                      })(<DatePicker format={"DD/MM/YYYY"} />)}
+                      {getFieldDecorator(
+                        "testDate",
+                        {}
+                      )(<DatePicker format={"DD/MM/YYYY"} />)}
                     </Form.Item>
                   </Col>
                 </Row>
@@ -185,11 +180,11 @@ const TraCuuVB = (props) => {
             }}
             style={{ margin: 20 }}
           >
-            {/* <ReCAPTCHA
+            <ReCAPTCHA
               ref={recaptchaRef}
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
-            /> */}
+            />
             <Button type="primary" htmlType="submit">
               Tìm kiếm
             </Button>
