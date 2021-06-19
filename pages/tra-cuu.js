@@ -40,19 +40,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
             <TraCuuToeic />
           </TabPane>
         </Tabs>
-        <p
-        // onClick={() =>
-        //   visible === false ? setVisible(true) : setVisible(false)
-        // }
-        // style={{ cursor: "pointer" }}
-        >
-          <i style={{ color: "red" }}>
-            Hướng dẫn nhập học{">"}
-            {">"}
-            {">"}
-          </i>
-        </p>
-        {/* {visible === true && ( */}
         <div
           style={{
             marginTop: 20,
@@ -60,7 +47,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
           }}
           dangerouslySetInnerHTML={{ __html: data }}
         />
-        {/* )} */}
       </Container>
     </Row>
   );
