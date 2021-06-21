@@ -1,177 +1,113 @@
-import "@glidejs/glide/dist/css/glide.core.min.css";
-import axios from "axios";
-import Carousel from "components/Carousel";
-import DoiNgu from "components/DoiNguCanBo/DoiNgu";
-import LichThiTiengAnhDauRa from "components/LichThiTiengAnhDauRa/LichThi.tsx";
-import MenuBanner from "components/MenuBanner/MenuBanner";
-import AwardsSection from "components/TinTucHocVien/Awards/index";
-import CacNganhDaoTao from "components/UpdateScreen";
-import { ip, ip3 } from "data/ip";
-import _ from "lodash";
+import { Row, Tabs } from "antd";
+import Container from "components/UI/Container";
+import PropTypes from "prop-types";
+import "rc-tabs/assets/index.css";
 import React from "react";
-import "react-accessible-accordion/dist/fancy-example.css";
+import TraCuuToeic from "./chungchi";
+import TraCuuXetTuyen from "./tracuutuyensinh";
+import axios from "axios";
+import _ from "lodash";
 
-export default ({
-  data,
-  dataTintuc,
-  ctrDaotao,
-  doingu,
-  gocsinhvien,
-  dataBlock,
-  dataBlockTinTuc,
-}) => {
-  // console.log("gao", dataTintuc);
-  const renderModules = (modules) => {
-    switch (modules.loaiComponent) {
-      case "CAROUSEL":
-        return (
-          <div style={{ position: "relative" }}>
-            <Carousel res={data} />
-          </div>
-        );
-      case "CHUONG_TRINH_DAO_TAO":
-        return (
-          <div style={{ position: "relative" }}>
-            <CacNganhDaoTao data={ctrDaotao} />
-          </div>
-        );
-      case "LICH_THI_TIENG_ANH":
-        return (
-          <div style={{ position: "relative" }}>
-            <LichThiTiengAnhDauRa />
-          </div>
-        );
-      case "DOI_NGU":
-        return (
-          <div style={{ position: "relative" }}>
-            <DoiNgu data={doingu} />
-          </div>
-        );
-      case "MENU_BANNER":
-        return (
-          <div style={{ position: "relative" }}>
-            <MenuBanner />
-          </div>
-        );
-      case "TIN_TUC":
-        return (
-          <div style={{ position: "relative" }}>
-            <AwardsSection data={modules} />
-          </div>
-        );
-    }
-  };
-  const modules = (
-    <div
-    // style={{ marginTop: 100 }}
-    >
-      {dataBlock.map((modules) => renderModules(modules))}
-    </div>
+const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
+  console.log(dataBlock);
+  debugger;
+  const { TabPane } = Tabs;
+  const [visible, setVisible] = React.useState(false);
+  const data = dataBlock?.[0]?.value;
+
+  return (
+    <Row>
+      <Container>
+        <Tabs defaultActiveKey="1" style={{ marginTop: 15 }}>
+          <TabPane
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu kết quả tuyển sinh
+              </span>
+            }
+            key="1"
+          >
+            <TraCuuXetTuyen />
+          </TabPane>
+          <TabPane
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu Toeic
+              </span>
+            }
+            key="2"
+          >
+            <TraCuuToeic />
+          </TabPane>
+        </Tabs>
+        <div
+          style={{
+            marginTop: 20,
+            fontSize: "calc(0.8em + 0.3vw)",
+          }}
+          dangerouslySetInnerHTML={{ __html: data }}
+        />
+      </Container>
+    </Row>
   );
-  console.log(dataBlock, "data block trang chu");
-  return modules;
+};
+
+VBChungChi.propTypes = {
+  secTitleWrapper: PropTypes.object,
+  secText: PropTypes.object,
+  secHeading: PropTypes.object,
+};
+
+VBChungChi.defaultProps = {
+  secTitleWrapper: {
+    mb: ["100px", "40px"],
+  },
+  secText: {
+    as: "span",
+    display: "block",
+    textAlign: "center",
+    fontSize: "14px",
+    letterSpacing: "0.15em",
+    fontWeight: "700",
+    color: "#ff4362",
+    mb: "12px",
+  },
+  secHeading: {
+    fontStyle: "normal",
+    textAlign: "center",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#202124",
+    letterSpacing: "0.04em",
+    mb: "0",
+    ml: "auto",
+    mr: "auto",
+    lineHeight: "40px",
+    width: "600px",
+    maxWidth: "100%",
+  },
 };
 
 export async function getServerSideProps() {
   // Fetch data from external API
 
-  let block = await axios.get(`${ip}/block`, {
+  let block = await axios.get(`https://apiquanlydaotao.ptit.edu.vn/setting`, {
     params: {
       page: 1,
       limit: 1000,
       cond: {
-        hienThi: "show",
-        // loaiComponent: "TIN_TUC",
+        key: "HUONG_DAN_NHAP_HOC_THEO_PTKH",
       },
-      sort: "thuTu",
-      order: 1,
     },
   });
   const dataBlock = _.get(block, "data.data", {});
 
-  let blockTinTuc = await axios.get(`${ip}/block`, {
-    params: {
-      page: 1,
-      limit: 1000,
-      cond: {
-        hienThi: "show",
-        loaiComponent: "TIN_TUC",
-      },
-      sort: "thuTu",
-      order: 1,
-    },
-  });
-  const dataBlockTinTuc = _.get(blockTinTuc, "data.data", {});
-
-  let response = await axios.get(`${ip3}/sliders/all`, {
-    params: {
-      cond: {
-        site: "DAO_TAO",
-      },
-    },
-  });
-  const data = _.get(response, "data.data", {});
-
-  response = await axios.get(`${ip3}/bai-viet`, {
-    params: {
-      page: 1,
-      limit: 8,
-      cond: {
-        maLoaiBaiViet: "DAO_TAO_TIN_TUC_HOC_VIEN",
-        hienThi: true,
-      },
-      // sort: "doUuTien",
-      // order: 1,
-    },
-  });
-  const dataTintuc = _.get(response, "data.data", {});
-
-  response = await axios.get(`${ip3}/he-dao-tao`, {
-    params: {
-      page: 1,
-      limit: 10000,
-      cond: {},
-    },
-  });
-  const ctrDaotao = _.get(response, "data.data", {});
-
-  response = await axios.get(`${ip3}/can-bo`, {
-    params: {
-      page: 1,
-      limit: 3,
-      cond: {
-        hienThi: "true",
-      },
-      sort: "thuTu",
-      order: 1,
-    },
-  });
-  const doingu = _.get(response, "data.data", {});
-
-  response = await axios.get(`${ip3}/bai-viet`, {
-    params: {
-      page: 1,
-      limit: 4,
-      cond: {
-        maLoaiBaiViet: "DAO_TAO_TIN_TUC_GOC_SINH_VIEN",
-        hienThi: true,
-      },
-      // sort: "doUuTien",
-      // order: 1,
-    },
-  });
-  const gocsinhvien = _.get(response, "data.data", {});
-
   // Pass data to the page via props
   return {
     props: {
-      data,
-      dataTintuc,
-      ctrDaotao,
-      doingu,
-      gocsinhvien,
       dataBlock,
-      dataBlockTinTuc,
     },
   };
 }
+
+export default VBChungChi;
