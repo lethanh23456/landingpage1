@@ -130,11 +130,11 @@ const TraCuuVB = (props) => {
             }}
             style={{ margin: 20 }}
           >
-            <ReCAPTCHA
+            {/* <ReCAPTCHA
               ref={recaptchaRef}
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
-            />
+            /> */}
             <Button type="primary" htmlType="submit">
               Tìm kiếm
             </Button>

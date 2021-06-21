@@ -74,7 +74,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
       path = `hoTen=${hoTen}&ngaySinh=${ngaySinhNew}`;
     }
     const data = await axios.get(
-      `https://apituyensinhptit.aisenote.com/tra-cuu-ho-so/2021?${path}`
+      `https://apiquanlydaotao.ptit.edu.vn/tra-cuu-ho-so/2021?${path}`
     );
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];

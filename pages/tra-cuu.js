@@ -91,7 +91,7 @@ VBChungChi.defaultProps = {
 export async function getServerSideProps() {
   // Fetch data from external API
 
-  let block = await axios.get(`https://apituyensinhptit.aisenote.com/setting`, {
+  let block = await axios.get(`https://apiquanlydaotao.ptit.edu.vn/setting`, {
     params: {
       page: 1,
       limit: 1000,
