@@ -28,6 +28,13 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
             key="1"
           >
             <TraCuuXetTuyen />
+            <div
+              style={{
+                marginTop: 20,
+                fontSize: "calc(0.8em + 0.3vw)",
+              }}
+              dangerouslySetInnerHTML={{ __html: data }}
+            />
           </TabPane>
           <TabPane
             tab={
@@ -40,13 +47,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
             <TraCuuToeic />
           </TabPane>
         </Tabs>
-        <div
-          style={{
-            marginTop: 20,
-            fontSize: "calc(0.8em + 0.3vw)",
-          }}
-          dangerouslySetInnerHTML={{ __html: data }}
-        />
       </Container>
     </Row>
   );

@@ -40,7 +40,7 @@ const TraCuuVB = (props) => {
     props.form.validateFields((err, values) => {
       if (!err) {
         values.ngaySinh = values?.ngaySinh;
-        values.hoTen = values?.hoTen;
+        values.hoTen = values?.hoTen.trim();
         values.cmtCccd = values?.cmtCccd;
         values.namTuyenSinh = 2021;
         props.onSubmit(values);
@@ -70,7 +70,7 @@ const TraCuuVB = (props) => {
               >
                 <Row>
                   <Col xs={24} md={24} lg={12}>
-                    <Form.Item label="Họ và tên (tiếng Việt không dấu)">
+                    <Form.Item label="Họ và tên">
                       {getFieldDecorator("hoTen", {
                         rules: [...rules.length(50), ...rules.text],
                       })(<Input style={{ maxWidth: 500 }} />)}
