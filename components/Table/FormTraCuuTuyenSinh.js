@@ -35,12 +35,13 @@ const TraCuuVB = (props) => {
   const { getFieldDecorator } = props.form;
 
   const handleSubmit = (e) => {
+    debugger;
     e.preventDefault();
 
     props.form.validateFields((err, values) => {
       if (!err) {
         values.ngaySinh = values?.ngaySinh;
-        values.hoTen = values?.hoTen.trim();
+        values.hoTen = values?.hoTen;
         values.cmtCccd = values?.cmtCccd;
         values.namTuyenSinh = 2021;
         props.onSubmit(values);
@@ -55,8 +56,17 @@ const TraCuuVB = (props) => {
     <Row>
       <Col lg={24}>
         <Form onSubmit={handleSubmit} colon={false}>
-          <Tabs defaultActiveKey="1">
-            <TabPane tab="Tra cứu theo họ tên và ngày sinh" key="1">
+          <Tabs
+            defaultActiveKey="1"
+            onChange={(e) => {
+              props.form.resetFields();
+            }}
+          >
+            <TabPane
+              tab="Tra cứu theo họ tên và ngày sinh"
+              key="1"
+              destroyInactiveTabPane
+            >
               <Card
                 style={{ borderRadius: 8 }}
                 title={
@@ -92,7 +102,11 @@ const TraCuuVB = (props) => {
                 </Row>
               </Card>
             </TabPane>
-            <TabPane tab="Tra cứu theo số CMND/CCCD" key="2">
+            <TabPane
+              tab="Tra cứu theo số CMND/CCCD"
+              key="2"
+              destroyInactiveTabPane
+            >
               <Card
                 style={{ borderRadius: 8 }}
                 title={

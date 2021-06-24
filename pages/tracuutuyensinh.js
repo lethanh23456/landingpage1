@@ -28,6 +28,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
   const [id, setid] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const traCuu = async ({ hoTen, ngaySinh, cmtCccd }) => {
+    debugger;
     if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)) {
       Modal.warning({
         title: "Thông báo",
@@ -43,7 +44,6 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
         onOk() {},
       });
       return;
-      s;
     }
     if (
       (isValue(cmtCccd) && isValue(ngaySinh)) ||
@@ -56,22 +56,16 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
       });
       return;
     }
-    // else if ((!isValue(hoTen) && !isValue(ngaySinh)) || !isValue(cmtCccd)) {
-    //   Modal.error({
-    //     title: "Thông báo",
-    //     content: "Phải nhập đầy đủ thông tin",
-    //     onOk() {},
-    //   });
-    //   return;
-    // }
     setloading(true);
     let path = "";
     if (cmtCccd) {
+      debugger;
       path = `cmtCccd=${cmtCccd}`;
     }
     if (ngaySinh && hoTen) {
       const ngaySinhNew = moment(ngaySinh).toISOString();
-      path = `hoTen=${hoTen}&ngaySinh=${ngaySinhNew}`;
+      const hoTenNew = hoTen.trim();
+      path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
     const data = await axios.get(
       `https://apiquanlydaotao.ptit.edu.vn/tra-cuu-ho-so/2021?${path}`

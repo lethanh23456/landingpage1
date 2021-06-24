@@ -9,8 +9,6 @@ import axios from "axios";
 import _ from "lodash";
 
 const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
-  console.log(dataBlock);
-  debugger;
   const { TabPane } = Tabs;
   const [visible, setVisible] = React.useState(false);
   const data = dataBlock?.[0]?.value;
