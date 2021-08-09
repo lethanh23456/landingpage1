@@ -94,6 +94,89 @@ export default function VanBangTable(props) {
     },
   ];
 
+  const columnsNhapHoc = [
+    {
+      title: "Họ và tên",
+      dataIndex: "hoTen",
+      align: "center",
+      width: "150px",
+      search: "search",
+    },
+    {
+      title: "Ngày sinh",
+      dataIndex: "ngaySinh",
+      align: "center",
+      width: "150px",
+      search: "search",
+      render: (val) => moment(val).format("DD/MM/YYYY"),
+    },
+    {
+      title: "ĐTƯT",
+      dataIndex: "doiTuongUuTienTuyenSinh",
+      align: "center",
+      width: "80px",
+      search: "search",
+      render: (val) => (val === "Không thuộc diện ưu tiên" ? "" : val),
+    },
+    {
+      title: "KVƯT",
+      dataIndex: "khuVucUuTien",
+      align: "center",
+      width: "80px",
+      search: "search",
+    },
+    {
+      title: "Điểm xét tuyển",
+      dataIndex: "diemXetTuyen",
+      align: "center",
+      width: "80px",
+    },
+    {
+      title: "Cơ sở đào tạo",
+      dataIndex: "coSoDaoTao",
+      align: "center",
+      width: "80px",
+    },
+    {
+      title: "Thứ tự nguyện vọng",
+      dataIndex: "thuTuNguyenVong",
+      align: "center",
+      width: "80px",
+    },
+    {
+      title: "Tổ hợp",
+      dataIndex: "toHop",
+      align: "center",
+      width: "80px",
+    },
+
+    {
+      title: "Mã ngành",
+      dataIndex: "maNganh",
+      align: "center",
+      width: "150px",
+      // render: (val) => (val ? <p>{val}</p> : "CMT KHL"),
+    },
+    {
+      title: "Ngành",
+      dataIndex: "nganh",
+      align: "center",
+      width: "200px",
+    },
+    {
+      title: "Trạng thái",
+      dataIndex: "trangThai",
+      align: "center",
+      width: "200px",
+    },
+    {
+      title: "Trạng thái nhập học",
+      dataIndex: "trangThaiNhapHoc",
+      align: "center",
+      width: "200px",
+    },
+  ];
+
   useEffect(() => {
     if (props?.id) {
       console.log("props", props);
@@ -147,9 +230,12 @@ export default function VanBangTable(props) {
           <Descriptions.Item label="Điểm xét tuyển">
             {props?.data?.[0]?.diemXetTuyen}
           </Descriptions.Item>
-          <Descriptions.Item label="Kết quả xét tuyển">
-            {props?.data?.[0]?.ketQuaXetTuyen}
-          </Descriptions.Item>
+          {props.type !== "nhaphoc" && (
+            <Descriptions.Item label="Kết quả xét tuyển">
+              {props?.data?.[0]?.ketQuaXetTuyen}
+            </Descriptions.Item>
+          )}
+
           <Descriptions.Item label="Cơ sở đào tạo">
             {props?.data?.[0]?.coSoDaoTao}
           </Descriptions.Item>
@@ -165,12 +251,22 @@ export default function VanBangTable(props) {
           <Descriptions.Item label="Mã ngành">
             {props?.data?.[0]?.maNganh}
           </Descriptions.Item>
+          {props.type === "nhaphoc" && (
+            <>
+              <Descriptions.Item label="Trạng thái">
+                {props?.data?.[0]?.trangThai}
+              </Descriptions.Item>
+              <Descriptions.Item label="Trạng thái nhập học">
+                {props?.data?.[0]?.trangThaiNhapHoc}
+              </Descriptions.Item>
+            </>
+          )}
         </Descriptions>
       )}
       {!isMobile && (
         <Table
           dataSource={props?.data ?? []}
-          columns={columns}
+          columns={props?.type === "nhaphoc" ? columnsNhapHoc : columns}
           scroll={{ x: 1500 }}
           destroyOnClose
         />

@@ -5,6 +5,7 @@ import "rc-tabs/assets/index.css";
 import React from "react";
 import TraCuuToeic from "./chungchi";
 import TraCuuXetTuyen from "./tracuutuyensinh";
+import TraCuuXacNhanNhapHoc from "./tracuunhaphoc";
 import axios from "axios";
 import _ from "lodash";
 
@@ -37,12 +38,23 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
           <TabPane
             tab={
               <span style={{ fontWeight: "bold", fontSize: 18 }}>
-                Tra cứu Toeic
+                Tra cứu kết quả thi Toeic
               </span>
             }
             key="2"
           >
             <TraCuuToeic />
+          </TabPane>
+
+          <TabPane
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu xác nhận nhập học
+              </span>
+            }
+            key="3"
+          >
+            <TraCuuXacNhanNhapHoc />
           </TabPane>
         </Tabs>
       </Container>

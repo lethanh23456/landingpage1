@@ -15,7 +15,7 @@ export const HeadingWrapper = styled.div`
   }
   @media (max-width: 500px) {
     margin-bottom: -75px;
-    margin-top: -40px;
+    // margin-top: -40px;
     font-size: 16px;
   }
   @media (max-width: 300px) {

@@ -123,7 +123,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
               <Col lg={24} style={{}}>
                 <Box {...secTitleWrapper}>
                   <HeadingWrapper>
-                    <Heading content="Tra cứu chứng chỉ TOEIC" />
+                    <Heading content="Tra cứu kết quả thi TOEIC" />
                     <TitleUnderWrapper />
                   </HeadingWrapper>
                 </Box>
