@@ -67,9 +67,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
       const hoTenNew = hoTen.trim();
       path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
-    const data = await axios.get(
-      `https://apiquanlydaotao.ptit.edu.vn/tra-cuu-ho-so/2021?${path}`
-    );
+    const data = await axios.get(`${ip}/tra-cuu-ho-so/2021?${path}`);
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
     if (arr.length === 0) {

@@ -8,6 +8,7 @@ import TraCuuXetTuyen from "./tracuutuyensinh";
 import TraCuuXacNhanNhapHoc from "./tracuunhaphoc";
 import axios from "axios";
 import _ from "lodash";
+import { ip } from "data/ip";
 
 const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
   const { TabPane } = Tabs;
@@ -101,7 +102,7 @@ VBChungChi.defaultProps = {
 export async function getServerSideProps() {
   // Fetch data from external API
 
-  let block = await axios.get(`https://apiquanlydaotao.ptit.edu.vn/setting`, {
+  let block = await axios.get(`${ip}/setting`, {
     params: {
       page: 1,
       limit: 1000,
