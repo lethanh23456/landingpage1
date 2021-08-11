@@ -7,6 +7,7 @@ import {
   Row,
   Card,
   notification,
+  Tabs,
 } from "antd";
 import rules from "components/Utils/rules";
 import React, { useRef, useState } from "react";
@@ -26,6 +27,7 @@ const openNotification = () => {
 };
 
 const TraCuuVB = (props) => {
+  const { TabPane } = Tabs;
   const [capcha, setcapcha] = useState(false);
   const recaptchaRef = useRef(null);
 
@@ -62,15 +64,26 @@ const TraCuuVB = (props) => {
       <Col lg={24}>
         {/* <Card title="Tra cứu kết quả thi Tiếng Anh" > */}
         <Form onSubmit={handleSubmit} colon={false}>
-          <Row gutter={[12, 10]}>
-            <Col xs={24} md={24} lg={12}>
+          <Tabs
+            defaultActiveKey="1"
+            onChange={(e) => {
+              props.form.resetFields();
+            }}
+          >
+            <TabPane
+              tab="Tra cứu kết quả theo họ tên"
+              key="1"
+              destroyInactiveTabPane
+            >
               <Card
                 style={{ borderRadius: 8 }}
                 title={
-                  <span>
-                    <img src={capbangdiem} style={{ padding: 8 }} />
-                    <b>Tra cứu kết quả theo họ tên</b>
-                  </span>
+                  <center>
+                    <span>
+                      <img src={capbangdiem} style={{ padding: 8 }} />
+                      <b>Tra cứu kết quả theo họ tên</b>
+                    </span>
+                  </center>
                 }
               >
                 <Row>
@@ -81,7 +94,7 @@ const TraCuuVB = (props) => {
                       })(
                         <Input
                           style={{ maxWidth: 500 }}
-                          // placeholder="Họ và tên"
+                          placeholder="Nhập họ đệm"
                         />
                       )}
                     </Form.Item>
@@ -93,7 +106,7 @@ const TraCuuVB = (props) => {
                       })(
                         <Input
                           style={{ maxWidth: 500 }}
-                          // placeholder="Họ"
+                          placeholder="Nhập tên"
                         />
                       )}
                     </Form.Item>
@@ -105,7 +118,12 @@ const TraCuuVB = (props) => {
                       {getFieldDecorator(
                         "dateOfBirth",
                         {}
-                      )(<DatePicker format={"DD/MM/YYYY"} />)}
+                      )(
+                        <DatePicker
+                          format={"DD/MM/YYYY"}
+                          placeholder="Chọn ngày sinh"
+                        />
+                      )}
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={24} lg={12}>
@@ -113,7 +131,12 @@ const TraCuuVB = (props) => {
                       {getFieldDecorator(
                         "testDate",
                         {}
-                      )(<DatePicker format={"DD/MM/YYYY"} />)}
+                      )(
+                        <DatePicker
+                          format={"DD/MM/YYYY"}
+                          placeholder="Chọn ngày thi"
+                        />
+                      )}
                     </Form.Item>
                   </Col>
                 </Row>
@@ -125,19 +148,25 @@ const TraCuuVB = (props) => {
                   </p>
                 </Row>
               </Card>
-            </Col>
-            <Col xs={24} md={24} lg={12}>
+            </TabPane>
+            <TabPane
+              tab="Tra cứu kết quả theo CMND hoặc thẻ căn cước"
+              key="2"
+              destroyInactiveTabPane
+            >
               <Card
                 style={{ borderRadius: 8 }}
                 title={
-                  <span>
-                    <img src={capbangdiemsohieu} style={{ padding: 8 }} />
-                    <b>Tra cứu kết quả theo CMND hoặc thẻ căn cước</b>
-                  </span>
+                  <center>
+                    <span>
+                      <img src={capbangdiemsohieu} style={{ padding: 8 }} />
+                      <b>Tra cứu kết quả theo CMND hoặc thẻ căn cước</b>
+                    </span>
+                  </center>
                 }
               >
-                <Row>
-                  <Col xs={24} sm={24} md={24} lg={20}>
+                <Row gutter={12}>
+                  <Col xs={24} md={24} lg={12}>
                     <Form.Item label="CMND/thẻ căn cước hoặc MSV">
                       {getFieldDecorator("maSvOrCccd", {
                         // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
@@ -145,33 +174,39 @@ const TraCuuVB = (props) => {
                       })(
                         <Input
                           style={{ maxWidth: 500 }}
-                          // placeholder="Họ và tên"
+                          placeholder="Nhập CMND/thẻ căn cước hoặc MSV"
+                        />
+                      )}
+                    </Form.Item>
+                  </Col>
+                  <Col xs={24} md={24} lg={12}>
+                    <Form.Item label="Ngày thi">
+                      {getFieldDecorator("testDatee", {
+                        // initialValue: moment(
+                        //   getRecordValue(model, cond, "testDate", undefined)
+                        // ),
+                        // rules: [...rules.required],
+                      })(
+                        <DatePicker
+                          format={"DD/MM/YYYY"}
+                          placeholder="Chọn ngày thi"
                         />
                       )}
                     </Form.Item>
                   </Col>
                 </Row>
                 <Row>
-                  <Form.Item label="Ngày thi">
-                    {getFieldDecorator("testDatee", {
-                      // initialValue: moment(
-                      //   getRecordValue(model, cond, "testDate", undefined)
-                      // ),
-                      // rules: [...rules.required],
-                    })(<DatePicker format={"DD/MM/YYYY"} />)}
-                  </Form.Item>
-                </Row>
-                <Row>
                   <p style={{ color: "red" }}>
                     <i>
-                      Lưu ý: chỉ nhập ngày thi, số CMND/thẻ căn cước hoặc mã
-                      sinh vien để tra cứu
+                      Lưu ý: chỉ nhập ngày thi, số CMND/thẻ căn cước hoặc MSV để
+                      tra cứu
                     </i>
                   </p>
                 </Row>
               </Card>
-            </Col>
-          </Row>
+            </TabPane>
+          </Tabs>
+
           <Form.Item
             wrapperCol={{
               xs: { span: 24, offset: 0 },

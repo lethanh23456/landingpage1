@@ -1,4 +1,4 @@
-import { Button, Descriptions, Modal, Table, Typography, Tag } from "antd";
+import { Button, Descriptions, Modal, Table, Empty, Tag } from "antd";
 import axios from "axios";
 import { ip } from "data/ip";
 import moment from "moment";
@@ -146,6 +146,11 @@ export default function VanBangTable(props) {
         columns={columns}
         scroll={{ x: 1800 }}
         destroyOnClose
+        locale={{
+          emptyText: (
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Trống" />
+          ),
+        }}
       />
       <Modal
         title="Thông tin chi tiết"

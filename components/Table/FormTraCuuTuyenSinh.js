@@ -83,7 +83,12 @@ const TraCuuVB = (props) => {
                     <Form.Item label="Họ và tên">
                       {getFieldDecorator("hoTen", {
                         rules: [...rules.length(50), ...rules.text],
-                      })(<Input style={{ maxWidth: 500 }} />)}
+                      })(
+                        <Input
+                          style={{ maxWidth: 500 }}
+                          placeholder="Nhập họ và tên"
+                        />
+                      )}
                     </Form.Item>
                   </Col>
                   <Col xs={24} md={24} lg={12} style={{ paddingLeft: 8 }}>
@@ -91,7 +96,12 @@ const TraCuuVB = (props) => {
                       {getFieldDecorator(
                         "ngaySinh",
                         {}
-                      )(<DatePicker format={"DD/MM/YYYY"} />)}
+                      )(
+                        <DatePicker
+                          format={"DD/MM/YYYY"}
+                          placeholder="Chọn ngày sinh"
+                        />
+                      )}
                     </Form.Item>
                   </Col>
                 </Row>
@@ -124,7 +134,12 @@ const TraCuuVB = (props) => {
                       {getFieldDecorator(
                         "cmtCccd",
                         {}
-                      )(<Input style={{ maxWidth: 500 }} />)}
+                      )(
+                        <Input
+                          style={{ maxWidth: 500 }}
+                          placeholder="Nhập số cmnd/cccd"
+                        />
+                      )}
                     </Form.Item>
                   </Col>
                 </Row>
