@@ -10,10 +10,20 @@ import axios from "axios";
 import _ from "lodash";
 import { ip } from "data/ip";
 
-const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
+const VBChungChi = ({
+  secTitleWrapper,
+  secText,
+  secHeading,
+  dataBlock,
+  dataToeic,
+  dataNhapHoc,
+}) => {
   const { TabPane } = Tabs;
   const [visible, setVisible] = React.useState(false);
   const data = dataBlock?.[0]?.value;
+
+  const dataToeicText = dataToeic?.[0]?.value;
+  const dataNhapHocText = dataNhapHoc?.[0]?.value;
 
   return (
     <Row>
@@ -45,6 +55,13 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
             key="2"
           >
             <TraCuuToeic />
+            <div
+              style={{
+                marginTop: 20,
+                fontSize: "calc(0.8em + 0.3vw)",
+              }}
+              dangerouslySetInnerHTML={{ __html: dataToeicText }}
+            />
           </TabPane>
 
           <TabPane
@@ -56,6 +73,13 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading, dataBlock }) => {
             key="3"
           >
             <TraCuuXacNhanNhapHoc />
+            <div
+              style={{
+                marginTop: 20,
+                fontSize: "calc(0.8em + 0.3vw)",
+              }}
+              dangerouslySetInnerHTML={{ __html: dataNhapHocText }}
+            />
           </TabPane>
         </Tabs>
       </Container>
@@ -113,10 +137,34 @@ export async function getServerSideProps() {
   });
   const dataBlock = _.get(block, "data.data", {});
 
+  block = await axios.get(`${ip}/setting`, {
+    params: {
+      page: 1,
+      limit: 1000,
+      cond: {
+        key: "HUONG_DAN_TRA_CUU_TOEIC",
+      },
+    },
+  });
+  const dataToeic = _.get(block, "data.data", {});
+
+  block = await axios.get(`${ip}/setting`, {
+    params: {
+      page: 1,
+      limit: 1000,
+      cond: {
+        key: "HUONG_DAN_TRA_CUU_XAC_NHAN_NHAP_HOC",
+      },
+    },
+  });
+  const dataNhapHoc = _.get(block, "data.data", {});
+
   // Pass data to the page via props
   return {
     props: {
       dataBlock,
+      dataToeic,
+      dataNhapHoc,
     },
   };
 }
