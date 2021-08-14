@@ -49,24 +49,6 @@ const VBChungChi = ({
           <TabPane
             tab={
               <span style={{ fontWeight: "bold", fontSize: 18 }}>
-                Tra cứu kết quả thi Toeic
-              </span>
-            }
-            key="2"
-          >
-            <TraCuuToeic />
-            <div
-              style={{
-                marginTop: 20,
-                fontSize: "calc(0.8em + 0.3vw)",
-              }}
-              dangerouslySetInnerHTML={{ __html: dataToeicText }}
-            />
-          </TabPane>
-
-          <TabPane
-            tab={
-              <span style={{ fontWeight: "bold", fontSize: 18 }}>
                 Tra cứu xác nhận nhập học
               </span>
             }
@@ -79,6 +61,23 @@ const VBChungChi = ({
                 fontSize: "calc(0.8em + 0.3vw)",
               }}
               dangerouslySetInnerHTML={{ __html: dataNhapHocText }}
+            />
+          </TabPane>
+          <TabPane
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu kết quả thi Toeic
+              </span>
+            }
+            key="2"
+          >
+            <TraCuuToeic />
+            <div
+              style={{
+                marginTop: 20,
+                fontSize: "calc(0.8em + 0.3vw)",
+              }}
+              dangerouslySetInnerHTML={{ __html: dataToeicText }}
             />
           </TabPane>
         </Tabs>
