@@ -99,7 +99,7 @@ const TraCuuVB = (props) => {
                       )}
                     </Form.Item>
                   </Col>
-                  <Col xs={24} md={24} lg={12} style={{ paddingLeft: 8 }}>
+                  <Col xs={24} md={24} lg={12}>
                     <Form.Item label="Tên (tiếng Việt không dấu)">
                       {getFieldDecorator("ten", {
                         // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',

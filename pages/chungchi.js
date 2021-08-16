@@ -14,8 +14,10 @@ import { HeadingWrapper } from "../components/Table/Heading.style";
 // import { VBCC } from '../components/Data';
 import VanBangTable from "components/Table/VanBang";
 import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
+import { useMediaQuery } from "react-responsive";
 
 const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const isValue = (val) => {
     // check xem nếu bị undefined, null, xâu rỗng -> false
     if (!val && val !== 0) return false; // undefined, null
@@ -118,22 +120,42 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
     <Row>
       <Spin spinning={!!loading}>
         <SectionWrapper id="daotao">
-          <Container>
-            <Box style={{ padding: 0 }}>
-              <Col lg={24} style={{}}>
-                <Box {...secTitleWrapper}>
-                  <HeadingWrapper>
-                    <Heading content="Tra cứu kết quả thi TOEIC" />
-                    <TitleUnderWrapper />
-                  </HeadingWrapper>
-                </Box>
-              </Col>
-            </Box>
-            <div>
-              <FormTraCuu onSubmit={(values) => traCuu(values)} />
-            </div>
-            <VanBangTable data={ds} id={id} />
-          </Container>
+          {isMobile && (
+            <>
+              <Box style={{ padding: 0 }}>
+                <Col lg={24} style={{}}>
+                  <Box {...secTitleWrapper}>
+                    <HeadingWrapper>
+                      <Heading content="Tra cứu kết quả thi TOEIC" />
+                      <TitleUnderWrapper />
+                    </HeadingWrapper>
+                  </Box>
+                </Col>
+              </Box>
+              <div>
+                <FormTraCuu onSubmit={(values) => traCuu(values)} />
+              </div>
+              <VanBangTable data={ds} id={id} />
+            </>
+          )}
+          {!isMobile && (
+            <Container>
+              <Box style={{ padding: 0 }}>
+                <Col lg={24} style={{}}>
+                  <Box {...secTitleWrapper}>
+                    <HeadingWrapper>
+                      <Heading content="Tra cứu kết quả thi TOEIC" />
+                      <TitleUnderWrapper />
+                    </HeadingWrapper>
+                  </Box>
+                </Col>
+              </Box>
+              <div>
+                <FormTraCuu onSubmit={(values) => traCuu(values)} />
+              </div>
+              <VanBangTable data={ds} id={id} />
+            </Container>
+          )}
         </SectionWrapper>
       </Spin>
     </Row>

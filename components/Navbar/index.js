@@ -287,7 +287,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           <Col xl={2} lg={2} md={2} xs={2} sm={2}>
             <Link rel="prefetch" href={`/`}>
               <a>
-                <Image style={{ width: "85px" }} src={LogoImage} alt="logo" />
+                <Image
+                  style={{ width: "85px", marginLeft: "-20px" }}
+                  src={LogoImage}
+                  alt="logo"
+                />
               </a>
             </Link>
           </Col>
@@ -337,32 +341,8 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               HỆ THỐNG TRA CỨU PTIT
             </div>
           </Col>
-          {/* <Col xl={0} lg={0} md={0} xs={2} sm={2}>
-            <Icon
-              type="menu-fold"
-              style={{ fontSize: 30, color: "red", marginTop: "11px" }}
-              onClick={openDrawer}
-            />
-          </Col> */}
-          {/* <Drawer
-            visible={showDrawer}
-            width={!isMobile ? "50%" : "90%"}
-            destroyOnClose
-            closable
-            onClose={closeDrawer}
-            bodyStyle={{ padding: "10px 0px" }}
-          >
-            <ScrollSpyMenu
-              className="main_menu"
-              menuItems={MENU_ITEMS}
-              offset={-60}
-              isDesktop={true}
-              onClose={closeDrawer}
-            />
-          </Drawer> */}
         </Row>
       </Container>
-      {/* </NavbarWrapper> */}
     </div>
   ) : (
     <div
@@ -397,69 +377,10 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           >
             HỆ THỐNG TRA CỨU PTIT
           </div>
-
-          {/* <Row style={{ width: isDesktop ? "inherit" : "100%" }}>
-            <Col xl={2} lg={2} md={2} xs={22} sm={22}>
-              <Link rel="prefetch" href={`/`}>
-                <a>
-                  <Image style={{ width: "70px" }} src={LogoImage} alt="logo" />
-                </a>
-              </Link>
-            </Col>
-            <Col
-              xl={22}
-              lg={22}
-              md={22}
-              xs={0}
-              sm={0}
-              style={{ paddingTop: 25 }}
-            >
-              {!loading && (
-                <ScrollSpyMenu
-                  menuItems={MENU_ITEMS}
-                  offset={-60}
-                  isDesktop={isDesktop}
-                  onClose={closeDrawer}
-                />
-              )}
-            </Col>
-            <Col xl={0} lg={0} md={0} xs={2} sm={2}>
-              <Icon
-                type="menu-fold"
-                style={{ fontSize: 35, color: "#FF3D3B", marginTop: "35px" }}
-                onClick={openDrawer}
-              />
-            </Col>
-            <Drawer
-              visible={showDrawer}
-              width={!isMobile ? "50%" : "80%"}
-              destroyOnClose
-              closable
-              onClose={closeDrawer}
-              bodyStyle={{ padding: "10px 0px" }}
-            >
-              <ScrollSpyMenu
-                className="main_menu"
-                menuItems={MENU_ITEMS}
-                offset={-60}
-                isDesktop={true}
-                onClose={closeDrawer}
-              />
-            </Drawer>
-          </Row> */}
         </Container>
       </NavbarWrapper>
     </div>
   );
 };
-
-// Navbar.defaultProps = {
-//   navbarStyle: {
-//     backgroundColor: 'white',
-//     // className: "hosting_navbar",
-//     // minHeight: "70px",
-//     display: "block",
-//   },
-// };
 
 export default Navbar;
