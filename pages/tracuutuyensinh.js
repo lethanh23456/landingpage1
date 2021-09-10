@@ -94,7 +94,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
-                      <Heading content="Tra cứu kết quả xét tuyển theo phương thức kết hợp năm 2021" />
+                      <Heading content="Tra cứu kết quả xét tuyển theo kết quả thi THPT năm 2021" />
                       <TitleUnderWrapper />
                     </HeadingWrapper>
                   </Box>
@@ -112,7 +112,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
-                      <Heading content="Tra cứu kết quả xét tuyển theo phương thức kết hợp năm 2021" />
+                      <Heading content="Tra cứu kết quả xét tuyển theo kết quả thi THPT năm 2021" />
                       <TitleUnderWrapper />
                     </HeadingWrapper>
                   </Box>
