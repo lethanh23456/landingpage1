@@ -16,7 +16,8 @@ import VanBangTable from "components/Table/VanBang";
 import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
 import { useMediaQuery } from "react-responsive";
 
-const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
+const VBChungChi = (props) => {
+  const { secTitleWrapper, secText, secHeading, dataBlock } = props;
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isValue = (val) => {
     // check xem nếu bị undefined, null, xâu rỗng -> false
@@ -116,6 +117,8 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
   //   };
   // }, [router.query]);
 
+  const tieuDeKQ = props.tieuDe;
+
   return (
     <Row>
       <Spin spinning={!!loading}>
@@ -126,7 +129,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
-                      <Heading content="Tra cứu kết quả thi TOEIC" />
+                      <Heading content={tieuDeKQ} />
                       <TitleUnderWrapper />
                     </HeadingWrapper>
                   </Box>
@@ -144,7 +147,7 @@ const VBChungChi = ({ secTitleWrapper, secText, secHeading }) => {
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
-                      <Heading content="Tra cứu kết quả thi TOEIC" />
+                      <Heading content={tieuDeKQ} />
                       <TitleUnderWrapper />
                     </HeadingWrapper>
                   </Box>

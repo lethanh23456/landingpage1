@@ -21,9 +21,13 @@ const VBChungChi = ({
   const { TabPane } = Tabs;
   const [visible, setVisible] = React.useState(false);
   const data = dataBlock?.[0]?.value;
+  const tieuDeKQ = dataBlock?.[0]?.description;
 
   const dataToeicText = dataToeic?.[0]?.value;
+  const tieuDeToeic = dataToeic?.[0]?.description;
+
   const dataNhapHocText = dataNhapHoc?.[0]?.value;
+  const tieuDeNhapHoc = dataNhapHoc?.[0]?.description;
 
   return (
     <Row>
@@ -37,7 +41,7 @@ const VBChungChi = ({
             }
             key="1"
           >
-            <TraCuuXetTuyen />
+            <TraCuuXetTuyen tieuDe={tieuDeKQ} />
             <div
               style={{
                 marginTop: 20,
@@ -54,7 +58,7 @@ const VBChungChi = ({
             }
             key="3"
           >
-            <TraCuuXacNhanNhapHoc />
+            <TraCuuXacNhanNhapHoc tieuDe={tieuDeNhapHoc} />
             <div
               style={{
                 marginTop: 20,
@@ -71,7 +75,7 @@ const VBChungChi = ({
             }
             key="2"
           >
-            <TraCuuToeic />
+            <TraCuuToeic tieuDe={tieuDeToeic} />
             <div
               style={{
                 marginTop: 20,
