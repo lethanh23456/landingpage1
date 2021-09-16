@@ -30,7 +30,6 @@ const VBChungChi = (props) => {
   const [id, setid] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const traCuu = async ({ hoTen, ngaySinh, cmtCccd }) => {
-    debugger;
     if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)) {
       Modal.warning({
         title: "Thông báo",
@@ -55,6 +54,16 @@ const VBChungChi = (props) => {
         title: "Thông báo",
         content:
           "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt",
+      });
+      return;
+    }
+    if (
+      (!isValue(ngaySinh) && isValue(hoTen)) ||
+      (isValue(ngaySinh) && !isValue(hoTen))
+    ) {
+      Modal.warning({
+        title: "Thông báo",
+        content: "Vui lòng nhập họ tên và ngày sinh để tra cứu",
       });
       return;
     }
