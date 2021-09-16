@@ -80,7 +80,11 @@ const TraCuuVB = (props) => {
               >
                 <Row>
                   <Col xs={24} md={24} lg={12}>
-                    <Form.Item label="Họ và tên">
+                    <Form.Item
+                      label="Họ và tên (Nhập chữ in hoa)"
+                      style={{ marginBottom: 0 }}
+                    >
+                      {/* <div style={{ marginTop: 0 }}></div> */}
                       {getFieldDecorator("hoTen", {
                         rules: [...rules.length(50), ...rules.text],
                       })(
