@@ -74,7 +74,7 @@ const VBChungChi = (props) => {
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
-        content: "Thông tin nhập sai hoặc không tồn tại thông tin",
+        content: "Không tìm thấy kết quả tuyển sinh",
         onOk() {},
       });
       setloading(false);
