@@ -80,6 +80,12 @@ export default function VanBangTable(props) {
       width: "80px",
     },
     {
+      title: "Phương thức",
+      dataIndex: "phuongThuc",
+      align: "center",
+      width: "80px",
+    },
+    {
       title: "Mã ngành",
       dataIndex: "maNganh",
       align: "center",
