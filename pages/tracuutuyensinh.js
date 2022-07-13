@@ -96,7 +96,7 @@ const VBChungChi = (props) => {
   };
   const tieuDeKQ = props.tieuDe;
 
-  debugger;
+  // debugger;
 
   return (
     <Row>
