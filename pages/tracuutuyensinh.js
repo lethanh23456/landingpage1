@@ -2,7 +2,7 @@ import { Col, Modal, Row, Spin } from "antd";
 import axios from "axios";
 import Container from "components/UI/Container";
 import SectionWrapper from "../styles/vanbangchungchi.style";
-import { ip } from "data/ip";
+import {ip, ip2} from "data/ip";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
@@ -70,15 +70,15 @@ const VBChungChi = (props) => {
     setloading(true);
     let path = "";
     if (cmtCccd) {
-      debugger;
+      // debugger;
       path = `cmtCccd=${cmtCccd}`;
     }
     if (ngaySinh && hoTen) {
-      const ngaySinhNew = moment(ngaySinh).toISOString();
+      const ngaySinhNew = moment(ngaySinh).format('YYYY-MM-DD')
       const hoTenNew = hoTen.trim();
       path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
-    const data = await axios.get(`${ip}tra-cuu-ho-so/2021?${path}`);
+    const data = await axios.get(`${ip2}ket-qua-xet-tuyen-public/2022?${path}`);
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
     if (arr.length === 0) {
