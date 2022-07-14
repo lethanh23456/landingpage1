@@ -35,7 +35,7 @@ const TraCuuVB = (props) => {
   const { getFieldDecorator } = props.form;
 
   const handleSubmit = (e) => {
-    debugger;
+    // debugger;
     e.preventDefault();
 
     props.form.validateFields((err, values) => {

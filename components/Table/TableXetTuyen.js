@@ -24,7 +24,7 @@ export default function VanBangTable(props) {
       align: "center",
       width: "150px",
       search: "search",
-      render: (val) => moment(val).format("DD/MM/YYYY"),
+      render: (val) => val,
     },
     // {
     //   title: "Số thẻ cmt/cccd",
@@ -69,7 +69,7 @@ export default function VanBangTable(props) {
       title: "Cơ sở đào tạo",
       dataIndex: "coSoDaoTao",
       align: "center",
-      width: "80px",
+      width: "150px",
       // render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
       // search: "sort",
     },
@@ -83,7 +83,7 @@ export default function VanBangTable(props) {
       title: "Phương thức",
       dataIndex: "phuongThuc",
       align: "center",
-      width: "80px",
+      width: "200px",
     },
     {
       title: "Mã ngành",
