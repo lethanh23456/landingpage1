@@ -221,8 +221,9 @@ export default function VanBangTable(props) {
           </Descriptions.Item>
           <Descriptions.Item label="Ngày sinh">
             {props?.data?.[0]?.ngaySinh
-              ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
-              : ""}
+              // ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
+              // : ""
+              }
           </Descriptions.Item>
           <Descriptions.Item label="Đối tượng ưu tiên">
             {props?.data?.[0]?.doiTuongUuTienTuyenSinh ===
