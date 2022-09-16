@@ -44,7 +44,7 @@ export default function VanBangTable(props) {
       title: "KVƯT",
       dataIndex: "khuVucUuTien",
       align: "center",
-      width: "80px",
+      width: "90px",
       search: "search",
     },
     {
@@ -64,6 +64,12 @@ export default function VanBangTable(props) {
       dataIndex: "ketQuaXetTuyen",
       align: "center",
       width: "200px",
+      render:(val)=>{
+        const color=val==='Trúng tuyển'?'green':'geekblue';
+        return(
+            <Tag color={color}>{val}</Tag>
+        )
+      }
     },
     {
       title: "Cơ sở đào tạo",
@@ -237,7 +243,7 @@ export default function VanBangTable(props) {
               ? ""
               : props?.data?.[0]?.doiTuongUuTienTuyenSinh}
           </Descriptions.Item>
-          <Descriptions.Item label="Khu vự ưu tiên">
+          <Descriptions.Item label="Khu vực ưu tiên">
             {props?.data?.[0]?.khuVucUuTien}
           </Descriptions.Item>
           <Descriptions.Item label="Điểm xét tuyển">
@@ -254,6 +260,9 @@ export default function VanBangTable(props) {
           </Descriptions.Item>
           <Descriptions.Item label="Thứ tự nguyện vọng">
             {props?.data?.[0]?.thuTuNguyenVong}
+          </Descriptions.Item>
+          <Descriptions.Item label="Phương thức">
+            {props?.data?.[0]?.phuongThuc}
           </Descriptions.Item>
           <Descriptions.Item label="Tổ hợp">
             {props?.data?.[0]?.toHop}
