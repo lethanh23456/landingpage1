@@ -154,6 +154,44 @@ const TraCuuVB = (props) => {
                 </Row>
               </Card>
             </TabPane>
+            <TabPane
+                tab="Tra cứu theo số báo danh"
+                key="3"
+                destroyInactiveTabPane
+            >
+              <Card
+                  style={{ borderRadius: 8 }}
+                  title={
+                    <center>
+                    <span>
+                      <img src={capbangdiemsohieu} style={{ padding: 8 }} />
+                      <b>Tra cứu theo số báo danh</b>
+                    </span>
+                    </center>
+                  }
+              >
+                <Row>
+                  <Col xs={24} sm={24} md={24} lg={20}>
+                    <Form.Item label="Số báo danh">
+                      {getFieldDecorator(
+                          "soBaoDanh",
+                          {}
+                      )(
+                          <Input
+                              style={{ maxWidth: 500 }}
+                              placeholder="Nhập số báo danh"
+                          />
+                      )}
+                    </Form.Item>
+                  </Col>
+                </Row>
+                <Row>
+                  <p style={{ color: "red" }}>
+                    <i>Lưu ý: chỉ nhập số báo danh để tra cứu</i>
+                  </p>
+                </Row>
+              </Card>
+            </TabPane>
           </Tabs>
           <Form.Item
             wrapperCol={{

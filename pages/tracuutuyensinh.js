@@ -29,19 +29,19 @@ const VBChungChi = (props) => {
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const traCuu = async ({ hoTen, ngaySinh, cmtCccd }) => {
-    if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)) {
+  const traCuu = async ({ hoTen, ngaySinh, cmtCccd,soBaoDanh }) => {
+    if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)&& !isValue(soBaoDanh)) {
       Modal.warning({
         title: "Thông báo",
         content: "Chưa nhập thông tin tra cứu",
       });
       return;
     }
-    if (isValue(hoTen) && isValue(ngaySinh) && isValue(cmtCccd)) {
+    if (isValue(hoTen) && isValue(ngaySinh) && isValue(cmtCccd)&& isValue(soBaoDanh)) {
       Modal.warning({
         title: "Thông báo",
         content:
-          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt",
+          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt hoặc số báo danh",
         onOk() {},
       });
       return;
@@ -72,6 +72,10 @@ const VBChungChi = (props) => {
     if (cmtCccd) {
       // debugger;
       path = `cmtCccd=${cmtCccd}`;
+    }
+    if (soBaoDanh) {
+      // debugger;
+      path = `soBaoDanh=${soBaoDanh}`;
     }
     if (ngaySinh && hoTen) {
       const ngaySinhNew = moment(ngaySinh).format('YYYY-MM-DD')

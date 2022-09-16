@@ -26,12 +26,12 @@ export default function VanBangTable(props) {
       search: "search",
       render: (val) => val,
     },
-    // {
-    //   title: "Số thẻ cmt/cccd",
-    //   dataIndex: "cmtCccd",
-    //   align: "center",
-    //   width: "150px",
-    // },
+    {
+      title: "Số báo danh",
+      dataIndex: "soBaoDanh",
+      align: "center",
+      width: "150px",
+    },
     {
       title: "ĐTƯT",
       dataIndex: "doiTuongUuTienTuyenSinh",
@@ -224,6 +224,12 @@ export default function VanBangTable(props) {
               // ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
               // : ""
               }
+          </Descriptions.Item>
+          <Descriptions.Item label="Số báo danh">
+            {props?.data?.[0]?.soBaoDanh
+              // ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
+              // : ""
+            }
           </Descriptions.Item>
           <Descriptions.Item label="Đối tượng ưu tiên">
             {props?.data?.[0]?.doiTuongUuTienTuyenSinh ===
