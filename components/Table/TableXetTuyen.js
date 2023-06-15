@@ -63,7 +63,7 @@ export default function VanBangTable(props) {
       title: "Kết quả xét tuyển",
       dataIndex: "ketQuaXetTuyen",
       align: "center",
-      width: "200px",
+      width: "300px",
       render:(val)=>{
         const color=val==='Trúng tuyển'?'green':'geekblue';
         return(
