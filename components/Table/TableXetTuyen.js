@@ -67,7 +67,7 @@ export default function VanBangTable(props) {
       render:(val)=>{
         const color=val==='Trúng tuyển'?'green':'geekblue';
         return(
-            <Tag color={color}>{val}</Tag>
+            <Tag color={color}>{val} (Trừ điều kiện tốt nghiệp THPT)</Tag>
         )
       }
     },
