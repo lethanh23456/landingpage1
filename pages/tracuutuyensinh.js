@@ -31,13 +31,11 @@ const VBChungChi = (props) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const traCuu = async ({ hoTen, ngaySinh, cmtCccd,soBaoDanh }) => {
 
-    Modal.warning({
-      title: "Thông báo",
-      content: "Chưa đến thời gian công bố kết quả tuyển sinh",
-    });
-    return;
-
-
+    // Modal.warning({
+    //   title: "Thông báo",
+    //   content: "Chưa đến thời gian công bố kết quả tuyển sinh",
+    // });
+    // return;
     if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)&& !isValue(soBaoDanh)) {
       Modal.warning({
         title: "Thông báo",
