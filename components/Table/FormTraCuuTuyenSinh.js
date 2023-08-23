@@ -206,7 +206,7 @@ const TraCuuVB = (props) => {
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
             /> */}
-            <Button disabled type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit">
               Tìm kiếm
             </Button>
           </Form.Item>
