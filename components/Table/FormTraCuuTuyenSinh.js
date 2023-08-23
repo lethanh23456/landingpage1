@@ -155,32 +155,32 @@ const TraCuuVB = (props) => {
               </Card>
             </TabPane>
             <TabPane
-                tab="Tra cứu theo số báo danh"
-                key="3"
-                destroyInactiveTabPane
+              tab="Tra cứu theo số báo danh"
+              key="3"
+              destroyInactiveTabPane
             >
               <Card
-                  style={{ borderRadius: 8 }}
-                  title={
-                    <center>
+                style={{ borderRadius: 8 }}
+                title={
+                  <center>
                     <span>
                       <img src={capbangdiemsohieu} style={{ padding: 8 }} />
                       <b>Tra cứu theo số báo danh</b>
                     </span>
-                    </center>
-                  }
+                  </center>
+                }
               >
                 <Row>
                   <Col xs={24} sm={24} md={24} lg={20}>
                     <Form.Item label="Số báo danh">
                       {getFieldDecorator(
-                          "soBaoDanh",
-                          {}
+                        "soBaoDanh",
+                        {}
                       )(
-                          <Input
-                              style={{ maxWidth: 500 }}
-                              placeholder="Nhập số báo danh"
-                          />
+                        <Input
+                          style={{ maxWidth: 500 }}
+                          placeholder="Nhập số báo danh"
+                        />
                       )}
                     </Form.Item>
                   </Col>
@@ -206,7 +206,7 @@ const TraCuuVB = (props) => {
               sitekey="6LcTyrcZAAAAAPp--P8E1xuz9SpJGsypdEX8vAk-"
               onChange={handleChange}
             /> */}
-            <Button type="primary" htmlType="submit">
+            <Button disabled type="primary" htmlType="submit">
               Tìm kiếm
             </Button>
           </Form.Item>
