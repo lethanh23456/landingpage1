@@ -65,10 +65,12 @@ export default function VanBangTable(props) {
       align: "center",
       width: "300px",
       render: (val) => {
-        const color = val === "Trúng tuyển" ? "green" : "geekblue";
+        const color = val === "Trúng tuyển" ? "green" : "red";
         return (
           <div style={{ color: color }}>
-            {val === "Trúng tuyển" ? "Đủ điều kiện trúng tuyển" : ""}
+            {val === "Trúng tuyển"
+              ? "Đủ điều kiện trúng tuyển"
+              : "Không trúng tuyển"}
           </div>
         );
       },

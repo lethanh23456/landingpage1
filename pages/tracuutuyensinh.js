@@ -97,7 +97,9 @@ const VBChungChi = (props) => {
       const hoTenNew = hoTen.trim();
       path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
-    const data = await axios.get(`${ip2}ket-qua-xet-tuyen-public/2023?${path}`);
+    const data = await axios.get(
+      `${ip2}ket-qua-xet-tuyen-public/${new Date().getFullYear()}?${path}`
+    );
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
     if (arr.length === 0) {
