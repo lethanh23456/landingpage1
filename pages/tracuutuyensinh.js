@@ -2,7 +2,7 @@ import { Col, Modal, Row, Spin } from "antd";
 import axios from "axios";
 import Container from "components/UI/Container";
 import SectionWrapper from "../styles/vanbangchungchi.style";
-import {ip, ip2} from "data/ip";
+import { ip, ip2 } from "data/ip";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
@@ -29,21 +29,30 @@ const VBChungChi = (props) => {
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const traCuu = async ({ hoTen, ngaySinh, cmtCccd,soBaoDanh }) => {
-
+  const traCuu = async ({ hoTen, ngaySinh, cmtCccd, soBaoDanh }) => {
     // Modal.warning({
     //   title: "Thông báo",
     //   content: "Chưa đến thời gian công bố kết quả tuyển sinh",
     // });
     // return;
-    if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)&& !isValue(soBaoDanh)) {
+    if (
+      !isValue(hoTen) &&
+      !isValue(ngaySinh) &&
+      !isValue(cmtCccd) &&
+      !isValue(soBaoDanh)
+    ) {
       Modal.warning({
         title: "Thông báo",
         content: "Chưa nhập thông tin tra cứu",
       });
       return;
     }
-    if (isValue(hoTen) && isValue(ngaySinh) && isValue(cmtCccd)&& isValue(soBaoDanh)) {
+    if (
+      isValue(hoTen) &&
+      isValue(ngaySinh) &&
+      isValue(cmtCccd) &&
+      isValue(soBaoDanh)
+    ) {
       Modal.warning({
         title: "Thông báo",
         content:
@@ -84,11 +93,13 @@ const VBChungChi = (props) => {
       path = `soBaoDanh=${soBaoDanh}`;
     }
     if (ngaySinh && hoTen) {
-      const ngaySinhNew = moment(ngaySinh).format('YYYY-MM-DD')
+      const ngaySinhNew = moment(ngaySinh).format("YYYY-MM-DD");
       const hoTenNew = hoTen.trim();
       path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
-    const data = await axios.get(`${ip2}ket-qua-xet-tuyen-public/2023?${path}`);
+    const data = await axios.get(
+      `${ip2}ket-qua-xet-tuyen-public/${new Date().getFullYear()}?${path}`
+    );
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
     if (arr.length === 0) {
