@@ -64,12 +64,14 @@ export default function VanBangTable(props) {
       dataIndex: "ketQuaXetTuyen",
       align: "center",
       width: "300px",
-      render:(val)=>{
-        const color=val==='Trúng tuyển'?'green':'geekblue';
-        return(
-            <div style={{color: color}}>{val}</div>
-        )
-      }
+      render: (val) => {
+        const color = val === "Trúng tuyển" ? "green" : "geekblue";
+        return (
+          <div style={{ color: color }}>
+            {val === "Trúng tuyển" ? "Đủ điều kiện trúng tuyển" : ""}
+          </div>
+        );
+      },
     },
     {
       title: "Cơ sở đào tạo",
@@ -226,13 +228,15 @@ export default function VanBangTable(props) {
             {props?.data?.[0]?.hoTen}
           </Descriptions.Item>
           <Descriptions.Item label="Ngày sinh">
-            {props?.data?.[0]?.ngaySinh
+            {
+              props?.data?.[0]?.ngaySinh
               // ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
               // : ""
-              }
+            }
           </Descriptions.Item>
           <Descriptions.Item label="Số báo danh">
-            {props?.data?.[0]?.soBaoDanh
+            {
+              props?.data?.[0]?.soBaoDanh
               // ? moment(props?.data?.[0]?.ngaySinh).format("DD/MM/YYYY")
               // : ""
             }
