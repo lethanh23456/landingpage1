@@ -105,7 +105,8 @@ const VBChungChi = (props) => {
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
-        content: "Không tìm thấy kết quả tuyển sinh",
+        // content: "Không tìm thấy kết quả tuyển sinh",
+        content: "Chưa có kết quả xét tuyển",
         onOk() {},
       });
       setloading(false);

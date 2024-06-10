@@ -60,7 +60,6 @@ const VBChungChi = (props) => {
     setloading(true);
     let path = "";
     if (cmtCccd) {
-      debugger;
       path = `cmtCccd=${cmtCccd}`;
     }
     if (ngaySinh && hoTen) {
