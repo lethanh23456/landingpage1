@@ -6,6 +6,12 @@ import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 moment.locale("vi");
 
+const MapKeyColorThongBaoTraCuu = {
+  "Chưa có kết quả xét tuyển": "gray",
+  "Đủ điều kiện trúng tuyển": "green",
+  "Không đủ điều kiện trúng tuyển": "red",
+};
+
 export default function VanBangTable(props) {
   const [show, setshow] = useState(false);
   const [record, setrecord] = useState({});
@@ -65,14 +71,8 @@ export default function VanBangTable(props) {
       align: "center",
       width: "300px",
       render: (val) => {
-        const color = val === "Trúng tuyển" ? "green" : "red";
-        return (
-          <div style={{ color: color }}>
-            {val === "Trúng tuyển"
-              ? "Đủ điều kiện trúng tuyển"
-              : "Không trúng tuyển"}
-          </div>
-        );
+        const color = MapKeyColorThongBaoTraCuu[val];
+        return <div style={{ color: color }}>{val}</div>;
       },
     },
     {

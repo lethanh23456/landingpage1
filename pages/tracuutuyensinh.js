@@ -98,15 +98,16 @@ const VBChungChi = (props) => {
       path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
     const data = await axios.get(
-      `${ip2}ket-qua-xet-tuyen-public/${new Date().getFullYear()}?${path}`
+      `${ip2}ket-qua-xet-tuyen-public/v2/${new Date().getFullYear()}?${path}`
+      // `${ip2}ket-qua-xet-tuyen-public/v2-private/${new Date().getFullYear()}?${path}&hanCheThoiGian=6713`
     );
     // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
-        // content: "Không tìm thấy kết quả tuyển sinh",
-        content: "Chưa có kết quả xét tuyển",
+        content: "Hồ sơ không được tiếp nhận",
+        // content: "Chưa có kết quả xét tuyển",
         onOk() {},
       });
       setloading(false);
