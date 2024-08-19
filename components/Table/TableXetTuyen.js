@@ -72,7 +72,11 @@ export default function VanBangTable(props) {
       width: "300px",
       render: (val) => {
         const color = MapKeyColorThongBaoTraCuu[val];
-        return <div style={{ color: color }}>{val}</div>;
+        return (
+          <div style={{ color: color }}>
+            {val === "Đủ điều kiện trúng tuyển" ? "Trúng tuyển" : val}
+          </div>
+        );
       },
     },
     {
@@ -293,7 +297,11 @@ export default function VanBangTable(props) {
       )}
       {!isMobile && (
         <Table
-          dataSource={props?.data ?? []}
+          dataSource={
+            props?.data?.filter(
+              (item) => item?.ketQuaXetTuyen === "Đủ điều kiện trúng tuyển"
+            ) ?? []
+          }
           columns={props?.type === "nhaphoc" ? columnsNhapHoc : columns}
           scroll={{ x: 1500 }}
           destroyOnClose

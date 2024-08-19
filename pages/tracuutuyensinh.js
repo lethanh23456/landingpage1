@@ -30,11 +30,11 @@ const VBChungChi = (props) => {
   const [id, setid] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const traCuu = async ({ hoTen, ngaySinh, cmtCccd, soBaoDanh }) => {
-    Modal.warning({
-      title: "Thông báo",
-      content: "Thí sinh vui lòng chờ đến thời gian công bố kết quả tuyển sinh",
-    });
-    return;
+    // Modal.warning({
+    //   title: "Thông báo",
+    //   content: "Thí sinh vui lòng chờ đến thời gian công bố kết quả tuyển sinh",
+    // });
+    // return;
     if (
       !isValue(hoTen) &&
       !isValue(ngaySinh) &&
