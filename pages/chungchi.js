@@ -60,7 +60,8 @@ const VBChungChi = (props) => {
       (!isValue(hoDem) &&
         !isValue(ten) &&
         !isValue(dateOfBirth) &&
-        !isValue(testDate)) ||
+        !isValue(testDate) &&
+        !isValue(maSvOrCccd)) ||
       (!isValue(maSvOrCccd) && !isValue(testDate))
     ) {
       Modal.error({
@@ -75,7 +76,7 @@ const VBChungChi = (props) => {
       hoDem,
       ten,
       maSvOrCccd,
-      testDate,
+      testDate: testDate || undefined,
       dateOfBirth,
     });
     // console.log(data.data.data, 'tra cuu vb')
