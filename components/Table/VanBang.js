@@ -76,7 +76,7 @@ export default function VanBangTable(props) {
       dataIndex: "testDate",
       align: "center",
       width: "200px",
-      render: (val) => moment(val).format("DD/MM/YYYY HH:mm"),
+      render: (val) => (val ? moment(val).format("DD/MM/YYYY HH:mm") : ""),
     },
     {
       title: "Cơ sở thi",
