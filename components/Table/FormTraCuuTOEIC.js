@@ -179,8 +179,8 @@ const TraCuuVB = (props) => {
                       )}
                     </Form.Item>
                   </Col>
-                  <Col xs={24} md={24} lg={12}>
-                    <Form.Item label="Ngày thi">
+                  {/* <Col xs={24} md={24} lg={12}>
+                    <Form.Item label="Ngày thi2">
                       {getFieldDecorator("testDatee", {
                         // initialValue: moment(
                         //   getRecordValue(model, cond, "testDate", undefined)
@@ -193,7 +193,7 @@ const TraCuuVB = (props) => {
                         />
                       )}
                     </Form.Item>
-                  </Col>
+                  </Col> */}
                 </Row>
                 <Row>
                   <p style={{ color: "red" }}>
