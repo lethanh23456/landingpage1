@@ -1,4 +1,4 @@
-import { Button, Descriptions, Modal, Table, Empty, Tag } from "antd";
+import { Button, Descriptions, Empty, Modal, Table, Tag } from "antd";
 import axios from "axios";
 import { ip } from "data/ip";
 import moment from "moment";
@@ -14,29 +14,11 @@ export default function VanBangTable(props) {
     console.log(record);
     let arr = [];
     arr.push(record._id);
-    const response = await axios.post(
-      `${ip}/phu-luc-van-bang/exports-by-list-id-unauth`,
-      arr
-    );
+    const response = await axios.post(`${ip}/phu-luc-van-bang/exports-by-list-id-unauth`, arr);
     console.log(response, "exportSingle");
     window.open(response?.data?.data?.url ?? "");
   };
 
-  const renderLast = (value, record) => (
-    <>
-      <Button
-        type="primary"
-        shape="circle"
-        icon="eye"
-        onClick={() => {
-          // setshow(true);
-          // setrecord(record);
-          handleView(record);
-        }}
-        title="Chi tiết"
-      />
-    </>
-  );
   const columns = [
     // {
     //   title: "STT",
@@ -45,82 +27,119 @@ export default function VanBangTable(props) {
     //   width: "90px",
     // },
     {
+      title: "Đối tượng thi",
+      dataIndex: "loaiDoiTuong",
+      width: 180,
+    },
+    {
       title: "Họ và tên",
-      dataIndex: "name",
+      dataIndex: "hoDem",
       align: "center",
-      width: "200px",
+      width: "120px",
+      search: "search",
+    },
+    {
+      title: "Tên",
+      dataIndex: "ten",
+      align: "center",
+      width: "90px",
       search: "search",
     },
     {
       title: "Số thẻ cmt/cccd",
-      dataIndex: "idNumber",
+      dataIndex: "cmtCccd",
       align: "center",
       width: "150px",
     },
     {
       title: "Ngày sinh",
-      dataIndex: "dateOfBirth",
+      dataIndex: "ngaySinh",
       align: "center",
       width: "150px",
       render: (val) => moment(val).format("DD/MM/YYYY"),
     },
     {
       title: "Mã sinh viên",
-      dataIndex: "code",
+      dataIndex: "maSinhVien",
       align: "center",
       width: "150px",
       search: "search",
     },
     {
       title: "Ngày thi",
-      dataIndex: "testDate",
       align: "center",
       width: "200px",
-      render: (val) => (val ? moment(val).format("DD/MM/YYYY HH:mm") : ""),
+      render: (val, rec) =>
+        rec?.dotDangKy?.thoiGianThi ? moment(rec?.dotDangKy?.thoiGianThi).format("DD/MM/YYYY") : null,
     },
     {
       title: "Cơ sở thi",
-      dataIndex: "department",
       align: "center",
       width: "250px",
+      render: (val, rec) => rec?.dotDangKy?.diaDiem,
     },
     {
       title: "Điểm nghe",
-      dataIndex: "listening",
+      dataIndex: "nghe",
       align: "center",
       width: "100px",
-      render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
+      render: (val) => (val ? <Tag color="red">{val}</Tag> : ""),
       search: "sort",
     },
     {
       title: "Điểm đọc",
-      dataIndex: "reading",
+      dataIndex: "doc",
       align: "center",
       width: "100px",
-      render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
+      render: (val) => (val ? <Tag color="red">{val}</Tag> : ""),
       search: "sort",
     },
     {
       title: "Tổng điểm",
-      dataIndex: "total",
+      dataIndex: "tongDiem",
       align: "center",
       width: "100px",
-      render: (val) => (val ? <Tag color="blue">{val}</Tag> : "CMT KHL"),
+      render: (val) => (val ? <Tag color="blue">{val}</Tag> : ""),
       search: "sort",
     },
     {
       title: "Trình độ",
       dataIndex: "level",
+      width: "150px",
       align: "center",
-      render: (val) => (val ? <p>{val}</p> : "CMT KHL"),
+      render: (val) => (val ? <p>{val}</p> : ""),
     },
-    // {
-    //   title: "Thao tác",
-    //   align: "center",
-    //   render: (value, record) => renderLast(value, record),
-    //   fixed: "right",
-    //   width: 150,
-    // },
+    {
+      title: "Trạng thái hồ sơ",
+      dataIndex: "trangThai",
+      align: "center",
+      width: 180,
+      render: (val, rec) =>
+        val === "Hồ sơ chưa được tiếp nhận" ? <Tag color="green">{val}</Tag> : <Tag color="blue">{val}</Tag>,
+    },
+    {
+      title: "Kết quả",
+      align: "center",
+      width: 150,
+      render: (val, rec) =>
+        rec?.tongDiem ? <Tag color="green">Đã có kết quả</Tag> : <Tag color="red">Chưa có kết quả</Tag>,
+      fixed: "right",
+    },
+    {
+      title: "Thao tác",
+      align: "center",
+      render: (value, record) => (
+        <Button
+          type="primary"
+          shape="circle"
+          icon="eye"
+          onClick={() => window.open(`https://slink.ptit.edu.vn/ho-so-thi-sinh/${record?.maHoSoChung}`, "_blank")}
+          title="Chi tiết"
+        />
+      ),
+      fixed: "right",
+      width: 150,
+    },
   ];
 
   useEffect(() => {
@@ -147,9 +166,7 @@ export default function VanBangTable(props) {
         scroll={{ x: 1800 }}
         destroyOnClose
         locale={{
-          emptyText: (
-            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Trống" />
-          ),
+          emptyText: <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Trống" />,
         }}
       />
       <Modal
@@ -176,18 +193,12 @@ export default function VanBangTable(props) {
             }}
           >
             <Descriptions.Item label="Mã SV">{record?.maSv}</Descriptions.Item>
-            <Descriptions.Item label="Họ tên">
-              {record?.hoTen}
-            </Descriptions.Item>
+            <Descriptions.Item label="Họ tên">{record?.hoTen}</Descriptions.Item>
             <Descriptions.Item label="Ngày sinh">
               {moment(new Date(record?.ngaySinh)).format("DD/MM/YYYY")}
             </Descriptions.Item>
-            <Descriptions.Item label="Giới tính">
-              {record?.gioiTinh === 0 ? "Nam" : "Nữ"}
-            </Descriptions.Item>
-            <Descriptions.Item label="Nơi sinh">
-              {record?.noiSinh}
-            </Descriptions.Item>
+            <Descriptions.Item label="Giới tính">{record?.gioiTinh === 0 ? "Nam" : "Nữ"}</Descriptions.Item>
+            <Descriptions.Item label="Nơi sinh">{record?.noiSinh}</Descriptions.Item>
             <Descriptions.Item label="Lớp">{record?.lop}</Descriptions.Item>
             <Descriptions.Item label="Hồ sơ" span={24}>
               Trình độ: {record?.trinhDoDT}
@@ -202,9 +213,7 @@ export default function VanBangTable(props) {
               <br />
               Thời gian đào tạo: {record?.thoiGianDT ?? ""}
               <br />
-              Ngày nhập học:{" "}
-              {ngayNhap !== "" &&
-                moment(record?.ngayNhapHoc ?? "").format("DD/MM/YYYY")}
+              Ngày nhập học: {ngayNhap !== "" && moment(record?.ngayNhapHoc ?? "").format("DD/MM/YYYY")}
               <br />
               Đợt tốt nghiệp: {record?.dotTN?.tenDot ?? ""}
               <br />
