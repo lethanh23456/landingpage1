@@ -59,7 +59,7 @@ const TraCuuVB = (props) => {
               props.form.resetFields();
             }}
           >
-            <TabPane tab="Tra cứu kết quả theo họ tên" key="1" destroyInactiveTabPane>
+            {/* <TabPane tab="Tra cứu kết quả theo họ tên" key="1" destroyInactiveTabPane>
               <Card
                 style={{ borderRadius: 8 }}
                 title={
@@ -111,7 +111,7 @@ const TraCuuVB = (props) => {
                   </p>
                 </Row>
               </Card>
-            </TabPane>
+            </TabPane> */}
             <TabPane tab="Tra cứu kết quả theo CMND hoặc thẻ căn cước" key="2" destroyInactiveTabPane>
               <Card
                 style={{ borderRadius: 8 }}
