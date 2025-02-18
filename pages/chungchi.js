@@ -1,19 +1,18 @@
 import { Col, Modal, Row, Spin } from "antd";
 import axios from "axios";
-import Container from "components/UI/Container";
-import SectionWrapper from "../styles/vanbangchungchi.style";
-import { ip } from "data/ip";
-import { useRouter } from "next/router";
-import PropTypes from "prop-types";
-import "rc-tabs/assets/index.css";
-import React, { useEffect, useState } from "react";
 import Box from "components/Box";
 import Heading from "components/Heading";
 import FormTraCuu from "components/Table/FormTraCuuTOEIC";
+import Container from "components/UI/Container";
+import { ipPTIT } from "data/ip";
+import PropTypes from "prop-types";
+import "rc-tabs/assets/index.css";
+import React, { useState } from "react";
 import { HeadingWrapper } from "../components/Table/Heading.style";
+import SectionWrapper from "../styles/vanbangchungchi.style";
 // import { VBCC } from '../components/Data';
-import VanBangTable from "components/Table/VanBang";
 import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
+import VanBangTable from "components/Table/VanBang";
 import { useMediaQuery } from "react-responsive";
 
 const VBChungChi = (props) => {
@@ -28,14 +27,8 @@ const VBChungChi = (props) => {
   const [ds, setds] = useState([]);
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
-  const traCuu = async ({ hoDem, ten, maSvOrCccd, testDate, dateOfBirth }) => {
-    if (
-      !isValue(hoDem) &&
-      !isValue(ten) &&
-      !isValue(maSvOrCccd) &&
-      !isValue(testDate) &&
-      !isValue(dateOfBirth)
-    ) {
+  const traCuu = async ({ hoDem, ten, cmtCccd, testDate, dateOfBirth }) => {
+    if (!isValue(hoDem) && !isValue(ten) && !isValue(cmtCccd) && !isValue(testDate) && !isValue(dateOfBirth)) {
       Modal.warning({
         title: "Thông báo",
         content: "Chưa nhập thông tin tra cứu",
@@ -43,7 +36,7 @@ const VBChungChi = (props) => {
       return;
     }
     if (
-      isValue(maSvOrCccd) &&
+      isValue(cmtCccd) &&
       isValue(testDate) &&
       isValue(hoDem) &&
       isValue(ten) &&
@@ -57,12 +50,8 @@ const VBChungChi = (props) => {
       });
       return;
     } else if (
-      (!isValue(hoDem) &&
-        !isValue(ten) &&
-        !isValue(dateOfBirth) &&
-        !isValue(testDate) &&
-        !isValue(maSvOrCccd)) ||
-      (!isValue(maSvOrCccd) && !isValue(testDate))
+      (!isValue(hoDem) && !isValue(ten) && !isValue(dateOfBirth) && !isValue(testDate) && !isValue(cmtCccd)) ||
+      (!isValue(cmtCccd) && !isValue(testDate))
     ) {
       Modal.error({
         title: "Thông báo",
@@ -72,10 +61,10 @@ const VBChungChi = (props) => {
       return;
     }
     setloading(true);
-    const data = await axios.post(`${ip}/ket-qua-thi-toeic/tra-cuu`, {
+    const data = await axios.post(`${ipPTIT}dich-vu-slink/dang-ky-thi-chung-chi-ngoai-ngu/public/tra-cuu`, {
       hoDem,
       ten,
-      maSvOrCccd,
+      cmtCccd,
       testDate: testDate || undefined,
       dateOfBirth,
     });
@@ -84,7 +73,7 @@ const VBChungChi = (props) => {
     if (arr.length === 0) {
       Modal.error({
         title: "Thông báo",
-        content: "Thông tin nhập sai hoặc không tồn tại văn bằng",
+        content: "Thông tin nhập sai hoặc không tồn tại thông tin kết quả thi",
         onOk() {},
       });
       setloading(false);
