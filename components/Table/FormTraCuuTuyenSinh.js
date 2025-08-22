@@ -1,19 +1,5 @@
-import {
-  Button,
-  Card,
-  Col,
-  DatePicker,
-  Form,
-  Input,
-  message,
-  Modal,
-  notification,
-  Row,
-  Tabs,
-} from "antd";
-import capbangdiem from "assets/image/capbangdiem.png";
+import {Button, Card, Col, Form, Input, notification, Row, Tabs} from "antd";
 import capbangdiemsohieu from "assets/image/sohieuvb.png";
-import rules from "components/Utils/rules";
 import React, {useRef, useState} from "react";
 
 const openNotification = () => {
@@ -35,13 +21,7 @@ const TraCuuVB = (props) => {
   const {getFieldDecorator} = props.form;
 
   const handleSubmit = (e) => {
-    Modal.info({
-      title: "Thông báo",
-      content: "Vui lòng chờ đến thời gian tra cứu",
-    });
-    return; // debugger;
     e.preventDefault();
-
     props.form.validateFields((err, values) => {
       if (!err) {
         values.ngaySinh = values?.ngaySinh;
@@ -49,7 +29,7 @@ const TraCuuVB = (props) => {
         values.cmtCccd = values?.cmtCccd;
         values.namTuyenSinh = 2021;
         props.onSubmit(values);
-        this.props.form.resetFileds();
+        this.props.form.resetFields();
       }
     });
   };
@@ -136,15 +116,15 @@ const TraCuuVB = (props) => {
             }
           >
             <Row>
-              <Col xs={24} sm={24} md={24} lg={20}>
-                <Form.Item label="Số CMND/CCCD">
+              <Col xs={24} sm={24} md={24}>
+                <Form.Item>
                   {getFieldDecorator(
                     "cmtCccd",
                     {}
                   )(
                     <Input
-                      style={{maxWidth: 500}}
-                      placeholder="Nhập số cmnd/cccd"
+                      style={{maxWidth: 1500}}
+                      placeholder="Nhập số CCCD"
                     />
                   )}
                 </Form.Item>
@@ -152,7 +132,7 @@ const TraCuuVB = (props) => {
             </Row>
             <Row>
               <p style={{color: "red"}}>
-                <i>Lưu ý: chỉ nhập số CMND/CCCD để tra cứu</i>
+                <i>Lưu ý: chỉ nhập số CCCD để tra cứu</i>
               </p>
             </Row>
           </Card>

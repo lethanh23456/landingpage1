@@ -1,24 +1,24 @@
-import { Col, Modal, Row, Spin } from "antd";
+import {Col, Modal, Row, Spin} from "antd";
 import axios from "axios";
 import Container from "components/UI/Container";
 import SectionWrapper from "../styles/vanbangchungchi.style";
-import { ip, ip2 } from "data/ip";
-import { useRouter } from "next/router";
+import {ip, ip2} from "data/ip";
+import {useRouter} from "next/router";
 import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Box from "components/Box";
 import Heading from "components/Heading";
 import FormTraCuu from "components/Table/FormTraCuuTuyenSinh";
-import { HeadingWrapper } from "../components/Table/Heading.style";
-import { useMediaQuery } from "react-responsive";
+import {HeadingWrapper} from "../components/Table/Heading.style";
+import {useMediaQuery} from "react-responsive";
 import VanBangTable from "components/Table/TableXetTuyen";
-import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
+import {TitleUnderWrapper} from "components/DoiNguCanBo/TinTuc.style";
 import moment from "moment";
 import _ from "lodash";
 
 const VBChungChi = (props) => {
-  const { secTitleWrapper, secText, secHeading, dataBlock } = props;
+  const {secTitleWrapper, secText, secHeading, dataBlock} = props;
   const isValue = (val) => {
     // check xem nếu bị undefined, null, xâu rỗng -> false
     if (!val && val !== 0) return false; // undefined, null
@@ -28,8 +28,8 @@ const VBChungChi = (props) => {
   const [ds, setds] = useState([]);
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const traCuu = async ({ hoTen, ngaySinh, cmtCccd, soBaoDanh }) => {
+  const isMobile = useMediaQuery({maxWidth: 767});
+  const traCuu = async ({hoTen, ngaySinh, cmtCccd, soBaoDanh}) => {
     // Modal.warning({
     //   title: "Thông báo",
     //   content: "Thí sinh vui lòng chờ đến thời gian công bố kết quả tuyển sinh",
@@ -56,7 +56,7 @@ const VBChungChi = (props) => {
       Modal.warning({
         title: "Thông báo",
         content:
-          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt hoặc số báo danh",
+          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo CCCD hoặc số báo danh",
         onOk() {},
       });
       return;
@@ -68,7 +68,7 @@ const VBChungChi = (props) => {
       Modal.warning({
         title: "Thông báo",
         content:
-          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo cccd/cmt",
+          "Bạn chỉ có thể tra cứu theo tên và ngày sinh hoặc tra cứu theo CCCD",
       });
       return;
     }
@@ -85,11 +85,9 @@ const VBChungChi = (props) => {
     setloading(true);
     let path = "";
     if (cmtCccd) {
-      // debugger;
       path = `cmtCccd=${cmtCccd}`;
     }
     if (soBaoDanh) {
-      // debugger;
       path = `soBaoDanh=${soBaoDanh}`;
     }
     if (ngaySinh && hoTen) {
@@ -97,17 +95,28 @@ const VBChungChi = (props) => {
       const hoTenNew = hoTen.trim();
       path = `hoTen=${hoTenNew}&ngaySinh=${ngaySinhNew}`;
     }
+    // const data = await axios.get(
+    //   `${ip2}ket-qua-xet-tuyen-public/v2/${new Date().getFullYear()}?${path}`
+    // );
     const data = await axios.get(
-      `${ip2}ket-qua-xet-tuyen-public/v2/${new Date().getFullYear()}?${path}`
-      // `${ip2}ket-qua-xet-tuyen-public/v2-private/${new Date().getFullYear()}?${path}&hanCheThoiGian=6713`
+      `${ip2}/ket-qua-thi-tra-cuu/public/${cmtCccd}`,
+      {
+        params: {
+          condition: {
+            namTuyenSinh: new Date().getFullYear()?.toString(),
+            loaiGiay: "KQXT",
+          },
+        },
+      }
     );
-    // console.log(data.data.data, 'tra cuu vb')
     const arr = data?.data?.data ?? [];
-    if (arr.length === 0) {
+
+    if (arr?.length === 0) {
       Modal.error({
         title: "Thông báo",
-        content: "Hồ sơ không được tiếp nhận",
-        // content: "Chưa có kết quả xét tuyển",
+        // content: "Hồ sơ không được tiếp nhận",
+        content:
+          "Thí sinh không có tên trong danh sách trúng tuyển của Học viện Công nghệ Bưu chính Viễn thông năm 2025",
         onOk() {},
       });
       setloading(false);
@@ -127,7 +136,7 @@ const VBChungChi = (props) => {
         <SectionWrapper id="daotao">
           {isMobile && (
             <>
-              <Box style={{ padding: 0 }}>
+              <Box style={{padding: 0}}>
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
@@ -145,7 +154,7 @@ const VBChungChi = (props) => {
           )}
           {!isMobile && (
             <Container>
-              <Box style={{ padding: 0 }}>
+              <Box style={{padding: 0}}>
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>

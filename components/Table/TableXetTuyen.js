@@ -1,9 +1,9 @@
-import { Button, Descriptions, Modal, Table, Empty, Tag } from "antd";
+import {Button, Descriptions, Modal, Table, Empty, Tag} from "antd";
 import axios from "axios";
-import { ip } from "data/ip";
+import {ip} from "data/ip";
 import moment from "moment";
-import React, { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import React, {useEffect, useState} from "react";
+import {useMediaQuery} from "react-responsive";
 moment.locale("vi");
 
 const MapKeyColorThongBaoTraCuu = {
@@ -28,55 +28,50 @@ export default function VanBangTable(props) {
       title: "Ngày sinh",
       dataIndex: "ngaySinh",
       align: "center",
-      width: "150px",
+      width: "100px",
       search: "search",
-      render: (val) => val,
+      render: (val) => moment(val).format("DD/MM/YYYY"),
     },
-    {
-      title: "Số báo danh",
-      dataIndex: "soBaoDanh",
-      align: "center",
-      width: "150px",
-    },
-    {
-      title: "ĐTƯT",
-      dataIndex: "doiTuongUuTienTuyenSinh",
-      align: "center",
-      width: "80px",
-      search: "search",
-      render: (val) => (val === "Không thuộc diện ưu tiên" ? "" : val),
-    },
-    {
-      title: "KVƯT",
-      dataIndex: "khuVucUuTien",
-      align: "center",
-      width: "90px",
-      search: "search",
-    },
+    // {
+    //   title: "Số báo danh",
+    //   dataIndex: "soBaoDanh",
+    //   align: "center",
+    //   width: "150px",
+    // },
+    // {
+    //   title: "ĐTƯT",
+    //   dataIndex: "doiTuongUuTienTuyenSinh",
+    //   align: "center",
+    //   width: "80px",
+    //   search: "search",
+    //   render: (val) => (val === "Không thuộc diện ưu tiên" ? "" : val),
+    // },
+    // {
+    //   title: "KVƯT",
+    //   dataIndex: "khuVucUuTien",
+    //   align: "center",
+    //   width: "90px",
+    //   search: "search",
+    // },
     {
       title: "Điểm KQXT",
       dataIndex: "diemXetTuyen",
       align: "center",
       width: "80px",
     },
-    {
-      title: "Tổ hợp",
-      dataIndex: "toHop",
-      align: "center",
-      width: "80px",
-    },
+    // {
+    //   title: "Tổ hợp",
+    //   dataIndex: "toHop",
+    //   align: "center",
+    //   width: "80px",
+    // },
     {
       title: "Kết quả xét tuyển",
       dataIndex: "ketQuaXetTuyen",
       align: "center",
-      width: "300px",
+      width: "120px",
       render: (val) => {
-        const color = MapKeyColorThongBaoTraCuu[val];
-        return (
-          <div style={{ color: color }}>
-            {val === "Đủ điều kiện trúng tuyển" ? "Trúng tuyển" : val}
-          </div>
-        );
+        return <Tag color="green">{"Trúng tuyển"}</Tag>;
       },
     },
     {
@@ -84,20 +79,24 @@ export default function VanBangTable(props) {
       dataIndex: "coSoDaoTao",
       align: "center",
       width: "150px",
-      // render: (val) => (val ? <Tag color="red">{val}</Tag> : "CMT KHL"),
-      // search: "sort",
+      render: (val, rec) => (
+        <Tag color="red">{rec?.metadata?.["Cơ sở"] ?? "--"}</Tag>
+      ),
     },
-    {
-      title: "Thứ tự nguyện vọng",
-      dataIndex: "thuTuNguyenVong",
-      align: "center",
-      width: "80px",
-    },
+    // {
+    //   title: "Thứ tự nguyện vọng",
+    //   dataIndex: "thuTuNguyenVong",
+    //   align: "center",
+    //   width: "80px",
+    // },
     {
       title: "Phương thức",
       dataIndex: "phuongThuc",
       align: "center",
       width: "200px",
+      render: (val, rec) => (
+        <div>{rec?.metadata?.["Phương thức xét tuyển"] ?? "--"}</div>
+      ),
     },
     {
       title: "Mã ngành",
@@ -108,7 +107,7 @@ export default function VanBangTable(props) {
     },
     {
       title: "Ngành",
-      dataIndex: "nganh",
+      dataIndex: "tenNganh",
       align: "center",
       width: "200px",
     },
@@ -199,8 +198,6 @@ export default function VanBangTable(props) {
 
   useEffect(() => {
     if (props?.id) {
-      console.log("props", props);
-      console.log("props?.data?.[0]", props?.data?.[0]);
       setrecord(props?.data?.[0] ?? {});
       setshow(true);
     }
@@ -211,9 +208,9 @@ export default function VanBangTable(props) {
   }, [props.id]);
 
   const onCloseModal = () => setshow(false);
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobile = useMediaQuery({maxWidth: 1224});
   const ngayNhap = record?.ngayNhapHoc ?? "";
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({maxWidth: 767});
   //   const recordXT = props?.data ?? [];
 
   return (
@@ -297,13 +294,11 @@ export default function VanBangTable(props) {
       )}
       {!isMobile && (
         <Table
-          dataSource={
-            props?.data?.filter(
-              (item) => item?.ketQuaXetTuyen === "Đủ điều kiện trúng tuyển"
-            ) ?? []
-          }
+          size="small"
+          pagination={false}
+          dataSource={props?.data ?? []}
           columns={props?.type === "nhaphoc" ? columnsNhapHoc : columns}
-          scroll={{ x: 1500 }}
+          scroll={{x: 1500}}
           destroyOnClose
           locale={{
             emptyText: (

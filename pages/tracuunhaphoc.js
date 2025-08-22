@@ -1,23 +1,23 @@
-import { Col, Modal, Row, Spin } from "antd";
+import {Col, Modal, Row, Spin} from "antd";
 import axios from "axios";
 import Container from "components/UI/Container";
 import SectionWrapper from "../styles/vanbangchungchi.style";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Box from "components/Box";
 import Heading from "components/Heading";
 import FormTraCuu from "components/Table/FormTraCuuTuyenSinh";
-import { HeadingWrapper } from "../components/Table/Heading.style";
-import { useMediaQuery } from "react-responsive";
+import {HeadingWrapper} from "../components/Table/Heading.style";
+import {useMediaQuery} from "react-responsive";
 import VanBangTable from "components/Table/TableXetTuyen";
-import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
+import {TitleUnderWrapper} from "components/DoiNguCanBo/TinTuc.style";
 import moment from "moment";
-import { ip } from "data/ip";
+import {ip} from "data/ip";
 
 const VBChungChi = (props) => {
-  const { secTitleWrapper, secText, secHeading, dataBlock } = props;
+  const {secTitleWrapper, secText, secHeading, dataBlock} = props;
   const isValue = (val) => {
     // check xem nếu bị undefined, null, xâu rỗng -> false
     if (!val && val !== 0) return false; // undefined, null
@@ -27,9 +27,8 @@ const VBChungChi = (props) => {
   const [ds, setds] = useState([]);
   const [loading, setloading] = useState(false);
   const [id, setid] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const traCuu = async ({ hoTen, ngaySinh, cmtCccd }) => {
-    debugger;
+  const isMobile = useMediaQuery({maxWidth: 767});
+  const traCuu = async ({hoTen, ngaySinh, cmtCccd}) => {
     if (!isValue(hoTen) && !isValue(ngaySinh) && !isValue(cmtCccd)) {
       Modal.warning({
         title: "Thông báo",
@@ -92,7 +91,7 @@ const VBChungChi = (props) => {
         <SectionWrapper id="daotao">
           {isMobile && (
             <>
-              <Box style={{ padding: 0 }}>
+              <Box style={{padding: 0}}>
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
@@ -110,7 +109,7 @@ const VBChungChi = (props) => {
           )}
           {!isMobile && (
             <Container>
-              <Box style={{ padding: 0 }}>
+              <Box style={{padding: 0}}>
                 <Col lg={24} style={{}}>
                   <Box {...secTitleWrapper}>
                     <HeadingWrapper>
