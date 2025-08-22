@@ -116,7 +116,8 @@ const VBChungChi = (props) => {
         title: "Thông báo",
         // content: "Hồ sơ không được tiếp nhận",
         content:
-          "Thí sinh không có tên trong danh sách trúng tuyển của Học viện Công nghệ Bưu chính Viễn thông năm 2025",
+          // "Thí sinh không có tên trong danh sách trúng tuyển của Học viện Công nghệ Bưu chính Viễn thông năm 2025",
+          "Vui lòng chờ đến thời gian tra cứu kết quả",
         onOk() {},
       });
       setloading(false);
