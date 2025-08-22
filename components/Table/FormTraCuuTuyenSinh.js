@@ -1,20 +1,20 @@
 import {
   Button,
+  Card,
   Col,
   DatePicker,
   Form,
   Input,
-  Row,
-  Card,
+  message,
+  Modal,
   notification,
+  Row,
   Tabs,
 } from "antd";
-import rules from "components/Utils/rules";
-import React, { useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import capbangdiem from "assets/image/capbangdiem.png";
 import capbangdiemsohieu from "assets/image/sohieuvb.png";
-import moment from "moment";
+import rules from "components/Utils/rules";
+import React, {useRef, useState} from "react";
 
 const openNotification = () => {
   notification.error({
@@ -27,15 +27,19 @@ const openNotification = () => {
 };
 
 const TraCuuVB = (props) => {
-  const { TabPane } = Tabs;
+  const {TabPane} = Tabs;
 
   const [capcha, setcapcha] = useState(false);
   const recaptchaRef = useRef(null);
 
-  const { getFieldDecorator } = props.form;
+  const {getFieldDecorator} = props.form;
 
   const handleSubmit = (e) => {
-    // debugger;
+    Modal.info({
+      title: "Thông báo",
+      content: "Vui lòng chờ đến thời gian tra cứu",
+    });
+    return; // debugger;
     e.preventDefault();
 
     props.form.validateFields((err, values) => {
@@ -56,23 +60,23 @@ const TraCuuVB = (props) => {
     <Row>
       <Col lg={24}>
         <Form onSubmit={handleSubmit} colon={false}>
-          <Tabs
+          {/* <Tabs
             defaultActiveKey="1"
             onChange={(e) => {
               props.form.resetFields();
             }}
-          >
-            <TabPane
+          > */}
+          {/* <TabPane
               tab="Tra cứu theo họ tên và ngày sinh"
               key="1"
               destroyInactiveTabPane
             >
               <Card
-                style={{ borderRadius: 8 }}
+                style={{borderRadius: 8}}
                 title={
                   <center>
                     <span>
-                      <img src={capbangdiem} style={{ padding: 8 }} />
+                      <img src={capbangdiem} style={{padding: 8}} />
                       <b>Tra cứu kết quả theo họ tên và ngày sinh</b>
                     </span>
                   </center>
@@ -82,20 +86,19 @@ const TraCuuVB = (props) => {
                   <Col xs={24} md={24} lg={12}>
                     <Form.Item
                       label="Họ và tên (Nhập chữ in hoa)"
-                      style={{ marginBottom: 0 }}
+                      style={{marginBottom: 0}}
                     >
-                      {/* <div style={{ marginTop: 0 }}></div> */}
                       {getFieldDecorator("hoTen", {
                         rules: [...rules.length(50), ...rules.text],
                       })(
                         <Input
-                          style={{ maxWidth: 500 }}
+                          style={{maxWidth: 500}}
                           placeholder="Nhập họ và tên"
                         />
                       )}
                     </Form.Item>
                   </Col>
-                  <Col xs={24} md={24} lg={12} style={{ paddingLeft: 8 }}>
+                  <Col xs={24} md={24} lg={12} style={{paddingLeft: 8}}>
                     <Form.Item label="Ngày sinh">
                       {getFieldDecorator(
                         "ngaySinh",
@@ -110,61 +113,61 @@ const TraCuuVB = (props) => {
                   </Col>
                 </Row>
                 <Row>
-                  <p style={{ color: "red" }}>
+                  <p style={{color: "red"}}>
                     <i>Lưu ý: chỉ nhập họ tên và ngày sinh để tra cứu</i>
                   </p>
                 </Row>
               </Card>
-            </TabPane>
-            <TabPane
+            </TabPane> */}
+          {/* <TabPane
               tab="Tra cứu theo số CMND/CCCD"
               key="2"
               destroyInactiveTabPane
-            >
-              <Card
-                style={{ borderRadius: 8 }}
-                title={
-                  <center>
-                    <span>
-                      <img src={capbangdiemsohieu} style={{ padding: 8 }} />
-                      <b>Tra cứu theo số CMND/CCCD</b>
-                    </span>
-                  </center>
-                }
-              >
-                <Row>
-                  <Col xs={24} sm={24} md={24} lg={20}>
-                    <Form.Item label="Số CMND/CCCD">
-                      {getFieldDecorator(
-                        "cmtCccd",
-                        {}
-                      )(
-                        <Input
-                          style={{ maxWidth: 500 }}
-                          placeholder="Nhập số cmnd/cccd"
-                        />
-                      )}
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Row>
-                  <p style={{ color: "red" }}>
-                    <i>Lưu ý: chỉ nhập số CMND/CCCD để tra cứu</i>
-                  </p>
-                </Row>
-              </Card>
-            </TabPane>
-            <TabPane
+            > */}
+          <Card
+            style={{borderRadius: 8}}
+            title={
+              <center>
+                <span>
+                  <img src={capbangdiemsohieu} style={{padding: 8}} />
+                  <b>Tra cứu theo số CMND/CCCD</b>
+                </span>
+              </center>
+            }
+          >
+            <Row>
+              <Col xs={24} sm={24} md={24} lg={20}>
+                <Form.Item label="Số CMND/CCCD">
+                  {getFieldDecorator(
+                    "cmtCccd",
+                    {}
+                  )(
+                    <Input
+                      style={{maxWidth: 500}}
+                      placeholder="Nhập số cmnd/cccd"
+                    />
+                  )}
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <p style={{color: "red"}}>
+                <i>Lưu ý: chỉ nhập số CMND/CCCD để tra cứu</i>
+              </p>
+            </Row>
+          </Card>
+          {/* </TabPane> */}
+          {/* <TabPane
               tab="Tra cứu theo số báo danh"
               key="3"
               destroyInactiveTabPane
             >
               <Card
-                style={{ borderRadius: 8 }}
+                style={{borderRadius: 8}}
                 title={
                   <center>
                     <span>
-                      <img src={capbangdiemsohieu} style={{ padding: 8 }} />
+                      <img src={capbangdiemsohieu} style={{padding: 8}} />
                       <b>Tra cứu theo số báo danh</b>
                     </span>
                   </center>
@@ -178,7 +181,7 @@ const TraCuuVB = (props) => {
                         {}
                       )(
                         <Input
-                          style={{ maxWidth: 500 }}
+                          style={{maxWidth: 500}}
                           placeholder="Nhập số báo danh"
                         />
                       )}
@@ -186,20 +189,20 @@ const TraCuuVB = (props) => {
                   </Col>
                 </Row>
                 <Row>
-                  <p style={{ color: "red" }}>
+                  <p style={{color: "red"}}>
                     <i>Lưu ý: chỉ nhập số báo danh để tra cứu</i>
                   </p>
                 </Row>
               </Card>
-            </TabPane>
-          </Tabs>
+            </TabPane> */}
+          {/* </Tabs> */}
           <Form.Item
             wrapperCol={{
-              xs: { span: 24, offset: 0 },
-              sm: { span: 16, offset: 8 },
-              lg: { span: 12, offset: 10 },
+              xs: {span: 24, offset: 0},
+              sm: {span: 16, offset: 8},
+              lg: {span: 12, offset: 10},
             }}
-            style={{ margin: 20 }}
+            style={{margin: 20}}
           >
             {/* <ReCAPTCHA
               ref={recaptchaRef}

@@ -1,26 +1,23 @@
-import { Button, Col, DatePicker, Form, Input, Row, Card, notification, Tabs } from "antd";
-import rules from "components/Utils/rules";
-import React, { useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import capbangdiem from "assets/image/capbangdiem.png";
+import {Button, Card, Col, Form, Input, notification, Row, Tabs} from "antd";
 import capbangdiemsohieu from "assets/image/sohieuvb.png";
-import moment from "moment";
+import React, {useRef, useState} from "react";
 
 const openNotification = () => {
   notification.error({
     message: "Thông báo",
-    description: "Chức năng này hiện tại đang được chúng tôi phát triển. Xin bạn hãy từ tốn",
+    description:
+      "Chức năng này hiện tại đang được chúng tôi phát triển. Xin bạn hãy từ tốn",
     placement: "bottomRight",
     // icon: <SmileOutlined style={{ color: "#108ee9" }} />,
   });
 };
 
 const TraCuuVB = (props) => {
-  const { TabPane } = Tabs;
+  const {TabPane} = Tabs;
   const [capcha, setcapcha] = useState(false);
   const recaptchaRef = useRef(null);
 
-  const { getFieldDecorator } = props.form;
+  const {getFieldDecorator} = props.form;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -112,13 +109,17 @@ const TraCuuVB = (props) => {
                 </Row>
               </Card>
             </TabPane> */}
-            <TabPane tab="Tra cứu kết quả theo CMND hoặc thẻ căn cước" key="2" destroyInactiveTabPane>
+            <TabPane
+              tab="Tra cứu kết quả theo CMND hoặc thẻ căn cước"
+              key="2"
+              destroyInactiveTabPane
+            >
               <Card
-                style={{ borderRadius: 8 }}
+                style={{borderRadius: 8}}
                 title={
                   <center>
                     <span>
-                      <img src={capbangdiemsohieu} style={{ padding: 8 }} />
+                      <img src={capbangdiemsohieu} style={{padding: 8}} />
                       <b>Tra cứu kết quả theo CMND hoặc thẻ căn cước</b>
                     </span>
                   </center>
@@ -130,7 +131,12 @@ const TraCuuVB = (props) => {
                       {getFieldDecorator("cmtCccd", {
                         // initialValue: model.edit ? _.get(model.record, 'maSv', '') : '',
                         // rules: [...rules.length(50), ...rules.text],
-                      })(<Input style={{ maxWidth: 500 }} placeholder="Nhập CMND hoặc thẻ căn cước" />)}
+                      })(
+                        <Input
+                          style={{maxWidth: 500}}
+                          placeholder="Nhập CMND hoặc thẻ căn cước"
+                        />
+                      )}
                     </Form.Item>
                   </Col>
                   {/* <Col xs={24} md={24} lg={12}>
@@ -150,7 +156,7 @@ const TraCuuVB = (props) => {
                   </Col> */}
                 </Row>
                 <Row>
-                  <p style={{ color: "red" }}>
+                  <p style={{color: "red"}}>
                     <i>Lưu ý: Số CMND hoặc thẻ căn cước</i>
                   </p>
                 </Row>
@@ -160,11 +166,11 @@ const TraCuuVB = (props) => {
 
           <Form.Item
             wrapperCol={{
-              xs: { span: 24, offset: 0 },
-              sm: { span: 16, offset: 8 },
-              lg: { span: 12, offset: 10 },
+              xs: {span: 24, offset: 0},
+              sm: {span: 16, offset: 8},
+              lg: {span: 12, offset: 10},
             }}
-            style={{ margin: 20 }}
+            style={{margin: 20}}
           >
             {/* <ReCAPTCHA
               ref={recaptchaRef}
