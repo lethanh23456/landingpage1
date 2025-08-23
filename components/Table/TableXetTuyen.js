@@ -24,14 +24,14 @@ export default function VanBangTable(props) {
       width: "150px",
       search: "search",
     },
-    {
-      title: "Ngày sinh",
-      dataIndex: "ngaySinh",
-      align: "center",
-      width: "100px",
-      search: "search",
-      render: (val) => moment(val).format("DD/MM/YYYY"),
-    },
+    // {
+    //   title: "Ngày sinh",
+    //   dataIndex: "ngaySinh",
+    //   align: "center",
+    //   width: "100px",
+    //   search: "search",
+    //   render: (val) => moment(val).format("DD/MM/YYYY"),
+    // },
     // {
     //   title: "Số báo danh",
     //   dataIndex: "soBaoDanh",
@@ -58,6 +58,7 @@ export default function VanBangTable(props) {
       dataIndex: "diemXetTuyen",
       align: "center",
       width: "80px",
+      render: (val) => val || "--",
     },
     // {
     //   title: "Tổ hợp",
@@ -70,8 +71,16 @@ export default function VanBangTable(props) {
       dataIndex: "ketQuaXetTuyen",
       align: "center",
       width: "120px",
-      render: (val) => {
-        return <Tag color="green">{"Trúng tuyển"}</Tag>;
+      render: (val, rec) => {
+        const isBVS = rec?.metadata?.["Cơ sở"] === "BVS";
+        const isTrung = isBVS
+          ? rec?.metadata?.["KQ xét tuyển sinh"] === "Trúng tuyển"
+          : rec?.metadata?.["Kết quả XT"] === 1;
+        return (
+          <Tag color={isTrung ? "green" : "red"}>
+            {isTrung ? "Trúng tuyển" : "Không trúng tuyển"}
+          </Tag>
+        );
       },
     },
     {
@@ -80,7 +89,7 @@ export default function VanBangTable(props) {
       align: "center",
       width: "150px",
       render: (val, rec) => (
-        <Tag color="red">{rec?.metadata?.["Cơ sở"] ?? "--"}</Tag>
+        <Tag color="red">{rec?.metadata?.["Cơ sở"] ?? "BVH"}</Tag>
       ),
     },
     // {
@@ -95,7 +104,9 @@ export default function VanBangTable(props) {
       align: "center",
       width: "200px",
       render: (val, rec) => (
-        <div>{rec?.metadata?.["Phương thức xét tuyển"] ?? "--"}</div>
+        <div>
+          {rec?.metadata?.["Mã PTXT"] || rec?.metadata?.["PTXT"] || "--"}
+        </div>
       ),
     },
     {
@@ -103,6 +114,8 @@ export default function VanBangTable(props) {
       dataIndex: "maNganh",
       align: "center",
       width: "150px",
+      render: (val) => val || "--",
+
       // render: (val) => (val ? <p>{val}</p> : "CMT KHL"),
     },
     {
@@ -110,6 +123,7 @@ export default function VanBangTable(props) {
       dataIndex: "tenNganh",
       align: "center",
       width: "200px",
+      render: (val) => val || "--",
     },
   ];
 
