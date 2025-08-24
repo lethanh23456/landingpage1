@@ -229,7 +229,7 @@ export default function VanBangTable(props) {
 
   return (
     <div>
-      {isMobile && (
+      {/* {isMobile && (
         <Descriptions
           bordered
           column={{
@@ -305,22 +305,22 @@ export default function VanBangTable(props) {
             </>
           )}
         </Descriptions>
-      )}
-      {!isMobile && (
-        <Table
-          size="small"
-          pagination={false}
-          dataSource={props?.data ?? []}
-          columns={props?.type === "nhaphoc" ? columnsNhapHoc : columns}
-          scroll={{x: 1500}}
-          destroyOnClose
-          locale={{
-            emptyText: (
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Trống" />
-            ),
-          }}
-        />
-      )}
+      )} */}
+      {/* {!isMobile && ( */}
+      <Table
+        size="small"
+        pagination={false}
+        dataSource={props?.data ?? []}
+        columns={props?.type === "nhaphoc" ? columnsNhapHoc : columns}
+        scroll={{x: 1500}}
+        destroyOnClose
+        locale={{
+          emptyText: (
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Trống" />
+          ),
+        }}
+      />
+      {/* )} */}
     </div>
   );
 }
