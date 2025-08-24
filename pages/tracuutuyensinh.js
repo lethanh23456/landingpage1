@@ -115,9 +115,7 @@ const VBChungChi = (props) => {
       Modal.error({
         title: "Thông báo",
         // content: "Hồ sơ không được tiếp nhận",
-        content:
-          // "Thí sinh không có tên trong danh sách trúng tuyển của Học viện Công nghệ Bưu chính Viễn thông năm 2025",
-          "Vui lòng chờ đến thời gian tra cứu kết quả",
+        content: "Không tìm thấy thông tin tra cứu",
         onOk() {},
       });
       setloading(false);
