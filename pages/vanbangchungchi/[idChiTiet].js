@@ -6,7 +6,12 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import "./style.less";
-import PDFViewerV2 from "../../components/PDFViewerV2/index.tsx";
+import dynamic from "next/dynamic";
+
+const PDFViewerV2 = dynamic(
+  () => import("../../components/PDFViewerV2/index.tsx"),
+  { ssr: false }
+);
 
 const renderField = (item) => {
   if (item.type === "Date") {
