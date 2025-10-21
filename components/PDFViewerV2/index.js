@@ -1,37 +1,8 @@
-import {
-  SpecialZoomLevel,
-  Viewer,
-  Worker,
-  type ViewerProps
-} from "@react-pdf-viewer/core";
+import { SpecialZoomLevel, Viewer, Worker } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { useEffect, useRef, useState } from "react";
-
-interface PDFViewerProps extends Omit<ViewerProps, "fileUrl"> {
-  /**
-   * URL của file PDF
-   */
-  url?: string;
-  /**
-   * Dữ liệu PDF dạng ArrayBuffer
-   */
-  data?: ArrayBuffer;
-  /**
-   * Dữ liệu PDF dạng Uint8Array
-   */
-  uint8Array?: Uint8Array;
-  /**
-   * Dữ liệu PDF dạng base64
-   */
-  base64?: string;
-
-  /**
-   * Nếu dùng trực tiếp PDFViewerV2 thì phải truyền height lên
-   */
-  height?: string;
-}
 
 const PDFViewerV2 = ({
   url,
@@ -42,12 +13,12 @@ const PDFViewerV2 = ({
   plugins,
   defaultScale = SpecialZoomLevel.PageWidth,
   ...viewerProps
-}: PDFViewerProps) => {
+}) => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  const viewerRef = useRef<HTMLDivElement>(null);
+  const viewerRef = useRef(null);
   const [height, setHeight] = useState("100%");
 
-  let fileUrl: string | Uint8Array = "";
+  let fileUrl = "";
   if (url) {
     fileUrl = url;
   } else if (uint8Array) {

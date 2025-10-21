@@ -9,7 +9,7 @@ import "./style.less";
 import dynamic from "next/dynamic";
 
 const PDFViewerV2 = dynamic(
-  () => import("../../components/PDFViewerV2/index.tsx"),
+  () => import("../../components/PDFViewerV2/index.js"),
   { ssr: false }
 );
 
