@@ -6,7 +6,7 @@
 
 export const ip3 = "https://apiquanlydaotao.ptit.edu.vn/";
 export const ip = "https://apiquanlydaotao.ptit.edu.vn/";
-export const ipPTIT = "https://gwdu.ptit.edu.vn/";
+export const ipPTIT = "https://gwdu.vinhuni.edu.vn/";
 
 export const ip2 = "https://apiquanlydaotao.ptit.edu.vn/api/";
 // export const ip2 = "http://192.168.1.37:3000/";
