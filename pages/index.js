@@ -1,14 +1,15 @@
 import { Row, Tabs } from "antd";
+import axios from "axios";
 import Container from "components/UI/Container";
+import { ip } from "data/ip";
+import _ from "lodash";
 import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
 import React from "react";
 import TraCuuToeic from "./chungchi";
-import TraCuuXetTuyen from "./tracuutuyensinh";
 import TraCuuXacNhanNhapHoc from "./tracuunhaphoc";
-import axios from "axios";
-import _ from "lodash";
-import { ip } from "data/ip";
+import TraCuuXetTuyen from "./tracuutuyensinh";
+import TraCuuVanBangChungChi from "./tracuuvbcc";
 
 const VBChungChi = ({
   secTitleWrapper,
@@ -83,6 +84,16 @@ const VBChungChi = ({
               }}
               dangerouslySetInnerHTML={{ __html: dataToeicText }}
             />
+          </TabPane>
+          <TabPane
+            tab={
+              <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                Tra cứu văn bằng chứng chi
+              </span>
+            }
+            key="4"
+          >
+            <TraCuuVanBangChungChi tieuDe="Tra cứu văn bằng chứng chỉ" />
           </TabPane>
         </Tabs>
       </Container>

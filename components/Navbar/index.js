@@ -261,8 +261,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     },
   ];
 
-  console.log(isMobile, "test nav");
-
   const handleClick = () => {};
 
   const closeDrawer = () => {
