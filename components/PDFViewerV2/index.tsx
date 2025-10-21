@@ -2,7 +2,7 @@ import {
   SpecialZoomLevel,
   Viewer,
   Worker,
-  type ViewerProps,
+  type ViewerProps
 } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
