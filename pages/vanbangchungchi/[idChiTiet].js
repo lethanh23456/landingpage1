@@ -93,6 +93,15 @@ const ChiTietVanBang = () => {
                     ? moment(record.ngaySinh).format("DD/MM/YYYY")
                     : "--"}
                 </Descriptions.Item>
+                <Descriptions.Item label="Trình độ đào tạo">
+                  {record?.trinhDoDaoTao ?? "--"}
+                </Descriptions.Item>
+                <Descriptions.Item label="Hình thức đào tạo">
+                  {record?.hinhThucDaoTao ?? "--"}
+                </Descriptions.Item>
+                <Descriptions.Item label="Ngành đào tạo">
+                  {record?.nganhDaoTao ?? "--"}
+                </Descriptions.Item>
                 <Descriptions.Item label="Số vào sổ">
                   {record?.soVaoSoBang ?? "--"}
                 </Descriptions.Item>
