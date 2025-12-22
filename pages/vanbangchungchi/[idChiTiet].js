@@ -3,10 +3,10 @@ import success from "assets/image/success.svg";
 import axios from "axios";
 import { ipPTIT } from "data/ip";
 import moment from "moment";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import "./style.less";
-import dynamic from "next/dynamic";
 
 const PDFViewerV2 = dynamic(
   () => import("../../components/PDFViewerV2/index.js"),
@@ -85,7 +85,7 @@ const ChiTietVanBang = () => {
                 <Descriptions.Item label="Họ tên">
                   {record?.hoTen ?? "--"}
                 </Descriptions.Item>
-                <Descriptions.Item label="Mã sinh viên">
+                <Descriptions.Item label="Mã người học">
                   {record?.maSinhVien ?? "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Ngày sinh">
@@ -123,7 +123,7 @@ const ChiTietVanBang = () => {
                 <Descriptions.Item label="Nội dung trích yếu" span={2}>
                   {record?.quyetDinh?.noiDung ?? "--"}
                 </Descriptions.Item>
-                <Descriptions.Item label="Tập tin đính kèm" span={2}>
+                {/* <Descriptions.Item label="Tập tin đính kèm" span={2}>
                   {record?.quyetDinh?.url ? (
                     <a
                       href={record.quyetDinh.url}
@@ -135,7 +135,7 @@ const ChiTietVanBang = () => {
                   ) : (
                     "--"
                   )}
-                </Descriptions.Item>
+                </Descriptions.Item> */}
               </Descriptions>
             </Col>
 
