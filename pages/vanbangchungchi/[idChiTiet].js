@@ -10,7 +10,7 @@ import "./style.less";
 
 const PDFViewerV2 = dynamic(
   () => import("../../components/PDFViewerV2/index.js"),
-  { ssr: false }
+  { ssr: false },
 );
 
 const renderField = (item) => {
@@ -37,7 +37,7 @@ const ChiTietVanBang = () => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `${ipPTIT}vbcc/phu-luc-van-bang/public/chi-tiet-phu-luc/${id}`
+        `${ipPTIT}vbcc/phu-luc-van-bang/public/chi-tiet-phu-luc/${id}`,
       );
       setRecord(res?.data?.data || {});
     } catch (error) {
@@ -94,13 +94,13 @@ const ChiTietVanBang = () => {
                     : "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Trình độ đào tạo">
-                  {record?.trinhDoDaoTao ?? "--"}
+                  {record?.thongTinTrinhDoDaoTao?.ten ?? "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Hình thức đào tạo">
-                  {record?.hinhThucDaoTao ?? "--"}
+                  {record?.thongTinHinhThucDaoTao?.ten ?? "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Ngành đào tạo">
-                  {record?.nganhDaoTao ?? "--"}
+                  {record?.thongTinNganhDaoTao?.ten ?? "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Số vào sổ">
                   {record?.soVaoSoBang ?? "--"}
@@ -157,7 +157,7 @@ const ChiTietVanBang = () => {
                 ? templateElements.map((e) => ({
                     ...e,
                     value: dataElements.find(
-                      (d) => d.headerName === e.headerName
+                      (d) => d.headerName === e.headerName,
                     )?.value,
                   }))
                 : dataElements;
