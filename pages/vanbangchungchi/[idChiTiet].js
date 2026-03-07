@@ -94,13 +94,19 @@ const ChiTietVanBang = () => {
                     : "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Trình độ đào tạo">
-                  {record?.thongTinTrinhDoDaoTao?.ten ?? "--"}
+                  {record?.thongTinTrinhDoDaoTao?.ten ??
+                    record?.trinhDoDaoTao ??
+                    "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Hình thức đào tạo">
-                  {record?.thongTinHinhThucDaoTao?.ten ?? "--"}
+                  {record?.thongTinHinhThucDaoTao?.ten ??
+                    record?.hinhThucDaoTao ??
+                    "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Ngành đào tạo">
-                  {record?.thongTinNganhDaoTao?.ten ?? "--"}
+                  {record?.thongTinNganhDaoTao?.ten ??
+                    record?.nganhDaoTao ??
+                    "--"}
                 </Descriptions.Item>
                 <Descriptions.Item label="Số vào sổ">
                   {record?.soVaoSoBang ?? "--"}
