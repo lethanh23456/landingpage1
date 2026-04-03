@@ -1,15 +1,11 @@
-import { Row, Tabs } from "antd";
+import { Row } from "antd";
 import axios from "axios";
-import Container from "components/UI/Container";
 import { ip } from "data/ip";
 import _ from "lodash";
 import PropTypes from "prop-types";
-import "rc-tabs/assets/index.css";
 import React from "react";
-import TraCuuToeic from "./chungchi";
-import TraCuuXacNhanNhapHoc from "./tracuunhaphoc";
-import TraCuuXetTuyen from "./tracuutuyensinh";
 import TraCuuVanBangChungChi from "./tracuuvbcc";
+
 
 const VBChungChi = ({
   secTitleWrapper,
@@ -19,84 +15,50 @@ const VBChungChi = ({
   dataToeic,
   dataNhapHoc,
 }) => {
-  const { TabPane } = Tabs;
-  const [visible, setVisible] = React.useState(false);
-  const data = dataBlock?.[0]?.value;
-  const tieuDeKQ = dataBlock?.[0]?.description;
-
-  const dataToeicText = dataToeic?.[0]?.value;
-  const tieuDeToeic = dataToeic?.[0]?.description;
-
-  const dataNhapHocText = dataNhapHoc?.[0]?.value;
-  const tieuDeNhapHoc = dataNhapHoc?.[0]?.description;
-
   return (
     <Row>
-      <Container>
-        <Tabs defaultActiveKey="1" style={{ marginTop: 15 }}>
-          <TabPane
-            tab={
-              <span style={{ fontWeight: "bold", fontSize: 18 }}>
-                Tra cứu kết quả tuyển sinh
-              </span>
-            }
-            key="1"
+      <TraCuuVanBangChungChi
+        tieuDe={
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: 0,
+              gap: "12px",
+              width: "100%",
+              maxWidth: "1200px",
+              minHeight: "96px",
+              margin: "0 auto 16px auto",
+              textAlign: "center",
+            }}
           >
-            <TraCuuXetTuyen tieuDe={tieuDeKQ} />
             <div
               style={{
-                marginTop: 20,
-                fontSize: "calc(0.8em + 0.3vw)",
+                fontWeight: 600,
+                fontSize: "clamp(22px, 6.4vw, 42px)",
+                lineHeight: "135%",
+                letterSpacing: "0.03em",
+                color: "#BC2626",
               }}
-              dangerouslySetInnerHTML={{ __html: data }}
-            />
-          </TabPane>
-          <TabPane
-            tab={
-              <span style={{ fontWeight: "bold", fontSize: 18 }}>
-                Tra cứu xác nhận nhập học
-              </span>
-            }
-            key="3"
-          >
-            <TraCuuXacNhanNhapHoc tieuDe={tieuDeNhapHoc} />
+            >
+              Bạn muốn tra cứu văn bằng chứng chỉ gì?
+            </div>
+
             <div
               style={{
-                marginTop: 20,
-                fontSize: "calc(0.8em + 0.3vw)",
+                fontWeight: 600,
+                fontSize: "clamp(12px, 3.8vw, 20px)",
+                lineHeight: "135%",
+                letterSpacing: "0.03em",
+                color: "#051A53",
               }}
-              dangerouslySetInnerHTML={{ __html: dataNhapHocText }}
-            />
-          </TabPane>
-          <TabPane
-            tab={
-              <span style={{ fontWeight: "bold", fontSize: 18 }}>
-                Tra cứu kết quả thi Toeic
-              </span>
-            }
-            key="2"
-          >
-            <TraCuuToeic tieuDe={tieuDeToeic} />
-            <div
-              style={{
-                marginTop: 20,
-                fontSize: "calc(0.8em + 0.3vw)",
-              }}
-              dangerouslySetInnerHTML={{ __html: dataToeicText }}
-            />
-          </TabPane>
-          <TabPane
-            tab={
-              <span style={{ fontWeight: "bold", fontSize: 18 }}>
-                Tra cứu văn bằng chứng chi
-              </span>
-            }
-            key="4"
-          >
-            <TraCuuVanBangChungChi tieuDe="Tra cứu văn bằng chứng chỉ" />
-          </TabPane>
-        </Tabs>
-      </Container>
+            >
+              Vui lòng nhập thông tin để tra cứu
+            </div>
+          </div>
+        }
+      />
     </Row>
   );
 };

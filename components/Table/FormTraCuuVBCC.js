@@ -13,6 +13,7 @@ import rules from "components/Utils/rules";
 import moment from "moment";
 import SelectMucDichTraCuuPublic from "pages/mucdichtracuu/select";
 import React from "react";
+import { color } from "styled-system";
 
 const openNotification = () => {
   notification.error({
@@ -45,81 +46,105 @@ const FormTraCuuVBCC = (props) => {
   return (
     <Row>
       <Col lg={24}>
-        <Form onSubmit={handleSubmit} colon={false}>
+        <Form onSubmit={handleSubmit} colon={false} className="vbcc-form">
           <Card
-            style={{ borderRadius: 8 }}
-            title={
-              <center>
-                <span>
-                  <img src={capbangdiemsohieu} style={{ padding: 8 }} />
-                  <b>Tra cứu thông tin văn bằng</b>
-                </span>
-              </center>
-            }
+            style={{
+              borderRadius: 8,
+              backgroundColor: "rgba(255, 255, 255, 0.13)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+            }}
+          // title={
+          //   <center>
+          //     <span>
+          //       <img src={capbangdiemsohieu} style={{ padding: 8 }} />
+          //       <b>Tra cứu thông tin văn bằng</b>
+          //     </span>
+          //   </center>
+          // }
           >
-            <Row gutter={[12, 12]}>
-              <Col span={24} md={8}>
-                <Form.Item label="Mục đích tra cứu">
-                  {getFieldDecorator("mucDichTraCuuId", {
-                    rules: [...rules.required],
-                  })(<SelectMucDichTraCuuPublic />)}
-                </Form.Item>
-              </Col>
-              <Col span={24} md={8}>
-                <Form.Item label="Số vào sổ (Ví dụ: TS25/{soVaoSo})">
-                  {getFieldDecorator("soVaoSoBang")(
-                    <Input placeholder="Nhập số vào sổ" />
-                  )}
-                </Form.Item>
-              </Col>
-              <Col span={24} md={8}>
-                <Form.Item label="Số hiệu văn bằng">
-                  {getFieldDecorator("soHieuVanBang")(
-                    <Input placeholder="Nhập Số hiệu văn bằng" />
-                  )}
-                </Form.Item>
-              </Col>
-              <Col span={24} md={8}>
-                <Form.Item label="Mã sinh viên">
-                  {getFieldDecorator("maSinhVien")(
-                    <Input placeholder="Nhập mã sinh viên" />
-                  )}
-                </Form.Item>
-              </Col>
+            <Row gutter={[12, 2]}>
               <Col span={24} md={8}>
                 <Form.Item label="Họ tên">
                   {getFieldDecorator("hoTen")(
-                    <Input placeholder="Nhập họ tên" />
+                    <Input size="large" placeholder="Nhập họ tên" />
                   )}
                 </Form.Item>
+               
               </Col>
               <Col span={24} md={8}>
-                <Form.Item label="Ngày sinh">
+               <Form.Item label="Ngày sinh">
                   {getFieldDecorator("ngaySinh")(
                     <DatePicker
+                      size="large"
                       style={{ width: "100%" }}
                       format={"DD/MM/YYYY"}
                       placeholder="Chọn ngày sinh"
                     />
                   )}
                 </Form.Item>
+                
+              </Col>
+              <Col span={24} md={8}>
+                <Form.Item label="Số hiệu văn bằng">
+                  {getFieldDecorator("soHieuVanBang")(
+                    <Input size="large" placeholder="Nhập số hiệu văn bằng" />
+                  )}
+                </Form.Item>
+              </Col>
+              <Col span={24} md={8}>
+                <Form.Item label="Mã sinh viên">
+                  {getFieldDecorator("maSinhVien")(
+                    <Input size="large" placeholder="Nhập mã sinh viên" />
+                  )}
+                </Form.Item>
+              </Col>
+              <Col span={24} md={8}>
+                 <Form.Item label="Mục đích tra cứu">
+                  {getFieldDecorator("mucDichTraCuuId", {
+                    rules: [...rules.required],
+                  })(<SelectMucDichTraCuuPublic size="large" />)}
+                </Form.Item>
+              </Col>
+              <Col span={24} md={8}>
+                <Form.Item label="Số vào sổ">
+                  {getFieldDecorator("soVaoSoBang")(
+                    <Input size="large" placeholder="Ví dụ: TS25/{soVaoSo}" />
+                  )}
+                </Form.Item>
               </Col>
             </Row>
-          </Card>
 
-          <Form.Item
-            wrapperCol={{
-              xs: { span: 24, offset: 0 },
-              sm: { span: 16, offset: 8 },
-              lg: { span: 12, offset: 10 },
-            }}
-            style={{ margin: 20 }}
-          >
-            <Button type="primary" htmlType="submit">
-              Tra cứu
-            </Button>
-          </Form.Item>
+            <Form.Item
+              style={{ margin: "8px 0 0", textAlign: "center" }}
+            >
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{
+                  display: "inline-flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "10.852px 14.4694px",
+                  gap: "7.23px",
+                  width: "200px",
+                  height: "40px",
+                  background: "#BC2826",
+                  borderColor: "#BC2826",
+                  borderRadius: "4px",
+                }}
+              >
+                Tra cứu thông tin
+              </Button>
+            </Form.Item>
+          </Card>
         </Form>
+        <style jsx>{`
+          .vbcc-form :global(.ant-form-item) {
+            margin-bottom: 5px;
+          }
+        `}</style>
       </Col>
     </Row>
   );

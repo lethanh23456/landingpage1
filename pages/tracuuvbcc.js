@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { HeadingWrapper } from "../components/Table/Heading.style";
 import SectionWrapper from "../styles/vanbangchungchi.style";
+import bgtracuu from "assets/image/bgtracuu.png";
 
 const TraCuuVanBangChungChi = (props) => {
   const { secTitleWrapper } = props;
@@ -45,7 +46,7 @@ const TraCuuVanBangChungChi = (props) => {
         title: "Thông báo",
         content:
           "Thông tin nhập sai hoặc không tồn tại thông tin văn bằng chứng chỉ",
-        onOk() {},
+        onOk() { },
       });
       setloading(false);
       setds([]);
@@ -80,19 +81,26 @@ const TraCuuVanBangChungChi = (props) => {
             </>
           )}
           {!isMobile && (
-            <Container>
-              <Box style={{ padding: 0 }}>
-                <Col lg={24} style={{}}>
-                  <Box {...secTitleWrapper}>
-                    <HeadingWrapper>
-                      <Heading content={tieuDeKQ} />
-                      <TitleUnderWrapper />
-                    </HeadingWrapper>
-                  </Box>
-                </Col>
-              </Box>
-              <div>
-                <FormTraCuu onSubmit={(values) => traCuu(values)} />
+            <Container fullWidth noGutter>
+              <div style={{
+                backgroundImage: `linear-gradient(90deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 210, 210, 0.78) 100%), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%), url(${bgtracuu})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                padding: "32px 24px",
+                borderRadius: "0px",
+                maxWidth: "none",
+                width: "100%",
+                boxSizing: "border-box"
+              }}>
+                <div style={{ maxWidth: "1200px", width: "100%", margin: "0 auto" }}>
+                  <Col lg={24} style={{ marginBottom: 32 }}>
+                    {tieuDeKQ}
+                  </Col>
+                  <div style={{ width: "100%" }}>
+                    <FormTraCuu onSubmit={(values) => traCuu(values)} />
+                  </div>
+                </div>
               </div>
               <TableTraCuuVBCC thongTinTraCuu={ds} />
             </Container>
