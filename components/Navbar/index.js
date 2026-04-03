@@ -334,39 +334,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                   isDesktop={isDesktop}
                   onClose={closeDrawer}
                 />
-<<<<<<< HEAD
-              </>
-            )}
-          </Col>
-          <Col xl={0} lg={0} md={0} xs={20} sm={20}>
-            <div
-              style={{
-                fontSize: "calc(1vw + 10px)",
-                color: "red",
-                fontWeight: "650",
-                textAlign: "center",
-                wordSpacing: "5px",
-                textAlign: "center",
-                marginTop: 11,
-              }}
-            >
-              HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-            </div>
-            <div
-              style={{
-                fontSize: "calc(1vw + 6px)",
-                color: "red",
-                fontWeight: "550",
-                textAlign: "center",
-              }}
-            >
-              HỆ THỐNG TRA CỨU PTIT 1
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-=======
               )}
             </Col>
 
@@ -401,7 +368,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         </Container>
       </div>
     </header>
->>>>>>> feat/fix-ui-chi-tiet-van-bang
   ) : (
     <header>
       <div
@@ -419,18 +385,18 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
-              
+
               <a
                 href="https://ptit.edu.vn"
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: "white", textDecoration: "underline", fontSize:'clamp(10px, 2vw, 14px)' }}
+                style={{ color: "white", textDecoration: "underline", fontSize: 'clamp(10px, 2vw, 14px)' }}
               >
                 Cổng thông tin điện tử Học viện Công nghệ Bưu chính Viễn thông
               </a>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "4px", cursor: "pointer", fontSize:'clamp(10px, 2vw, 14px)' }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "4px", cursor: "pointer", fontSize: 'clamp(10px, 2vw, 14px)' }}>
               Tiếng Việt
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -457,19 +423,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               gap: "20px",
             }}
           >
-<<<<<<< HEAD
-            HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-          </div>
-          <div
-            style={{
-              fontSize: "calc(1vw + 6px)",
-              color: "red",
-              fontWeight: "550",
-              textAlign: "center",
-            }}
-          >
-            HỆ THỐNG TRA CỨU PTIT 1
-=======
             <Link rel="prefetch" href={`/`}>
               <a style={{ display: "flex", alignItems: "center" }}>
                 <Image
@@ -503,7 +456,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 HỆ THỐNG TRA CỨU VĂN BẰNG CHỨNG CHỈ PTIT
               </div>
             </div>
->>>>>>> feat/fix-ui-chi-tiet-van-bang
           </div>
         </Container>
       </div>
