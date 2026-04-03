@@ -87,7 +87,7 @@ const TraCuuVanBangChungChi = (props) => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                padding: "32px 24px",
+                padding: "32px 24px 80px 24px",
                 borderRadius: "0px",
                 maxWidth: "none",
                 width: "100%",

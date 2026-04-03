@@ -261,7 +261,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     },
   ];
 
-  const handleClick = () => {};
+  const handleClick = () => { };
 
   const closeDrawer = () => {
     setShowDrawer(false);
@@ -336,7 +336,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 textAlign: "center",
               }}
             >
-              HỆ THỐNG TRA CỨU PTIT
+              HỆ THỐNG TRA CỨU PTIT 1
             </div>
           </Col>
         </Row>
@@ -373,7 +373,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               textAlign: "center",
             }}
           >
-            HỆ THỐNG TRA CỨU PTIT
+            HỆ THỐNG TRA CỨU PTIT 1
           </div>
         </Container>
       </NavbarWrapper>
