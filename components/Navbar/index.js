@@ -272,112 +272,194 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   };
 
   return isMobile ? (
-    <div
-      id="nav-bar"
-      style={{
-        backgroundColor: "white",
-        boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
-      }}
-    >
-      {/* <NavbarWrapper> */}
-      <Container>
-        <Row style={{ width: "100%" }}>
-          <Col xl={2} lg={2} md={2} xs={2} sm={2}>
-            <Link rel="prefetch" href={`/`}>
-              <a>
-                <Image
-                  style={{ width: "85px", marginLeft: "-20px" }}
-                  src={LogoImage}
-                  alt="logo"
-                />
+    <header>
+      <div
+        style={{
+          backgroundColor: "#b9191c",
+          color: "white",
+          padding: "4px 0",
+          fontSize: "12px",
+        }}
+      >
+        <Container>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <a
+                href="https://ptit.edu.vn"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "white", textDecoration: "underline", whiteSpace: "nowrap" }}
+              >
+                Cổng thông tin điện tử PTIT
               </a>
-            </Link>
-          </Col>
-          <Col
-            xl={19}
-            lg={19}
-            md={19}
-            xs={0}
-            sm={0}
-            style={{
-              paddingTop: 25,
-            }}
-          >
-            {!loading && (
-              <>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center" }}>
+              Tiếng Việt
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      <div
+        id="nav-bar-mobile"
+        style={{
+          backgroundColor: "white",
+          boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
+          padding: "10px 0",
+        }}
+      >
+        <Container>
+          <Row style={{ width: "100%", alignItems: "center" }}>
+            <Col xl={2} lg={2} md={2} xs={4} sm={4}>
+              <Link rel="prefetch" href={`/`}>
+                <a>
+                  <Image
+                    style={{ width: "100%", minWidth: "50px", marginLeft: "-10px" }}
+                    src={LogoImage}
+                    alt="logo"
+                  />
+                </a>
+              </Link>
+            </Col>
+
+            <Col
+              xl={19} lg={19} md={19} xs={0} sm={0}
+              style={{ paddingTop: 25 }}
+            >
+              {!loading && (
                 <ScrollSpyMenu
                   menuItems={MENU_ITEMS}
                   offset={-60}
                   isDesktop={isDesktop}
                   onClose={closeDrawer}
                 />
-              </>
-            )}
-          </Col>
-          <Col xl={0} lg={0} md={0} xs={20} sm={20}>
-            <div
-              style={{
-                fontSize: "calc(1vw + 10px)",
-                color: "red",
-                fontWeight: "650",
-                textAlign: "center",
-                wordSpacing: "5px",
-                textAlign: "center",
-                marginTop: 11,
-              }}
-            >
-              HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-            </div>
-            <div
-              style={{
-                fontSize: "calc(1vw + 6px)",
-                color: "red",
-                fontWeight: "550",
-                textAlign: "center",
-              }}
-            >
-              HỆ THỐNG TRA CỨU PTIT
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+              )}
+            </Col>
+
+            <Col xl={0} lg={0} md={0} xs={20} sm={20}>
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "10px" }}>
+                <div
+                  style={{
+                    color: "#b9191c",
+                    fontSize: "calc(1vw + 10px)",
+                    fontWeight: "600",
+                    textAlign: "center",
+                    marginBottom: "2px",
+                  }}
+                >
+                  Học viện Công nghệ Bưu chính Viễn thông
+                </div>
+
+                <div
+                  style={{
+                    color: "#002060",
+                    fontSize: "calc(1vw + 12px)",
+                    fontWeight: "750",
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Hệ thống tra cứu PTIT
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </header>
   ) : (
-    <div
-      id="nav-bar"
-      style={{
-        backgroundColor: "white",
-        boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
-      }}
-    >
-      <NavbarWrapper>
+    <header>
+      <div
+        style={{
+          backgroundColor: "#b9191c",
+          color: "white",
+          padding: "12px 40px",
+          fontSize: "14px",
+        }}
+      >
+        <Container>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              
+              <a
+                href="https://ptit.edu.vn"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "white", textDecoration: "underline", fontSize:'clamp(10px, 2vw, 14px)' }}
+              >
+                Cổng thông tin điện tử Học viện Công nghệ Bưu chính Viễn thông
+              </a>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "4px", cursor: "pointer", fontSize:'clamp(10px, 2vw, 14px)' }}>
+              Tiếng Việt
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      <div
+        id="nav-bar-desktop"
+        style={{
+          backgroundColor: "white",
+          boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
+          padding: "15px 0",
+        }}
+      >
         <Container>
           <div
             style={{
-              fontSize: "calc(1vw + 10px)",
-              color: "red",
-              fontWeight: "650",
-              textAlign: "center",
-              wordSpacing: "5px",
-              textAlign: "center",
-              marginTop: 11,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "20px",
             }}
           >
-            HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-          </div>
-          <div
-            style={{
-              fontSize: "calc(1vw + 6px)",
-              color: "red",
-              fontWeight: "550",
-              textAlign: "center",
-            }}
-          >
-            HỆ THỐNG TRA CỨU PTIT
+            <Link rel="prefetch" href={`/`}>
+              <a style={{ display: "flex", alignItems: "center" }}>
+                <Image
+                  style={{ height: "65px", width: "auto" }}
+                  src={LogoImage}
+                  alt="logo"
+                />
+              </a>
+            </Link>
+
+            <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
+              <div
+                style={{
+                  color: "#b9191c",
+                  fontSize: "clamp(12px, 2vw, 20px)",
+                  fontWeight: "600",
+                  marginBottom: "4px",
+                }}
+              >
+                Học viện Công nghệ Bưu chính Viễn thông
+              </div>
+
+              <div
+                style={{
+                  color: "#002060",
+                  fontSize: "clamp(16px, 2vw, 26px)",
+                  fontWeight: "750",
+                  textTransform: "uppercase",
+                }}
+              >
+                HỆ THỐNG TRA CỨU VĂN BẰNG CHỨNG CHỈ PTIT
+              </div>
+            </div>
           </div>
         </Container>
-      </NavbarWrapper>
-    </div>
+      </div>
+    </header>
   );
 };
 
