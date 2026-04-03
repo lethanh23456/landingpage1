@@ -1,8 +1,11 @@
 import { Button, Empty, Icon, Table, Tooltip } from "antd";
 import moment from "moment";
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 
 const KetQuaVanBang = ({ thongTinTraCuu = [] }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const columns = [
     {
       title: "Số vào sổ",
@@ -172,6 +175,8 @@ const KetQuaVanBang = ({ thongTinTraCuu = [] }) => {
               className="custom-table-vbcc"
               columns={columns}
               dataSource={dataSource}
+              scroll={isMobile ? { x: 'max-content' } : undefined}
+              pagination={false}
               locale={{
                 emptyText: (
                   <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Trống" />
@@ -211,6 +216,7 @@ const KetQuaVanBang = ({ thongTinTraCuu = [] }) => {
             padding: 16px 24px !important;
             border-bottom: 1px solid #E8EAF0 !important;
             border-right: 1px solid #E8EAF0 !important;
+            white-space: nowrap !important;
           }
           .custom-table-vbcc .ant-table-tbody > tr > td:last-child {
             border-right: none !important;

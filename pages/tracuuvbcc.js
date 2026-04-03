@@ -75,7 +75,7 @@ const TraCuuVanBangChungChi = (props) => {
                 </Col>
               </Box>
               <div>
-                <FormTraCuu onSubmit={(values) => traCuu(values)} />
+                <FormTraCuu onSubmit={(values) => traCuu(values)} onReset={() => setds([])} />
               </div>
               <TableTraCuuVBCC thongTinTraCuu={ds} />
             </>
@@ -83,7 +83,12 @@ const TraCuuVanBangChungChi = (props) => {
           {!isMobile && (
             <Container fullWidth noGutter>
               <div style={{
-                backgroundImage: `linear-gradient(90deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 210, 210, 0.78) 100%), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%), url(${bgtracuu})`,
+                background: `
+                    linear-gradient(98.21deg, rgba(255, 255, 255, 0.6) 3.66%, rgba(255, 210, 210, 0.6) 91.93%),
+                    linear-gradient(78.64deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 95.68%),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 30.19%, rgba(255, 255, 255, 0) 100%),
+                    url(${bgtracuu})
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -98,7 +103,7 @@ const TraCuuVanBangChungChi = (props) => {
                     {tieuDeKQ}
                   </Col>
                   <div style={{ width: "100%" }}>
-                    <FormTraCuu onSubmit={(values) => traCuu(values)} />
+                    <FormTraCuu onSubmit={(values) => traCuu(values)} onReset={() => setds([])} />
                   </div>
                 </div>
               </div>
