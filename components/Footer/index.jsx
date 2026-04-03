@@ -1,15 +1,27 @@
-import { Badge, Col, Row } from "antd";
+import { Col, Row } from "antd";
 import React from "react";
 import Box from "components/Box";
 import LogoImage from "assets/image/hosting/ptit-logo.png";
+import BgImage from "assets/image/hosting/bg-footer.png";
 import Container from "components/UI/Container";
-import { Image } from "./index.style";
+import { Image, FooterWhiteLink } from "./index.style";
 
 const GlobalFooter = () => (
-  <Box style={{ backgroundColor: "#b31313", color: "#ffffff", paddingTop: '40px', paddingBottom: '20px', fontFamily: "Roboto, sans-serif" }}>
+  <Box 
+    style={{ 
+      background: `linear-gradient(rgba(159, 17, 17, 0.95), rgba(159, 17, 17, 0.95)), url(${BgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      color: "#ffffff", 
+      paddingTop: '40px', 
+      paddingBottom: '0px',
+      fontFamily: "Roboto, sans-serif" 
+    }}
+  >
     <Container>
       <div style={{ width: '100%' }}>
-        <Row type="flex" justify="space-between" align="middle" style={{ paddingBottom: '30px', borderBottom: '1px dashed rgba(255,255,255,0.3)' }}>
+        <Row type="flex" justify="space-between" align="middle" style={{ paddingBottom: '30px', borderBottom: '1px solid rgba(255,255,255,0.3)' }}>
           <Col xs={24} md={18} style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
             <Image 
               style={{ width: "80px", marginRight: '20px', filter: 'brightness(0) invert(1)' }} 
@@ -36,18 +48,18 @@ const GlobalFooter = () => (
           </Col>
         </Row>
 
-        <Row style={{ paddingTop: '30px', paddingBottom: '30px', borderBottom: '1px dashed rgba(255,255,255,0.3)' }} gutter={[32, 32]}>
+        <Row style={{ paddingTop: '30px', paddingBottom: '30px', borderBottom: '1px solid rgba(255,255,255,0.3)' }} gutter={[32, 32]}>
           <Col xs={24} md={8}>
             <div style={{ marginBottom: '25px' }}>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', marginBottom: '8px' }}>Số điện thoại liên hệ</div>
               <div style={{ fontSize: '15px' }}>
-                <a href="tel:02437562186" style={{ color: 'white' }}>024 3756 2186</a>
+                <FooterWhiteLink href="tel:02437562186" style={{ color: 'white' }}>024 3756 2186</FooterWhiteLink>
               </div>
             </div>
             <div>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', marginBottom: '8px' }}>Email liên hệ</div>
               <div style={{ fontSize: '15px' }}>
-                <a href="mailto:khoa@ptit.edu.vn" style={{ color: 'white' }}>khoa@ptit.edu.vn</a>
+                <FooterWhiteLink href="mailto:khoa@ptit.edu.vn" style={{ color: 'white' }}>khoa@ptit.edu.vn</FooterWhiteLink>
               </div>
             </div>
           </Col>
@@ -55,27 +67,55 @@ const GlobalFooter = () => (
           <Col xs={24} md={8}>
             <div style={{ marginBottom: '25px' }}>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', marginBottom: '8px' }}>Trụ sở chính</div>
-              <div style={{ fontSize: '15px' }}>122 Hoàng Quốc Việt, P. Nghĩa Đô, Hà Nội</div>
+              <FooterWhiteLink 
+                href="https://maps.app.goo.gl/im73dbP78xfvBoso7" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{ fontSize: '15px' }}
+              >
+                122 Hoàng Quốc Việt, P. Nghĩa Đô, Hà Nội
+              </FooterWhiteLink>
             </div>
             <div>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', marginBottom: '8px' }}>Cơ sở đào tạo tại Hà Nội</div>
-              <div style={{ fontSize: '15px' }}>96 Trần Phú, P. Hà Đông, Hà Nội</div>
+              <FooterWhiteLink 
+                href="https://maps.app.goo.gl/rpS4LiC4TdxDSgJB6" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{ fontSize: '15px' }}
+              >
+                96 Trần Phú, P. Hà Đông, Hà Nội
+              </FooterWhiteLink>
             </div>
           </Col>
 
           <Col xs={24} md={8}>
             <div style={{ marginBottom: '25px' }}>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', marginBottom: '8px' }}>Học viện cơ sở tại TP. Hồ Chí Minh</div>
-              <div style={{ fontSize: '15px' }}>11 Nguyễn Đình Chiểu, P. Sài Gòn, TP Hồ Chí Minh</div>
+              <FooterWhiteLink 
+                href="https://maps.app.goo.gl/trMaCQiJFze2yviJ8" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{ fontSize: '15px' }}
+              >
+                11 Nguyễn Đình Chiểu, P. Sài Gòn, TP Hồ Chí Minh
+              </FooterWhiteLink>
             </div>
             <div>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', marginBottom: '8px' }}>Cơ sở đào tạo tại TP Hồ Chí Minh</div>
-              <div style={{ fontSize: '15px' }}>97 Man Thiện, P. Tăng Nhơn Phú, TP Hồ Chí Minh</div>
+              <FooterWhiteLink 
+                href="https://maps.app.goo.gl/BW6qjK2kpP8yyUAz6" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{ fontSize: '15px' }}
+              >
+                97 Man Thiện, P. Tăng Nhơn Phú, TP Hồ Chí Minh
+              </FooterWhiteLink>
             </div>
           </Col>
         </Row>
 
-        <Row style={{ paddingTop: '30px', paddingBottom: '30px', borderBottom: '1px dashed rgba(255,255,255,0.3)' }}>
+        <Row style={{ paddingTop: '30px', paddingBottom: '30px'}}>
           <Col span={24}>
             <div style={{ textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '20px', fontSize: '13px' }}>
               Đường dẫn liên kết
@@ -85,35 +125,40 @@ const GlobalFooter = () => (
           <Col span={24}>
             <Row gutter={[32, 16]}>
               <Col xs={24} md={8}>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Bộ Thông tin và Truyền thông</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Viện Khoa học Kỹ thuật Bưu điện</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Viện Kinh tế Bưu điện</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Viện Công nghệ Thông tin và Truyền thông CDIT</a></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://www.most.gov.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Bộ Thông tin và Truyền thông</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://ript.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Viện Khoa học Kỹ thuật Bưu điện</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://eript.ptit.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Viện Kinh tế Bưu điện</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://cdit.ptit.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Viện Công nghệ Thông tin và Truyền thông CDIT</FooterWhiteLink></div>
               </Col>
 
               <Col xs={24} md={8}>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Học viện Cơ sở TP. Hồ Chí Minh</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Trung tâm Đào tạo Bưu chính Viễn thông 1</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Trung tâm Đào tạo Bưu chính Viễn thông 2</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Trung tâm Đào tạo Quốc tế</a></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://ptithcm.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Học viện Cơ sở TP. Hồ Chí Minh</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://pttc1.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Trung tâm Đào tạo Bưu chính Viễn thông 1</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://pttc.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Trung tâm Đào tạo Bưu chính Viễn thông 2</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://cie.ptit.edu.vn/" target="_  blank" style={{ color: 'white', fontSize: '14px' }}>Trung tâm Đào tạo Quốc tế</FooterWhiteLink></div>
               </Col>
 
               <Col xs={24} md={8}>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Cổng thông tin Đào tạo</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Cổng thông tin Khoa học Công nghệ</a></div>
-                <div style={{ marginBottom: '12px' }}><a href="#" style={{ color: 'white', fontSize: '14px' }}>Cổng thông tin Hợp tác Quốc tế</a></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://daotao.ptit.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Cổng thông tin Đào tạo</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://khcn.ptit.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Cổng thông tin Khoa học Công nghệ</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://english.ptit.edu.vn/vi/" target="_blank" style={{ color: 'white', fontSize: '14px' }}>Cổng thông tin Hợp tác Quốc tế</FooterWhiteLink></div>
               </Col>
             </Row>
           </Col>
         </Row>
+      </div>
+    </Container>
 
-        <Row style={{ paddingTop: '20px' }}>
+    <div style={{ backgroundColor: "#941A1A", padding: "24px 0", marginTop: "20px" }}>
+      <Container>
+        <Row>
           <Col span={24} style={{ textAlign: "center", color: "rgba(255,255,255,0.6)", fontSize: '13px' }}>
             © Copyright {new Date().getFullYear()} HocVienCongNgheBuuChinhVienThong, All rights reserved ® Học viện Công nghệ Bưu chính Viễn thông giữ bản quyền nội dung trên website này
           </Col>
         </Row>
-      </div>
-    </Container>
+      </Container>
+    </div>
+
   </Box>
 );
 
