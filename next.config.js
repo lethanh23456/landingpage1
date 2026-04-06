@@ -9,12 +9,19 @@ const themeVariables = lessToJS(
 module.exports = {
   distDir: './.next',
   trailingSlash: true,
-  transpilePackages: ['reusecore', 'common'],
 
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = { fs: false };
     }
+
+    // Alias paths
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      assets: path.resolve(__dirname, 'public/assets'),
+      components: path.resolve(__dirname, 'components'),
+      common: path.resolve(__dirname, 'common'),
+    };
 
     config.module.rules.push({
       test: /\.css$/,
