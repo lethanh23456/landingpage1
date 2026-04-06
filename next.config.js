@@ -9,6 +9,9 @@ const themeVariables = lessToJS(
 module.exports = {
   distDir: './.next',
   trailingSlash: true,
+  images: {
+    disableStaticImages: true,
+  },
 
   webpack: (config, { isServer }) => {
     if (!isServer) {
