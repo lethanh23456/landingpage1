@@ -58,10 +58,10 @@ export function Format(str) {
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const router = useRouter();
   const isDesktop = useMediaQuery({
-    query: "(max-device-width: 767px)",
+    query: "(max-width: 767px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-device-width: 500px)",
+    query: "(max-width: 767px)",
   });
 
   const [daotao, setDaotao] = useState([]);
@@ -311,18 +311,6 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       >
         <Container>
           <Row style={{ width: "100%", alignItems: "center" }}>
-            <Col xl={2} lg={2} md={2} xs={4} sm={4}>
-              <Link rel="prefetch" href={`/`}>
-                <a>
-                  <Image
-                    style={{ width: "100%", minWidth: "50px", marginLeft: "-10px" }}
-                    src={LogoImage}
-                    alt="logo"
-                  />
-                </a>
-              </Link>
-            </Col>
-
             <Col
               xl={19} lg={19} md={19} xs={0} sm={0}
               style={{ paddingTop: 25 }}
@@ -337,7 +325,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               )}
             </Col>
 
-            <Col xl={0} lg={0} md={0} xs={20} sm={20}>
+            <Col xl={0} lg={0} md={0} xs={24} sm={24}>
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "10px" }}>
                 <div
                   style={{
