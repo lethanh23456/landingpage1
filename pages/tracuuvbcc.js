@@ -1,8 +1,5 @@
 import { Col, Modal, Row, Spin } from "antd";
 import axios from "axios";
-import Box from "components/Box";
-import { TitleUnderWrapper } from "components/DoiNguCanBo/TinTuc.style";
-import Heading from "components/Heading";
 import FormTraCuu from "components/Table/FormTraCuuVBCC";
 import TableTraCuuVBCC from "components/Table/TableTraCuuVBCC";
 import Container from "components/UI/Container";
@@ -11,17 +8,14 @@ import PropTypes from "prop-types";
 import "rc-tabs/assets/index.css";
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { HeadingWrapper } from "../components/Table/Heading.style";
 import SectionWrapper from "../styles/vanbangchungchi.style";
 import bgtracuu from "assets/image/bgtracuu.png";
 
 const TraCuuVanBangChungChi = (props) => {
-  const { secTitleWrapper } = props;
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const [ds, setds] = useState([]);
   const [loading, setloading] = useState(false);
-  const [id, setid] = useState(false);
   const traCuu = async (values) => {
     const filledFields = Object.entries(values).filter(
       ([key, value]) => key !== "mucDichTraCuuId" && !!value
@@ -57,47 +51,44 @@ const TraCuuVanBangChungChi = (props) => {
   };
 
   const tieuDeKQ = props.tieuDe;
+  const heroBackgroundStyle = {
+    background: `
+      linear-gradient(98.21deg, rgba(255, 255, 255, 0.6) 3.66%, rgba(255, 210, 210, 0.6) 91.93%),
+      linear-gradient(78.64deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 95.68%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.42) 30.19%, rgba(255, 255, 255, 0) 100%),
+      url(${bgtracuu})
+    `,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    borderRadius: "0px",
+    maxWidth: "none",
+    width: "100%",
+    boxSizing: "border-box",
+  };
 
   return (
     <Row>
       <Spin spinning={!!loading}>
         <SectionWrapper id="daotao">
           {isMobile && (
-            <>
-              <Box style={{ padding: 0 }}>
-                <Col lg={24} style={{}}>
-                  <Box {...secTitleWrapper}>
-                    <HeadingWrapper>
-                      <Heading content={tieuDeKQ} />
-                      <TitleUnderWrapper />
-                    </HeadingWrapper>
-                  </Box>
-                </Col>
-              </Box>
-              <div>
-                <FormTraCuu onSubmit={(values) => traCuu(values)} onReset={() => setds([])} />
+            <Container fullWidth noGutter>
+              <div style={{ ...heroBackgroundStyle, padding: "24px 16px 24px" }}>
+                <div style={{ width: "100%", margin: "0 auto" }}>
+                  <div style={{ marginBottom: 12 }}>
+                    {tieuDeKQ}
+                  </div>
+                  <div style={{ width: "100%" }}>
+                    <FormTraCuu onSubmit={(values) => traCuu(values)} onReset={() => setds([])} />
+                  </div>
+                </div>
               </div>
               <TableTraCuuVBCC thongTinTraCuu={ds} />
-            </>
+            </Container>
           )}
           {!isMobile && (
             <Container fullWidth noGutter>
-              <div style={{
-                background: `
-                    linear-gradient(98.21deg, rgba(255, 255, 255, 0.6) 3.66%, rgba(255, 210, 210, 0.6) 91.93%),
-                    linear-gradient(78.64deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 95.68%),
-                    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 30.19%, rgba(255, 255, 255, 0) 100%),
-                    url(${bgtracuu})
-                `,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                padding: "32px 24px 80px 24px",
-                borderRadius: "0px",
-                maxWidth: "none",
-                width: "100%",
-                boxSizing: "border-box"
-              }}>
+              <div style={{ ...heroBackgroundStyle, padding: "32px 24px 80px 24px" }}>
                 <div style={{ maxWidth: "1200px", width: "100%", margin: "0 auto" }}>
                   <Col lg={24} style={{ marginBottom: 32 }}>
                     {tieuDeKQ}
