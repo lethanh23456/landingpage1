@@ -35,7 +35,7 @@
     "next-optimized-images": "^2.3.3",
     "next-seo": "^4.5.0",
     "next-transpile-modules": "^2.0.0",
-    "pdfjs-dist": "2.5.207",
+    "pdfjs-dist": "^3.0.279",
     "prop-types": "^15.6.2",
     "rc-drawer": "^1.8.0",
     "rc-progress": "^2.3.0",
