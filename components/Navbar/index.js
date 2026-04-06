@@ -425,15 +425,17 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               gap: "20px",
             }}
           >
-            <Link rel="prefetch" href={`/`}>
-              <a style={{ display: "flex", alignItems: "center" }}>
-                <Image
-                  style={{ height: "65px", width: "auto" }}
-                  src={LogoImage}
-                  alt="logo"
-                />
-              </a>
-            </Link>
+            {!isDesktop && (
+              <Link rel="prefetch" href={`/`}>
+                <a style={{ display: "flex", alignItems: "center" }}>
+                  <Image
+                    style={{ height: "65px", width: "auto" }}
+                    src={LogoImage}
+                    alt="logo"
+                  />
+                </a>
+              </Link>
+            )}
 
             <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
               <div
