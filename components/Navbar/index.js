@@ -61,7 +61,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     query: "(max-width: 767px)",
   });
   const isMobile = useMediaQuery({
-    query: "(max-width: 767px)",
+    query: "(max-width: 500px)",
   });
 
   const [daotao, setDaotao] = useState([]);
@@ -277,7 +277,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         style={{
           backgroundColor: "#b9191c",
           color: "white",
-          padding: "4px 0",
+          padding: "8px 0",
           fontSize: "12px",
         }}
       >
@@ -306,11 +306,23 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         style={{
           backgroundColor: "white",
           boxShadow: "rgba(43, 83, 135, 0.08) 0px 3px 8px 0px",
-          padding: "10px 0",
+          padding: "12px 0",
         }}
       >
         <Container>
           <Row style={{ width: "100%", alignItems: "center" }}>
+            <Col xl={2} lg={2} md={2} xs={4} sm={4}>
+              <Link rel="prefetch" href={`/`}>
+                <a>
+                  <Image
+                    style={{ width: "100%", minWidth: "50px", marginLeft: "-10px" }}
+                    src={LogoImage}
+                    alt="logo"
+                  />
+                </a>
+              </Link>
+            </Col>
+
             <Col
               xl={19} lg={19} md={19} xs={0} sm={0}
               style={{ paddingTop: 25 }}
@@ -325,8 +337,8 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               )}
             </Col>
 
-            <Col xl={0} lg={0} md={0} xs={24} sm={24}>
-              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "10px" }}>
+            <Col xl={0} lg={0} md={0} xs={20} sm={20}>
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "14px", paddingRight: "8px" }}>
                 <div
                   style={{
                     color: "#b9191c",
@@ -334,6 +346,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                     fontWeight: "600",
                     textAlign: "center",
                     marginBottom: "2px",
+                    lineHeight: 1.35,
                   }}
                 >
                   Học viện Công nghệ Bưu chính Viễn thông
@@ -346,6 +359,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                     fontWeight: "750",
                     textAlign: "center",
                     textTransform: "uppercase",
+                    lineHeight: 1.35,
                   }}
                 >
                   Hệ thống tra cứu PTIT
