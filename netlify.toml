@@ -6,3 +6,6 @@
   NODE_VERSION = "18"
   COREPACK_ENABLE = "0"
   NODE_OPTIONS = "--openssl-legacy-provider"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
