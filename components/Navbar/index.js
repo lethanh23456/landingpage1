@@ -311,11 +311,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
       >
         <Container>
           <Row style={{ width: "100%", alignItems: "center" }}>
-            <Col xl={2} lg={2} md={2} xs={4} sm={4}>
+            <Col xl={2} lg={2} md={2} xs={0} sm={0}>
               <Link rel="prefetch" href={`/`}>
                 <a>
                   <Image
-                    style={{ width: "100%", minWidth: "50px", marginLeft: "-10px" }}
+                    style={{ width: "100%", minWidth: "50px", marginLeft: "-10px", display: "none" }}
                     src={LogoImage}
                     alt="logo"
                   />
@@ -337,7 +337,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               )}
             </Col>
 
-            <Col xl={0} lg={0} md={0} xs={20} sm={20}>
+            <Col xl={0} lg={0} md={0} xs={24} sm={24}>
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "14px", paddingRight: "8px" }}>
                 <div
                   style={{
