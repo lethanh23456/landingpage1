@@ -103,7 +103,7 @@ export default class CustomDocument extends Document {
         `,
             }}
           />
-          <link rel="shortcut icon" type="image/x-icon" href={FavIcon} />
+          <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
 
 
         </Head>
