@@ -338,7 +338,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             </Col>
 
             <Col xl={0} lg={0} md={0} xs={24} sm={24}>
-              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "14px", paddingRight: "8px" }}>
+               <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "0px", paddingRight: "8px" }}>
                 <div
                   style={{
                     color: "#b9191c",
