@@ -16,7 +16,13 @@ module.exports = {
       config.resolve.fallback = { fs: false };
     }
 
-    // Handle Less files (for antd)
+    // Handle CSS files
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+    });
+
+    // Handle Less files (antd)
     config.module.rules.push({
       test: /\.less$/,
       use: [
@@ -32,6 +38,18 @@ module.exports = {
           },
         },
       ],
+    });
+
+    // Handle fonts
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf|otf)$/,
+      type: 'asset/resource',
+    });
+
+    // Handle images
+    config.module.rules.push({
+      test: /\.(png|jpg|jpeg|gif|svg)$/,
+      type: 'asset/resource',
     });
 
     return config;
