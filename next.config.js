@@ -82,5 +82,6 @@ module.exports = withPlugins(
       return config;
     },
     distDir: './.next',
+    trailingSlash: true,
   },
 );
