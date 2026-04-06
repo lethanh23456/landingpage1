@@ -1,18 +1,7 @@
 [build]
-  # Lệnh này sẽ cài đặt thư viện bằng npm (bỏ qua Yarn lỗi) 
-  # và sau đó mới chạy lệnh build của Next.js
   command = "npm install --legacy-peer-deps && npm run build"
-  
-  # Thư mục chứa kết quả build của Next.js để Netlify đưa lên mạng
   publish = ".next"
 
 [build.environment]
-  # Ép dùng Node 16 (bản ổn định nhất cho Next.js 9)
-  NODE_VERSION = "16"
-  
-  # Tắt hoàn toàn Corepack/Yarn để không bị lỗi "fetch is not defined"
+  NODE_VERSION = "18"
   COREPACK_ENABLE = "0"
-  NETLIFY_USE_YARN = "false"
-  
-  # Cờ bổ sung để npm cài đặt mượt mà
-  NPM_FLAGS = "--legacy-peer-deps"
