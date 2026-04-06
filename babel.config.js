@@ -4,13 +4,6 @@ module.exports = function(api) {
   const presets = ['next/babel'];
   const plugins = [
     ['styled-components'],
-    [
-      'import',
-      {
-        libraryName: 'antd',
-        style: true,
-      },
-    ],
   ];
 
   return {

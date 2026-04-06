@@ -25,13 +25,13 @@ module.exports = {
 
     config.module.rules.push({
       test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
+      use: [isServer ? 'null-loader' : 'style-loader', 'css-loader'],
     });
 
     config.module.rules.push({
       test: /\.less$/,
       use: [
-        'style-loader',
+        isServer ? 'null-loader' : 'style-loader',
         'css-loader',
         {
           loader: 'less-loader',

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Modal } from '@redq/reuse-modal';
 import '@redq/reuse-modal/es/index.css';
+import 'antd/dist/antd.css';
 import Layout from 'components/Layout/Layout';
 import { DefaultSeo } from 'next-seo';
 
