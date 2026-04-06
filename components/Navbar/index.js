@@ -58,7 +58,7 @@ export function Format(str) {
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const router = useRouter();
   const isDesktop = useMediaQuery({
-    query: "(max-width: 767px)",
+    query: "(max-width: 768px)",
   });
   const isMobile = useMediaQuery({
     query: "(max-width: 500px)",
