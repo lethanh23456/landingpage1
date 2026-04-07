@@ -35,7 +35,7 @@ const GlobalFooter = () => (
                 Học viện Công nghệ Bưu chính Viễn thông
               </div>
               <div style={{ fontSize: '24px', fontWeight: 'bold', textTransform: 'uppercase', marginTop: '5px' }}>
-                Hệ thống tra cứu văn bằng chứng chỉ PTIT
+                Hệ thống tra cứu văn bằng chứng chỉ 
               </div>
             </div>
           </Col>
@@ -127,7 +127,7 @@ const GlobalFooter = () => (
           <Col span={24}>
             <Row gutter={[32, 16]}>
               <Col xs={24} md={8}>
-                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://www.most.gov.vn/" target="_blank" style={{ color: 'white', fontSize: '16px' }}>Bộ Khoa học và Công nghệ</FooterWhiteLink></div>
+                <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://mst.gov.vn/" target="_blank" style={{ color: 'white', fontSize: '16px' }}>Bộ Khoa học và Công nghệ</FooterWhiteLink></div>
                 <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://ript.vn/" target="_blank" style={{ color: 'white', fontSize: '16px' }}>Viện Khoa học Kỹ thuật Bưu điện</FooterWhiteLink></div>
                 <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://eript.ptit.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '16px' }}>Viện Kinh tế Bưu điện</FooterWhiteLink></div>
                 <div style={{ marginBottom: '12px' }}><FooterWhiteLink href="https://cdit.ptit.edu.vn/" target="_blank" style={{ color: 'white', fontSize: '16px' }}>Viện Công nghệ Thông tin và Truyền thông CDIT</FooterWhiteLink></div>
