@@ -55,13 +55,13 @@ const GlobalFooter = () => (
             <div style={{ marginBottom: '25px' }}>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '15px', marginBottom: '8px' }}>Số điện thoại liên hệ</div>
               <div style={{ fontSize: '16px' }}>
-                <FooterWhiteLink href="tel:02437562186" style={{ color: 'white' }}>024 3756 2186</FooterWhiteLink>
+                <FooterWhiteLink href="tel:02437562186" style={{ color: 'white' }}>(024) 33528122</FooterWhiteLink>
               </div>
             </div>
             <div>
               <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '15px', marginBottom: '8px' }}>Email liên hệ</div>
               <div style={{ fontSize: '16px' }}>
-                <FooterWhiteLink href="mailto:khoa@ptit.edu.vn" style={{ color: 'white' }}>khoa@ptit.edu.vn</FooterWhiteLink>
+                <FooterWhiteLink href="mailto:tuyensinh@ptit.edu.vn" style={{ color: 'white' }}>tuyensinh@ptit.edu.vn</FooterWhiteLink>
               </div>
             </div>
           </Col>
