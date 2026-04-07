@@ -4,15 +4,12 @@ import {
   Col,
   DatePicker,
   Form,
-  Icon,
   Input,
   notification,
   Row,
 } from "antd";
 import capbangdiemsohieu from "assets/image/sohieuvb.png";
-import rules from "components/Utils/rules";
 import moment from "moment";
-import SelectMucDichTraCuuPublic from "pages/mucdichtracuu/select";
 import React from "react";
 import { color } from "styled-system";
 
@@ -37,9 +34,10 @@ const FormTraCuuVBCC = (props) => {
         values.ngaySinh = values.ngaySinh
           ? moment(values?.ngaySinh).format("DD/MM/YYYY")
           : undefined;
+        values.mucDichTraCuuId = "69450705c63d2c9bb1ed80a7";
 
         props.onSubmit(values);
-        this.props.form.resetFileds();
+        props.form.resetFields();
       }
     });
   };
