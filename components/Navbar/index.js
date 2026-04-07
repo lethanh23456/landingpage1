@@ -444,7 +444,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               </a>
             </div>
 
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -466,7 +466,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               >
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>
