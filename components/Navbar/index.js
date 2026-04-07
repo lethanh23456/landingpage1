@@ -122,7 +122,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           {/* <Link href={`/tintucchung#${Format(item?.maLoai)}`}> */}
           <a style={{ fontSize: isDesktop ? 14 : 18 }}>{item?.tenLoai}</a>
           {/* </Link> */}
-        </Item>
+        </Item>,
       );
     });
     return tun;
@@ -148,7 +148,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               </Link>
             </Item>
           ))}
-        </SubMenu>
+        </SubMenu>,
       );
     });
     return res;
@@ -261,7 +261,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     },
   ];
 
-  const handleClick = () => { };
+  const handleClick = () => {};
 
   const closeDrawer = () => {
     setShowDrawer(false);
@@ -282,13 +282,23 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         }}
       >
         <Container>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
               <a
                 href="https://ptit.edu.vn"
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: "white", textDecoration: "underline", whiteSpace: "nowrap" }}
+                style={{
+                  color: "white",
+                  textDecoration: "underline",
+                  whiteSpace: "nowrap",
+                }}
               >
                 Cổng thông tin điện tử PTIT
               </a>
@@ -315,7 +325,12 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               <Link rel="prefetch" href={`/`}>
                 <a>
                   <Image
-                    style={{ width: "100%", minWidth: "50px", marginLeft: "-10px", display: "none" }}
+                    style={{
+                      width: "100%",
+                      minWidth: "50px",
+                      marginLeft: "-10px",
+                      display: "none",
+                    }}
                     src={LogoImage}
                     alt="logo"
                   />
@@ -324,7 +339,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             </Col>
 
             <Col
-              xl={19} lg={19} md={19} xs={0} sm={0}
+              xl={19}
+              lg={19}
+              md={19}
+              xs={0}
+              sm={0}
               style={{ paddingTop: 25 }}
             >
               {!loading && (
@@ -338,15 +357,23 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             </Col>
 
             <Col xl={0} lg={0} md={0} xs={24} sm={24}>
-               <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "0px", paddingRight: "8px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  paddingLeft: "0px",
+                  paddingRight: "8px",
+                }}
+              >
                 <div
                   style={{
                     color: "#b9191c",
-                    fontSize: "calc(1vw + 10px)",
+                    fontSize: "clamp(11px, 2.6vw, 14px)",
                     fontWeight: "600",
                     textAlign: "center",
-                    marginBottom: "2px",
-                    lineHeight: 1.35,
+                    marginBottom: "4px",
+                    lineHeight: 1.25,
                   }}
                 >
                   Học viện Công nghệ Bưu chính Viễn thông
@@ -355,14 +382,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 <div
                   style={{
                     color: "#002060",
-                    fontSize: "calc(1vw + 12px)",
+                    fontSize: "clamp(13px, 3vw, 16px)",
                     fontWeight: "750",
                     textAlign: "center",
                     textTransform: "uppercase",
-                    lineHeight: 1.35,
+                    lineHeight: 1.25,
                   }}
                 >
-                  Hệ thống tra cứu PTIT
+                  HỆ THỐNG TRA CỨU VĂN BẰNG CHỨNG CHỈ
                 </div>
               </div>
             </Col>
@@ -381,9 +408,24 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
         }}
       >
         <Container>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
@@ -392,15 +434,36 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 href="https://ptit.edu.vn"
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: "white", textDecoration: "underline", fontSize: 'clamp(10px, 2vw, 14px)' }}
+                style={{
+                  color: "white",
+                  textDecoration: "underline",
+                  fontSize: "clamp(10px, 2vw, 14px)",
+                }}
               >
                 Cổng thông tin điện tử Học viện Công nghệ Bưu chính Viễn thông
               </a>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "4px", cursor: "pointer", fontSize: 'clamp(10px, 2vw, 14px)' }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                cursor: "pointer",
+                fontSize: "clamp(10px, 2vw, 14px)",
+              }}
+            >
               Tiếng Việt
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -429,7 +492,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               <Link rel="prefetch" href={`/`}>
                 <a style={{ display: "flex", alignItems: "center" }}>
                   <Image
-                    style={{ height: "65px", width: "auto" }}
+                    style={{
+                      width: "44.33px",
+                      height: "54px",
+                      objectFit: "contain",
+                    }}
                     src={LogoImage}
                     alt="logo"
                   />
@@ -437,11 +504,17 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               </Link>
             )}
 
-            <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                textAlign: "center",
+              }}
+            >
               <div
                 style={{
                   color: "#b9191c",
-                  fontSize: "clamp(12px, 2vw, 20px)",
+                  fontSize: "clamp(12px, 2vw, 15px)",
                   fontWeight: "600",
                   marginBottom: "4px",
                 }}
@@ -452,7 +525,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               <div
                 style={{
                   color: "#002060",
-                  fontSize: "clamp(16px, 2vw, 26px)",
+                  fontSize: "clamp(16px, 2vw, 18px)",
                   fontWeight: "750",
                   textTransform: "uppercase",
                 }}
