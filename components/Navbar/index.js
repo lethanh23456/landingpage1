@@ -304,9 +304,9 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               </a>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center" }}>
+            {/* <div style={{ display: "flex", alignItems: "center" }}>
               Tiếng Việt
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>
