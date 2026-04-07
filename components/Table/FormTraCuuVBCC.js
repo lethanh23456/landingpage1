@@ -55,71 +55,110 @@ const FormTraCuuVBCC = (props) => {
               backdropFilter: "blur(8px)",
               WebkitBackdropFilter: "blur(8px)",
             }}
-          // title={
-          //   <center>
-          //     <span>
-          //       <img src={capbangdiemsohieu} style={{ padding: 8 }} />
-          //       <b>Tra cứu thông tin văn bằng</b>
-          //     </span>
-          //   </center>
-          // }
+            // title={
+            //   <center>
+            //     <span>
+            //       <img src={capbangdiemsohieu} style={{ padding: 8 }} />
+            //       <b>Tra cứu thông tin văn bằng</b>
+            //     </span>
+            //   </center>
+            // }
           >
             <Row gutter={[12, 2]}>
-              <Col span={24} md={8}>
-                <Form.Item label="Họ tên">
+              <Col xs={24} md={8}>
+                <Form.Item
+                  label={<span style={{ fontSize: "15px" }}>Họ tên</span>}
+                >
                   {getFieldDecorator("hoTen")(
-                    <Input size="large" placeholder="Nhập họ tên" />
+                    <Input
+                      style={{ fontSize: "15px" }}
+                      size="large"
+                      placeholder="Nhập họ tên"
+                    />,
                   )}
                 </Form.Item>
-               
               </Col>
-              <Col span={24} md={8}>
-               <Form.Item label="Ngày sinh">
+              <Col xs={24} md={8}>
+                <Form.Item
+                  label={<span style={{ fontSize: "15px" }}>Ngày sinh</span>}
+                >
                   {getFieldDecorator("ngaySinh")(
                     <DatePicker
                       size="large"
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", fontSize: "15px" }}
                       format={"DD/MM/YYYY"}
                       placeholder="Chọn ngày sinh"
-                    />
-                  )}
-                </Form.Item>
-                
-              </Col>
-              <Col span={24} md={8}>
-                <Form.Item label="Số hiệu văn bằng">
-                  {getFieldDecorator("soHieuVanBang")(
-                    <Input size="large" placeholder="Nhập số hiệu văn bằng" />
+                    />,
                   )}
                 </Form.Item>
               </Col>
-              <Col span={24} md={8}>
-                <Form.Item label="Mã sinh viên">
-                  {getFieldDecorator("maSinhVien")(
-                    <Input size="large" placeholder="Nhập mã sinh viên" />
-                  )}
-                </Form.Item>
-              </Col>
-              <Col span={24} md={8}>
-                 <Form.Item label="Mục đích tra cứu">
-                  {getFieldDecorator("mucDichTraCuuId", {
-                    rules: [...rules.required],
-                  })(<SelectMucDichTraCuuPublic size="large" />)}
-                </Form.Item>
-              </Col>
-              <Col span={24} md={8}>
-                <Form.Item label="Số vào sổ">
-                  {getFieldDecorator("soVaoSoBang")(
-                    <Input size="large" placeholder="Ví dụ: TS25/{soVaoSo}" />
+              <Col xs={24} md={8}>
+                <Form.Item
+                  label={<span style={{ fontSize: "15px" }}>CCCD</span>}
+                >
+                  {getFieldDecorator("cccd")(
+                    <Input
+                      style={{ fontSize: "15px" }}
+                      size="large"
+                      placeholder="Nhập CCCD"
+                    />,
                   )}
                 </Form.Item>
               </Col>
             </Row>
 
-            <Form.Item
-              style={{ margin: "8px 0 0", textAlign: "center" }}
-            >
-              <div style={{ display: "inline-flex", flexDirection: "row", alignItems: "flex-start", gap: "16px", padding: "0px" }}>
+            <Row gutter={[12, 2]}>
+              <Col xs={24} md={8}>
+                <Form.Item
+                  label={<span style={{ fontSize: "15px" }}>Mã sinh viên</span>}
+                >
+                  {getFieldDecorator("maSinhVien")(
+                    <Input
+                      style={{ fontSize: "15px" }}
+                      size="large"
+                      placeholder="Nhập mã sinh viên"
+                    />,
+                  )}
+                </Form.Item>
+              </Col>
+              <Col xs={24} md={8}>
+                <Form.Item
+                  label={<span style={{ fontSize: "15px" }}>Số hiệu VB</span>}
+                >
+                  {getFieldDecorator("soHieuVanBang")(
+                    <Input
+                      style={{ fontSize: "15px" }}
+                      size="large"
+                      placeholder="Nhập số hiệu văn bằng"
+                    />,
+                  )}
+                </Form.Item>
+              </Col>
+              <Col xs={24} md={8}>
+                <Form.Item
+                  label={<span style={{ fontSize: "15px" }}>Số vào sổ</span>}
+                >
+                  {getFieldDecorator("soVaoSoBang")(
+                    <Input
+                      style={{ fontSize: "15px" }}
+                      size="large"
+                      placeholder="Ví dụ: TS25/{soVaoSo}"
+                    />,
+                  )}
+                </Form.Item>
+              </Col>
+            </Row>
+
+            <Form.Item style={{ margin: "8px 0 0", textAlign: "center" }}>
+              <div
+                style={{
+                  display: "inline-flex",
+                  flexDirection: "row",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  padding: "0px",
+                }}
+              >
                 <Button
                   style={{
                     display: "flex",
@@ -140,8 +179,21 @@ const FormTraCuuVBCC = (props) => {
                     }
                   }}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flex: "none", order: 0, flexGrow: 0 }}>
-                    <path d="M12.4 19.8215C8.20264 19.8215 4.8 16.4093 4.8 12.2C4.8 8.87077 6.92859 6.04011 9.89541 5.00202M12.4 19.8215L10.7905 18.2075M12.4 19.8215L10.826 21.4M12.4 4.57847C16.5974 4.57847 20 7.99074 20 12.2C20 15.5292 17.8714 18.3599 14.9046 19.398M12.4 4.57847L13.974 3M12.4 4.57847L14.0095 6.19254" stroke="#051A53" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ flex: "none", order: 0, flexGrow: 0 }}
+                  >
+                    <path
+                      d="M12.4 19.8215C8.20264 19.8215 4.8 16.4093 4.8 12.2C4.8 8.87077 6.92859 6.04011 9.89541 5.00202M12.4 19.8215L10.7905 18.2075M12.4 19.8215L10.826 21.4M12.4 4.57847C16.5974 4.57847 20 7.99074 20 12.2C20 15.5292 17.8714 18.3599 14.9046 19.398M12.4 4.57847L13.974 3M12.4 4.57847L14.0095 6.19254"
+                      stroke="#051A53"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </Button>
                 <Button
@@ -159,6 +211,7 @@ const FormTraCuuVBCC = (props) => {
                     background: "#BC2826",
                     borderColor: "#BC2826",
                     borderRadius: "4px",
+                    fontSize: "15px",
                   }}
                 >
                   Tra cứu thông tin

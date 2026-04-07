@@ -457,7 +457,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                   textTransform: "uppercase",
                 }}
               >
-                HỆ THỐNG TRA CỨU VĂN BẰNG CHỨNG CHỈ PTIT
+                HỆ THỐNG TRA CỨU VĂN BẰNG CHỨNG CHỈ
               </div>
             </div>
           </div>
